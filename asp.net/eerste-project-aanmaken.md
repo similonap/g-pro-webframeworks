@@ -52,11 +52,34 @@ In Windows is dat normaal gezien`http://localhost:5000`, de default url die aan 
 
 ![Het project is aangemaakt en opgestart aan de hand van dotnet run](../.gitbook/assets/image%20%282%29.png)
 
-Hier zal je Hello World te zien krijgen. 
+Hier zal je Hello World te zien krijgen. Om te begrijpen hoe die Hello World daar te voorschijn komt moet je naar de twee bestanden `Startup.cs` en `Program.cs` kijken. 
+
+#### Program klasse
+
+De `Program` klasse bevat de methode  `Main`, dit is het start punt van ASP.NET Core applicaties.
+
+De `Main` methode is gelijkaardig aan de `Main` methode van een console applicatie. Eigenlijk zijn alle .NET Core applicaties console applicaties waarop andere types van applicaties zijn gemaakt. Zoals in ons geval een web applicatie.
+
+```csharp
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            });
+}
+```
+
+De bovenstaande code zorgt ervoor dat er een IWebHostwordt aangemaakt en dat deze wordt geconfigureerd aan de hand van de `Startup` klasse die we verder gaan bezien. Deze wordt dan gemaakt en daarna uitgevoerd aan de hand van de Run\(\) methode.
 
 #### Startup klasse
-
-Om te begrijpen hoe die Hello World daar te voorschijn komt moet je naar de twee bestanden `Startup.cs` en `Program.cs` kijken. 
 
 In Startup.cs staat wat de app moet doen bij het opstarten
 
@@ -86,7 +109,15 @@ We kiezen in dit voorbeeld om gebruik te maken van een combinatie van `UseRoutin
 
 In de `UseEndpoints` gaan we hier een GET registreren voor het pad / zodat als we naar de root pagina surfen dat we dan Hello World te zien krijgen. Deze wordt rechstreeks hier op de Response stream geschreven.
 
+#### Het Projectbestand
 
+Tenslotte bekijken we het .csproj bestand. Je kan het project bestand bekijken door het EersteProject.csproj bestand te openen of door in visual studio op het root element te drukken in de solution explorer. 
+
+![Je kan het csproj bestand bekijken door op EersteProject te drukken.](../.gitbook/assets/image%20%283%29.png)
+
+Dit bestand vertelt MSBuild hoe het project wordt gebouwd - van welke pakketten het afhankelijk is, welke versie van .NET Core te targeten, enzovoort. In vorige versies van .NET Core was dit projectbestand veel groter. .NET Core 3.1 heeft veel moeite gestoken in het korter, eenvoudiger en leesbaarder maken van .csproj-bestanden.
+
+In dit bestand zal je vooral gebruiken voor het definieren van dependencies die je project zal gebruiken. Dit zal je meestal niet rechstreeks in dit bestand doen maar je zal hiervoor de package manager NuGet gebruiken. Dit zullen we later in deze cursus verder behandelen. 
 
 
 
