@@ -8,7 +8,7 @@ Visual Studio 2017 geeft een geweldige .NET Core-ontwikkelingservaring - met top
 
 We gaan er vanuit dat je de laatste nieuwe versie van de **.NET Core 3.1 SDK** geïnstalleerd hebt.  Je kan de SDK het gemakkelijkst installeren met behulp van de Installer. Je kan deze vinden voor alle plaformen \(MacOS, Linux en Windows\) op [https://dotnet.microsoft.com/download\#/sdk](https://dotnet.microsoft.com/download#/sdk)
 
-Je kan je versie van nakijken door het volgende commando in je terminal \(powershell, bash,...\) naar keuze uit te voeren:
+Je kan je versie van nakijken door het volgende commando in je command line \(powershell, bash,...\) naar keuze uit te voeren:
 
 ```bash
 dotnet --version
@@ -16,4 +16,77 @@ dotnet --version
 ```
 
 Let er dus op dat deze altijd up to date is. We werken in deze cursus altijd op de laatste versie. 
+
+#### Een leeg ASP.NET project aanmaken
+
+Je kan een ASP.NET Core applicatie vanaf de command-line interface \(CLI\) of in Visual Studio. Hier gaan we dit dus doen via de CLI. 
+
+Voor we beginnen zorg ervoor dat je een map `WebFrameworks` hebt met daarin een map `EersteProject`. Je kan dit doen door
+
+```text
+mkdir -p WebFrameworks/EersteProject
+```
+
+in je command line interface uit te voeren en dan vervolgens naar die map te gaan met
+
+```text
+cd WebFrameworks/EersteProject
+```
+
+Met het commando `dotnet` kan je nieuwe .NET Core-projecten creëren. Het commando `dotnet new` zonder extra argumenten toont een lijst met de beschikbare project sjablonen \(templates\). 
+
+Wij willen een leeg ASP.NET Core project aanmaken zonder te veel extra's omdat we deze zelf gaan toevoegen. We maken dus een web project aan 
+
+```text
+dotnet new web
+```
+
+Zodra het project is aangemaakt, moet je het kunnen uitvoeren met de instructie 
+
+```text
+dotnet run
+```
+
+Open de website, die op basis van de template is gemaakt, door `dotnet run` uit te voeren en te navigeren naar de URL waarnaar de app luistert.   
+In Windows is dat normaal gezien`http://localhost:5000`, de default url die aan je app wordt toegekend.
+
+![Het project is aangemaakt en opgestart aan de hand van dotnet run](../.gitbook/assets/image%20%282%29.png)
+
+Hier zal je Hello World te zien krijgen. 
+
+#### Startup klasse
+
+Om te begrijpen hoe die Hello World daar te voorschijn komt moet je naar de twee bestanden `Startup.cs` en `Program.cs` kijken. 
+
+In Startup.cs staat wat de app moet doen bij het opstarten
+
+```csharp
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+    
+    app.UseRouting();
+    
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapGet("/", async context =>
+        {
+            await context.Response.WriteAsync("Hello World!");
+        });
+    });
+}
+```
+
+De app configureert de applicatie zodat de ExceptionPage getoond wordt aan de gebruiker als er een probleem opduikt. Dit zal enkel gebeuren als we de app in development mode opstarten. Als de app naar de productie modus overschakelt wanneer deze in een live omgeving wordt ingezet, wordt dit niet uitgevoerd. 
+
+We kiezen in dit voorbeeld om gebruik te maken van een combinatie van `UseRouting` en `UseEndpoints` die samen worden gebruikt. UseRouting zorgt ervoor dat de requests die van de browser komen worden gematched met de endpoints. `UseEndpoints` zal de route dan uitvoeren. 
+
+In de `UseEndpoints` gaan we hier een GET registreren voor het pad / zodat als we naar de root pagina surfen dat we dan Hello World te zien krijgen. Deze wordt rechstreeks hier op de Response stream geschreven.
+
+
+
+
 
