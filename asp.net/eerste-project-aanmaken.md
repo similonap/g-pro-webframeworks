@@ -1,10 +1,10 @@
-# Eerste project aanmaken
+# Project aanmaken
 
 In dit onderdeel overlopen we samen stap per stap hoe we een nieuw project aanmaken. ASP.NET Core-projecten kan je maken met behulp van sjablonen in Visual Studio of vanaf de. NET Core command line interface \(.NET CLI\).   
   
 Visual Studio 2017 geeft een geweldige .NET Core-ontwikkelingservaring - met top-notch debugging, Docker-integratie en vele andere functies - maar ik gebruik de .NET CLI in deze les dan kunnen jullie deze les ook volgen op een Mac of Linux machine.
 
-#### .NET Core 3.1 SDK
+### .NET Core 3.1 SDK
 
 We gaan er vanuit dat je de laatste nieuwe versie van de **.NET Core 3.1 SDK** geïnstalleerd hebt.  Je kan de SDK het gemakkelijkst installeren met behulp van de Installer. Je kan deze vinden voor alle plaformen \(MacOS, Linux en Windows\) op [https://dotnet.microsoft.com/download\#/sdk](https://dotnet.microsoft.com/download#/sdk)
 
@@ -17,7 +17,7 @@ dotnet --version
 
 Let er dus op dat deze altijd up to date is. We werken in deze cursus altijd op de laatste versie. 
 
-#### Een leeg ASP.NET project aanmaken
+### Een leeg ASP.NET project aanmaken
 
 Je kan een ASP.NET Core applicatie vanaf de command-line interface \(CLI\) of in Visual Studio. Hier gaan we dit dus doen via de CLI. 
 
@@ -54,7 +54,7 @@ In Windows is dat normaal gezien`http://localhost:5000`, de default url die aan 
 
 Hier zal je Hello World te zien krijgen. Om te begrijpen hoe die Hello World daar te voorschijn komt moet je naar de twee bestanden `Startup.cs` en `Program.cs` kijken. 
 
-#### Program klasse
+### Program klasse
 
 De `Program` klasse bevat de methode  `Main`, dit is het start punt van ASP.NET Core applicaties.
 
@@ -79,7 +79,7 @@ public class Program
 
 De bovenstaande code zorgt ervoor dat er een IWebHostwordt aangemaakt en dat deze wordt geconfigureerd aan de hand van de `Startup` klasse die we verder gaan bezien. Deze wordt dan gemaakt en daarna uitgevoerd aan de hand van de Run\(\) methode.
 
-#### Startup klasse
+### Startup klasse
 
 In Startup.cs staat wat de app moet doen bij het opstarten
 
@@ -109,7 +109,7 @@ We kiezen in dit voorbeeld om gebruik te maken van een combinatie van `UseRoutin
 
 In de `UseEndpoints` gaan we hier een GET registreren voor het pad / zodat als we naar de root pagina surfen dat we dan Hello World te zien krijgen. Deze wordt rechstreeks hier op de Response stream geschreven.
 
-#### Het Projectbestand
+### Het Projectbestand
 
 Tenslotte bekijken we het .csproj bestand. Je kan het project bestand bekijken door het EersteProject.csproj bestand te openen of door in visual studio op het root element te drukken in de solution explorer. 
 
