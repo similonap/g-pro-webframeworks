@@ -74,7 +74,7 @@ De afspraak is dat alle views van de applicatie in de folder **Views** staan. Ma
 1. een **Shared** map;
 2. een optionele map die de views voor elke controller bevatten;
 
-### Een controller aanmaken
+### Controller
 
 Zoals al aangegeven moeten alle controllers in een map Controllers staan. Maak eerst de map Controllers aan en maak daarna een **Empty Controller Class** aan met de naam HomeController.
 
@@ -95,4 +95,57 @@ public class HomeController : Controller
 Dit zal er voor zorgen dat de gebruiker **Hello World** te zien krijgt als hij naar de root pagina surft.  We gaan de applicatie opstarten aan de hand van Visual Studio deze keer. Klik op **Debug &gt; Start debugging** om de applicatie in debug modus op te starten. 
 
 ![](../.gitbook/assets/image%20%286%29.png)
+
+Wat we hier hebben gemaakt is gewoon een methode `Index()` die een String heeft als return waarde. Index staat voor de hoofdpagina van deze bepaalde controller. Dus eigenlijk zouden we evengoed naar [https://localhost:44370/Home/Index](https://localhost:44370/Home/Index) hebben kunnen surfen om deze pagina te zien te krijgen. `Home` was hier de default controller dus moesten we deze niet opgeven en `Index` kan je ook weglaten. De Index methode is wat we in MVC een **Action** noemen. We zullen straks nog nieuwe actions toevoegen als voorbeeld.
+
+We willen uiteraard niet enkel de gebruiker een simpele string laten zien. Wat we echt willen is de gebruiker een html pagina laten zien met een bepaalde opmaak. Daarom gaan we nu het concept Views introduceren. We komen straks nog eens terug op het MVC concept als we ze alle drie hebben aangemaakt in het voorbeeld.
+
+### Views
+
+Als we willen dat de Index action een echte webpagina teruggeeft moeten we deze methode iets aanpassen:
+
+```csharp
+public ActionResult Index()
+{
+    return View();
+}
+```
+
+In plaats van een `String` geven we hier een `ActionResult` als return type terug. Dit is de base class van alle view results van een `Action` . We gebruiken deze omdat we nog niet zeker weten wat deze Action allemaal zal teruggeven. Als we bijvoorbeeld zeker weten dat het enkel een View zal teruggeven hadden we ook `ViewResult` kunnen gebruiken. Maar omdat we ook errors zouden willen laten zien houden we best dit zo algemeen mogelijk.
+
+Voor een ViewResult object aan te maken gebruiken we de `View` functie. Hier geven we geen argumenten mee. Dit komt overeen met een View waarvan de View naam overeenkomt met de naam van de action. 
+
+Als je nu terug de web applicatie opstart en naar de root page gaat dan krijg je het volgende te zien:
+
+![](../.gitbook/assets/image%20%2813%29.png)
+
+Dit zegt exact wat er nog moet gebeuren. We moeten nog een View aanmaken met de naam `Index.cshtml` en deze moeten we in de map Views/Home plaatsen. Deze mappen moeten zelf nog aangemaakt worden. Per conventie moet je altijd een map aanmaken in de Views map met de naam van de Controller zonder het deel Controller. Dus in ons geval is dit Home, wat dus HomeController zonder het deel Controller is.
+
+![We maken een view aan in de map Views/Home](../.gitbook/assets/image%20%2810%29.png)
+
+![We maken een nieuwe lege Razor View aan ](../.gitbook/assets/image%20%289%29.png)
+
+![We noemen de nieuwe View Index.cshtml naar de Index methode](../.gitbook/assets/image%20%2811%29.png)
+
+We passen de inhoud van het Index.cshtml bestand aan naar het onder
+
+```markup
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello World</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+</body>
+
+</html>
+```
+
+Als we nu terug naar de pagina surfen dan krijgen we een al iets mooier gestijlde pagina te zien. 
+
+![De html pagina die de woorden Hello World laat zien aan de gebruiker](../.gitbook/assets/image%20%2812%29.png)
 
