@@ -13,5 +13,5 @@
 ## ASP.NET
 
 * [Project aanmaken](asp.net/eerste-project-aanmaken.md)
-* [Model-View-Controller](asp.net/model-view-controller.md)
+* [Views en Controllers](asp.net/model-view-controller.md)
 

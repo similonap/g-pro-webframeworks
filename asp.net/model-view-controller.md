@@ -1,4 +1,4 @@
-# Model-View-Controller
+# Views en Controllers
 
 ### Inleiding
 
@@ -148,4 +148,6 @@ We passen de inhoud van het Index.cshtml bestand aan naar het onder
 Als we nu terug naar de pagina surfen dan krijgen we een al iets mooier gestijlde pagina te zien. 
 
 ![De html pagina die de woorden Hello World laat zien aan de gebruiker](../.gitbook/assets/image%20%2812%29.png)
+
+
 
