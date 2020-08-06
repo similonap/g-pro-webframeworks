@@ -1,4 +1,4 @@
-# Shared layout
+# Gedeelde layout
 
 Veel web applicaties gebruiken een gedeelde layout die op meerdere paginas zal worden gebruikt. We willen bijvoorbeeld dat op elke pagina een navigatie balk staat bovenaan, een footer om onze bedrijfsinformatie in te laten zien,... 
 
@@ -23,7 +23,7 @@ Omdat we toch stilaan van mooie UI elementen willen gaan gebruiken in onze appli
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>@ViewData["Title"]</title>
+    <title>@ViewBag.Title</title>
 </head>
 <body>
     @RenderBody()
@@ -37,13 +37,24 @@ Omdat we toch stilaan van mooie UI elementen willen gaan gebruiken in onze appli
 </html>
 ```
 
+Even tekst en uitleg:
+
+* `@ViewBag.Title`  Omdat we elke pagina een eigen titel willen geven die in de browser zal te zien zijn geven moeten we deze informatie kunnen doorgeven. Het ViewBag object is normaal bedoeld om te kunnen communiceren tussen Controller en View, maar kan ook gebruikt worden om waarden door te geven tussen een individuele view en de gedeelde layout. We gaan er vanuit dat de individuele view een `Title` meegeeft.
+* `@RenderBody()` Hier gaat de inhoud van de individuele pagina gerendered worden. Het is alsof de inhoud van de individuele view op deze plaats ingeplakt wordt voor elke pagina.
+
 en de inhoud van het `Index.cshtml` bestand wordt dan
 
 ```aspnet
 @{
     Layout = "_Layout";
-    ViewData["Title"] = "Hello World";
+    ViewBag.Title = "Hello World";
 }
 <h1>Hello World</h1>
 ```
+
+Bovenaan de individuele paginas zetten we dan 
+
+* `Layout = "_Layout"` Dit geeft aan welke gedeelde layout deze pagina zal gebruiken. In dit geval is dat de `_Layout.cshtml` pagina
+* `ViewBag.Title = "Hello World"` Hier geven we de titel mee die we in de gedeelde layout willen doorgeven.
+* De rest is gewoon de body die zal worden getoond door de renderBody functie.
 
