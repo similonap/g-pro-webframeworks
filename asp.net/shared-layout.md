@@ -56,5 +56,7 @@ Bovenaan de individuele paginas zetten we dan
 
 * `Layout = "_Layout"` Dit geeft aan welke gedeelde layout deze pagina zal gebruiken. In dit geval is dat de `_Layout.cshtml` pagina
 * `ViewBag.Title = "Hello World"` Hier geven we de titel mee die we in de gedeelde layout willen doorgeven.
-* De rest is gewoon de body die zal worden getoond door de renderBody functie.
+* De rest is gewoon de body die zal worden getoond door de `renderBody()` functie.
+
+
 
