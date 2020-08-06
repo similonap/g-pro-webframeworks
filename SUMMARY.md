@@ -14,4 +14,5 @@
 
 * [Project aanmaken](asp.net/eerste-project-aanmaken.md)
 * [Views en Controllers](asp.net/model-view-controller.md)
+* [Shared layout](asp.net/shared-layout.md)
 
