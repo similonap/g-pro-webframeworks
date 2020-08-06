@@ -149,5 +149,57 @@ Als we nu terug naar de pagina surfen dan krijgen we een al iets mooier gestijld
 
 ![De html pagina die de woorden Hello World laat zien aan de gebruiker](../.gitbook/assets/image%20%2812%29.png)
 
+### Static content
+
+De meeste web applicaties bestaan uiteraard niet alleen maar uit html paginas. Ze bevatten meestal javascript bestanden, css bestanden, afbeeldingen,... Om hier ook ondersteuning voor te bieden moet er nog een ding aangepast worden aan de `Configure` method van de Startup klasse
+
+```csharp
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+
+    app.UseRouting();
+    
+    app.UseStaticFiles();
+
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapControllerRoute(
+            name: "default",
+            pattern: "{controller=Home}/{action=Index}/{id?}");
+    });
+}
+```
+
+Dit zorgt ervoor dat alle bestanden onder de wwwroot folder beschikbaar worden voor gebruik in webpaginas. Maak dus in je project een nieuwe map `wwwroot` en maak daar een map `images` in. We plaatsen daar een afbeelding:
+
+![llama.gif](../.gitbook/assets/llama.gif)
+
+Als je nu onze `index.cshtml` pagina aanpassen met de volgende inhoud
+
+```markup
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello World</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <img src="~/images/llama.gif"/>
+</body>
+
+</html>
+```
+
+en onze web applicatie terug starten dan krijgen we de volgende webpagina te zien:
+
+![](../.gitbook/assets/image%20%2816%29.png)
+
 
 
