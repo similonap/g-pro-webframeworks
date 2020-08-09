@@ -1,10 +1,10 @@
 # Gedeelde layout
 
-Veel web applicaties gebruiken een gedeelde layout die op meerdere paginas zal worden gebruikt. We willen bijvoorbeeld dat op elke pagina een navigatie balk staat bovenaan, een footer om onze bedrijfsinformatie in te laten zien,... 
+Veel web applicaties gebruiken een gedeelde layout die op meerdere paginas zal worden gebruikt. We willen bijvoorbeeld dat op elke pagina een navigatie balk staat bovenaan, een footer om onze bedrijfsinformatie in te laten zien,...
 
 ![](../.gitbook/assets/image%20%2817%29.png)
 
-Wat we zouden kunnen doen is op elke pagina opnieuw deze code copy pasten, maar dat is uiteraard niet de bedoeling volgens het DRY principe \(Don't repeat yourself!\). We gaan dus een stuk van onze html pagina apart plaatsen zodat we deze kunnen hergebruiken. 
+Wat we zouden kunnen doen is op elke pagina opnieuw deze code copy pasten, maar dat is uiteraard niet de bedoeling volgens het DRY principe \(Don't repeat yourself!\). We gaan dus een stuk van onze html pagina apart plaatsen zodat we deze kunnen hergebruiken.
 
 Per conventie noemen we de default layout voor een ASP.NET Core applicatie `_Layout.cshtml` en deze plaatsen we in de `Shared` map. Deze moeten we nog zelf aanmaken dus maak een map genaamd `Shared` in de `Views` map.
 
@@ -52,7 +52,7 @@ en de inhoud van het `Index.cshtml` bestand wordt dan
 <h1>Hello World</h1>
 ```
 
-Bovenaan de individuele paginas zetten we dan 
+Bovenaan de individuele paginas zetten we dan
 
 * `Layout = "_Layout"` Dit geeft aan welke gedeelde layout deze pagina zal gebruiken. In dit geval is dat de `_Layout.cshtml` pagina
 * `ViewBag.Title = "Hello World"` Hier geven we de titel mee die we in de gedeelde layout willen doorgeven.
@@ -105,13 +105,13 @@ We gaan nu het bestand `_Layout.cshtml` aanpassen en een navigatiebalk toevoegen
 </html>
 ```
 
-  Als we nu terug de web applicatie starten dan krijgen we al een mooier resultaat te zien
+Als we nu terug de web applicatie starten dan krijgen we al een mooier resultaat te zien
 
 ![Hello World met een navigatie balk](../.gitbook/assets/image%20%2819%29.png)
 
 ## Oefeningen
 
-Pas de View van de Contact pagina aan zodat deze ook in de layout met de navigatie balk komt. 
+Pas de View van de Contact pagina aan zodat deze ook in de layout met de navigatie balk komt.
 
 ![](../.gitbook/assets/Contact2.png)
 
