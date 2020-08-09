@@ -86,8 +86,8 @@ We gaan nu het bestand `_Layout.cshtml` aanpassen en een navigatiebalk toevoegen
 
         <div class="collapse navbar-collapse" id="navBar">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
                 </li>
             </ul>
         </div>
