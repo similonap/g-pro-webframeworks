@@ -201,5 +201,7 @@ en onze web applicatie terug starten dan krijgen we de volgende webpagina te zie
 
 ![](../.gitbook/assets/image%20%2818%29.png)
 
+### Oefeningen
 
+* Maak een nieuwe Controller aan `ContactController`
 
