@@ -1,8 +1,8 @@
 # Tag Helpers
 
-Tag Helpers maken het mogelijk om code te genereren voor bepaalde HTML elementen. Dankzij tag helpers wordt de code die in de razor views worden gebruikt overzichtelijker en beter onderhoudbaar. 
+Tag Helpers maken het mogelijk om code te genereren voor bepaalde HTML elementen. Dankzij tag helpers wordt de code die in de razor views worden gebruikt overzichtelijker en beter onderhoudbaar.
 
-### Tag Helpers toevoegen
+## Tag Helpers toevoegen
 
 Voordat een tag helper kan gebruikt worden moet deze eerst worden geactiveerd. Dit doen we aan de hand van het `@addTagHelper` commando. Je kan je eigen tag helpers aanmaken maar wij gaan vooral in deze cursus de standaard tag helpers van ASP.NET gebruiken. Je kan dit doen door:
 
@@ -10,31 +10,31 @@ Voordat een tag helper kan gebruikt worden moet deze eerst worden geactiveerd. D
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 ```
 
-bovenaan aan je razor pages toe te voegen. Maar omdat we zo weinig mogelijk code willen dupliceren is er ook een manier om deze toe te voegen aan elke pagina. 
+bovenaan aan je razor pages toe te voegen. Maar omdat we zo weinig mogelijk code willen dupliceren is er ook een manier om deze toe te voegen aan elke pagina.
 
-We maken een bestand `_ViewImports.cshtml` aan in de map `Views`. Dit bestand wordt standaard door elke razor page geimporteerd en is dus overal beschikbaar. Voeg je hier een taghelper toe dan is deze beschikbaar voor elke pagina. Het `_ViewImports.cshtml' bestand bevat dan de volgende code:
+We maken een bestand `_ViewImports.cshtml` aan in de map `Views`. Dit bestand wordt standaard door elke razor page geimporteerd en is dus overal beschikbaar. Voeg je hier een taghelper toe dan is deze beschikbaar voor elke pagina. Het \`\_ViewImports.cshtml' bestand bevat dan de volgende code:
 
 ```csharp
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 ```
 
-### Anchor taghelper
+## Anchor taghelper
 
 De anchor tag helper is gemaakt voor het gemakkelijk genereren van urls voor links in je web applicatie. Normaal gezien maak je altijd een link in je pagina door in html het volgende te schrijven:
 
-```html
+```markup
 <a href="/Home/BrowserInfo">
 ```
 
 Zo zal je naar de `BrowserInfo` actie gaan van de `HomeController`. Het is natuurlijk moeilijk om het overzicht te houden en al die links doorheen de pagina zelf te beheren. Daarom gebruiken we de `asp-action` en `asp-controller` tag helper om dit eenvoudiger te maken.
 
-```html
+```markup
 <a asp-action="BrowserInfo" asp-controller="Home">
 ```
 
 Nu kunnen we onze algemene navigatie balk aanpassen zodat we gebruik maken van tag helpers:
 
-```html
+```markup
 <!doctype html>
 <html lang="en">
 <head>
@@ -75,12 +75,13 @@ Nu kunnen we onze algemene navigatie balk aanpassen zodat we gebruik maken van t
 </html>
 ```
 
-Er zijn uiteraard nog heel veel andere tag helpers. We zullen doorheen deze cursus stap per stap andere tag helpers introduceren. 
+Er zijn uiteraard nog heel veel andere tag helpers. We zullen doorheen deze cursus stap per stap andere tag helpers introduceren.
 
-### Oefeningen
+## Oefeningen
 
 Pas het bestand `Shared/_Layout.cshtml` aan zodat er een navigatie structuur ontstaat. Alle links moeten gegenereerd worden door tag helpers.
 
 ![](../.gitbook/assets/TagHelpers1.png)
 
-Een voorbeeld hoe je dropdown menu maakt in bootstrap kan je vinden op https://getbootstrap.com/docs/4.0/components/navbar/
+Een voorbeeld hoe je dropdown menu maakt in bootstrap kan je vinden op [https://getbootstrap.com/docs/4.0/components/navbar/](https://getbootstrap.com/docs/4.0/components/navbar/)
+
