@@ -1,8 +1,8 @@
 # Views en Controllers
 
-### Inleiding
+## Inleiding
 
-In het vorige hoofdstuk hebben we een eenvoudig project aangemaakt waar er gebruik gemaakt wordt van een endpoint waar er via 
+In het vorige hoofdstuk hebben we een eenvoudig project aangemaakt waar er gebruik gemaakt wordt van een endpoint waar er via
 
 ```csharp
 await context.Response.WriteAsync("Hello World!");
@@ -10,9 +10,9 @@ await context.Response.WriteAsync("Hello World!");
 
 rechstreeks naar de response stream werd geschreven. Dit is uiteraard zeer omslachtig als je dit zou moeten doen voor elke web pagina van jouw webapplicatie. We gaan hier gebruik maken van ASP.NET MVC \(Model View Controller\) om dit te vereenvoudigen.
 
-### MVC Configureren
+## MVC Configureren
 
-Om ons project van vorig hoofdstuk klaar te maken voor MVC moeten we een aantal aanpassingen maken aan het `Startup.cs` bestand. 
+Om ons project van vorig hoofdstuk klaar te maken voor MVC moeten we een aantal aanpassingen maken aan het `Startup.cs` bestand.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -21,7 +21,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Bovenstaande code zal ondersteuning voor Controllers en Views \(Razor Views\) toevoegen aan je project en deze configureren. 
+Bovenstaande code zal ondersteuning voor Controllers en Views \(Razor Views\) toevoegen aan je project en deze configureren.
 
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -42,7 +42,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-We gaan hier niet meer zelf de routes definieren en zelf de resultaten naar de response stream schrijven. We vervangen dit door `endpoints.MapControllerRoute` waar we een naam en een pattern meegeven. 
+We gaan hier niet meer zelf de routes definieren en zelf de resultaten naar de response stream schrijven. We vervangen dit door `endpoints.MapControllerRoute` waar we een naam en een pattern meegeven.
 
 Het pattern geeft aan welke pattroon de urls van de web applicatie zullen volgen. Gewoonlijk moeten we dit niet aanpassen in de meeste web applicaties.
 
@@ -55,11 +55,11 @@ Het pattern opgesplitst en uitgelegd geeft dit:
 * **`{id?}`**
   * Er wordt gebruikt van een optionele id die mag weggelaten worden. Dit wordt aangegeven door een vraagteken in de url
 
-Deze applicatie mist uiteraard nog een Controller voordat we deze kunnen opstarten. 
+Deze applicatie mist uiteraard nog een Controller voordat we deze kunnen opstarten.
 
-### Conventie boven configuratie
+## Conventie boven configuratie
 
-Dit betekent dat, in plaats van te vertrouwen op expliciete configuratie-instellingen, ASP.NET MVC gewoon ervan uit gaat dat de ontwikkelaars bepaalde conventies zullen volgen bij het bouwen van hun applicaties. De folderstructuur voor ASP.NET MVC project is een goed voorbeeld van het gebruik van de conventie eerder dan de configuratie. Er zijn drie speciale mappen in het project die overeenkomen met de elementen van het MVC patroon: de **Controllers**, **Models**, en **Views** mappen. 
+Dit betekent dat, in plaats van te vertrouwen op expliciete configuratie-instellingen, ASP.NET MVC gewoon ervan uit gaat dat de ontwikkelaars bepaalde conventies zullen volgen bij het bouwen van hun applicaties. De folderstructuur voor ASP.NET MVC project is een goed voorbeeld van het gebruik van de conventie eerder dan de configuratie. Er zijn drie speciale mappen in het project die overeenkomen met de elementen van het MVC patroon: de **Controllers**, **Models**, en **Views** mappen.
 
 Het is in één oogopslag duidelijk wat elk van deze mappen bevat. De figuur _De structuur van een ASP.NET MVC projectfolder_ is overduidelijk.
 
@@ -74,7 +74,7 @@ De afspraak is dat alle views van de applicatie in de folder **Views** staan. Ma
 1. een **Shared** map;
 2. een optionele map die de views voor elke controller bevatten;
 
-### Controller
+## Controller
 
 Zoals al aangegeven moeten alle controllers in een map Controllers staan. Maak eerst de map Controllers aan en maak daarna een **Empty Controller Class** aan met de naam HomeController.
 
@@ -92,7 +92,7 @@ public class HomeController : Controller
 }
 ```
 
-Dit zal er voor zorgen dat de gebruiker **Hello World** te zien krijgt als hij naar de root pagina surft.  We gaan de applicatie opstarten aan de hand van Visual Studio deze keer. Klik op **Debug &gt; Start debugging** om de applicatie in debug modus op te starten. 
+Dit zal er voor zorgen dat de gebruiker **Hello World** te zien krijgt als hij naar de root pagina surft. We gaan de applicatie opstarten aan de hand van Visual Studio deze keer. Klik op **Debug &gt; Start debugging** om de applicatie in debug modus op te starten.
 
 ![](../.gitbook/assets/image%20%286%29.png)
 
@@ -100,7 +100,7 @@ Wat we hier hebben gemaakt is gewoon een methode `Index()` die een String heeft 
 
 We willen uiteraard niet enkel de gebruiker een simpele string laten zien. Wat we echt willen is de gebruiker een html pagina laten zien met een bepaalde opmaak. Daarom gaan we nu het concept Views introduceren. We komen straks nog eens terug op het MVC concept als we ze alle drie hebben aangemaakt in het voorbeeld.
 
-### Views
+## Views
 
 Als we willen dat de Index action een echte webpagina teruggeeft moeten we deze methode iets aanpassen:
 
@@ -113,7 +113,7 @@ public ActionResult Index()
 
 In plaats van een `String` geven we hier een `ActionResult` als return type terug. Dit is de base class van alle view results van een `Action` . We gebruiken deze omdat we nog niet zeker weten wat deze Action allemaal zal teruggeven. Als we bijvoorbeeld zeker weten dat het enkel een View zal teruggeven hadden we ook `ViewResult` kunnen gebruiken. Maar omdat we ook errors zouden willen laten zien houden we best dit zo algemeen mogelijk.
 
-Voor een ViewResult object aan te maken gebruiken we de `View` functie. Hier geven we geen argumenten mee. Dit komt overeen met een View waarvan de View naam overeenkomt met de naam van de action. 
+Voor een ViewResult object aan te maken gebruiken we de `View` functie. Hier geven we geen argumenten mee. Dit komt overeen met een View waarvan de View naam overeenkomt met de naam van de action.
 
 Als je nu terug de web applicatie opstart en naar de root page gaat dan krijg je het volgende te zien:
 
@@ -145,11 +145,11 @@ We passen de inhoud van het Index.cshtml bestand aan naar het onder
 </html>
 ```
 
-Als we nu terug naar de pagina surfen dan krijgen we een al iets mooier gestijlde pagina te zien. 
+Als we nu terug naar de pagina surfen dan krijgen we een al iets mooier gestijlde pagina te zien.
 
 ![De html pagina die de woorden Hello World laat zien aan de gebruiker](../.gitbook/assets/image%20%2812%29.png)
 
-### Static content
+## Static content
 
 De meeste web applicaties bestaan uiteraard niet alleen maar uit html paginas. Ze bevatten meestal javascript bestanden, css bestanden, afbeeldingen,... Om hier ook ondersteuning voor te bieden moet er nog een ding aangepast worden aan de `Configure` method van de Startup klasse
 
@@ -162,7 +162,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     }
 
     app.UseRouting();
-    
+
     app.UseStaticFiles();
 
     app.UseEndpoints(endpoints =>
@@ -201,12 +201,10 @@ en onze web applicatie terug starten dan krijgen we de volgende webpagina te zie
 
 ![](../.gitbook/assets/image%20%2818%29.png)
 
-### Oefeningen
+## Oefeningen
 
-* Maak in de bestaande `HomeController` een nieuwe action aan die het uur en de minuten laat zien. Noem deze action `Time`. 
-
-![](../.gitbook/assets/TimeEndpoint1.png)
-
+* Maak in de bestaande `HomeController` een nieuwe action aan die het uur en de minuten laat zien. Noem deze action `Time`.   ![](../.gitbook/assets/Contact1.png)
 * Maak een nieuwe Controller aan `ContactController` en maak een nieuwe `Index` action aan. Maak een View aan die je naam en adres laat zien.  
 
 ![](../.gitbook/assets/Contact1.png)
+
