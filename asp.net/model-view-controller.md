@@ -203,5 +203,7 @@ en onze web applicatie terug starten dan krijgen we de volgende webpagina te zie
 
 ### Oefeningen
 
-* Maak een nieuwe Controller aan `ContactController`
+* Maak in de bestaande `HomeController` een nieuwe action aan die het uur en de minuten laat zien. Noem deze action `Time`. 
+
+* Maak een nieuwe Controller aan `ContactController` en maak een nieuwe `Index` action aan. Maak een View aan die je naam en adres laat zien.  
 

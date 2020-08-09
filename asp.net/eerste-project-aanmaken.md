@@ -118,6 +118,3 @@ Tenslotte bekijken we het .csproj bestand. Je kan het project bestand bekijken d
 Dit bestand vertelt MSBuild hoe het project wordt gebouwd - van welke pakketten het afhankelijk is, welke versie van .NET Core te targeten, enzovoort. In vorige versies van .NET Core was dit projectbestand veel groter. .NET Core 3.1 heeft veel moeite gestoken in het korter, eenvoudiger en leesbaarder maken van .csproj-bestanden.
 
 In dit bestand zal je vooral gebruiken voor het definieren van dependencies die je project zal gebruiken. Dit zal je meestal niet rechstreeks in dit bestand doen maar je zal hiervoor de package manager NuGet gebruiken. Dit zullen we later in deze cursus verder behandelen. 
-
-
-
