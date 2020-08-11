@@ -13,6 +13,7 @@
 ## ASP.NET
 
 * [Project aanmaken](asp.net/eerste-project-aanmaken.md)
+* [Model-View-Controller Architectuur](asp.net/model-view-controller-architectuur.md)
 * [Views en Controllers](asp.net/model-view-controller.md)
 * [Gedeelde layout](asp.net/shared-layout.md)
 * [Tag Helpers](asp.net/tag-helpers.md)
