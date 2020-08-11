@@ -3,6 +3,7 @@
 Tot nu toe waren de Views en de Controllers volledig van elkaar gescheiden. Het enige wat de controller deed was aangeven dat een View moet getoond worden maar er werd geen gegevens tussen beiden doorgegeven. Views zijn normaal gezien niet statisch en zullen afhankelijk wat er aan de controller meegegeven wordt \(aan de hand van query parameters in de url bv\) een ander resultaat geven. In dit deel gaan we zien hoe we dit kunnen doen.
 
 ## ViewData and ViewBag
+
 ### ViewData
 
 `ViewData` is een object waar informatie kan doorgegeven worden tussen de controller en de view. Het object is een Dictionary van string sleutels met object waarden. Je kan er alle soorten types van objecten in opslagen. Het `ViewData` object is zonder extra code altijd beschikbaar in de View.
@@ -69,9 +70,9 @@ Pas de Time action die je in de vorige oefeningen hebt gemaakt aan zodat deze he
 
 Het model is verantwoordelijk voor de informatie die door de toepassing wordt weergegeven. In de context van ASP.NET stelt het model bijvoorbeeld de data die wordt gepost vanuit een formulier voor, de data die moet worden weergegeven in een view,... Het zijn de bedrijfsspecifieke concepten die daar worden weergegeven en doorgegeven aan de controller door middel van klassen.
 
-In ASP.NET is mogelijk om een View aan een specifiek klasse te binden en deze door te geven via de controller. We zullen eerst zien hoe we een eenvoudige string doorgeven. 
+In ASP.NET is mogelijk om een View aan een specifiek klasse te binden en deze door te geven via de controller. We zullen eerst zien hoe we een eenvoudige string doorgeven.
 
-Eerst moeten we een map `Models` aanmaken waar we onze modellen in zullen opslaan. Hierin maken we de klasse `Student` aan. 
+Eerst moeten we een map `Models` aanmaken waar we onze modellen in zullen opslaan. Hierin maken we de klasse `Student` aan.
 
 ```csharp
 namespace EersteProjectWebFrameworks.Models
@@ -94,7 +95,7 @@ namespace EersteProjectWebFrameworks.Models
 }
 ```
 
-We maken hiervoor ook een nieuwe controller `StudentController.cs` aan. 
+We maken hiervoor ook een nieuwe controller `StudentController.cs` aan.
 
 ```csharp
 using EersteProjectWebFrameworks.Models;
@@ -138,11 +139,12 @@ We maken een nieuwe View aan in `Views/Student` genaamd `Index.cshtml`. Omdat we
 
 ```csharp
 @model EersteProjectWebFrameworks.Models.Student
-````
+`
+```
 
 Als we nu de inhoud van het model willen gebruiken in de view kunnen we dit eenvoudig doen door deze aan te spreken met `@Model.PropertyName`. Zo komen we in ons voorbeeld op:
 
-```html
+```markup
 @model EersteProjectWebFrameworks.Models.Student
 @{
     Layout = "_Layout";
@@ -159,17 +161,18 @@ Omdat we niet voor elk model de hele namespace willen opgeven kunnen we in het `
 ```csharp
 @using EersteProjectWebFrameworks.Models
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-````
-
-dan moeten we enkel maar 
-
+`
 ```
+
+dan moeten we enkel maar
+
+```text
 @model Student
 ```
 
 opgeven in het View bestand.
 
-Willen we nu een hele lijst van studenten meegeven dan is dit ook eenvoudig mogelijk. 
+Willen we nu een hele lijst van studenten meegeven dan is dit ook eenvoudig mogelijk.
 
 ```csharp
 using EersteProjectWebFrameworks.Models;
@@ -194,7 +197,7 @@ namespace EersteProjectWebFrameworks.Controllers
 
 en de Index.cshtml file:
 
-```html
+```markup
 @model List<Student>
 @{
     Layout = "_Layout";
@@ -209,8 +212,9 @@ en de Index.cshtml file:
 
 ### Oefeningen
 
-De layout van de pagina voor de studenten is momenteel nog heel basis. Ga eens kijken naar https://getbootstrap.com/docs/4.1/content/tables/ en gebruik dit voor de studenten tabel te stylen. 
+De layout van de pagina voor de studenten is momenteel nog heel basis. Ga eens kijken naar [https://getbootstrap.com/docs/4.1/content/tables/](https://getbootstrap.com/docs/4.1/content/tables/) en gebruik dit voor de studenten tabel te stylen.
 
 Zorg er ook voor dat er een studenten tab bij komt in de navigatie balk.
 
 ![.](../.gitbook/assets/Students1.png)
+

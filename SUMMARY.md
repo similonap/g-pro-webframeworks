@@ -21,5 +21,4 @@
 ## Architectuur
 
 * [Model-View-Controller](architectuur/model-view-controller-architectuur.md)
-* [Untitled](architectuur/untitled.md)
 
