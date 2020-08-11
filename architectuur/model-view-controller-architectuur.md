@@ -1,4 +1,4 @@
-# Model-View-Controller Architectuur
+# Model-View-Controller
 
 De Model-View-Controller patroon is een architecturaal patroon dat een **strikte scheiding** afdwingt tussen de afzonderlijke delen van een applicatie. Deze scheiding noemt men SEC of Seperation of Concerns, of, in meer algemene zin, "losse koppeling." Losse koppeling tussen de verschillende onderdelen van een applicatie heeft een aantal voordelen op lange termijn:
 
