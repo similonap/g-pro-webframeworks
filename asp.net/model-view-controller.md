@@ -208,4 +208,3 @@ Maak in de bestaande `HomeController` een nieuwe action aan die het uur en de mi
 Maak een nieuwe Controller aan `ContactController` en maak een nieuwe `Index` action aan. Maak een View aan die je naam en adres laat zien.
 
 ![](../.gitbook/assets/Contact1.png)
-

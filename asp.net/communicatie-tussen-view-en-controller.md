@@ -64,3 +64,152 @@ We spreken af dat we vooral het `ViewBag` object zullen gebruiken omdat dit eenv
 
 Pas de Time action die je in de vorige oefeningen hebt gemaakt aan zodat deze het uur en de minuten doorgeeft aan de view en deze laat zien aan de gebruiker. Gebruik hiervoor de `ViewBag`.
 
+## Model
+
+Het model is verantwoordelijk voor de informatie die door de toepassing wordt weergegeven. In de context van ASP.NET stelt het model bijvoorbeeld de data die wordt gepost vanuit een formulier voor, de data die moet worden weergegeven in een view,... Het zijn de bedrijfsspecifieke concepten die daar worden weergegeven en doorgegeven aan de controller door middel van klassen.
+
+In ASP.NET is mogelijk om een View aan een specifiek klasse te binden en deze door te geven via de controller. We zullen eerst zien hoe we een eenvoudige string doorgeven. 
+
+Eerst moeten we een map `Models` aanmaken waar we onze modellen in zullen opslaan. Hierin maken we de klasse `Student` aan. 
+
+```csharp
+namespace EersteProjectWebFrameworks.Models
+{
+    public class Student
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int EnrollmentYear { get; set; }
+
+        public Student(int id, string firstName, string lastName, int enrollmentYear)
+        {
+            this.Id = id;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.EnrollmentYear = enrollmentYear;
+        }
+    }
+}
+```
+
+We maken hiervoor ook een nieuwe controller `StudentController.cs` aan. 
+
+```csharp
+using EersteProjectWebFrameworks.Models;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EersteProjectWebFrameworks.Controllers
+{
+    public class StudentController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+```
+
+We passen de Index action hier aan zodat we eerst een `Student` Object aanmaken via zijn constructor.
+
+```csharp
+using EersteProjectWebFrameworks.Models;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EersteProjectWebFrameworks.Controllers
+{
+    public class StudentController : Controller
+    {
+        public IActionResult Index()
+        {
+            Student student = new Student(0, "Andie", "Similon", 2020);
+
+            return View(student);
+        }
+    }
+}
+```
+
+Zoals je hier boven ziet geven we de student klasse niet mee aan de hand van een `ViewBag` object maar geven we dit rechtstreeks aan de View functie mee. Zo zal de view gebonden worden met het student object.
+
+We maken een nieuwe View aan in `Views/Student` genaamd `Index.cshtml`. Omdat we deze view willen binden met het model voor de Student klasse plaatsen we als eerste lijn van de view:
+
+```csharp
+@model EersteProjectWebFrameworks.Models.Student
+````
+
+Als we nu de inhoud van het model willen gebruiken in de view kunnen we dit eenvoudig doen door deze aan te spreken met `@Model.PropertyName`. Zo komen we in ons voorbeeld op:
+
+```html
+@model EersteProjectWebFrameworks.Models.Student
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Students";
+}
+
+@Model.FirstName
+@Model.LastName
+@Model.EnrollmentYear
+```
+
+Omdat we niet voor elk model de hele namespace willen opgeven kunnen we in het `_ViewImports.cs` bestand ook de namespace includeren.
+
+```csharp
+@using EersteProjectWebFrameworks.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+````
+
+dan moeten we enkel maar 
+
+```
+@model Student
+```
+
+opgeven in het View bestand.
+
+Willen we nu een hele lijst van studenten meegeven dan is dit ook eenvoudig mogelijk. 
+
+```csharp
+using EersteProjectWebFrameworks.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+
+namespace EersteProjectWebFrameworks.Controllers
+{
+    public class StudentController : Controller
+    {
+        public IActionResult Index()
+        {
+            List<Student> students = new List<Student>();
+            students.Add(new Student(0, "Andie", "Similon", 2020));
+            students.Add(new Student(0, "Jon", "Beton", 2020));
+
+            return View(students);
+        }
+    }
+}
+```
+
+en de Index.cshtml file:
+
+```html
+@model List<Student>
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Students";
+}
+
+@foreach (Student student in Model)
+{
+    @student.FirstName @student.LastName @student.EnrollmentYear<br/>
+}
+```
+
+### Oefeningen
+
+De layout van de pagina voor de studenten is momenteel nog heel basis. Ga eens kijken naar https://getbootstrap.com/docs/4.1/content/tables/ en gebruik dit voor de studenten tabel te stylen. 
+
+Zorg er ook voor dat er een studenten tab bij komt in de navigatie balk.
+
+![.](../.gitbook/assets/Students1.png)
