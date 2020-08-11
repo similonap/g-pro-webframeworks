@@ -1,7 +1,5 @@
 # Views en Controllers
 
-## Inleiding
-
 In het vorige hoofdstuk hebben we een eenvoudig project aangemaakt waar er gebruik gemaakt wordt van een endpoint waar er via
 
 ```csharp
