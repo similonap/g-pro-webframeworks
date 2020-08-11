@@ -1,8 +1,6 @@
 # Model-View-Controller Architectuur
 
-### MVC architectuur: Separation of concerns
-
-De Model-View-Controller patroon is een architectonisch patroon dat een **strikte scheiding** afdwingt tussen de afzonderlijke delen van een applicatie. Deze scheiding noemt men SEC of Seperation of Concerns, of, in meer algemene zin, "losse koppeling." Losse koppeling tussen de verschillende onderdelen van een applicatie heeft een aantal voordelen op lange termijn:
+De Model-View-Controller patroon is een architecturaal patroon dat een **strikte scheiding** afdwingt tussen de afzonderlijke delen van een applicatie. Deze scheiding noemt men SEC of Seperation of Concerns, of, in meer algemene zin, "losse koppeling." Losse koppeling tussen de verschillende onderdelen van een applicatie heeft een aantal voordelen op lange termijn:
 
 1. Ontwikkeling \(development\) individuele componenten zijn niet rechtstreeks afhankelijk van andere componenten, waardoor ze gemakkelijker apart ontwikkeld kunnen worden. Componenten kunnen ook gemakkelijk worden vervangen omdat de 'losse koppeling' of 'scheiding' ervoor zorgt dat het weghalen en vervangen van één component geen of weinig invloed op de andere componenten.
 2. Testbaarheid \(testability\) Losse koppeling van componenten laat toe dat test-implementaties de plaats kunnen innemen van "productie" componenten. De database kan tijdens het testproces vervangen worden door static data in een DAL klasse. De DAL klasse kan m.a.w. op zichzelf getest worden zonder rekening te moeten houden met de complexiteit van databasetoegang. Dat componenten eenvoudig vervangen kunnen worden door 'mock' voorstellingen vergemakkelijkt het testproces en verhooft drastisch de betrouwbaarheid van het systeem.
