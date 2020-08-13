@@ -54,7 +54,8 @@ We voegen dus een extra action toe aan de `StudentController`. Deze zal ook `Cre
 public IActionResult Create([FromForm] string firstName, [FromForm] string lastName, [FromForm] int enrollmentYear)
 {
     Student student = new Student(0, firstName, lastName, enrollmentYear);
-    return View(student);
+    studentRepository.Create(student);
+    return RedirectToAction("Index", "Student");
 }
 ```
 
@@ -62,31 +63,9 @@ We overlopen even de nieuwe dingen hier:
 
 * `[HttpPost]` is een `Attribute` die aangeeft dat deze action enkel moet gebruikt worden bij een POST vanuit een formulier. Zo heb je voor alle http methoden \(GET, POST, DELETE,...\) een eigen variant.
 * Als argumenten van de methode `Create` gebruiken we de argumenten die we doorsturen vanuit het formulier. De namen moeten overeenkomen met de `name` uit het formulier in html. Dit kan je niet wijzigen, zorg er dus altijd voor dat deze overeenkomen.
-* We maken hier een instantie van Student aan met de waarden die zijn doorgegeven. We geven deze tijdelijk een `Id` 0 omdat deze nog niet nodig is in deze context.
-* We geven deze mee aan de `View` zodat de toegevoegde Student kan worden weergegeven.
-* Eigenlijk doen we nog altijd niets met het student dus deze wordt hier nog nergens opgeslagen.
-
-Om nu aan te geven dat het gelukt is doen we nog een kleine aanpassing aan het `Create.cshtml` bestand
-
-```markup
-@model Student
-@{
-    Layout = "_Layout";
-    ViewBag.Title = "Students - Create";
-}
-@if (Model != null)
-{
-    <div class="alert alert-success" role="alert">
-        @Model.FirstName @Model.LastName was succesfully added.
-    </div>
-}
-...Rest van het formulier blijft hetzelfde....
-```
-
-* We geven aan dat het model waar deze view mee geassocieerd is de `Student` klasse is zodat we deze kunnen meegeven vanuit de `StudentController`. 
-* We kijken hier of het `Model` niet gelijk is aan null, dit betekend dus dat het object bestaat en dus is doorgegeven. Als dit het geval is tonen we een melding dat de gebruiker is toegevoegd. Let op de @ notatie bij de if en het gebruik van het Model. 
-
-![](../.gitbook/assets/StudentsCreate2.png)
+* We maken hier een instantie van Student aan met de waarden die zijn doorgegeven. 
+* We voegen deze toe aan de `studentRepository` met de zelfgemaakte `Create` methode.
+* Omdat we bij het succesvol toevoegen van een gebruiker terug de lijst van studenten willen laten zien gebruiken we hier de `RedirectToAction` die als eerste argument de `Action` aanneemt en als 2de de `Controller`.
 
 ## Model Binding
 
@@ -96,7 +75,8 @@ De manier die we hierboven hebben beschreven is omslachtig. We willen hier gebru
 [HttpPost]
 public IActionResult Create(Student student)
 {
-    return View(student);
+    studentRepository.Create(student);
+    return RedirectToAction("Index", "Student");
 }
 ```
 
@@ -158,13 +138,75 @@ public IActionResult Create(Student student)
 {
     if (ModelState.IsValid)
     {
-        return View(student);
+        studentRepository.Create(student);
+        return RedirectToAction("Index", "Student");
     }
     return View();
 }
 ```
 
-We kijken dus eerst of de state
+### Validatie foutmeldingen tonen
+
+We weten nu al hoe we validatie foutmeldingen moeten maken, maar nog niet hoe we die aan de gebruiker moeten tonen. Dat gebeurt op een andere plaats in de MVC architectuur, namelijk in de view. We gaan dus naar de `Create.cshtml` view.
+
+Als we ons niet te veel van de layout aantrekken en we gewoon een lijstje willen laten zien kunnen we gebruik maken van `@Html.ValidationSummary()` wat een overzicht van alle validatie fouten laat zien in html.
+
+![](../.gitbook/assets/Validation1.png)
+
+Dan wordt `Create.cshtml` gewoon 
+
+```html
+@model Student
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Students - Create";
+}
+@Html.ValidationSummary()
+<form method="post" asp-controller="Student" asp-action="Create">
+    ...
+</form>
+``` 
+
+Wat we eigenlijk willen doen is een error laten zien bij het juiste input veld. We zullen verder zien hoe we dit doen.
+
+## TempData
+
+We hebben in de `Create` action van de `StudentController` gebruik gemaakt van `RedirectToAction` om na het toevoegen terug naar de lijst van studenten te gaan. We zouden graag ook nog een message willen meegeven aan deze view als het toevoegen gelukt is. Je zou denken dat dit een goede use case is voor het gebruik van een `ViewBag` maar als je dit zou proberen zal dit niet werken. Hiervoor bestaat het `TempData` object. Dit object blijft bestaan tussen een redirect dus is hier ideaal voor.
+
+We passen de `Create` action aan zodat er in TempData een message wordt gestoken als het toevoegen gelukt is.
+
+```csharp
+[HttpPost]
+public IActionResult Create(Student student)
+{
+    if (ModelState.IsValid)
+    {
+        studentRepository.Create(student);
+        TempData["Message"] = $"{student.FirstName} {student.LastName} was added succesfully";
+        return RedirectToAction("Index", "Student");
+    }
+    return View();
+}
+```
+
+Nu is het enige wat we nog moeten doen is het aanpassen van de `Index.cshtml` view zodat het dit bericht laat zien als het meegegeven wordt.
+
+```html
+@model IEnumerable<Student>
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Students";
+}
+@if (TempData["Message"] != null) {
+<div class="alert alert-success" role="alert">
+    @TempData["Message"]
+</div>
+...
+}
+```
+
+![](../.gitbook/assets/TempData1.png)
+
 
 ## Tag helpers
 
@@ -201,3 +243,4 @@ Zo zal in onze `Create.cshtml` het formulier er al veel overzichtelijker worden:
 ...
 ```
 
+Label Tag helper en error tag helper!!!
