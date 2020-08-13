@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace EersteProjectWebFrameworks.Models
 {
-    interface IStudentRepository
+    public interface IStudentRepository
     {
         IQueryable<Student> Students { get; }
     }
@@ -88,3 +88,51 @@ In het voorbeeld van de `StudentController` is er een sterke afhankelijkheid ont
 
 Dependency injection in de klasse, die ze nodig heeft, is een goede manier om onze klassen te ontkoppelen. Alhoewel elke klasse zelf een nieuw object kan instanciëren en toegang heeft tot de methoden en eigenschappen ervan, is daarom niet zo dat die klasse daar thuis hoort. Het injecteren van een klassenafhankelijkheid is een goede manier om de single responsability patroon toe te passen. Dit patroon bevordert een goed objectgericht ontwerp. Dit principe houdt in dat elke klasse verantwoordelijkheid is voor een specifiek deel van de functionaliteit die door de applicatie wordt geleverd, en dat die verantwoordelijkheid volledig door de klasse moet worden ingekapseld.
 
+## Inversion of control
+
+Inversion of Control is een principe in software engineering waar de controle van objecten worden uitbesteed aan een framework (in ons geval het framework van ASP.NET Core MVC). De `StudentController` is niet meer verantwoordelijk voor het aanmaken van de `StudentInMemoryRepository` klasse, maar we vertrouwen er op dat het framework dit wel zal doen voor ons.
+
+We passen dus de `StudentController` aan zodat de `IStudentRepository` via de constructor binnenkomt. We trekken ons dus niets aan van waar die komt, of wat de implementatie is.
+
+```csharp
+namespace EersteProjectWebFrameworks.Controllers
+{
+    public class StudentController : Controller
+    {
+        private IStudentRepository studentRepository;
+
+        public StudentController(IStudentRepository studentRepository)
+        {
+            this.studentRepository = studentRepository;
+        }
+
+        public IActionResult Index()
+        {
+            return View(studentRepository.Students);
+        }
+    }
+}
+```
+
+Als we de applicatie opstarten en naar de Students gaan zien dan krijgen we deze 'cryptische' error message:
+
+![De html pagina die de woorden Hello World laat zien aan de gebruiker](../.gitbook/assets/DI1.png)
+
+Maar eigenlijk is deze niet zo cryptisch. Hij zegt dat we geen service kunnen vinden voor het type `IStudentRepository`. Dat klopt, we hebben ook nergens aangegeven wat voor repository het framework voor ons moet aanmaken, dus hij kan dit natuurlijk niet doen op dit moment.
+
+Dit doen we in de `ConfigureServices` methode in de `Startup.cs` klasse.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllersWithViews();
+
+    services.AddSingleton<IStudentRepository, StudentInMemoryRepository>();
+}
+```
+
+Hier geven we aan dat we een service registreren als een Singleton (een klasse die 1 keer geinstantieerd wordt voor de gehele levensduur van de applicatie). `IStudentRepository` is het soort interface dat je aanbiedt en `StudentInMemoryRepository` is de implementatie die het framework zal aanbieden. Dus elke keer als een `Controller` bijvoorbeeld een studenten repository wil, dan zal hij deze krijgen. Nu wordt het ook gemakkelijker om een ander soort `Repository` aan te bieden als we deze op termijn gaan vervangen met een echte database.
+
+Nu zal het voorbeeld terug werken. Maar nu is de koppeling tussen de `StudentController` en de `StudentInMemoryRepository` volledig weg gewerkt.
+
+ 
