@@ -148,6 +148,23 @@ Zo kan bijvoorbeeld het `Range` attribuut wel interessant zijn voor het jaartal 
 public int EnrollmentYear { get; set; }
 ```
 
+### ModelState
+Wanneer het ASP.NET MVC Framework de actiemethode van een controller uitvoert kan je ook de gegevens die worden doorgegeven aan die controller actiemethode validereren. Foutmeldingen worden opgeslagen in een ModelState object. Controller acties kunnen de ModelState opvragen om na te gaan of de request geldig is en die overeenkomstig te reageren. Als een veld niet correct is ingevuld kan je de gebruiker laten terugkeren naar de pagina met invulformulier om de validatie fouten te corrigeren en een nieuwe request in te dienen.
+
+```csharp
+[HttpPost]
+public IActionResult Create(Student student)
+{
+    if (ModelState.IsValid)
+    {
+        return View(student);
+    }
+    return View();
+}
+```
+
+We kijken dus eerst of de state 
+
 
 
 ## Tag helpers
