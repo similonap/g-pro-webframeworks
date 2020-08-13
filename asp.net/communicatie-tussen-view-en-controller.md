@@ -187,7 +187,7 @@ namespace EersteProjectWebFrameworks.Controllers
         {
             List<Student> students = new List<Student>();
             students.Add(new Student(0, "Andie", "Similon", 2020));
-            students.Add(new Student(0, "Jon", "Beton", 2020));
+            students.Add(new Student(1, "Jon", "Beton", 2020));
 
             return View(students);
         }

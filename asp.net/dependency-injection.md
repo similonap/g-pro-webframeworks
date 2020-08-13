@@ -37,7 +37,7 @@ namespace EersteProjectWebFrameworks.Models
         public StudentInMemoryRepository()
         {
             students.Add(new Student(0, "Andie", "Similon", 2020));
-            students.Add(new Student(0, "Jon", "Beton", 2020));
+            students.Add(new Student(1, "Jon", "Beton", 2020));
         }
 
         public IEnumerable<Student> Students
@@ -135,4 +135,19 @@ Hier geven we aan dat we een service registreren als een Singleton (een klasse d
 
 Nu zal het voorbeeld terug werken. Maar nu is de koppeling tussen de `StudentController` en de `StudentInMemoryRepository` volledig weg gewerkt.
 
+## Oefeningen
+
+Voeg een `Create` methode toe aan de `IStudentRepository` waarmee je nieuwe `Student` objecten kan opslaan. Zorg ervoor dat deze automatisch een Id krijgt toegewezen die 1 hoger is als de vorige. De signature van deze methode is
+
+```csharp
+public void Create(Student student);
+```
+
+Voeg een `Get` methode toe met als argument id die het element opvraagt met de meegegeven `Id`. De signature van deze methode is.
+
+```csharp
+public Student Get(int id);
+```
+
+We gaan deze methoden in een later hoofdstuk nodig hebben.
  
