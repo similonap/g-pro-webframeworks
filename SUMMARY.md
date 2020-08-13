@@ -17,6 +17,7 @@
 * [Gedeelde layout](asp.net/shared-layout.md)
 * [Tag Helpers](asp.net/tag-helpers.md)
 * [Gegevens doorgeven](asp.net/communicatie-tussen-view-en-controller.md)
+* [Dependency Injection](asp.net/dependency-injection.md)
 * [Formulieren](asp.net/formulieren.md)
 
 ## Architectuur

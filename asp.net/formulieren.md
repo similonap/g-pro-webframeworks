@@ -4,7 +4,7 @@ In dit deel gaan we leren hoe we een formulier aanmaken in html code en vervolge
 
 ## Formulier via argumenten
 
-We gaan verder gaan met de `StudentController` die we in vorig deeltje hebben aangemaakt. Hier maken we een nieuwe actie `Create` aan om een nieuwe student aan te maken. 
+We gaan verder gaan met de `StudentController` die we in vorig deeltje hebben aangemaakt. Hier maken we een nieuwe actie `Create` aan om een nieuwe student aan te maken.
 
 ```csharp
 public IActionResult Create()
@@ -15,7 +15,7 @@ public IActionResult Create()
 
 Momenteel doet deze actie nog niet veel. We moeten ook nog een view aanmaken hiervoor. We maken dus een nieuw bestand `Create.cshthml` met de inhoud:
 
-```html
+```markup
 @{
     Layout = "_Layout";
     ViewBag.Title = "Students - Create";
@@ -37,11 +37,11 @@ Momenteel doet deze actie nog niet veel. We moeten ook nog een view aanmaken hie
 </form>
 ```
 
-We willen het formulier via een `post` methode versturen. Dit is gangbaar bij formulieren. Het alternatief is via een `get` methode maar dan komen alle doorgestuurde variabelen in de url te staan en dit is niet wenselijk. 
+We willen het formulier via een `post` methode versturen. Dit is gangbaar bij formulieren. Het alternatief is via een `get` methode maar dan komen alle doorgestuurde variabelen in de url te staan en dit is niet wenselijk.
 
 Je merkt hierboven dat we gebruik maken van de taghelpers `asp-controller` en `asp-action` om de juiste action te gebruiken voor het formulier. Zo zal het formulier worden doorgestuurd naar de `Create` action van de `StudentController`.
 
-De rest van het formulier is standaard html en gebruik gemaakt van bootstrap om te stijlen. Meer informatie kan je vinden op https://getbootstrap.com/docs/4.0/components/forms/
+De rest van het formulier is standaard html en gebruik gemaakt van bootstrap om te stijlen. Meer informatie kan je vinden op [https://getbootstrap.com/docs/4.0/components/forms/](https://getbootstrap.com/docs/4.0/components/forms/)
 
 ![](../.gitbook/assets/StudentsCreate1.png)
 
@@ -59,15 +59,16 @@ public IActionResult Create([FromForm] string firstName, [FromForm] string lastN
 ```
 
 We overlopen even de nieuwe dingen hier:
-- `[HttpPost]` is een `Attribute` die aangeeft dat deze action enkel moet gebruikt worden bij een POST vanuit een formulier. Zo heb je voor alle http methoden (GET, POST, DELETE,...) een eigen variant.
-- Als argumenten van de methode `Create` gebruiken we de argumenten die we doorsturen vanuit het formulier. De namen moeten overeenkomen met de `name` uit het formulier in html. Dit kan je niet wijzigen, zorg er dus altijd voor dat deze overeenkomen.
-- We maken hier een instantie van Student aan met de waarden die zijn doorgegeven. We geven deze tijdelijk een `Id` 0 omdat deze nog niet nodig is in deze context.
-- We geven deze mee aan de `View` zodat de toegevoegde Student kan worden weergegeven.
-- Eigenlijk doen we nog altijd niets met het student dus deze wordt hier nog nergens opgeslagen.
+
+* `[HttpPost]` is een `Attribute` die aangeeft dat deze action enkel moet gebruikt worden bij een POST vanuit een formulier. Zo heb je voor alle http methoden \(GET, POST, DELETE,...\) een eigen variant.
+* Als argumenten van de methode `Create` gebruiken we de argumenten die we doorsturen vanuit het formulier. De namen moeten overeenkomen met de `name` uit het formulier in html. Dit kan je niet wijzigen, zorg er dus altijd voor dat deze overeenkomen.
+* We maken hier een instantie van Student aan met de waarden die zijn doorgegeven. We geven deze tijdelijk een `Id` 0 omdat deze nog niet nodig is in deze context.
+* We geven deze mee aan de `View` zodat de toegevoegde Student kan worden weergegeven.
+* Eigenlijk doen we nog altijd niets met het student dus deze wordt hier nog nergens opgeslagen.
 
 Om nu aan te geven dat het gelukt is doen we nog een kleine aanpassing aan het `Create.cshtml` bestand
 
-```html
+```markup
 @model Student
 @{
     Layout = "_Layout";
@@ -82,8 +83,8 @@ Om nu aan te geven dat het gelukt is doen we nog een kleine aanpassing aan het `
 ...Rest van het formulier blijft hetzelfde....
 ```
 
-- We geven aan dat het model waar deze view mee geassocieerd is de `Student` klasse is zodat we deze kunnen meegeven vanuit de `StudentController`. 
-- We kijken hier of het `Model` niet gelijk is aan null, dit betekend dus dat het object bestaat en dus is doorgegeven. Als dit het geval is tonen we een melding dat de gebruiker is toegevoegd. Let op de @ notatie bij de if en het gebruik van het Model. 
+* We geven aan dat het model waar deze view mee geassocieerd is de `Student` klasse is zodat we deze kunnen meegeven vanuit de `StudentController`. 
+* We kijken hier of het `Model` niet gelijk is aan null, dit betekend dus dat het object bestaat en dus is doorgegeven. Als dit het geval is tonen we een melding dat de gebruiker is toegevoegd. Let op de @ notatie bij de if en het gebruik van het Model. 
 
 ![](../.gitbook/assets/StudentsCreate2.png)
 
@@ -101,16 +102,16 @@ public IActionResult Create(Student student)
 
 We gebruiken hier gewoon de `Student` klasse als argument van de methode en de omzetting van de form body wordt automatisch voor jou gedaan. Er zijn hier een paar kleine dingen waar je moet op letten:
 
-- Zorg voor een empty constructor voor de klasse waar je wil gebruiken voor het binden. 
+* Zorg voor een empty constructor voor de klasse waar je wil gebruiken voor het binden.
 
-    ```csharp
+  ```csharp
     public Student()
     {
 
     }
-    ```
+  ```
 
-- Zorg ervoor dat de properties van de klasse overeenkomen met de name attributen van het form element.
+* Zorg ervoor dat de properties van de klasse overeenkomen met de name attributen van het form element.
 
 Als je nu terug naar de web applicatie gaat zal je zien dat het gedrag ongewijzigd blijft.
 
@@ -118,12 +119,11 @@ Als je nu terug naar de web applicatie gaat zal je zien dat het gedrag ongewijzi
 
 Zoals je misschien wel al opgemerkt hebt kan je in ons formulier invullen wat je wil. Laat je velden leeg, dan zal er ook een `Student` aangemaakt worden. Dit willen we uiteraard niet.
 
-Microsoft heeft een zeer effectieve en gemakkelijk te gebruiken gegevensvalidering API ontwikkeld in de kern .NET Framework met de naam Data Annotations. Zoals de naam
-impliceert, biedt de met de naam Data Annotations API een set .NET attributen die ontwikkelaars kunnen toegepassen op klasse-eigenschappen van data-objecten. Deze eigenschappen bieden een declaratieve manier om validatieregels rechtstreeks op een model toe te passen.
+Microsoft heeft een zeer effectieve en gemakkelijk te gebruiken gegevensvalidering API ontwikkeld in de kern .NET Framework met de naam Data Annotations. Zoals de naam impliceert, biedt de met de naam Data Annotations API een set .NET attributen die ontwikkelaars kunnen toegepassen op klasse-eigenschappen van data-objecten. Deze eigenschappen bieden een declaratieve manier om validatieregels rechtstreeks op een model toe te passen.
 
 ### Verplichte velden
 
-Alle velden in onze `Student` klasse zijn verplicht (buiten de `Id` momenteel). Om dit aan te geven gebruiken we het `[Required]` attribuut. We geven dit dus ook aan in de `Student` klasse.
+Alle velden in onze `Student` klasse zijn verplicht \(buiten de `Id` momenteel\). Om dit aan te geven gebruiken we het `[Required]` attribuut. We geven dit dus ook aan in de `Student` klasse.
 
 ```csharp
 [Required]
@@ -149,6 +149,7 @@ public int EnrollmentYear { get; set; }
 ```
 
 ### ModelState
+
 Wanneer het ASP.NET MVC Framework de actiemethode van een controller uitvoert kan je ook de gegevens die worden doorgegeven aan die controller actiemethode validereren. Foutmeldingen worden opgeslagen in een ModelState object. Controller acties kunnen de ModelState opvragen om na te gaan of de request geldig is en die overeenkomstig te reageren. Als een veld niet correct is ingevuld kan je de gebruiker laten terugkeren naar de pagina met invulformulier om de validatie fouten te corrigeren en een nieuwe request in te dienen.
 
 ```csharp
@@ -163,27 +164,27 @@ public IActionResult Create(Student student)
 }
 ```
 
-We kijken dus eerst of de state 
-
-
+We kijken dus eerst of de state
 
 ## Tag helpers
 
-Je zult hopelijk al opgemerkt hebben dat het vrij veel werk is om de `name` en `id` attributen opgelijnd te houden met het model. Als er iets veranderd in het model dan moeten deze in het formulier ook aangepast worden. Hiervoor zijn er een aantal handige tag helpers. 
+Je zult hopelijk al opgemerkt hebben dat het vrij veel werk is om de `name` en `id` attributen opgelijnd te houden met het model. Als er iets veranderd in het model dan moeten deze in het formulier ook aangepast worden. Hiervoor zijn er een aantal handige tag helpers.
 
 ### Input tag helper
+
 De Input Tag Helper bindt een HTML `<input>` element aan property van het model.
 
 Syntax:
-```html
+
+```markup
 <input asp-for="<Expression Name>">
 ```
 
-Deze genereert de `id` en `name` attributen voor het input veld. Het vult ook dynamisch het `type` attribuut in van het input veld gebaseerd op het type in het model. 
+Deze genereert de `id` en `name` attributen voor het input veld. Het vult ook dynamisch het `type` attribuut in van het input veld gebaseerd op het type in het model.
 
 Zo zal in onze `Create.cshtml` het formulier er al veel overzichtelijker worden:
 
-```html
+```markup
 ...
 <div class="form-group">
     <label for="FirstName">FirstName</label>
