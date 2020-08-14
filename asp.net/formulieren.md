@@ -23,15 +23,15 @@ Momenteel doet deze actie nog niet veel. We moeten ook nog een view aanmaken hie
 <form method="post" asp-controller="Student" asp-action="Create">
     <div class="form-group">
         <label for="FirstName">FirstName</label>
-        <input type="text" class="form-control" id="firstName" name="FirstName">
+        <input class="form-control" id="firstName" name="FirstName">
     </div>
     <div class="form-group">
-        <label for="topic">LastName</label>
-        <input type="text" class="form-control" id="lastName" name="LastName">
+        <label for="LastName">LastName</label>
+        <input class="form-control" id="lastName" name="LastName">
     </div>
     <div class="form-group">
-        <label for="body">Year</label>
-        <input type="number" class="form-control" id="enrollmentYear" name="EnrollmentYear">
+        <label for="EnrollmentYear">Year</label>
+        <input class="form-control" id="enrollmentYear" name="EnrollmentYear">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
@@ -145,6 +145,30 @@ public IActionResult Create(Student student)
 }
 ```
 
+### Toevoegen van fout boodschappen
+
+Je kan ook zelf foutboodschappen toevoegen aan je `ModelState` zodat je meer speciale cases kan afhandelen in je controller code. Als we bijvoorbeeld niet willen dat er studenten worden toegevoegd worden met de naam 'Donald' dan kunnen we aan de hand van `ModelState.AddModelError` er een error toevoegen. 
+
+```csharp
+ [HttpPost]
+public IActionResult Create(Student student)
+{
+    if ("Donald".Equals(student.FirstName)) {
+        ModelState.AddModelError(nameof(Student.FirstName), "Your first name cannot be Donald!");
+    }
+
+    if (ModelState.IsValid)
+    {
+        studentRepository.Create(student);
+        TempData["Message"] = $"{student.FirstName} {student.LastName} was added succesfully";
+        return RedirectToAction("Index", "Student");
+    }
+    return View();
+}
+```
+
+Merk op dat we hier `nameof(Student.FirstName)` gebruiken in plaats van gewoon de string "FirstName". We doen dit zodat als we de property zouden veranderen dat de compiler hier over zal klagen. 
+
 ### Validatie foutmeldingen tonen
 
 We weten nu al hoe we validatie foutmeldingen moeten maken, maar nog niet hoe we die aan de gebruiker moeten tonen. Dat gebeurt op een andere plaats in de MVC architectuur, namelijk in de view. We gaan dus naar de `Create.cshtml` view.
@@ -230,17 +254,86 @@ Zo zal in onze `Create.cshtml` het formulier er al veel overzichtelijker worden:
 ...
 <div class="form-group">
     <label for="FirstName">FirstName</label>
-    <input type="text" class="form-control" asp-for="FirstName">
+    <input class="form-control" asp-for="FirstName">
 </div>
 <div class="form-group">
-    <label for="topic">LastName</label>
-    <input type="text" class="form-control" asp-for="LastName">
+    <label for="LastName">LastName</label>
+    <input class="form-control" asp-for="LastName">
 </div>
 <div class="form-group">
-    <label for="body">Year</label>
-    <input type="number" class="form-control" asp-for="EnrollmentYear">
+    <label for="EnrollmentYear">Year</label>
+    <input class="form-control" asp-for="EnrollmentYear">
 </div>
 ...
 ```
 
-Label Tag helper en error tag helper!!!
+### Label tag helper
+
+Momenteel maken we nog altijd gewoon gebruik van de html label tag en vullen we deze nog zelf in.
+
+```html
+<label for="<label for="LastName">LastName</label>
+```
+
+Dankzij de label tag helpers kunnen we dit ook nog sterk vereenvoudigen. Als we nu dit vervangen met
+
+```html
+<label asp-for="LastName"></label>
+```
+
+zal er automatisch een label tekst worden gegeven met de naam van de property. Als we toch andere labels willen zien dan moeten we dit in het model aanduiden met `[Display(Name = "Andere label")]` 
+
+Als we dit dan op alle velden toepassen komen we op
+
+```html
+@model Student
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Students - Create";
+}
+<form method="post" asp-controller="Student" asp-action="Create">
+    <div class="form-group">
+        <label asp-for="FirstName"></label>
+        <input class="form-control" asp-for="FirstName">
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName"></label>
+        <input class="form-control" asp-for="LastName">
+    </div>
+    <div class="form-group">
+        <label asp-for="EnrollmentYear"></label>
+        <input class="form-control" asp-for="EnrollmentYear">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
+
+en in de `Student` klasse
+
+```csharp
+using System.ComponentModel.DataAnnotations;
+
+namespace EersteProjectWebFrameworks.Models
+{
+    public class Student
+    {
+        public int Id { get; set; }
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+        [Required]
+        [Range(2010, 2021)]
+        [Display(Name = "Enrollment Year")]
+        public int EnrollmentYear { get; set; }
+        ...
+    }
+}
+```
+
+![De labels worden nu automatisch ingevuld](../.gitbook/assets/LabelTag1.png)
+
+
+### Validation tag helper
