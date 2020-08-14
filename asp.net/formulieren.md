@@ -4,7 +4,13 @@ In dit deel gaan we leren hoe we een formulier aanmaken in html code en vervolge
 
 ## Formulier via argumenten
 
-We gaan verder gaan met de `StudentController` die we in vorig deeltje hebben aangemaakt. Hier maken we een nieuwe actie `Create` aan om een nieuwe student aan te maken.
+Voor we beginnen gaan we een link aanmaken op de `Index` view van de `StudentController` die naar de `Create` actie verwijst (deze bestaat nog niet). We voegen dus 
+
+```csharp
+<a asp-controller="Student" asp-action="Create">Add student</a>
+```
+
+toe en dan gaan we verder met de `StudentController` die we in vorig deeltje hebben aangemaakt. Hier maken we een nieuwe actie `Create` aan om een nieuwe student aan te maken.
 
 ```csharp
 public IActionResult Create()
@@ -283,57 +289,34 @@ Dankzij de label tag helpers kunnen we dit ook nog sterk vereenvoudigen. Als we 
 
 zal er automatisch een label tekst worden gegeven met de naam van de property. Als we toch andere labels willen zien dan moeten we dit in het model aanduiden met `[Display(Name = "Andere label")]` 
 
-Als we dit dan op alle velden toepassen komen we op
+### Validation tag helper
+
+Hiervoor hebben we de foutbootschappen gewoon bovenaan laten zien na het valideren van het model. Maar wat we echt willen is dat de foutboodschap bij het input veld in kwestie komt staan. Hiervoor hebben we de validation tag helper. 
 
 ```html
-@model Student
-@{
-    Layout = "_Layout";
-    ViewBag.Title = "Students - Create";
-}
-<form method="post" asp-controller="Student" asp-action="Create">
-    <div class="form-group">
-        <label asp-for="FirstName"></label>
-        <input class="form-control" asp-for="FirstName">
-    </div>
-    <div class="form-group">
-        <label asp-for="LastName"></label>
-        <input class="form-control" asp-for="LastName">
-    </div>
-    <div class="form-group">
-        <label asp-for="EnrollmentYear"></label>
-        <input class="form-control" asp-for="EnrollmentYear">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<span asp-validation-for="FirstName"></span>
 ```
 
-en in de `Student` klasse
+Als er dan iemand het formulier doorstuurt en `FirstName` is niet ingevuld dan wordt dit vervangen met de volgende html code
 
-```csharp
-using System.ComponentModel.DataAnnotations;
-
-namespace EersteProjectWebFrameworks.Models
-{
-    public class Student
-    {
-        public int Id { get; set; }
-        [Required]
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
-        [Required]
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
-        [Required]
-        [Range(2010, 2021)]
-        [Display(Name = "Enrollment Year")]
-        public int EnrollmentYear { get; set; }
-        ...
-    }
-}
+```html
+<span class="field-validation-error" 
+         data-valmsg-replace="true" 
+         data-valmsg-for="Email"> 
+   The FirstName field is required.</span>
 ```
 
-![De labels worden nu automatisch ingevuld](../.gitbook/assets/LabelTag1.png)
+## Oefeningen 
 
+Zorg ervoor dat het formulier overeenkomt met de onderstaande screenshots. De labels moeten komen uit het model.
 
-### Validation tag helper
+![](../.gitbook/assets/LabelTag1.png)
+
+Zorg ervoor dat voor elk veld een error message wordt getoond.
+
+![](../.gitbook/assets/ErrorMessages1.png)
+
+Zorg voor een nieuwe property `Email` in het `Student` model. Pas alles aan zodat je nu ook een email adres moet ingeven. 
+
+![](../.gitbook/assets/ExtraEmailFIeld1.png)
+![](../.gitbook/assets/ExtraEmailFIeld2.png)
