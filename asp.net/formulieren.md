@@ -4,7 +4,7 @@ In dit deel gaan we leren hoe we een formulier aanmaken in html code en vervolge
 
 ## Formulier via argumenten
 
-Voor we beginnen gaan we een link aanmaken op de `Index` view van de `StudentController` die naar de `Create` actie verwijst (deze bestaat nog niet). We voegen dus 
+Voor we beginnen gaan we een link aanmaken op de `Index` view van de `StudentController` die naar de `Create` actie verwijst \(deze bestaat nog niet\). We voegen dus
 
 ```csharp
 <a asp-controller="Student" asp-action="Create">Add student</a>
@@ -153,7 +153,7 @@ public IActionResult Create(Student student)
 
 ### Toevoegen van fout boodschappen
 
-Je kan ook zelf foutboodschappen toevoegen aan je `ModelState` zodat je meer speciale cases kan afhandelen in je controller code. Als we bijvoorbeeld niet willen dat er studenten worden toegevoegd worden met de naam 'Donald' dan kunnen we aan de hand van `ModelState.AddModelError` er een error toevoegen. 
+Je kan ook zelf foutboodschappen toevoegen aan je `ModelState` zodat je meer speciale cases kan afhandelen in je controller code. Als we bijvoorbeeld niet willen dat er studenten worden toegevoegd worden met de naam 'Donald' dan kunnen we aan de hand van `ModelState.AddModelError` er een error toevoegen.
 
 ```csharp
  [HttpPost]
@@ -173,7 +173,7 @@ public IActionResult Create(Student student)
 }
 ```
 
-Merk op dat we hier `nameof(Student.FirstName)` gebruiken in plaats van gewoon de string "FirstName". We doen dit zodat als we de property zouden veranderen dat de compiler hier over zal klagen. 
+Merk op dat we hier `nameof(Student.FirstName)` gebruiken in plaats van gewoon de string "FirstName". We doen dit zodat als we de property zouden veranderen dat de compiler hier over zal klagen.
 
 ### Validatie foutmeldingen tonen
 
@@ -183,9 +183,9 @@ Als we ons niet te veel van de layout aantrekken en we gewoon een lijstje willen
 
 ![](../.gitbook/assets/Validation1.png)
 
-Dan wordt `Create.cshtml` gewoon 
+Dan wordt `Create.cshtml` gewoon
 
-```html
+```markup
 @model Student
 @{
     Layout = "_Layout";
@@ -195,7 +195,7 @@ Dan wordt `Create.cshtml` gewoon
 <form method="post" asp-controller="Student" asp-action="Create">
     ...
 </form>
-``` 
+```
 
 Wat we eigenlijk willen doen is een error laten zien bij het juiste input veld. We zullen verder zien hoe we dit doen.
 
@@ -221,7 +221,7 @@ public IActionResult Create(Student student)
 
 Nu is het enige wat we nog moeten doen is het aanpassen van de `Index.cshtml` view zodat het dit bericht laat zien als het meegegeven wordt.
 
-```html
+```markup
 @model IEnumerable<Student>
 @{
     Layout = "_Layout";
@@ -236,7 +236,6 @@ Nu is het enige wat we nog moeten doen is het aanpassen van de `Index.cshtml` vi
 ```
 
 ![](../.gitbook/assets/TempData1.png)
-
 
 ## Tag helpers
 
@@ -277,36 +276,36 @@ Zo zal in onze `Create.cshtml` het formulier er al veel overzichtelijker worden:
 
 Momenteel maken we nog altijd gewoon gebruik van de html label tag en vullen we deze nog zelf in.
 
-```html
+```markup
 <label for="<label for="LastName">LastName</label>
 ```
 
 Dankzij de label tag helpers kunnen we dit ook nog sterk vereenvoudigen. Als we nu dit vervangen met
 
-```html
+```markup
 <label asp-for="LastName"></label>
 ```
 
-zal er automatisch een label tekst worden gegeven met de naam van de property. Als we toch andere labels willen zien dan moeten we dit in het model aanduiden met `[Display(Name = "Andere label")]` 
+zal er automatisch een label tekst worden gegeven met de naam van de property. Als we toch andere labels willen zien dan moeten we dit in het model aanduiden met `[Display(Name = "Andere label")]`
 
 ### Validation tag helper
 
-Hiervoor hebben we de foutbootschappen gewoon bovenaan laten zien na het valideren van het model. Maar wat we echt willen is dat de foutboodschap bij het input veld in kwestie komt staan. Hiervoor hebben we de validation tag helper. 
+Hiervoor hebben we de foutbootschappen gewoon bovenaan laten zien na het valideren van het model. Maar wat we echt willen is dat de foutboodschap bij het input veld in kwestie komt staan. Hiervoor hebben we de validation tag helper.
 
-```html
+```markup
 <span asp-validation-for="FirstName"></span>
 ```
 
 Als er dan iemand het formulier doorstuurt en `FirstName` is niet ingevuld dan wordt dit vervangen met de volgende html code
 
-```html
+```markup
 <span class="field-validation-error" 
          data-valmsg-replace="true" 
          data-valmsg-for="Email"> 
    The FirstName field is required.</span>
 ```
 
-## Oefeningen 
+## Oefeningen
 
 Zorg ervoor dat het formulier overeenkomt met de onderstaande screenshots. De labels moeten komen uit het model.
 
@@ -316,7 +315,7 @@ Zorg ervoor dat voor elk veld een error message wordt getoond.
 
 ![](../.gitbook/assets/ErrorMessages1.png)
 
-Zorg voor een nieuwe property `Email` in het `Student` model. Pas alles aan zodat je nu ook een email adres moet ingeven. 
+Zorg voor een nieuwe property `Email` in het `Student` model. Pas alles aan zodat je nu ook een email adres moet ingeven.
 
-![](../.gitbook/assets/ExtraEmailFIeld1.png)
-![](../.gitbook/assets/ExtraEmailFIeld2.png)
+![](https://github.com/similonap/g-pro-webframeworks/tree/68ccc05b565fea247dd6aecc7d351478cdb145f5/.gitbook/assets/ExtraEmailFIeld1.png) ![](https://github.com/similonap/g-pro-webframeworks/tree/68ccc05b565fea247dd6aecc7d351478cdb145f5/.gitbook/assets/ExtraEmailFIeld2.png)
+

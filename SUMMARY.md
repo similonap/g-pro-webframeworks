@@ -19,6 +19,7 @@
 * [Gegevens doorgeven](asp.net/communicatie-tussen-view-en-controller.md)
 * [Dependency Injection](asp.net/dependency-injection.md)
 * [Formulieren](asp.net/formulieren.md)
+* [Routering](asp.net/routing.md)
 
 ## Architectuur
 
