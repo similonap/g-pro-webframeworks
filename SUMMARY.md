@@ -20,6 +20,7 @@
 * [Dependency Injection](asp.net/dependency-injection.md)
 * [Formulieren](asp.net/formulieren.md)
 * [Routering](asp.net/routing.md)
+* [Entity Framework](asp.net/entity-framework.md)
 
 ## Architectuur
 
