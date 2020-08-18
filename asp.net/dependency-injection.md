@@ -18,7 +18,7 @@ namespace EersteProjectWebFrameworks.Models
 {
     public interface IStudentRepository
     {
-        IQueryable<Student> Students { get; }
+        IQueryable<Student> GetAll();
     }
 }
 ```
@@ -40,18 +40,15 @@ namespace EersteProjectWebFrameworks.Models
             students.Add(new Student(1, "Jon", "Beton", 2020));
         }
 
-        public IEnumerable<Student> Students
+        public IEnumerable<Student> GetAll() {
         {
-            get
-            {
-                return students;
-            }
+            return students;
         }
     }
 }
 ```
 
-We hebben hier een lijst met studenten en in de constructor vullen we de lijst op met een aantal default waarden. We implementeren de interface door de `Students` property in te vullen. We geven hier gewoon de lijst van studenten terug.
+We hebben hier een lijst met studenten en in de constructor vullen we de lijst op met een aantal default waarden. We implementeren de interface door de `GetAll` methode in te vullen. We geven hier gewoon de lijst van studenten terug.
 
 We passen de `StudentsController` een beetje aan zodat we nu deze klasse gebruiken in plaats van elke keer de `List` aan te maken.
 
@@ -68,7 +65,7 @@ namespace EersteProjectWebFrameworks.Controllers
 
         public IActionResult Index()
         {
-            return View(studentRepository.Students);
+            return View(studentRepository.GetAll());
         }
     }
 }
@@ -108,7 +105,7 @@ namespace EersteProjectWebFrameworks.Controllers
 
         public IActionResult Index()
         {
-            return View(studentRepository.Students);
+            return View(studentRepository.GetAll());
         }
     }
 }
