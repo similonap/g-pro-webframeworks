@@ -18,7 +18,7 @@ Queries, of meer specifiek **query operatoren**, zijn van toepassing op een reek
 
 Een belangrijk ding om op te merken bij het gebruik van query's is dat ze de input reeks niet veranderen. In plaats van de input reeks te veranderen stuurt de query operator een nieuwe reeks \(of een enkele waarde\) terug.
 
-
+### Scalaire returnwaarden en outputreeksen
 
 
 
