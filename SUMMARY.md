@@ -6,7 +6,7 @@
 
 * [Inleiding](bootstrap/inleiding.md)
 
-## C\# Basics
+## C\# Concepts <a id="c-basics"></a>
 
 * [LINQ](c-basics/untitled.md)
 
