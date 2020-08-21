@@ -8,7 +8,7 @@
 
 ## C\# Basics
 
-* [Untitled](c-basics/untitled.md)
+* [LINQ](c-basics/untitled.md)
 
 ## ASP.NET Core MVC <a id="asp.net"></a>
 
