@@ -97,5 +97,17 @@ De waarde 100 is hier niet meer aanwezig, omdat de inputreeks werd gewijzigd nad
 
 ![](../.gitbook/assets/image%20%2822%29.png)
 
+### Lambda expressies in query operatoren
 
+Sommige query's laten accepteren anonieme functies als argument waarmee je aangepaste logica aan de query kan doorgeven. Deze aangepaste logica kan je aan de query doorgeven door middel van een lambda-expressie.
+
+De `leeftijden.Where (x => x > 11)` code in het voorgaande codevoorbeeld is een voorbeeld van een query operator waaraan een anonieme functie wordt doorgegeven. De lambda-expressie `x => x > 11` zorgt ervoor dat alleen de elementen \(integers in dit geval\) die groter zijn dan 11 gertourneerd worden.
+
+Wanneer een queryoperator een lambda-expressie als argument meekrijgt, wordt de logica van de lambda-expressie op elk element van de invoer-sequentie toegepast.
+
+Het type lambda expressie, die wordt ingevoerd in een queryoperator, is afhankelijk van de taak die de queryoperator uitvoert. In de volgende figuur zien we de handtekening van de Where-query operator. Het inputelement int wordt voorzien en een `bool` moet worden teruggestuurd die bepaalt of het element wordt opgenomen in de uitvoer-sequentie.
+
+![Visual Studio toont de signatuur van de Where operator](https://modernways.be/myap/it/image/programming/microsoft.net/linq/Visual%20Studio%20toont%20de%20signatuur%20van%20de%20Where%20operator.png)
+
+Visual Studio toont de signatuur van de Where operator
 
