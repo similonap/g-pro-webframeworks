@@ -41,6 +41,8 @@ foreach (int leeftijd in leeftijden)
 In de bovenstaande code wordt er van de reeks getallen de `Count` query operator gebruikt. Deze geeft maar 1 waarde terug omdat het gewoon het aantal elementen van de reeks terug geeft. Dit is dus een scalaire return waarde.  
 Er wordt hier ook gebruik gemaakt van de `Distinct` query operator. Die geeft een nieuwe reeks terug die hetzelfde is als de vorige reeks maar waar de dubbele elementen zijn uitgehaald.
 
+![](../.gitbook/assets/image%20%2822%29.png)
+
 ### Uitgestelde uitvoering
 
 De meeste queries worden niet onmiddellijk uitgevoerd. De uitvoering ervan wordt uitgesteld tot een later tijdstip in de uitvoering van het programma. Dit betekent dat de query niet wordt uitgevoerd wanneer ze wordt gemaakt, maar wanneer ze wordt gebruikt, bijvoorbeeld wanneer er over geïtereerd wordt met foreach.
@@ -49,7 +51,6 @@ Uitgestelde uitvoering betekent dat de ingevoerde sequentie kan worden gewijzigd
 
 ```csharp
 int[] leeftijden = { 50, 1, 11, 2, 28, 2, 13, 25, 50 };
-// scalar return value
 // construct the query
 IEnumerable<int> ouderDan11 = leeftijden.Where(x => x > 10);
 
@@ -62,4 +63,6 @@ foreach (int leeftijd in ouderDan11)
     Console.WriteLine(leeftijd);
 }
 ```
+
+![](../.gitbook/assets/image%20%2821%29.png)
 
