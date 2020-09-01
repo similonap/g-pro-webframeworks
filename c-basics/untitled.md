@@ -18,7 +18,28 @@ Queries, of meer specifiek **query operatoren**, zijn van toepassing op een reek
 
 Een belangrijk ding om op te merken bij het gebruik van query's is dat ze de input reeks niet veranderen. In plaats van de input reeks te veranderen stuurt de query operator een nieuwe reeks \(of een enkele waarde\) terug.
 
-### Scalaire returnwaarden en outputreeksen
+### Scalaire return waarden en outputreeksen
 
+Een query operator returned een ofwel een nieuwe reeks ofwel 1 enkele waarde \(een scalaire waarde\). 
 
+```csharp
+int[] leeftijden = { 50, 1, 11, 2, 28, 2, 13, 25, 50 };
+// scalar return value
+int numberOfElements = leeftijden.Count();
+Console.WriteLine("Aantal leeftijden {0}", numberOfElements);
+
+// Output sequence return value
+IEnumerable < int > verschillendeLeeftijden = leeftijden.Distinct();
+
+Console.WriteLine("Verschillende leeftijden in de outputreeks: ");
+foreach (int leeftijd in leeftijden)
+{
+    Console.WriteLine(leeftijd);
+}
+```
+
+In de bovenstaande code wordt er van de reeks getallen de `Count` query operator gebruikt. Deze geeft maar 1 waarde terug omdat het gewoon het aantal elementen van de reeks terug geeft. Dit is dus een scalaire return waarde.  
+Er wordt hier ook gebruik gemaakt van de `Distinct` query operator. Die geeft een nieuwe reeks terug die hetzelfde is als de vorige reeks maar waar de dubbele elementen zijn uitgehaald.
+
+ 
 
