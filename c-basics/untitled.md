@@ -41,7 +41,7 @@ foreach (int leeftijd in leeftijden)
 In de bovenstaande code wordt er van de reeks getallen de `Count` query operator gebruikt. Deze geeft maar 1 waarde terug omdat het gewoon het aantal elementen van de reeks terug geeft. Dit is dus een scalaire return waarde.  
 Er wordt hier ook gebruik gemaakt van de `Distinct` query operator. Die geeft een nieuwe reeks terug die hetzelfde is als de vorige reeks maar waar de dubbele elementen zijn uitgehaald.
 
-![](../.gitbook/assets/image%20%2823%29.png)
+![](../.gitbook/assets/image%20%2825%29.png)
 
 ### Uitgestelde uitvoering
 
@@ -66,7 +66,7 @@ foreach (int leeftijd in ouderDan11)
 
  De query wordt niet uitgevoerd totdat de `foreach` wordt uitgevoerd. De resultaten van het uitvoeren van deze code zijn:
 
-![](../.gitbook/assets/image%20%2821%29.png)
+![](../.gitbook/assets/image%20%2822%29.png)
 
 Merk op dat de waarde 100 is opgenomen in de resultaten, niettegenstaande het derde element op het moment dat de query werd gemaakt, nog steeds de waarde van 11 had.
 
@@ -95,7 +95,7 @@ foreach (int leeftijd in ouderDan11)
 
 De waarde 100 is hier niet meer aanwezig, omdat de inputreeks werd gewijzigd nadat de query is uitgevoerd door de `ToArray()` operator.
 
-![](../.gitbook/assets/image%20%2822%29.png)
+![](../.gitbook/assets/image%20%2823%29.png)
 
 ### Lambda expressies in query operatoren
 
@@ -116,4 +116,52 @@ Tot nu toe hebben we ons gericht op lokale queries. Lokale queries manipuleren `
 Geïnterpreteerde queries, aan de andere kant, beschrijven slechts de "vorm" van de query die wordt geïnterpreteerd tijdens runtime - vandaar de naam "geïnterpreteerd." Geïnterpreteerde queries manipuleren `IQueryable<T>` sequenties, en de LINQ operatoren worden omgezet naar methoden die gedefinieerd zijn in de `System.Linq.Queryable` klasse in plaats van de `System.Linq.Enumerable` klasse.
 
 De lokale \(IEnumerable&lt;T&gt;\) queries bevatten de werkelijke implementatie van de query code die wordt uitgevoerd, terwijl de geïnterpreteerde queries \(IQueryable &lt;T&gt;\) niet. Bij geïnterpreteerde queries, is de werkelijke query code, die wordt uitgevoerd, gedefinieerd in een query provider. De query provider ontvangt de beschrijving van de query die moet worden uitgevoerd en voert de query vervolgens uit \(bijvoorbeeld het uitvoeren van SQL op een database\) en returned tenslotte het resultaat.
+
+### Fluent style en Query style
+
+Er zijn twee stijlen voor het schrijven van LINQ queries: de vloeiende stijl \(of vloeiende syntax\) en de query-expressie stijl \(of query syntaxis\). De vloeiende stijl gebruikt query-operator extensie methoden om queries te maken, terwijl de query-expressie stijl gebruikt maakt van een andere syntaxis die door de compiler vertaald wordt in een vloeiende syntaxis.
+
+De codevoorbeelden tot nu toe maken allemaal gebruik van de vloeiende syntax. Hier zie je ook nog eens het voorbeeld van de query expressie stijl:
+
+```csharp
+int[] leeftijden = { 50, 1, 11, 2, 28, 2, 13, 25, 50 };
+// construct the query in query style
+IEnumerable<int> ouderDan11 = from leeftijd 
+                              in leeftijden 
+                              where leeftijd > 0 
+                              select leeftijd;
+
+Console.WriteLine("Ouder dan 11: ");
+foreach (int leeftijd in ouderDan11)
+{
+    Console.WriteLine(leeftijd);
+}
+```
+
+We gaan vooral in deze cursus gebruikmaken van de fluent style.
+
+### Aaneengeschakelde queryoperatoren
+
+We kunnen ook query operatoren aan elkaar aaneenschakelen zodat we complexere queries kunnen samen stellen. 
+
+```csharp
+int[] leeftijden = { 50, 1, 11, 2, 28, 2, 13, 25, 50 };
+// construct the query
+IEnumerable<int> ouderDan11 = leeftijden
+            .Where(x => x > 10)
+            .OrderBy(x => x)
+            .Select(x => x * 2);
+
+Console.WriteLine("Ouder dan 11: ");
+foreach (int leeftijd in ouderDan11)
+{
+    Console.WriteLine(leeftijd);
+}
+```
+
+We maken hier dus een ketting van de `Where` operator die alleen de elementen selecteert die groter zijn dan 10, vervolgens sorteren we de reeks en dan gaan we het dubbele van elk element nemen. 
+
+![](../.gitbook/assets/image%20%2821%29.png)
+
+
 
