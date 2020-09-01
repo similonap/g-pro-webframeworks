@@ -12,6 +12,7 @@
 * [Ordering operators](c-basics/ordeningsoperatoren.md)
 * [Partitioning operators](c-basics/partitioneringsoperatoren.md)
 * [Projection operators](c-basics/projectie-operatoren.md)
+* [Restriction operators](c-basics/restriction-operators.md)
 
 ## ASP.NET Core MVC <a id="asp.net"></a>
 
