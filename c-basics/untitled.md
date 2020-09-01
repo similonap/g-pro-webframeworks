@@ -1,4 +1,4 @@
-# LINQ
+# Introductie
 
 LINQ maakt het mogelijk om op arrays en meer algemeen reeksen van gegevens queries uit te voeren die heel gelijkaardig is met SQL queries. Dit gebeurt allemaal rechstreeks in de code. We zullen eerst een aantal basis concepten van LINQ behandelen.
 
@@ -109,5 +109,11 @@ Het type lambda expressie, die wordt ingevoerd in een queryoperator, is afhankel
 
 ![Visual Studio toont de signatuur van de Where operator](https://modernways.be/myap/it/image/programming/microsoft.net/linq/Visual%20Studio%20toont%20de%20signatuur%20van%20de%20Where%20operator.png)
 
-Visual Studio toont de signatuur van de Where operator
+### Geïnterpreteerde \(interpreted\) queries
+
+Tot nu toe hebben we ons gericht op lokale queries. Lokale queries manipuleren `IEnumerable<T>` sequenties. Lokale queries zijn het resultaat van de uitgevoerde query's, die zijn gedefinieerd in de `System.Linq.Enumerable` klasse. Op die manier resulteert het uitvoeren van een lokale query in code die wordt gedefinieerd tijdens het compileren.
+
+Geïnterpreteerde queries, aan de andere kant, beschrijven slechts de "vorm" van de query die wordt geïnterpreteerd tijdens runtime - vandaar de naam "geïnterpreteerd." Geïnterpreteerde queries manipuleren `IQueryable<T>` sequenties, en de LINQ operatoren worden omgezet naar methoden die gedefinieerd zijn in de `System.Linq.Queryable` klasse in plaats van de `System.Linq.Enumerable` klasse.
+
+De lokale \(IEnumerable&lt;T&gt;\) queries bevatten de werkelijke implementatie van de query code die wordt uitgevoerd, terwijl de geïnterpreteerde queries \(IQueryable &lt;T&gt;\) niet. Bij geïnterpreteerde queries, is de werkelijke query code, die wordt uitgevoerd, gedefinieerd in een query provider. De query provider ontvangt de beschrijving van de query die moet worden uitgevoerd en voert de query vervolgens uit \(bijvoorbeeld het uitvoeren van SQL op een database\) en returned tenslotte het resultaat.
 

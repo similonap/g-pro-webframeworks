@@ -6,9 +6,9 @@
 
 * [Inleiding](bootstrap/inleiding.md)
 
-## C\# Concepts <a id="c-basics"></a>
+## LINQ <a id="c-basics"></a>
 
-* [LINQ](c-basics/untitled.md)
+* [Introductie](c-basics/untitled.md)
 
 ## ASP.NET Core MVC <a id="asp.net"></a>
 
