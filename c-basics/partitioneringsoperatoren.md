@@ -1,6 +1,6 @@
 # Partitioneringsoperatoren
 
-Een partitioneringsquery's neemt een inputreeks en retourneren een "stuk" als outputreeks. Deze operatoren kan je gebruiken om grote sequenties in "pagina's" op te breken. Dat heet paging,
+Een partitioneringsquery's neemt een inputreeks en retourneren een "stuk" als outputreeks. Deze operatoren kan je gebruiken om grote reeksen in "pagina's" op te breken. Dat heet paging,
 
 ### Take
 
@@ -26,7 +26,7 @@ foreach (Person persoon in eersteDriePersonen)
 }
 ```
 
-![](../.gitbook/assets/image%20%2826%29.png)
+![](../.gitbook/assets/image%20%2827%29.png)
 
 ### TakeWhile
 
@@ -53,7 +53,7 @@ foreach (Person persoon in eersteDriePersonen)
 }
 ```
 
-![](../.gitbook/assets/image%20%2827%29.png)
+![](../.gitbook/assets/image%20%2828%29.png)
 
 
 

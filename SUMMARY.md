@@ -11,6 +11,7 @@
 * [Introductie](c-basics/untitled.md)
 * [Ordeningsoperatoren](c-basics/ordeningsoperatoren.md)
 * [Partitioneringsoperatoren](c-basics/partitioneringsoperatoren.md)
+* [Projectie Operatoren](c-basics/projectie-operatoren.md)
 
 ## ASP.NET Core MVC <a id="asp.net"></a>
 
