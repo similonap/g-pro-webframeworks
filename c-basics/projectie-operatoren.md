@@ -1,4 +1,4 @@
-# Projectie Operatoren
+# Projection operators
 
 Projectie query's nemen een inputreeks, transformeren elk element in die reeks, en produceren een outputreeksvan deze getransformeerde elementen. Op deze wijze wordt de invoerreeks geprojecteerd op een ander uitvoerreeks.
 

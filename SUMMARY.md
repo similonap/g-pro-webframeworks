@@ -9,9 +9,9 @@
 ## LINQ <a id="c-basics"></a>
 
 * [Introductie](c-basics/untitled.md)
-* [Ordeningsoperatoren](c-basics/ordeningsoperatoren.md)
-* [Partitioneringsoperatoren](c-basics/partitioneringsoperatoren.md)
-* [Projectie Operatoren](c-basics/projectie-operatoren.md)
+* [Ordering operators](c-basics/ordeningsoperatoren.md)
+* [Partitioning operators](c-basics/partitioneringsoperatoren.md)
+* [Projection operators](c-basics/projectie-operatoren.md)
 
 ## ASP.NET Core MVC <a id="asp.net"></a>
 

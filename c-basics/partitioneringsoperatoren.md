@@ -1,4 +1,4 @@
-# Partitioneringsoperatoren
+# Partitioning operators
 
 Een partitioneringsquery's neemt een inputreeks en retourneren een "stuk" als outputreeks. Deze operatoren kan je gebruiken om grote reeksen in "pagina's" op te breken. Dat heet paging,
 

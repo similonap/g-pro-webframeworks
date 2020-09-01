@@ -1,4 +1,4 @@
-# Ordeningsoperatoren
+# Ordering operators
 
 De ordeningsquery retourneert evenveel elementen als input-sequentie, maar dan in een \(mogelijk\) andere volgorde.
 
