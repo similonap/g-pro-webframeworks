@@ -41,7 +41,7 @@ foreach (int leeftijd in leeftijden)
 In de bovenstaande code wordt er van de reeks getallen de `Count` query operator gebruikt. Deze geeft maar 1 waarde terug omdat het gewoon het aantal elementen van de reeks terug geeft. Dit is dus een scalaire return waarde.  
 Er wordt hier ook gebruik gemaakt van de `Distinct` query operator. Die geeft een nieuwe reeks terug die hetzelfde is als de vorige reeks maar waar de dubbele elementen zijn uitgehaald.
 
-![](../.gitbook/assets/image%20%2825%29.png)
+![](../.gitbook/assets/image%20%2827%29.png)
 
 ### Uitgestelde uitvoering
 
@@ -66,7 +66,7 @@ foreach (int leeftijd in ouderDan11)
 
  De query wordt niet uitgevoerd totdat de `foreach` wordt uitgevoerd. De resultaten van het uitvoeren van deze code zijn:
 
-![](../.gitbook/assets/image%20%2822%29.png)
+![](../.gitbook/assets/image%20%2823%29.png)
 
 Merk op dat de waarde 100 is opgenomen in de resultaten, niettegenstaande het derde element op het moment dat de query werd gemaakt, nog steeds de waarde van 11 had.
 
@@ -95,7 +95,7 @@ foreach (int leeftijd in ouderDan11)
 
 De waarde 100 is hier niet meer aanwezig, omdat de inputreeks werd gewijzigd nadat de query is uitgevoerd door de `ToArray()` operator.
 
-![](../.gitbook/assets/image%20%2823%29.png)
+![](../.gitbook/assets/image%20%2825%29.png)
 
 ### Lambda expressies in query operatoren
 

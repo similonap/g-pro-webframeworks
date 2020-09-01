@@ -9,6 +9,7 @@
 ## LINQ <a id="c-basics"></a>
 
 * [Introductie](c-basics/untitled.md)
+* [Ordeningsoperatoren](c-basics/ordeningsoperatoren.md)
 
 ## ASP.NET Core MVC <a id="asp.net"></a>
 
