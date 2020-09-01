@@ -41,7 +41,7 @@ foreach (int leeftijd in leeftijden)
 In de bovenstaande code wordt er van de reeks getallen de `Count` query operator gebruikt. Deze geeft maar 1 waarde terug omdat het gewoon het aantal elementen van de reeks terug geeft. Dit is dus een scalaire return waarde.  
 Er wordt hier ook gebruik gemaakt van de `Distinct` query operator. Die geeft een nieuwe reeks terug die hetzelfde is als de vorige reeks maar waar de dubbele elementen zijn uitgehaald.
 
-![](../.gitbook/assets/image%20%2822%29.png)
+![](../.gitbook/assets/image%20%2823%29.png)
 
 ### Uitgestelde uitvoering
 
@@ -64,5 +64,38 @@ foreach (int leeftijd in ouderDan11)
 }
 ```
 
+ De query wordt niet uitgevoerd totdat de `foreach` wordt uitgevoerd. De resultaten van het uitvoeren van deze code zijn:
+
 ![](../.gitbook/assets/image%20%2821%29.png)
+
+Merk op dat de waarde 100 is opgenomen in de resultaten, niettegenstaande het derde element op het moment dat de query werd gemaakt, nog steeds de waarde van 11 had.
+
+De queries die een een scalaire waarde retourneren \(of een enkel element van de ingevoerde sequentie\) zoals `Count`, `Min` en `Last` werken niet op deze uitgestelde executie manier. Dus bij het gebruik van operatoren zoals `Count` zal de queryonmiddellijk worden uitgevoerd, en niet uitgesteld.
+
+Een aantal van de conversie operatoren worden ook onmiddellijk uitgevoerd, zoals `ToList`, `ToArray`, `ToLookup` en `ToDictionary`.
+
+In de volgende code wordt de leeftijden matrix worden gewijzigd net zoals in het voorgaande voorbeeld. Maar in dit voorbeeld werd de query op het moment dat de wijziging plaatsvindt reeds uitgevoerd vanwege de extra `ToArray()` operator. De wijziging zal niet worden opgenomen in de `foreach`.
+
+```csharp
+int[] leeftijden = { 50, 1, 11, 2, 28, 2, 13, 25, 50 };
+// scalar return value
+// construct the query
+IEnumerable<int> ouderDan11 = leeftijden.Where(x => x > 10).ToArray();
+
+// Change the third element
+leeftijden[2] = 100;
+// At this point the query has been created and 
+// executed because of the ToArray() operator
+Console.WriteLine("Ouder dan 11: ");
+foreach (int leeftijd in ouderDan11)
+{
+    Console.WriteLine(leeftijd);
+}
+```
+
+De waarde 100 is hier niet meer aanwezig, omdat de inputreeks werd gewijzigd nadat de query is uitgevoerd door de `ToArray()` operator.
+
+![](../.gitbook/assets/image%20%2822%29.png)
+
+
 
