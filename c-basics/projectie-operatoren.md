@@ -25,13 +25,39 @@ foreach (string name in persoonsNamen)
 }
 ```
 
-![](../.gitbook/assets/image%20%2829%29.png)
+![](../.gitbook/assets/image%20%2830%29.png)
 
 ### SelectMany
 
 Voegt collecties in een enkele collectie samen. Is vergelijkbaar met cross join van SQL.
 
-Deze lambda-expressie monster kruist twee arrays, en produceert een Cartesiaans product.
+Deze lambda-expressie kruist twee arrays, en produceert een Cartesiaans product.
+
+```csharp
+Person[] personen = {
+    new Person("Jan", 60),
+    new Person("An", 100),
+    new Person("Peter", 15),
+    new Person("Hans", 11),
+    new Person("Marijke", 40),
+    new Person("Judith", 20)
+};
+string[] fruit = { "appel", "peer", "banaan" };
+
+IEnumerable<string> persoonEet = personen.SelectMany(persoon => fruit, (p, f) =>
+{
+    return $"{p.Name} eet {f}";
+});
+
+foreach (string watDiePersoonEet in persoonEet)
+{
+    Console.WriteLine(watDiePersoonEet);
+}
+```
+
+Deze creëert een outputreeks die een string bevat voor elk stuk fruit in de fruit array dat de persoon eet.
+
+![](../.gitbook/assets/image%20%2828%29.png)
 
 
 
