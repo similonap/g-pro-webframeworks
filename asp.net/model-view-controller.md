@@ -6,7 +6,7 @@ In het vorige hoofdstuk hebben we een eenvoudig project aangemaakt waar er gebru
 await context.Response.WriteAsync("Hello World!");
 ```
 
-rechstreeks naar de response stream werd geschreven. Dit is uiteraard zeer omslachtig als je dit zou moeten doen voor elke web pagina van jouw webapplicatie. We gaan hier gebruik maken van ASP.NET MVC \(Model View Controller\) om dit te vereenvoudigen.
+rechtstreeks naar de response stream werd geschreven. Dit is uiteraard zeer omslachtig als je dit zou moeten doen voor elke web pagina van jouw webapplicatie. We gaan hier gebruik maken van ASP.NET MVC \(Model View Controller\) om dit te vereenvoudigen.
 
 ## MVC Configureren
 
