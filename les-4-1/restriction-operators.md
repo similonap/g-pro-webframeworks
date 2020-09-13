@@ -25,7 +25,7 @@ foreach (Person persoon in vijftigPlussers)
 
  De code toont het gebruik van de `Where` operator. Het predicaat `x => x.Leeftijd >= 50` geeft `true` terug voor elke persoon die 50 jaar is of meer. De code produceert de volgende output:
 
-![](.gitbook/assets/image%20%2834%29.png)
+![](../.gitbook/assets/image%20%2834%29.png)
 
 Een predicaat is een functie die een boolean true retourneert als aan een bepaalde voorwaarde is voldaan.
 
@@ -48,7 +48,7 @@ foreach (Person persoon in vijftigPlussers)
 }
 ```
 
-![](.gitbook/assets/image%20%2833%29.png)
+![](../.gitbook/assets/image%20%2833%29.png)
 
 
 

@@ -25,7 +25,7 @@ foreach (string name in persoonsNamen)
 }
 ```
 
-![](.gitbook/assets/image%20%2830%29.png)
+![](../.gitbook/assets/image%20%2830%29.png)
 
 ### SelectMany
 
@@ -57,7 +57,7 @@ foreach (string watDiePersoonEet in persoonEet)
 
 Deze creëert een outputreeks die een string bevat voor elk stuk fruit in de fruit array dat de persoon eet.
 
-![](.gitbook/assets/image%20%2828%29.png)
+![](../.gitbook/assets/image%20%2828%29.png)
 
 
 

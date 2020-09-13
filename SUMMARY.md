@@ -22,19 +22,11 @@
 
 * [Thuisopdracht](les-3-thuis/thuisopdracht.md)
 
-## LES 4 <a id="les-4-1"></a>
-
----
-
-* [LINQ Introductie](untitled.md)
-* [Ordering operators](ordeningsoperatoren.md)
-* [Partitioning operators](partitioneringsoperatoren.md)
-* [Projection operators](projectie-operatoren.md)
-* [Restriction operators](restriction-operators.md)
-
-## LES 5 <a id="les-4"></a>
+## LES 4
 
 * [Gegevens doorgeven](les-4/communicatie-tussen-view-en-controller.md)
+
+## LES 5 \(THUIS\)
 
 ## ASP.NET Core MVC <a id="asp.net"></a>
 
@@ -42,6 +34,14 @@
 * [Formulieren](asp.net/formulieren.md)
 * [Routering](asp.net/routing.md)
 * [Entity Framework](asp.net/entity-framework.md)
+
+## LES 4 <a id="les-4-1"></a>
+
+* [LINQ Introductie](les-4-1/untitled.md)
+* [Ordering operators](les-4-1/ordeningsoperatoren.md)
+* [Partitioning operators](les-4-1/partitioneringsoperatoren.md)
+* [Projection operators](les-4-1/projectie-operatoren.md)
+* [Restriction operators](les-4-1/restriction-operators.md)
 
 ## Architectuur
 

@@ -38,7 +38,7 @@ foreach (Person persoon in alfabetischOpLeeftijd)
 }
 ```
 
-![](.gitbook/assets/image%20%2824%29.png)
+![](../.gitbook/assets/image%20%2824%29.png)
 
 ### ThenBy
 
@@ -64,7 +64,7 @@ foreach (Person person in alfabetischOpLeeftijdDanOpNaam)
 }
 ```
 
-![](.gitbook/assets/image%20%2822%29.png)
+![](../.gitbook/assets/image%20%2822%29.png)
 
 ### OrderByDescending
 
