@@ -50,7 +50,7 @@ dotnet run
 Open de website, die op basis van de template is gemaakt, door `dotnet run` uit te voeren en te navigeren naar de URL waarnaar de app luistert.  
 In Windows is dat normaal gezien`http://localhost:5000`, de default url die aan je app wordt toegekend.
 
-![Het project is aangemaakt en opgestart aan de hand van dotnet run](../.gitbook/assets/image%20%282%29.png)
+![Het project is aangemaakt en opgestart aan de hand van dotnet run](.gitbook/assets/image%20%282%29.png)
 
 Hier zal je Hello World te zien krijgen. Om te begrijpen hoe die Hello World daar te voorschijn komt moet je naar de twee bestanden `Startup.cs` en `Program.cs` kijken.
 
@@ -113,7 +113,7 @@ In de `UseEndpoints` gaan we hier een GET registreren voor het pad / zodat als w
 
 Tenslotte bekijken we het .csproj bestand. Je kan het project bestand bekijken door het EersteProject.csproj bestand te openen of door in visual studio op het root element te drukken in de solution explorer.
 
-![Je kan het csproj bestand bekijken door op EersteProject te drukken.](../.gitbook/assets/image%20%283%29.png)
+![Je kan het csproj bestand bekijken door op EersteProject te drukken.](.gitbook/assets/image%20%283%29.png)
 
 Dit bestand vertelt MSBuild hoe het project wordt gebouwd - van welke pakketten het afhankelijk is, welke versie van .NET Core te targeten, enzovoort. In vorige versies van .NET Core was dit projectbestand veel groter. .NET Core 3.1 heeft veel moeite gestoken in het korter, eenvoudiger en leesbaarder maken van .csproj-bestanden.
 

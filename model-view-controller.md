@@ -63,7 +63,7 @@ Het is in één oogopslag duidelijk wat elk van deze mappen bevat. De figuur _De
 
 Als je kijkt naar de inhoud van deze mappen, ga je nog meer conventies tegenkomen.
 
-![Conventie boven configuratie. De mappen Controllers, Models en Views.](../.gitbook/assets/image%20%285%29.png)
+![Conventie boven configuratie. De mappen Controllers, Models en Views.](.gitbook/assets/image%20%285%29.png)
 
 De Controllers map bevat niet alleen alle controller klassen van de toepassing, maar de controller klassen volgen allemaal de conventie om hun namen te beëindigen met het **Controller** achtervoegsel. Het framework gebruikt deze conventie om controllers van de toepassing te registreren bij het opstarten en de controllers te associëren met de bijbehorende routes.
 
@@ -76,7 +76,7 @@ De afspraak is dat alle views van de applicatie in de folder **Views** staan. Ma
 
 Zoals al aangegeven moeten alle controllers in een map Controllers staan. Maak eerst de map Controllers aan en maak daarna een **Empty Controller Class** aan met de naam HomeController.
 
-![](../.gitbook/assets/image%20%287%29.png)
+![](.gitbook/assets/image%20%287%29.png)
 
 Pas de inhoud van het nieuw aangemaakte `HomeController.cs`aan.
 
@@ -92,7 +92,7 @@ public class HomeController : Controller
 
 Dit zal er voor zorgen dat de gebruiker **Hello World** te zien krijgt als hij naar de root pagina surft. We gaan de applicatie opstarten aan de hand van Visual Studio deze keer. Klik op **Debug &gt; Start debugging** om de applicatie in debug modus op te starten.
 
-![](../.gitbook/assets/image%20%286%29.png)
+![](.gitbook/assets/image%20%286%29.png)
 
 Wat we hier hebben gemaakt is gewoon een methode `Index()` die een String heeft als return waarde. Index staat voor de hoofdpagina van deze bepaalde controller. Dus eigenlijk zouden we evengoed naar [https://localhost:44370/Home/Index](https://localhost:44370/Home/Index) hebben kunnen surfen om deze pagina te zien te krijgen. `Home` was hier de default controller dus moesten we deze niet opgeven en `Index` kan je ook weglaten. De Index methode is wat we in MVC een **Action** noemen. We zullen straks nog nieuwe actions toevoegen als voorbeeld.
 
@@ -115,15 +115,15 @@ Voor een ViewResult object aan te maken gebruiken we de `View` functie. Hier gev
 
 Als je nu terug de web applicatie opstart en naar de root page gaat dan krijg je het volgende te zien:
 
-![](../.gitbook/assets/image%20%2813%29.png)
+![](.gitbook/assets/image%20%2813%29.png)
 
 Dit zegt exact wat er nog moet gebeuren. We moeten nog een View aanmaken met de naam `Index.cshtml` en deze moeten we in de map Views/Home plaatsen. Deze mappen moeten zelf nog aangemaakt worden. Per conventie moet je altijd een map aanmaken in de Views map met de naam van de Controller zonder het deel Controller. Dus in ons geval is dit Home, wat dus HomeController zonder het deel Controller is.
 
-![We maken een view aan in de map Views/Home](../.gitbook/assets/image%20%2810%29.png)
+![We maken een view aan in de map Views/Home](.gitbook/assets/image%20%2810%29.png)
 
-![We maken een nieuwe lege Razor View aan ](../.gitbook/assets/image%20%289%29.png)
+![We maken een nieuwe lege Razor View aan ](.gitbook/assets/image%20%289%29.png)
 
-![We noemen de nieuwe View Index.cshtml naar de Index methode](../.gitbook/assets/image%20%2811%29.png)
+![We noemen de nieuwe View Index.cshtml naar de Index methode](.gitbook/assets/image%20%2811%29.png)
 
 We passen de inhoud van het Index.cshtml bestand aan naar het onder
 
@@ -145,7 +145,7 @@ We passen de inhoud van het Index.cshtml bestand aan naar het onder
 
 Als we nu terug naar de pagina surfen dan krijgen we een al iets mooier gestijlde pagina te zien.
 
-![De html pagina die de woorden Hello World laat zien aan de gebruiker](../.gitbook/assets/image%20%2812%29.png)
+![De html pagina die de woorden Hello World laat zien aan de gebruiker](.gitbook/assets/image%20%2812%29.png)
 
 ## Static content
 
@@ -174,7 +174,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 Dit zorgt ervoor dat alle bestanden onder de wwwroot folder beschikbaar worden voor gebruik in webpaginas. Maak dus in je project een nieuwe map `wwwroot` en maak daar een map `images` in. We plaatsen daar een afbeelding:
 
-![llama.gif](../.gitbook/assets/llama.gif)
+![llama.gif](.gitbook/assets/llama.gif)
 
 Als je nu onze `index.cshtml` pagina aanpassen met de volgende inhoud
 
@@ -197,15 +197,15 @@ Als je nu onze `index.cshtml` pagina aanpassen met de volgende inhoud
 
 en onze web applicatie terug starten dan krijgen we de volgende webpagina te zien:
 
-![](../.gitbook/assets/image%20%2818%29.png)
+![](.gitbook/assets/image%20%2818%29.png)
 
 ## Oefeningen
 
 Maak in de bestaande `HomeController` een nieuwe action aan die het uur en de minuten laat zien. Noem deze action `Time`.
 
-![](../.gitbook/assets/TimeEndpoint1.png)
+![](.gitbook/assets/TimeEndpoint1.png)
 
 Maak een nieuwe Controller aan `ContactController` en maak een nieuwe `Index` action aan. Maak een View aan die je naam en adres laat zien.
 
-![](../.gitbook/assets/Contact1.png)
+![](.gitbook/assets/Contact1.png)
 

@@ -2,7 +2,7 @@
 
 Op dit moment hebben we gewoon in de `Controller` een lijst met objecten gemaakt en deze gebruikt om te tonen aan de gebruiker. We willen er voor zorgen dat onze applicatie klaar is voor het gebruik van een echte database, maar dit gaan we pas in latere hoofdstukken zien. We gaan dus tijdelijk de objecten in het geheugen bijhouden.
 
-## Repository patroon
+## Repository
 
 Om dit te verwezenlijken is er een bekend software patroon. Dit is het repository pattern. We maken een interface waarmee de applicatie kan `Student` objecten op te vragen zonder zich aan te trekken of deze opgeslagen wordt in een database of in memory.
 

@@ -6,21 +6,34 @@
 
 * [Inleiding](bootstrap/inleiding.md)
 
-## LINQ <a id="c-basics"></a>
+## Les 1
 
-* [Introductie](c-basics/untitled.md)
-* [Ordering operators](c-basics/ordeningsoperatoren.md)
-* [Partitioning operators](c-basics/partitioneringsoperatoren.md)
-* [Projection operators](c-basics/projectie-operatoren.md)
-* [Restriction operators](c-basics/restriction-operators.md)
+---
+
+* [Project aanmaken](eerste-project-aanmaken.md)
+* [Views en Controllers](model-view-controller.md)
+
+## LES 2
+
+* [Gedeelde layout](les-2/shared-layout.md)
+* [Tag Helpers](les-2/tag-helpers.md)
+
+## LES 3 @ Home
+
+---
+
+* [LINQ Introductie](untitled.md)
+* [Ordering operators](ordeningsoperatoren.md)
+* [Partitioning operators](partitioneringsoperatoren.md)
+* [Projection operators](projectie-operatoren.md)
+* [Restriction operators](restriction-operators.md)
+
+## LES 4
+
+* [Gegevens doorgeven](les-4/communicatie-tussen-view-en-controller.md)
 
 ## ASP.NET Core MVC <a id="asp.net"></a>
 
-* [Project aanmaken](asp.net/eerste-project-aanmaken.md)
-* [Views en Controllers](asp.net/model-view-controller.md)
-* [Gedeelde layout](asp.net/shared-layout.md)
-* [Tag Helpers](asp.net/tag-helpers.md)
-* [Gegevens doorgeven](asp.net/communicatie-tussen-view-en-controller.md)
 * [Dependency Injection](asp.net/dependency-injection.md)
 * [Formulieren](asp.net/formulieren.md)
 * [Routering](asp.net/routing.md)
@@ -29,8 +42,4 @@
 ## Architectuur
 
 * [Model-View-Controller](architectuur/model-view-controller-architectuur.md)
-
-## Les 1
-
-* [Untitled](les-1/untitled.md)
 
