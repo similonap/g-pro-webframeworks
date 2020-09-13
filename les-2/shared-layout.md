@@ -109,9 +109,7 @@ Als we nu terug de web applicatie starten dan krijgen we al een mooier resultaat
 
 ![Hello World met een navigatie balk](../.gitbook/assets/image%20%2819%29.png)
 
-## Oefeningen
 
-Pas de View van de Contact pagina aan zodat deze ook in de layout met de navigatie balk komt.
 
 ![](../.gitbook/assets/Contact2.png)
 

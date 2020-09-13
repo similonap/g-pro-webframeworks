@@ -18,7 +18,11 @@
 * [Gedeelde layout](les-2/shared-layout.md)
 * [Tag Helpers](les-2/tag-helpers.md)
 
-## LES 3 @ Home
+## LES 3 \(Thuis\)
+
+* [Thuisopdracht](les-3-thuis/thuisopdracht.md)
+
+## LES 4 <a id="les-4-1"></a>
 
 ---
 
@@ -28,7 +32,7 @@
 * [Projection operators](projectie-operatoren.md)
 * [Restriction operators](restriction-operators.md)
 
-## LES 4
+## LES 5 <a id="les-4"></a>
 
 * [Gegevens doorgeven](les-4/communicatie-tussen-view-en-controller.md)
 

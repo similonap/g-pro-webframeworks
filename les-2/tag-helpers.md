@@ -77,11 +77,5 @@ Nu kunnen we onze algemene navigatie balk aanpassen zodat we gebruik maken van t
 
 Er zijn uiteraard nog heel veel andere tag helpers. We zullen doorheen deze cursus stap per stap andere tag helpers introduceren.
 
-## Oefeningen
 
-Pas het bestand `Shared/_Layout.cshtml` aan zodat er een navigatie structuur ontstaat. Alle links moeten gegenereerd worden door tag helpers.
-
-![](../.gitbook/assets/TagHelpers1.png)
-
-Een voorbeeld hoe je dropdown menu maakt in bootstrap kan je vinden op [https://getbootstrap.com/docs/4.0/components/navbar/](https://getbootstrap.com/docs/4.0/components/navbar/)
 
