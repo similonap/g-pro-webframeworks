@@ -1,6 +1,6 @@
 # Project aanmaken
 
-In dit onderdeel overlopen we samen stap per stap hoe we een nieuw project aanmaken. ASP.NET Core-projecten kan je maken met behulp van sjablonen in Visual Studio of vanaf de. NET Core command line interface \(.NET CLI\).
+it onderdeel overlopen we samen stap per stap hoe we een nieuw project aanmaken. ASP.NET Core-projecten kan je maken met behulp van sjablonen in Visual Studio of vanaf de. NET Core command line interface \(.NET CLI\).
 
 Visual Studio 2017 geeft een geweldige .NET Core-ontwikkelingservaring - met top-notch debugging, Docker-integratie en vele andere functies - maar ik gebruik de .NET CLI in deze les dan kunnen jullie deze les ook volgen op een Mac of Linux machine.
 
