@@ -12,6 +12,7 @@
 
 * [Project aanmaken](eerste-project-aanmaken.md)
 * [Views en Controllers](model-view-controller.md)
+* [Oefeningen](oefeningen.md)
 
 ## LES 2
 
