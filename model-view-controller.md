@@ -199,5 +199,9 @@ en onze web applicatie terug starten dan krijgen we de volgende webpagina te zie
 
 ![](.gitbook/assets/image%20%2818%29.png)
 
+## Begeleidend videomateriaal
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2c12ec05-166c-45e9-b4a3-ac3900a2c918" %}
+
 
 
