@@ -119,3 +119,9 @@ Dit bestand vertelt MSBuild hoe het project wordt gebouwd - van welke pakketten 
 
 In dit bestand zal je vooral gebruiken voor het definieren van dependencies die je project zal gebruiken. Dit zal je meestal niet rechstreeks in dit bestand doen maar je zal hiervoor de package manager NuGet gebruiken. Dit zullen we later in deze cursus verder behandelen.
 
+## Begeleidend videomateriaal
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=1cb3c885-30ee-46d9-b3c4-ac3900960c89&autoplay=false&offerviewer=true&showtitle=false&showbrand=true&start=0&interactivity=all" %}
+
+
+
