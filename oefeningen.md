@@ -1,5 +1,7 @@
 # Oefeningen
 
+### **Oefening 1**
+
 * Volg de instructies om een **'EersteOefening'** project aan te maken zoals beschreven in het deel 'Project aanmaken'.
 * Zorg dat je een **OefeningController** hebt met bijbehorende **Index** action. Deze moet een **View** laten zien die de volgende pagina laat zien aan de gebruiker. 
 
