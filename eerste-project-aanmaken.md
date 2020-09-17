@@ -121,7 +121,9 @@ In dit bestand zal je vooral gebruiken voor het definieren van dependencies die 
 
 ## Begeleidend videomateriaal
 
-{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=1cb3c885-30ee-46d9-b3c4-ac3900960c89&autoplay=false&offerviewer=true&showtitle=false&showbrand=true&start=0&interactivity=all" %}
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1cb3c885-30ee-46d9-b3c4-ac3900960c89" %}
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5de484b3-e2da-42a9-aeb4-ac3900960c36" %}
 
 
 
