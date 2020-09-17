@@ -19,7 +19,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Bovenstaande code zal ondersteuning voor Controllers en Views \(Razor Views\) toevoegen aan je project en deze configureren.
+Bovenstaande code zal ondersteuning voor Controllers en Views \(Razor Views\) toevoegen aan je project en deze configureren. De ConfigureServices methode configureert de services van de applicatie. Een service is een herbruikbare component dat bepaalde functionaliteit aanbied. Services worden geregistreerd in ConfigureServices en gebruikt doorheen de hele app dankzij Dependency Injection. Wat dat is zien we later.
 
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
