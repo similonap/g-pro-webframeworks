@@ -1,7 +1,10 @@
 # Table of contents
 
 * [Inleiding](README.md)
-* [Github Classroom](github-classroom.md)
+
+## Nuttige Informatie
+
+* [Github Classroom](nuttige-informatie/github-classroom.md)
 
 ## Les 1
 

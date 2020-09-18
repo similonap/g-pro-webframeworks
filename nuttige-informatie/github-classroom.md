@@ -14,7 +14,7 @@ Daarna krijg je een scherm te zien met Identifiers. Als je naam hier in de lijst
 
 Daarna kan je **Accept this assignment** doen om de opdracht te aanvaarden. Hij zal dan voor jou een repository aanmaken in je persoonlijke github waar ik ook aan kan.
 
-![](.gitbook/assets/image%20%2836%29.png)
+![](../.gitbook/assets/image%20%2836%29.png)
 
 ### SSH keys toevoegen
 
