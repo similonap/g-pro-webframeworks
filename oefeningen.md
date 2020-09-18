@@ -2,7 +2,7 @@
 
 ### **Oefening 1**
 
-* Volg de instructies om een **'EersteOefening'** project aan te maken zoals beschreven in het deel 'Project aanmaken'.
+* Volg de instructies om een **'WebFrameworksOef1'** project aan te maken zoals beschreven in het deel 'Project aanmaken'.
 * Zorg dat je een **OefeningController** hebt met bijbehorende **Index** action. Deze moet een **View** laten zien die de volgende pagina laat zien aan de gebruiker. 
 
 ![](.gitbook/assets/screenshot-2020-09-17-at-20.44.51.png)
