@@ -1,16 +1,12 @@
 # Table of contents
 
 * [Inleiding](README.md)
-
-## Bootstrap
-
-* [Inleiding](bootstrap/inleiding.md)
+* [Github Classroom](github-classroom.md)
 
 ## Les 1
 
 ---
 
-* [Github Classroom](github-classroom.md)
 * [Project aanmaken](eerste-project-aanmaken.md)
 * [Views en Controllers](model-view-controller.md)
 * [Oefeningen](oefeningen.md)
@@ -44,6 +40,10 @@
 * [Partitioning operators](les-4-1/partitioneringsoperatoren.md)
 * [Projection operators](les-4-1/projectie-operatoren.md)
 * [Restriction operators](les-4-1/restriction-operators.md)
+
+## Bootstrap
+
+* [Inleiding](bootstrap/inleiding.md)
 
 ## Architectuur
 
