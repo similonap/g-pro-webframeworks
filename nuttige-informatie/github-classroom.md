@@ -31,7 +31,7 @@ Als je al bestanden hebt staan die beginnen met id\_ zoals `id_rsa.pub` en `id_r
 Indien je er nog geen hebt of deze directory zelfs nog niet bestaat dan moet je er een aanmaken. 
 
 ```text
-ssh-keygen -t rsa -b 4096 -C
+ssh-keygen -t rsa -b 4096
 ```
 
 Aanvaard het voorgestelde pad en druk gewoon enter:
