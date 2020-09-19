@@ -101,7 +101,7 @@ Als alles van de vorige stappen gelukt is kan je je github repository voor dit v
 Je zult een url te zien krijgen die zegt waar je repository staat. Daarna doe je in je git bash of powershell:
 
 ```text
-git clone git@github.com:G-PRO-AP/webframeworks-similonap.git
+git clone git@github.com:G-PRO-AP/webframeworks-jouw-gebruikersnaam.git
 ```
 
 Maak een bestand aan README dat jouw volledige naam bevat en ap email adres en slaag het bestand op. Doe vervolgens
