@@ -77,7 +77,21 @@ public class Program
 }
 ```
 
-De bovenstaande code zorgt ervoor dat er een `HostBuilder` wordt aangemaakt en dat deze wordt geconfigureerd aan de hand van de `Startup` klasse die we verder gaan bezien. Deze wordt dan gemaakt en daarna uitgevoerd aan de hand van de Run\(\) methode.
+De bovenstaande code zorgt ervoor dat er een `HostBuilder` wordt aangemaakt.
+
+ `CreateDefaultBuilder` voer te volgende taken uit:
+
+* Gebruikt kestrel server, dat is een cross platform web server waar de applicatie op gaat draaien.
+* Zet de current working directory als de content root, 
+* laad configuratie in \(van bv  _appsettings.json\)_
+* Configureert logging
+* ...
+
+Het voert een aantal default configuraties uit die voor meeste projecten voldoende zijn. Je kan het eventueel wel helemaal zelf customizen maar dat gaan we niet doen. 
+
+We geven dan aan welke Startup klasse er gebruikt moet worden.
+
+Deze wordt dan gemaakt met `Build()` en daarna uitgevoerd aan de hand van de Run\(\) methode.
 
 ## Startup klasse
 
