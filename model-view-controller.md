@@ -72,6 +72,10 @@ De afspraak is dat alle views van de applicatie in de folder **Views** staan. Ma
 1. een **Shared** map;
 2. een optionele map die de views voor elke controller bevatten;
 
+## MVC
+
+Kijk naar [model view controller architectuur](https://app.gitbook.com/@apwt/s/g-pro-web-frameworks/architectuur/model-view-controller-architectuur) pagina voor een opfrissing.
+
 ## Controller
 
 Zoals al aangegeven moeten alle controllers in een map Controllers staan. Maak eerst de map Controllers aan en maak daarna een **Empty Controller Class** aan met de naam HomeController.
