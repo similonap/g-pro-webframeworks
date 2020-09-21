@@ -79,7 +79,7 @@ public class Program
 
 De bovenstaande code zorgt ervoor dat er een `HostBuilder` wordt aangemaakt.
 
- `CreateDefaultBuilder` voer te volgende taken uit:
+ `CreateDefaultBuilder` maakt een Builder object aan dat volgende taken uit zal voeren:
 
 * Gebruikt kestrel server, dat is een cross platform web server waar de applicatie op gaat draaien.
 * Zet de current working directory als de content root, 
