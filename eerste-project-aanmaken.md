@@ -77,7 +77,7 @@ public class Program
 }
 ```
 
-De bovenstaande code zorgt ervoor dat er een IWebHostwordt aangemaakt en dat deze wordt geconfigureerd aan de hand van de `Startup` klasse die we verder gaan bezien. Deze wordt dan gemaakt en daarna uitgevoerd aan de hand van de Run\(\) methode.
+De bovenstaande code zorgt ervoor dat er een `IWebHost` wordt aangemaakt en dat deze wordt geconfigureerd aan de hand van de `Startup` klasse die we verder gaan bezien. Deze wordt dan gemaakt en daarna uitgevoerd aan de hand van de Run\(\) methode.
 
 ## Startup klasse
 
