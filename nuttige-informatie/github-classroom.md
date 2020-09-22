@@ -144,5 +144,9 @@ Wil je niet dat alle project specifieke dingen worden mee gecommit kan je deze .
 
 {% embed url="https://www.toptal.com/developers/gitignore/api/aspnetcore" %}
 
+### Hoe al mijn bestanden toevoegen met git add
 
+```text
+git add --all
+```
 
