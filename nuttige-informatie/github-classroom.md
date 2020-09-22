@@ -70,7 +70,7 @@ The key's randomart image is:
 
 #### **Indien je al een ssh key had:**
 
-Je moet nu de ssh key kopieren zodat je die in github kan ingeven. Je kan dit doen door het id\_rsa.pub bestand te openen in een editor of direct via de terminal te kopieren in je clipboard.
+Je moet nu de ssh key kopieren zodat je die in github kan ingeven. Je kan dit doen door het id\_rsa.pub bestand te open  en in een editor of direct via de terminal te kopieren in je clipboard.
 
 ```text
 cat ~/.ssh/id_rsa.pub
@@ -110,6 +110,10 @@ git clone git@github.com:G-PRO-AP/webframeworks-jouw-gebruikersnaam.git
 ```
 
 Maak een bestand aan README dat jouw volledige naam bevat en ap email adres en slaag het bestand op. Doe vervolgens
+
+```text
+git add README
+```
 
 ```text
 git commit
