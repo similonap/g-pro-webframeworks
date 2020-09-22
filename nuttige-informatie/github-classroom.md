@@ -116,7 +116,7 @@ git add README
 ```
 
 ```text
-git commit
+git commit -m "Uw commit message"
 ```
 
 en geef er een beschrijving van je eerste commit mee en doe dan vervolgens
