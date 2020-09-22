@@ -127,7 +127,7 @@ git push
 
 om alles naar de remote github repository te sturen.
 
-### Gitignore
+### .Gitignore
 
 Wil je niet dat alle project specifieke dingen worden mee gecommit kan je deze .gitignore file toevoegen aan je project
 
