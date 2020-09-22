@@ -68,8 +68,6 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-#### **Indien je al een ssh key had:**
-
 Je moet nu de ssh key kopieren zodat je die in github kan ingeven. Je kan dit doen door het id\_rsa.pub bestand te open  en in een editor of direct via de terminal te kopieren in je clipboard.
 
 ```text
@@ -98,6 +96,19 @@ Hi jenny! You've successfully authenticated, but GitHub does not provide shell a
 ```
 
 te zien krijgen als het gelukt is.
+
+Indien je 
+
+```text
+The authenticity of host 'github.com (140.82.121.4)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com,140.82.121.4' (RSA) to the list of known hosts.
+
+Hi name! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+te zien krijgt. Typ dan **yes** in.
 
 ### **Repository clonen**
 
