@@ -72,8 +72,13 @@ The key's randomart image is:
 
 Je moet nu de ssh key kopieren zodat je die in github kan ingeven. Je kan dit doen door het id\_rsa.pub bestand te openen in een editor of direct via de terminal te kopieren in je clipboard.
 
-* Mac OS: `pbcopy < ~/.ssh/id_rsa.pub`
-* Windows: `clip < ~/.ssh/id_rsa.pub`
+```text
+cat ~/.ssh/id_rsa.pub
+
+ssh-rsa AAZZAB3NzaC1yc2EAZZAADAQABAAACAQCbho+JtZZSlo1MY0/X7gVmafdSZ/56MTermOAwB12M9xfMjqz3TP3VYoJsSJyAUrTBdB2zPAuFxhOhO/4rHLjYwfLrUtNwH8qB/4UbBmuCQ2wsX5cKWGMo0R+be3TQn6Wmiz1Piu6Oqyf374pzV2H3hfpji/Gq2T7vbWjFlRMZtZT9zD3f5UAJrCOPJ9s0BrJFVbEFtkxu52G6+LlVsX9uRiFhMNy4Xe0cmj1GpE7Rtc2b3Tt1npOdpbou1z/iVqr8a+u8JuTvq6QGnrkcsQ4hmTIupKgPRFqa26uj9f43DTQ3ZzTnAN38aygMfpnkMTTiJPFPYAG+JF7OpFfMINCPm4WzAC6/MQIRPhPS0mNVqtm74w2DPnCYmwN9o/vtMBCzSLS9R/WFbJBqkRVSZRFTcPDea7K3Vp11hFCHjETjtoo1S9mguAyU+2dVAZF62+JjlXZdNWleboCrQZLNlyn81YaGHAzE61CYbK+P1bl5s+mVxEorLNRjOzsKNQRHzVQJ67sG5wmlocEf3k+EoMavIqP64VhJGzOtDT1VEMX8ujWrHzMY1kqRWyEAU2ztsQAfINphtRS+WPYLtn+RBQc65W+xPFKOCM8h3yJ77TiBXzuRMChIejZWqQ7LZkUSGLjBHpUr2SwKMubvuQae4OGOtqx2hdTt1CqHK325UArlQ== slimmii@DESKTOP-T8ISLOS
+```
+
+Copy paste vervolgens alles wat dit commando uitprint in github
 
 #### **Op github:**
 
