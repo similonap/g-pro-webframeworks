@@ -29,9 +29,17 @@ public IActionResult Contact()
 }
 ```
 
-We maken hiervoor ook een nieuwe view `Contact.cshtml` in `/Views/Home` met de inhoud
+We maken hiervoor ook een nieuwe view `Contact.cshtml` in `/Views/Home` met de inhoud:
 
-  
+```text
+<strong>Andie Similon</strong>
+<p>Lange Nieuwstraat 101</p>
+<p>2000 Antwerpen</p>
+```
+
+In de `Index.cshtml` voegen we een link toe naar deze nieuwe actie in onze HomeController:
+
+
 
 ## Anchor taghelper
 
