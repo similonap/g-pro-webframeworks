@@ -82,16 +82,14 @@ Zo zal je naar de `Contact` actie gaan van de `HomeController`. Het is natuurlij
 Nu kunnen we onze link naar de Contact pagina aanpassen op de `Index.cshtml` pagina. 
 
 ```csharp
-@{
-}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hello World</title>
+    <title>The Llama Store</title>
 </head>
 
 <body>
-    <h1>Hello World</h1>
+    <h1>Hello Llama</h1>
     <a asp-controller="Home" asp-action="Contact">Contact Us</a>
     <img src="/images/llama.gif"/>
 </body>
@@ -102,10 +100,19 @@ Nu kunnen we onze link naar de Contact pagina aanpassen op de `Index.cshtml` pag
 We voegen ook nog een link terug naar onze `Index` action in de `Contact.cshtml` view:
 
 ```csharp
-<div><a asp-controller="Home" asp-action="Index">Home</a></div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Llama Store - Contact Us</title>
+</head>
 
-<strong>The llama store</strong>
-<p>Lange Nieuwstraat 101</p>
-<p>2000 Antwerpen</p>
+<body>
+    <div><a asp-controller="Home" asp-action="Index">Home</a></div>
+    <strong>The Llama store</strong>
+    <p>Lange Nieuwstraat 101</p>
+    <p>2000 Antwerpen</p>
+</body>
+
+</html>
 ```
 
