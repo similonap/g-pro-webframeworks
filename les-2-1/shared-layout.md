@@ -54,6 +54,8 @@ en de inhoud van het `Index.cshtml` bestand wordt dan
 <img src="/images/llama.gif" />
 ```
 
+We doen hetzelfde ook voor de `Contact.cshtml` view.
+
 Bovenaan de individuele paginas zetten we dan
 
 * `Layout = "_Layout"` Dit geeft aan welke gedeelde layout deze pagina zal gebruiken. In dit geval is dat de `_Layout.cshtml` pagina
