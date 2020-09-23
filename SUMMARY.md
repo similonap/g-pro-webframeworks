@@ -14,20 +14,21 @@
 * [Views en Controllers](model-view-controller.md)
 * [Oefeningen](oefeningen.md)
 
-## LES 2
+## LES 2 <a id="les-2-1"></a>
 
-* [Gedeelde layout](les-2/shared-layout.md)
-* [Tag Helpers](les-2/tag-helpers.md)
+* [Tag Helpers](les-2-1/tag-helpers.md)
 
-## LES 3 \(Thuis\)
+## LES 3 <a id="les-2"></a>
 
-* [Thuisopdracht](les-3-thuis/thuisopdracht.md)
+## LES 4 <a id="les-3-thuis"></a>
 
 ## LES 4
 
-* [Gegevens doorgeven](les-4/communicatie-tussen-view-en-controller.md)
+## Nog Niet Toegekend
 
-## LES 5 \(THUIS\)
+* [Gedeelde layout](nog-niet-toegekend/shared-layout.md)
+* [Thuisopdracht](nog-niet-toegekend/thuisopdracht.md)
+* [Gegevens doorgeven](nog-niet-toegekend/communicatie-tussen-view-en-controller.md)
 
 ## ASP.NET Core MVC <a id="asp.net"></a>
 
