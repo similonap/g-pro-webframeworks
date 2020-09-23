@@ -18,6 +18,21 @@ We maken een bestand `_ViewImports.cshtml` aan in de map `Views`. Dit bestand wo
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 ```
 
+## Nieuwe actie
+
+We gaan nu een nieuwe actie aan onze `HomeController` toevoegen. We willen onze contact informatie toevoegen zodat de gebruikers van onze webapplicatie kunnen zien wie we zijn en hoe ze ons kunnen contacteren. We voegen dus een Contact action toe aan onze home controller.
+
+```csharp
+public IActionResult Contact()
+{
+    return View();
+}
+```
+
+We maken hiervoor ook een nieuwe view `Contact.cshtml` in `/Views/Home` met de inhoud
+
+  
+
 ## Anchor taghelper
 
 De anchor tag helper is gemaakt voor het gemakkelijk genereren van urls voor links in je web applicatie. Normaal gezien maak je altijd een link in je pagina door in html het volgende te schrijven:
