@@ -45,11 +45,13 @@ Even tekst en uitleg:
 en de inhoud van het `Index.cshtml` bestand wordt dan
 
 ```aspnet
-@{
+@{ 
     Layout = "_Layout";
-    ViewBag.Title = "Hello World";
+    ViewBag.Title = "Home"; 
 }
-<h1>Hello World</h1>
+<h1>Hello llama</h1>
+<div><a asp-controller="Home" asp-action="Contact">Contact Us</a></div>
+<img src="/images/llama.gif" />
 ```
 
 Bovenaan de individuele paginas zetten we dan
