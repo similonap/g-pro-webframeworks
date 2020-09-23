@@ -57,8 +57,6 @@ We maken een bestand `_ViewImports.cshtml` aan in de map `Views`. Dit bestand wo
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 ```
 
-## Nieuwe actie
-
 ## Anchor taghelper
 
 De anchor tag helper is gemaakt voor het gemakkelijk genereren van urls voor links in je web applicatie. Hiervoor maakten we een link op de volgende manier
