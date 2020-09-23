@@ -62,8 +62,6 @@ Bovenaan de individuele paginas zetten we dan
 
 Als we nu terug de web applicatie starten dan zien we terug Hello World. De tekst zal er iets anders uitzien omdat we nu bootstrap gebruiken.
 
-![](../.gitbook/assets/image%20%2820%29.png)
-
 We gaan nu het bestand `_Layout.cshtml` aanpassen en een navigatiebalk toevoegen\(via bootstrap\). We zullen later meer in detail treden over een aantal features van bootstrap en hoe te gebruiken.
 
 ```aspnet
