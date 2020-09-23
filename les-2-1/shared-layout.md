@@ -101,7 +101,7 @@ We gaan nu het bestand `_Layout.cshtml` aanpassen en een navigatiebalk toevoegen
         <div class="collapse navbar-collapse" id="navBar">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                 </li>
             </ul>
         </div>
@@ -119,11 +119,5 @@ We gaan nu het bestand `_Layout.cshtml` aanpassen en een navigatiebalk toevoegen
 </html>
 ```
 
-Als we nu terug de web applicatie starten dan krijgen we al een mooier resultaat te zien
-
-![Hello World met een navigatie balk](../.gitbook/assets/image%20%2819%29.png)
-
-
-
-![](../.gitbook/assets/Contact2.png)
+Als we nu terug de web applicatie starten dan krijgen we al een mooier resultaat te zien.
 
