@@ -91,3 +91,13 @@ Nu kunnen we onze link naar de Contact pagina aanpassen op de `Index.cshtml` pag
 </html>
 ```
 
+We voegen ook nog een link terug naar onze `Index` action in de `Contact.cshtml` view:
+
+```csharp
+<div><a asp-controller="Home" asp-action="Index">Home</a></div>
+
+<strong>The llama store</strong>
+<p>Lange Nieuwstraat 101</p>
+<p>2000 Antwerpen</p>
+```
+
