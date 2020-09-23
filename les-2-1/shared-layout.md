@@ -60,7 +60,19 @@ De inhoud van het `Index.cshtml` bestand zal er dan zo uit zien:
 <img src="/images/llama.gif" />
 ```
 
-We doen hetzelfde ook voor de `Contact.cshtml` view.
+We doen hetzelfde ook voor de `Contact.cshtml` view:
+
+```aspnet
+@{ 
+    Layout = "_Layout";
+    ViewBag.Title = "Contact Us"; 
+}
+<div><a asp-controller="Home" asp-action="Index">Home</a></div>
+
+<strong>The llama store</strong>
+<p>Lange Nieuwstraat 101</p>
+<p>2000 Antwerpen</p>
+```
 
 Als we nu terug de web applicatie starten dan zien we terug Hello World. De tekst zal er iets anders uitzien omdat we nu bootstrap gebruiken.
 
