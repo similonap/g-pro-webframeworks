@@ -32,7 +32,7 @@ public IActionResult Contact()
 We maken hiervoor ook een nieuwe view `Contact.cshtml` in `/Views/Home` met de inhoud:
 
 ```text
-<strong>Andie Similon</strong>
+<strong>The Llama store</strong>
 <p>Lange Nieuwstraat 101</p>
 <p>2000 Antwerpen</p>
 ```
