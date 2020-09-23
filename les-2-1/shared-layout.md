@@ -103,16 +103,12 @@ We gaan nu het bestand `_Layout.cshtml` aanpassen en een navigatiebalk toevoegen
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                 </li>
-            </ul>
-        </div>
-        
-        <div class="collapse navbar-collapse" id="navBar">
-            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>
                 </li>
             </ul>
         </div>
+
     </nav>
     <div class="container">
         @RenderBody()
@@ -127,5 +123,5 @@ We gaan nu het bestand `_Layout.cshtml` aanpassen en een navigatiebalk toevoegen
 </html>
 ```
 
-Als we nu terug de web applicatie starten dan krijgen we al een mooier resultaat te zien.
+Sinds we nu de links naar de `Index` action en de `Contact` action in de navigatie balk gezet hebben kunnen we deze nu ook verwijderen van de individuele paginas. Als we nu terug de web applicatie starten dan krijgen we al een mooier resultaat te zien.
 
