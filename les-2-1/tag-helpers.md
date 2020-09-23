@@ -50,6 +50,7 @@ In de `Index.cshtml` voegen we een link toe naar deze nieuwe actie in onze HomeC
 
 <body>
     <h1>Hello World</h1>
+    <a href="/Home/Contact">Contact Us</a>
     <img src="/images/llama.gif"/>
 </body>
 
