@@ -42,7 +42,13 @@ Even tekst en uitleg:
 * `@ViewBag.Title`  Omdat we elke pagina een eigen titel willen geven die in de browser zal te zien zijn geven moeten we deze informatie kunnen doorgeven. Het ViewBag object is normaal bedoeld om te kunnen communiceren tussen Controller en View, maar kan ook gebruikt worden om waarden door te geven tussen een individuele view en de gedeelde layout. We gaan er vanuit dat de individuele view een `Title` meegeeft.
 * `@RenderBody()` Hier gaat de inhoud van de individuele pagina gerendered worden. Het is alsof de inhoud van de individuele view op deze plaats ingeplakt wordt voor elke pagina.
 
-en de inhoud van het `Index.cshtml` bestand wordt dan
+Bovenaan de individuele paginas \(Index en Contact\) zetten we dan
+
+* `Layout = "_Layout"` Dit geeft aan welke gedeelde layout deze pagina zal gebruiken. In dit geval is dat de `_Layout.cshtml` pagina
+* `ViewBag.Title = "Hello World"` Hier geven we de titel mee die we in de gedeelde layout willen doorgeven.
+* De rest is gewoon de body die zal worden getoond door de `renderBody()` functie.
+
+De inhoud van het `Index.cshtml` bestand zal er dan zo uit zien:
 
 ```aspnet
 @{ 
@@ -55,12 +61,6 @@ en de inhoud van het `Index.cshtml` bestand wordt dan
 ```
 
 We doen hetzelfde ook voor de `Contact.cshtml` view.
-
-Bovenaan de individuele paginas zetten we dan
-
-* `Layout = "_Layout"` Dit geeft aan welke gedeelde layout deze pagina zal gebruiken. In dit geval is dat de `_Layout.cshtml` pagina
-* `ViewBag.Title = "Hello World"` Hier geven we de titel mee die we in de gedeelde layout willen doorgeven.
-* De rest is gewoon de body die zal worden getoond door de `renderBody()` functie.
 
 Als we nu terug de web applicatie starten dan zien we terug Hello World. De tekst zal er iets anders uitzien omdat we nu bootstrap gebruiken.
 
