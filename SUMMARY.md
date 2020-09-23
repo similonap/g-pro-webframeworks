@@ -17,6 +17,7 @@
 ## LES 2 <a id="les-2-1"></a>
 
 * [Tag Helpers](les-2-1/tag-helpers.md)
+* [Gedeelde layout](les-2-1/shared-layout.md)
 
 ## LES 3 <a id="les-2"></a>
 
@@ -26,7 +27,6 @@
 
 ## Nog Niet Toegekend
 
-* [Gedeelde layout](nog-niet-toegekend/shared-layout.md)
 * [Thuisopdracht](nog-niet-toegekend/thuisopdracht.md)
 * [Gegevens doorgeven](nog-niet-toegekend/communicatie-tussen-view-en-controller.md)
 
