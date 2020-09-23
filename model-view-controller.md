@@ -132,19 +132,7 @@ Dit zegt exact wat er nog moet gebeuren. We moeten nog een View aanmaken met de 
 We passen de inhoud van het Index.cshtml bestand aan naar het onder
 
 ```markup
-@{
-}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Hello World</title>
-</head>
-
-<body>
-    <h1>Hello World</h1>
-</body>
-
-</html>
+<h1>Hello World</h1>
 ```
 
 Als we nu terug naar de pagina surfen dan krijgen we een al iets mooier gestijlde pagina te zien.
@@ -183,20 +171,8 @@ Dit zorgt ervoor dat alle bestanden onder de wwwroot folder beschikbaar worden v
 Als je nu onze `index.cshtml` pagina aanpassen met de volgende inhoud
 
 ```markup
-@{
-}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Hello World</title>
-</head>
-
-<body>
-    <h1>Hello World</h1>
-    <img src="~/images/llama.gif"/>
-</body>
-
-</html>
+<h1>Hello World</h1>
+<img src="/images/llama.gif"/>
 ```
 
 en onze web applicatie terug starten dan krijgen we de volgende webpagina te zien:
