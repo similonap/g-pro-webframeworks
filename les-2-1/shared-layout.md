@@ -105,6 +105,14 @@ We gaan nu het bestand `_Layout.cshtml` aanpassen en een navigatiebalk toevoegen
                 </li>
             </ul>
         </div>
+        
+        <div class="collapse navbar-collapse" id="navBar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     <div class="container">
         @RenderBody()
