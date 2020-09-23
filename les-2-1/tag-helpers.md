@@ -37,7 +37,7 @@ In de `Index.cshtml` voegen we een link toe naar deze nieuwe actie in onze HomeC
 <!DOCTYPE html>
 <html>
 <head>
-    <title>The Llama Store - Contact Us</title>
+    <title>The Llama Store</title>
 </head>
 
 <body>
