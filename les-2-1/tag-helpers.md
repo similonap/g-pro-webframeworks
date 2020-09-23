@@ -16,37 +16,17 @@ public IActionResult Contact()
 We maken hiervoor ook een nieuwe view `Contact.cshtml` in `/Views/Home` met de inhoud:
 
 ```markup
-<!DOCTYPE html>
-<html>
-<head>
-    <title>The Llama Store - Contact Us</title>
-</head>
-
-<body>
-    <strong>The Llama store</strong>
-    <p>Lange Nieuwstraat 101</p>
-    <p>2000 Antwerpen</p>
-</body>
-
-</html>
+<strong>The Llama store</strong>
+<p>Lange Nieuwstraat 101</p>
+<p>2000 Antwerpen</p>
 ```
 
 In de `Index.cshtml` voegen we een link toe naar deze nieuwe actie in onze HomeController:
 
 ```markup
-<!DOCTYPE html>
-<html>
-<head>
-    <title>The Llama Store</title>
-</head>
-
-<body>
-    <h1>Hello Llama</h1>
-    <a href="/Home/Contact">Contact Us</a>
-    <img src="/images/llama.gif"/>
-</body>
-
-</html>
+<h1>Hello Llama</h1>
+<a href="/Home/Contact">Contact Us</a>
+<img src="/images/llama.gif"/>
 ```
 
 ## Tag Helpers toevoegen
@@ -82,37 +62,17 @@ Zo zal je naar de `Contact` actie gaan van de `HomeController`. Het is natuurlij
 Nu kunnen we onze link naar de Contact pagina aanpassen op de `Index.cshtml` pagina. 
 
 ```csharp
-<!DOCTYPE html>
-<html>
-<head>
-    <title>The Llama Store</title>
-</head>
-
-<body>
-    <h1>Hello Llama</h1>
-    <a asp-controller="Home" asp-action="Contact">Contact Us</a>
-    <img src="/images/llama.gif"/>
-</body>
-
-</html>
+<h1>Hello Llama</h1>
+<a asp-controller="Home" asp-action="Contact">Contact Us</a>
+<img src="/images/llama.gif"/>
 ```
 
 We voegen ook nog een link terug naar onze `Index` action in de `Contact.cshtml` view:
 
 ```csharp
-<!DOCTYPE html>
-<html>
-<head>
-    <title>The Llama Store - Contact Us</title>
-</head>
-
-<body>
-    <div><a asp-controller="Home" asp-action="Index">Home</a></div>
-    <strong>The Llama store</strong>
-    <p>Lange Nieuwstraat 101</p>
-    <p>2000 Antwerpen</p>
-</body>
-
-</html>
+<div><a asp-controller="Home" asp-action="Index">Home</a></div>
+<strong>The Llama store</strong>
+<p>Lange Nieuwstraat 101</p>
+<p>2000 Antwerpen</p>
 ```
 
