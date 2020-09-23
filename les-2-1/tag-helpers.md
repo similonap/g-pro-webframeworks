@@ -29,7 +29,7 @@ In de `Index.cshtml` voegen we een link toe naar deze nieuwe actie in onze HomeC
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hello World</title>
+    <title>The Llama Store</title>
 </head>
 
 <body>
