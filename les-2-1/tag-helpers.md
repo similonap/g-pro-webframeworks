@@ -39,7 +39,22 @@ We maken hiervoor ook een nieuwe view `Contact.cshtml` in `/Views/Home` met de i
 
 In de `Index.cshtml` voegen we een link toe naar deze nieuwe actie in onze HomeController:
 
+```csharp
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello World</title>
+</head>
 
+<body>
+    <h1>Hello World</h1>
+    <img src="/images/llama.gif"/>
+</body>
+
+</html>
+```
 
 ## Anchor taghelper
 
