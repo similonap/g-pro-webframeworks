@@ -19,7 +19,7 @@ We maken hiervoor ook een nieuwe view `Contact.cshtml` in `/Views/Home` met de i
 <!DOCTYPE html>
 <html>
 <head>
-    <title>The Llama Store</title>
+    <title>The Llama Store - Contact Us</title>
 </head>
 
 <body>
