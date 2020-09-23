@@ -45,7 +45,7 @@ Even tekst en uitleg:
 Bovenaan de individuele paginas \(Index en Contact\) zetten we dan
 
 * `Layout = "_Layout"` Dit geeft aan welke gedeelde layout deze pagina zal gebruiken. In dit geval is dat de `_Layout.cshtml` pagina
-* `ViewBag.Title = "Hello World"` Hier geven we de titel mee die we in de gedeelde layout willen doorgeven.
+* `ViewBag.Title = "Titel hier"` Hier geven we de titel mee die we in de gedeelde layout willen doorgeven.
 * De rest is gewoon de body die zal worden getoond door de `renderBody()` functie.
 
 De inhoud van het `Index.cshtml` bestand zal er dan zo uit zien:
