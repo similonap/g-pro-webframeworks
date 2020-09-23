@@ -15,21 +15,29 @@ public IActionResult Contact()
 
 We maken hiervoor ook een nieuwe view `Contact.cshtml` in `/Views/Home` met de inhoud:
 
-```text
-<strong>The Llama store</strong>
-<p>Lange Nieuwstraat 101</p>
-<p>2000 Antwerpen</p>
-```
-
-In de `Index.cshtml` voegen we een link toe naar deze nieuwe actie in onze HomeController:
-
-```csharp
-@{
-}
+```markup
 <!DOCTYPE html>
 <html>
 <head>
     <title>The Llama Store</title>
+</head>
+
+<body>
+    <strong>The Llama store</strong>
+    <p>Lange Nieuwstraat 101</p>
+    <p>2000 Antwerpen</p>
+</body>
+
+</html>
+```
+
+In de `Index.cshtml` voegen we een link toe naar deze nieuwe actie in onze HomeController:
+
+```markup
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Llama Store - Contact Us</title>
 </head>
 
 <body>
