@@ -59,62 +59,35 @@ In de `Index.cshtml` voegen we een link toe naar deze nieuwe actie in onze HomeC
 
 ## Anchor taghelper
 
-De anchor tag helper is gemaakt voor het gemakkelijk genereren van urls voor links in je web applicatie. Normaal gezien maak je altijd een link in je pagina door in html het volgende te schrijven:
+De anchor tag helper is gemaakt voor het gemakkelijk genereren van urls voor links in je web applicatie. Hiervoor maakten we een link op de volgende manier
 
 ```markup
-<a href="/Home/BrowserInfo">
+<a href="/Home/Contact">
 ```
 
-Zo zal je naar de `BrowserInfo` actie gaan van de `HomeController`. Het is natuurlijk moeilijk om het overzicht te houden en al die links doorheen de pagina zelf te beheren. Daarom gebruiken we de `asp-action` en `asp-controller` tag helper om dit eenvoudiger te maken.
+Zo zal je naar de `Contact` actie gaan van de `HomeController`. Het is natuurlijk moeilijk om het overzicht te houden en al die links doorheen de pagina zelf te beheren. Daarom gebruiken we de `asp-action` en `asp-controller` tag helper om dit eenvoudiger te maken.
 
 ```markup
-<a asp-action="BrowserInfo" asp-controller="Home">
+<a asp-controller="Home" asp-action="Contact">
 ```
 
-Nu kunnen we onze algemene navigatie balk aanpassen zodat we gebruik maken van tag helpers:
+Nu kunnen we onze link naar de Contact pagina aanpassen op de `Index.cshtml` pagina. 
 
-```markup
-<!doctype html>
-<html lang="en">
+```csharp
+@{
+}
+<!DOCTYPE html>
+<html>
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>@ViewBag.Title</title>
+    <title>Hello World</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Eerste Project</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar" aria-controls="navBar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navBar">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="container">
-        @RenderBody()
-    </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <h1>Hello World</h1>
+    <a asp-controller="Home" asp-action="Contact">Contact Us</a>
+    <img src="/images/llama.gif"/>
 </body>
+
 </html>
 ```
-
-Er zijn uiteraard nog heel veel andere tag helpers. We zullen doorheen deze cursus stap per stap andere tag helpers introduceren.
-
-
 
