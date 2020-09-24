@@ -16,7 +16,7 @@ Daarna kan je **Accept this assignment** doen om de opdracht te aanvaarden. Hij 
 
 ![](../.gitbook/assets/image%20%2836%29.png)
 
-### SSH keys toevoegen
+### SSH keys toevoegen \(maar 1 keer doen\)
 
 Het kan zijn dat je deze stap al eens in een ander vak hebt uitgevoerd dus moeten we eerst kijken of je al een SSH key hebt aangemaakt in het verleden. Start git bash op of powershell en doe:
 
