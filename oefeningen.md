@@ -15,3 +15,9 @@
 
 ![](.gitbook/assets/screenshot-2020-09-17-at-20.49.12.png)
 
+### Oplossingen Oefening
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=673e66b1-55bd-4f53-9828-ac4100a17ab7&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" %}
+
+
+
