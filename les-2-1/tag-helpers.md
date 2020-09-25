@@ -78,3 +78,9 @@ We voegen ook nog een link terug naar onze `Index` action in de `Contact.cshtml`
 <p>2000 Antwerpen</p>
 ```
 
+## Begeleidend Videomateriaal
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d612bd84-82f4-4544-9b26-ac4100b90d7b" %}
+
+
+
