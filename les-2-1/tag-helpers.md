@@ -2,7 +2,7 @@
 
 Tag Helpers maken het mogelijk om code te genereren voor bepaalde HTML elementen. Dankzij tag helpers wordt de code die in de razor views worden gebruikt overzichtelijker en beter onderhoudbaar.
 
-We beginnen deze keer nogmaals met een nieuw project. We noemen dit project "LlamaStore". We gaan een winkel bouwen die llama's verkoopt. Volg hiervoor de instructies gelijkaardig aan Les1. We maken een HomeController met Index pagina. Oefening baart kunst, daarom doen we het hier nog een keer.
+We beginnen deze keer nogmaals met een **nieuw project**. We noemen dit project "**LlamaStore**". We gaan een winkel bouwen die llama's verkoopt. Volg hiervoor de instructies gelijkaardig aan Les1. We maken een HomeController met Index pagina. Oefening baart kunst, daarom doen we het hier nog een keer.
 
 ## Nieuwe action toevoegen
 
