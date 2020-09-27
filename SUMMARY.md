@@ -5,6 +5,7 @@
 ## Nuttige Informatie
 
 * [Github Classroom](nuttige-informatie/github-classroom.md)
+* [Troubleshooting](nuttige-informatie/troubleshooting.md)
 
 ## Les 1
 
