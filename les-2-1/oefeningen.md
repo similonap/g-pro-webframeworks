@@ -17,5 +17,7 @@ maken.
 
 ### Oefening 2
 
+Maak in de bestaande `HomeController` een nieuwe action aan die het uur en de minuten laat zien. Noem deze action `Time`.
 
+![](../.gitbook/assets/TimeEndpoint1.png)
 
