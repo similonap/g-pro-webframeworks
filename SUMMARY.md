@@ -23,6 +23,10 @@
 
 ## LES 3 <a id="les-2"></a>
 
+---
+
+* [Razor Syntax](razor-syntax.md)
+
 ## LES 4 <a id="les-3-thuis"></a>
 
 ## LES 4
