@@ -19,6 +19,7 @@
 
 * [Tag Helpers](les-2-1/tag-helpers.md)
 * [Gedeelde layout](les-2-1/shared-layout.md)
+* [Oefeningen](les-2-1/oefeningen.md)
 
 ## LES 3 <a id="les-2"></a>
 
