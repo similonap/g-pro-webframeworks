@@ -15,3 +15,7 @@ Zoek op de documentatie van bootstrap bij het onderdeel navigation hoe je dit mo
 
 maken.
 
+### Oefening 2
+
+
+
