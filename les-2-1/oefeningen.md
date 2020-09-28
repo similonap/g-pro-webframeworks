@@ -17,7 +17,9 @@ maken.
 
 ### Oefening 2
 
-Maak in de bestaande `HomeController` een nieuwe action aan die het uur en de minuten laat zien. Noem deze action `Time`. Zorg ervoor da deze niet de gemeenschappelijke layout heeft. Je kant dit doen door de Layout op null te zetten.
+Maak in de bestaande `HomeController` een nieuwe action aan die het uur en de minuten laat zien. Noem deze action `Time`. Zorg ervoor da deze niet de gemeenschappelijke layout heeft. Je kant dit doen door de Layout op null te zetten. 
+
+**Tip:** gebruik @ notatie voor C\# expressies te tonen.
 
 ![](../.gitbook/assets/TimeEndpoint1.png)
 
