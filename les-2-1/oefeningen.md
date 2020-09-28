@@ -21,3 +21,5 @@ Maak in de bestaande `HomeController` een nieuwe action aan die het uur en de mi
 
 ![](../.gitbook/assets/TimeEndpoint1.png)
 
+### 
+
