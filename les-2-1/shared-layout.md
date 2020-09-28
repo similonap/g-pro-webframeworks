@@ -125,3 +125,25 @@ We gaan nu het bestand `_Layout.cshtml` aanpassen en een navigatiebalk toevoegen
 
 Sinds we nu de links naar de `Index` action en de `Contact` action in de navigatie balk gezet hebben kunnen we deze nu ook verwijderen van de individuele paginas. Als we nu terug de web applicatie starten dan krijgen we al een mooier resultaat te zien.
 
+Tenslotte als we niet alle paginas willen laten beginnen met 
+
+```text
+Layout = "_Layout";
+```
+
+kunnen we een bestand \``_ViewStart` aanmaken in Views met de inhoud:
+
+```text
+@{
+    Layout = "_Layout";
+}
+
+```
+
+Elke pagina zal dus bovenaan beginnen met dit stuk code en mogen de aparte Layout's verwijderd worden van de verschillende pagina's.
+
+[https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=83aa7ae8-06bd-4374-8629-ac4100c0acc0  
+](
+https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=83aa7ae8-06bd-4374-8629-ac4100c0acc0
+)
+
