@@ -31,5 +31,23 @@ Je kan ook complexere expressies uitvoeren zoals een optelling en een aftrekking
 <p>Last week this time: @(DateTime.Now - TimeSpan.FromDays(7))</p>
 ```
 
-###   <a id="rendering-html"></a>
+Als je gewoon code wil laten uitvoeren zoals een for lus of een if conditie kan je gebruik maken van de @{ } syntax. Zo kunnen we bijvoorbeeld itereren over een array:
+
+```aspnet
+@{
+    for (int i=0;i<10;i++) {
+        <div>i</div>
+    }
+}
+```
+
+Dit zal 10 div tags genereren die elk een getal van 0 tot 10 bevatten. Wil je hier gewoon de waarde van i laten zien zonder de &lt;div&gt; tag moet je ervoor zorgen dat deze voorgegaan wordt met een @ symbool
+
+```aspnet
+@{
+    for (int i=0;i<10;i++) {
+        @i
+    }
+}
+```
 
