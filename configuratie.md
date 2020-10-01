@@ -50,6 +50,8 @@ We willen graag de naam van onze winkel configureerbaar maken en onze navigatie 
 }
 ```
 
+### Configuration in razor pages
+
 Nu moeten we onze algemene layout gaan aanpassen zodat die gebruik gaat maken van deze configuratie variabelen. Omdat we graag de configuratie beschikbaar hebben op elke pagina van onze webapplicatie plaatsen we de volgende lijn code in onze `_ViewImports.cshtml` .
 
 ```aspnet
@@ -80,4 +82,6 @@ We maken een variabele aan voor de navBarColor en de storeName die we vervolgens
 ```
 
 Als we nu de appsettings.json aanpassen en de web applicatie terug starten gaat deze de configuratie variabelen gebruiken om de titel van de pagina te zetten en de kleur van de navigatiebalk.
+
+### Configuration in je controller
 
