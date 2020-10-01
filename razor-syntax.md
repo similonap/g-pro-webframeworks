@@ -172,5 +172,20 @@ Als je dan naar de bron code gaat kijken van je HTML pagina gaat enkel de commen
 
 ### Directives
 
+#### @functions
+
+Wil je een functie toevoegen aan je razor page dan moet je deze plaatsen in een `@functions {}` block
+
+```aspnet
+@functions {
+    public string GetHello()
+    {
+        return "Hello";
+    }
+}
+
+<div>From method: @GetHello()</div> 
+```
+
 
 
