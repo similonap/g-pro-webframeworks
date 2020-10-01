@@ -116,7 +116,7 @@ We maken een nieuwe View aan in `Views/Product` genaamd `Index.cshtml`. Omdat we
 Als we nu de inhoud van het model willen gebruiken in de view kunnen we dit eenvoudig doen door deze aan te spreken met `@Model.PropertyName`. Zo komen we in ons voorbeeld op:
 
 ```markup
-@model EersteProjectWebFrameworks.Models.Student
+@model LlamaStore.Models.Product
 @{
     ViewBag.Title = "Product";
 }
@@ -129,7 +129,7 @@ Als we nu de inhoud van het model willen gebruiken in de view kunnen we dit eenv
 Omdat we niet voor elk model de hele namespace willen opgeven kunnen we in het `_ViewImports.cs` bestand ook de namespace includeren.
 
 ```csharp
-@using EersteProjectWebFrameworks.Models
+@using LlamaStore.Models
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 `
 ```
