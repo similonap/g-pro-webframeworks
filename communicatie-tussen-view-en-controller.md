@@ -125,6 +125,8 @@ Als we nu de inhoud van het model willen gebruiken in de view kunnen we dit eenv
 <p>@Model.Price</p>
 ```
 
+Zorg ervoor dat voor elk product een image bestand wordt gemaakt in een products folder in de images folder. De naam moet bestaan uit de id gevolgd door .jpg.
+
 Omdat we niet voor elk model de hele namespace willen opgeven kunnen we in het `_ViewImports.cs` bestand ook de namespace includeren.
 
 ```csharp
