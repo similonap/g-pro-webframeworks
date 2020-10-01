@@ -170,3 +170,7 @@ Als je dan naar de bron code gaat kijken van je HTML pagina gaat enkel de commen
 <!-- HTML comment -->
 ```
 
+### Directives
+
+
+
