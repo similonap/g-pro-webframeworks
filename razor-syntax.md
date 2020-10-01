@@ -76,8 +76,8 @@ dan kan je hier in razor pages over itereren op de volgende manieren:
 @for (var i = 0; i < people.Length; i++)
 {
     var person = people[i];
-    <p>Name: @person.Name</p>
-    <p>Age: @person.Age</p>
+    <p>Naam: @person.Name</p>
+    <p>Leeftijd: @person.Age</p>
 }
 ```
 
@@ -86,8 +86,8 @@ dan kan je hier in razor pages over itereren op de volgende manieren:
 ```aspnet
 @foreach (var person in people)
 {
-    <p>Name: @person.Name</p>
-    <p>Age: @person.Age</p>
+    <p>Naam: @person.Name</p>
+    <p>Leeftijd: @person.Age</p>
 }
 ```
 
@@ -105,5 +105,50 @@ dan kan je hier in razor pages over itereren op de volgende manieren:
 }
 ```
 
+### Controle structuren
 
+Ook controle structuren hebben een verkorte notatie in razor pages
+
+#### if
+
+```aspnet
+@if (value % 2 == 0)
+{
+    <p>The value was even.</p>
+}
+```
+
+bij de `else` en `elseif` hoef je dan geen @ symbool te plaatsen:
+
+```aspnet
+@if (value % 2 == 0)
+{
+    <p>The value was even.</p>
+}
+else if (value >= 1337)
+{
+    <p>The value is large.</p>
+}
+else
+{
+    <p>The value is odd and small.</p>
+}
+```
+
+**switch**
+
+```aspnet
+@switch (value)
+{
+    case 1:
+        <p>The value is 1!</p>
+        break;
+    case 1337:
+        <p>Your number is 1337!</p>
+        break;
+    default:
+        <p>Your number wasn't 1 or 1337.</p>
+        break;
+}
+```
 
