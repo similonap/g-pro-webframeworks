@@ -122,7 +122,13 @@ Nu zal het voorbeeld terug werken. Maar nu is de koppeling tussen de `ProductCon
 
 ## Nog een extra methode
 
-We willen nu een `Create` methode toevoegen aan de `IProductRepository` dat we ook nieuwe `Product` objecten kunnen opslaan. 
+We willen nu een `Create` methode toevoegen aan de `IProductRepository` dat we ook nieuwe `Product` objecten kunnen opslaan. We voegen dus een extra methode toe aan de `IProductRepository`
+
+```aspnet
+void Create(Product product);
+```
+
+en implementeren die in de `ProductsInMemoryRepository` 
 
 
 
