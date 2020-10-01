@@ -113,7 +113,7 @@ namespace EersteProjectWebFrameworks.Controllers
 
 Als we de applicatie opstarten en naar de Students gaan zien dan krijgen we deze 'cryptische' error message:
 
-![De html pagina die de woorden Hello World laat zien aan de gebruiker](../.gitbook/assets/DI1.png)
+![De html pagina die de woorden Hello World laat zien aan de gebruiker](.gitbook/assets/DI1.png)
 
 Maar eigenlijk is deze niet zo cryptisch. Hij zegt dat we geen service kunnen vinden voor het type `IStudentRepository`. Dat klopt, we hebben ook nergens aangegeven wat voor repository het framework voor ons moet aanmaken, dus hij kan dit natuurlijk niet doen op dit moment.
 

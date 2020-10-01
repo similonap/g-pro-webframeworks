@@ -216,5 +216,5 @@ De layout van de pagina voor de studenten is momenteel nog heel basis. Ga eens k
 
 Zorg er ook voor dat er een studenten tab bij komt in de navigatie balk.
 
-![.](../.gitbook/assets/Students1.png)
+![.](.gitbook/assets/Students1.png)
 
