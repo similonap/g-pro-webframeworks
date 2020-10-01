@@ -69,7 +69,7 @@ Stel dat je een array hebt van Person objecten:
 
 ```aspnet
 @{
-    var people = new Person[]
+    var people = new SpelenMetRazor.Models.Person[]
     {
           new Person { Name: "Andie", Age: 36 },
           new Person { Name: "Joske", Age: 41 },
