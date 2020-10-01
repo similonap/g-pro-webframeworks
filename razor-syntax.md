@@ -18,7 +18,7 @@ de code die dan gegenereerd wordt is
 <p>first.last@ap.be</p>
 ```
 
-Als je rechstreeks de expressie wil laten zien in je html code dan moet je gewoon een @ typen gevolgd door de expressie. Bijvoorbeeld:
+Als je rechtstreeks de expressie wil laten zien in je html code dan moet je gewoon een @ typen gevolgd door de expressie. Bijvoorbeeld:
 
 ```aspnet
 <p>@DateTime.Now.Year</p>
@@ -31,7 +31,7 @@ Je kan ook complexere expressies uitvoeren zoals een optelling en een aftrekking
 <p>Last week this time: @(DateTime.Now - TimeSpan.FromDays(7))</p>
 ```
 
-Als je gewoon code wil laten uitvoeren zoals een for lus of een if conditie kan je gebruik maken van de @{ } syntax. Zo kunnen we bijvoorbeeld itereren over een array:
+Als je gewoon code wil laten uitvoeren zoals een for lus of een if conditie kan je gebruik maken van de `@{ }` syntax. Zo kunnen we bijvoorbeeld itereren over een array:
 
 ```aspnet
 @{
@@ -48,6 +48,14 @@ Dit zal 10 div tags genereren die elk een getal van 0 tot 10 bevatten. Wil je hi
     for (int i=0;i<10;i++) {
         @i
     }
+}
+```
+
+Controle structuren zoals de for lus hierboven kunnen ook vereenvoudigd worden door het schrijven van de @ voor de for lus:
+
+```text
+@for (int i=0;i<10;i++) {
+    <div>i</div>
 }
 ```
 
