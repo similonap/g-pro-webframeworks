@@ -92,7 +92,7 @@ public class ProductController : Controller
 }
 ```
 
-We passen de Index action hier aan zodat we eerst een `Student` Object aanmaken via zijn constructor.
+We passen de Index action hier aan zodat we eerst een `Product` Object aanmaken via zijn constructor.
 
 ```csharp
 public class ProductController : Controller
@@ -105,9 +105,9 @@ public class ProductController : Controller
 }
 ```
 
-Zoals je hier boven ziet geven we de Product klasse niet mee aan de hand van een `ViewBag` object maar geven we dit rechtstreeks aan de View functie mee. Zo zal de view gebonden worden met het student object.
+Zoals je hier boven ziet geven we de Product klasse niet mee aan de hand van een `ViewBag` object maar geven we dit rechtstreeks aan de View functie mee. Zo zal de view gebonden worden met het Product object.
 
-We maken een nieuwe View aan in `Views/Product` genaamd `Index.cshtml`. Omdat we deze view willen binden met het model voor de Student klasse plaatsen we als eerste lijn van de view:
+We maken een nieuwe View aan in `Views/Product` genaamd `Index.cshtml`. Omdat we deze view willen binden met het model voor de Product klasse plaatsen we als eerste lijn van de view:
 
 ```csharp
 @model LlamaStore.Models.Product
@@ -141,7 +141,7 @@ dan moeten we enkel maar
 
 opgeven in het View bestand.
 
-Willen we nu een hele lijst van studenten meegeven dan is dit ook eenvoudig mogelijk.
+Willen we nu een hele lijst van producten meegeven dan is dit ook eenvoudig mogelijk.
 
 ```csharp
 public IActionResult Index()
