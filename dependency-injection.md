@@ -78,7 +78,7 @@ Dependency injection in de klasse, die ze nodig heeft, is een goede manier om on
 
 ## Inversion of control
 
-Inversion of Control is een principe in software engineering waar de controle van objecten worden uitbesteed aan een framework \(in ons geval het framework van ASP.NET Core MVC\). De `ProductController` is niet meer verantwoordelijk voor het aanmaken van de `ProductInMemoryRepository` klasse, maar we vertrouwen er op dat het framework dit wel zal doen voor ons.
+Inversion of Control is een principe in software engineering waar de controle van objecten worden uitbesteed aan een framework \(in ons geval het framework van ASP.NET Core MVC\). De `ProductController` is niet meer verantwoordelijk voor het aanmaken van de `ProductsInMemoryRepository` klasse, maar we vertrouwen er op dat het framework dit wel zal doen voor ons.
 
 We passen dus de `ProductController` aan zodat de `IProductRepository` via de constructor binnenkomt. We trekken ons dus niets aan van waar die komt, of wat de implementatie is.
 
@@ -116,9 +116,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Hier geven we aan dat we een service registreren als een Singleton \(een klasse die 1 keer geinstantieerd wordt voor de gehele levensduur van de applicatie\). `IStudentRepository` is het soort interface dat je aanbiedt en `StudentInMemoryRepository` is de implementatie die het framework zal aanbieden. Dus elke keer als een `Controller` bijvoorbeeld een studenten repository wil, dan zal hij deze krijgen. Nu wordt het ook gemakkelijker om een ander soort `Repository` aan te bieden als we deze op termijn gaan vervangen met een echte database.
+Hier geven we aan dat we een service registreren als een Singleton \(een klasse die 1 keer geinstantieerd wordt voor de gehele levensduur van de applicatie\). `IProductRepository` is het soort interface dat je aanbiedt en `ProductsInMemoryRepository` is de implementatie die het framework zal aanbieden. Dus elke keer als een `Controller` bijvoorbeeld een product repository wil, dan zal hij deze krijgen. Nu wordt het ook gemakkelijker om een ander soort `Repository` aan te bieden als we deze op termijn gaan vervangen met een echte database.
 
-Nu zal het voorbeeld terug werken. Maar nu is de koppeling tussen de `StudentController` en de `StudentInMemoryRepository` volledig weg gewerkt.
+Nu zal het voorbeeld terug werken. Maar nu is de koppeling tussen de `ProductController` en de `ProductsInMemoryRepository` volledig weg gewerkt.
 
 ## Oefeningen
 
