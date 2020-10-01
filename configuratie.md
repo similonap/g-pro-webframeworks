@@ -61,3 +61,23 @@ De eerste lijn code importeert de namespace van `Configuration` zodat we het `Co
 
 De tweede lijn code gebruikt dependency injection om het `Configuration` object te injecteren in onze view zodat we het kunnen gebruiken. Meer over dependency injection zien we later. 
 
+Als we nu terug gaan naar onze `_Layout.cshtml` kunnen we nu de volgende lijnen code bovenaan de pagina plaatsen.
+
+```text
+@{ 
+    var navBarColor = @Configuration["NavBar"];
+    var storeName = @Configuration["StoreName"];
+}
+```
+
+We maken een variabele aan voor de navBarColor en de storeName die we vervolgens gaan gebruiken in onze code.
+
+```text
+<title>@storeName - @ViewBag.Title</title>
+...
+<nav class="navbar navbar-expand-lg navbar-@navBarColor bg-@navBarColor">
+<a class="navbar-brand" href="#">@storeName</a>
+```
+
+Als we nu de appsettings.json aanpassen en de web applicatie terug starten gaat deze de configuratie variabelen gebruiken om de titel van de pagina te zetten en de kleur van de navigatiebalk.
+
