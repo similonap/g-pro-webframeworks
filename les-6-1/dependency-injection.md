@@ -130,5 +130,16 @@ void Create(Product product);
 
 en implementeren die in de `ProductsInMemoryRepository` 
 
+```csharp
+public void Create(Product product)
+{
+    int maxId = products.Max(i => i.Id) + 1;
+    product.Id = maxId;
+    products.Add(product);
+}
+```
 
+Omdat we onze Id's automatisch willen ophogen naar de maximale ID + 1 hebben we hier gebruik gemaakt van de Max functie uit LINQ. We tellen er altijd 1 bij zodat we altijd een unieke Id hebben die 1 hoger is dan de vorige. Daarna voegen we het product toe aan de lijst.
+
+We gaan deze methode nog later nodig hebben in het deeltje Formulieren.
 
