@@ -131,8 +131,6 @@ Omdat we niet voor elk model de hele namespace willen opgeven kunnen we in het `
 
 ```csharp
 @using LlamaStore.Models
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-`
 ```
 
 dan moeten we enkel maar
