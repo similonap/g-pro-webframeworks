@@ -51,6 +51,16 @@ Dit zal 10 div tags genereren die elk een getal van 0 tot 10 bevatten. Wil je hi
 }
 ```
 
+Als je in een code block een HTML tag wil printen kan je die gewoon in de block zelf plaatsen en dan wordt die uitgeprint.
+
+```aspnet
+@{
+    int number = 14;
+    number++;
+    <p>@number</p>
+}
+```
+
 ### Loops
 
 Loops zoals de for lus hierboven kunnen ook vereenvoudigd worden door het schrijven van de @ voor de loop. 
