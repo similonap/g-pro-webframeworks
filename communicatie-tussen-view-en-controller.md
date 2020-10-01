@@ -136,7 +136,7 @@ Omdat we niet voor elk model de hele namespace willen opgeven kunnen we in het `
 dan moeten we enkel maar
 
 ```text
-@model Student
+@model Product
 ```
 
 opgeven in het View bestand.
