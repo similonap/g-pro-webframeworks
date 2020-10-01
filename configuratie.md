@@ -124,3 +124,11 @@ Zoals hierboven al uitgelegd gaan environment variabelen altijd voor op de waard
 
 Als we dan de web applicatie afsluiten en terug opstarten dan zullen we de nieuwe StoreName te zien krijgen.
 
+Indien je de applicatie wil opstarten via command line kan je ook gewoon in powershell de environment variables meegeven:
+
+```text
+dotnet run StoreName=Test NavBar=dark
+```
+
+
+
