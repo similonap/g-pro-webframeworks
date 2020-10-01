@@ -1,4 +1,4 @@
-# Configuratie
+# Configuratie en Logging
 
 Het configureerbaar maken van je applicatie is een belangrijk aspect voor de flexibiliteit van je web applicatie te garanderen. Wil je een andere database connection string gebruiken? Wil je bepaalde constanten ergens definieren? Dit doe je allemaal in de Configuration van je applicatie. 
 
@@ -72,7 +72,7 @@ Als we nu terug gaan naar onze `_Layout.cshtml` kunnen we nu de volgende lijnen 
 
 We maken een variabele aan voor de navBarColor en de storeName die we vervolgens gaan gebruiken in onze code.
 
-```text
+```markup
 <title>@storeName - @ViewBag.Title</title>
 ...
 <nav class="navbar navbar-expand-lg navbar-@navBarColor bg-@navBarColor">

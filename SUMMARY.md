@@ -26,7 +26,7 @@
 ---
 
 * [Razor Syntax](razor-syntax.md)
-* [Configuratie](configuratie.md)
+* [Configuratie en Logging](configuratie.md)
 * [Oefeningen](oefeningen-1.md)
 
 ## LES 4 <a id="les-3-thuis"></a>
