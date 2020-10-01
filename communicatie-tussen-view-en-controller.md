@@ -71,33 +71,24 @@ In ASP.NET is mogelijk om een View aan een specifiek klasse te binden en deze do
 Eerst moeten we een map `Models` aanmaken waar we onze modellen in zullen opslaan. Hierin maken we de klasse `Product` aan.
 
 ```csharp
-namespace LlamaStore.Models
+public class Product
 {
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Image { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal Price { get; set; }
-    }
+    public int Id { get; set; }
+    public string Image { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public decimal Price { get; set; }
 }
 ```
 
-We maken hiervoor ook een nieuwe controller `StudentController.cs` aan.
+We maken hiervoor ook een nieuwe controller `ProductController.cs` aan.
 
 ```csharp
-using EersteProjectWebFrameworks.Models;
-using Microsoft.AspNetCore.Mvc;
-
-namespace EersteProjectWebFrameworks.Controllers
+public class StudentController : Controller
 {
-    public class StudentController : Controller
+    public IActionResult Index()
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        return View();
     }
 }
 ```
