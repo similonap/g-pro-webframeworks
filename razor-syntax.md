@@ -2,7 +2,7 @@
 
 Razor is een markup syntax voor het toevoegen van server code in webpaginas. De syntax bestaat uit Razord Markup, C\# en HTML. Je hebt al gebruik gemaakt van Razor pages maar nu gaan we iets meer in detail in de syntax en de mogelijkheden. Razor pages hebben gewoonlijk het .cshtml bestandsformaat.
 
-### Razor syntax
+## Razor syntax
 
 Razor ondersteunt C\# code en gebruikt het `@` symbool om over te schakelen tussen HTML naar C\#. Razor evalueert C\# expressies en zet ze om naar HTML output.
 
@@ -51,11 +51,59 @@ Dit zal 10 div tags genereren die elk een getal van 0 tot 10 bevatten. Wil je hi
 }
 ```
 
-Controle structuren zoals de for lus hierboven kunnen ook vereenvoudigd worden door het schrijven van de @ voor de for lus:
+### Loops
 
-```text
-@for (int i=0;i<10;i++) {
-    <div>i</div>
+Loops zoals de for lus hierboven kunnen ook vereenvoudigd worden door het schrijven van de @ voor de loop. 
+
+Stel dat je een array hebt van Person objecten:
+
+```aspnet
+@{
+    var people = new Person[]
+    {
+          new Person("Andie", 36),
+          new Person("Joske", 41),
+          ...
+    };
 }
 ```
+
+dan kan je hier in razor pages over itereren op de volgende manieren:
+
+#### for loop
+
+```aspnet
+@for (var i = 0; i < people.Length; i++)
+{
+    var person = people[i];
+    <p>Name: @person.Name</p>
+    <p>Age: @person.Age</p>
+}
+```
+
+**foreach**
+
+```aspnet
+@foreach (var person in people)
+{
+    <p>Name: @person.Name</p>
+    <p>Age: @person.Age</p>
+}
+```
+
+**while**
+
+```aspnet
+@{ int i = 0; }
+@while (i < people.Length)
+{
+    var person = people[i];
+    <p>Name: @person.Name</p>
+    <p>Age: @person.Age</p>
+
+    i++;
+}
+```
+
+
 
