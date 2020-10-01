@@ -114,5 +114,9 @@ logger.LogInformation($"StoreName {configuration["StoreName"]}");
 
 ![](.gitbook/assets/image%20%2843%29.png)
 
+### Environment variables
+
+Zoals hierboven al uitgelegd gaan environment variabelen altijd voor op de waarden in `appsettings.json`. Dus wil je tijdelijk de applicatie opstarten met een andere configuration variabele dan kan je dat doen op de volgende manier.
+
 
 
