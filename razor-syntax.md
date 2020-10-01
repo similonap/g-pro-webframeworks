@@ -187,5 +187,15 @@ Wil je een functie toevoegen aan je razor page dan moet je deze plaatsen in een 
 <div>From method: @GetHello()</div> 
 ```
 
+#### @using
 
+Wil je een bepaalde namespace importeren zodat je de klassen in die namespace kan gebruiken kan je dat doen met @using
+
+```aspnet
+@using System.IO
+@{
+    var dir = Directory.GetCurrentDirectory();
+}
+<p>@dir</p>
+```
 
