@@ -152,3 +152,21 @@ else
 }
 ```
 
+### Comments
+
+Razor ondersteunt ook C\# en HTML comments
+
+```text
+@{
+    /* C# comment */
+    // Another C# comment
+}
+<!-- HTML comment -->
+```
+
+Als je dan naar de bron code gaat kijken van je HTML pagina gaat enkel de commentaar in HTML zichtbaar zijn. Dus:
+
+```text
+<!-- HTML comment -->
+```
+
