@@ -9,13 +9,13 @@ Razor ondersteunt C\# code en gebruikt het `@` symbool om over te schakelen tuss
 Om `@` te kunnen escapen gebruik je een 2de `@` symbool
 
 ```aspnet
-<p>first.last@@ap.be</p>
+<p>Meetup @@ AP</p>
 ```
 
 de code die dan gegenereerd wordt is
 
 ```aspnet
-<p>first.last@ap.be</p>
+<p>Meetup @ AP</p>
 ```
 
 Als je rechtstreeks de expressie wil laten zien in je html code dan moet je gewoon een @ typen gevolgd door de expressie. Bijvoorbeeld:
