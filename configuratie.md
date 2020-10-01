@@ -122,5 +122,5 @@ Zoals hierboven al uitgelegd gaan environment variabelen altijd voor op de waard
 
 ![](.gitbook/assets/image%20%2844%29.png)
 
-
+Als we dan de web applicatie afsluiten en terug opstarten dan zullen we de nieuwe StoreName te zien krijgen.
 
