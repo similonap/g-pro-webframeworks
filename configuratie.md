@@ -18,7 +18,7 @@ Hij zal dit ook in een bepaald volgorde doen. Bijvoorbeeld als een key in appset
 
 Als je een empty project aanmaakt maakt visual studio altijd een appsettings.json bestand aan met de volgende inhoud:
 
-```text
+```javascript
 {
   "Logging": {
     "LogLevel": {
@@ -35,7 +35,7 @@ Dit zijn al voorgedefinieerde configuratie variabelen die worden gebruikt voor h
 
 We willen graag de naam van onze winkel configureerbaar maken en onze navigatie balk kunnen in dark mode zetten en in light mode. Dus we voegen twee configuratie variabelen toe
 
-```text
+```javascript
 {
   "Logging": {
     "LogLevel": {
@@ -48,6 +48,13 @@ We willen graag de naam van onze winkel configureerbaar maken en onze navigatie 
   "NavBar": "dark",
   "AllowedHosts": "*"
 }
+```
+
+Nu moeten we onze algemene layout gaan aanpassen zodat die gebruik gaat maken van deze configuratie variabelen. Omdat we graag de configuratie beschikbaar hebben op elke pagina van onze webapplicatie plaatsen we de volgende lijn code in onze `_ViewImports.cshtml` .
+
+```aspnet
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
 ```
 
 
