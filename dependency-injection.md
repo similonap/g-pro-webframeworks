@@ -72,7 +72,7 @@ We passen ook nog in `Views/Student` het `Index.cshtml` bestand aan dat dit ook 
 
 Men spreekt van een afhankelijkheid als een klasse een externe klasse nodig heeft om zijn werk te kunnen doen. Net zoals ik, wanneer ik dit lesmateriaal intyp, afhankelijk ben van bijvoorbeeld mijn computer. Verwijder de computer en ik zou het lesmateriaal niet kunnen voltooien.
 
-In het voorbeeld van de `StudentController` is er een sterke afhankelijkheid ontstaan met de `StudentInMemoryRepository` klasse. De controller kan niet meer werken zonder.
+In het voorbeeld van de `ProductController` is er een sterke afhankelijkheid ontstaan met de `ProductInMemoryRepository` klasse. De controller kan niet meer werken zonder.
 
 Dependency injection in de klasse, die ze nodig heeft, is een goede manier om onze klassen te ontkoppelen. Alhoewel elke klasse zelf een nieuw object kan instanciëren en toegang heeft tot de methoden en eigenschappen ervan, is daarom niet zo dat die klasse daar thuis hoort. Het injecteren van een klassenafhankelijkheid is een goede manier om de single responsability patroon toe te passen. Dit patroon bevordert een goed objectgericht ontwerp. Dit principe houdt in dat elke klasse verantwoordelijkheid is voor een specifiek deel van de functionaliteit die door de applicatie wordt geleverd, en dat die verantwoordelijkheid volledig door de klasse moet worden ingekapseld.
 
