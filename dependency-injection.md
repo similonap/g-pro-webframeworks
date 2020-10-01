@@ -4,53 +4,45 @@ Op dit moment hebben we gewoon in de `Controller` een lijst met objecten gemaakt
 
 ## Repository
 
-Om dit te verwezenlijken is er een bekend software patroon. Dit is het repository pattern. We maken een interface waarmee de applicatie kan `Student` objecten op te vragen zonder zich aan te trekken of deze opgeslagen wordt in een database of in memory.
+Om dit te verwezenlijken is er een bekend software patroon. Dit is het repository pattern. We maken een interface waarmee de applicatie kan `Product` objecten op te vragen zonder zich aan te trekken of deze opgeslagen wordt in een database of in memory.
 
-We maken in de `Model` map een nieuwe `Interface` `IStudentRepostory` met de inhoud
+We maken in de `Model` map een nieuwe `Interface` `IProductRepostory` met de inhoud
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace EersteProjectWebFrameworks.Models
+public interface IProductRepository
 {
-    public interface IStudentRepository
+    IQueryable<Product> GetAll();
+}
+```
+
+We gebruiken hier `IQueryable` als return type om hier zo algemeen mogelijk te zijn voor later. Dit zou even goed een `List` kunnen geweest zijn. 
+
+Nu maken we in de `Model` map een nieuwe klasse `ProductsInMemoryRepository` die de `IProductRepository` implementeert.
+
+```csharp
+public class ProductsInMemoryRepository
+{
+    private List<Product> products;
+
+    public ProductsInMemoryRepository()
     {
-        IQueryable<Student> GetAll();
+        products = new List<Product>
+        {
+            new Product { Id = 1, Name = "Fluffy Llama", Description = "A fluffy llama that is very nice for small children", Price = 13.99M },
+            new Product { Id = 2, Name = "Colorful Llama", Description = "A colorful llama that will make you warm with joy", Price = 20.99M },
+        };
+    }
+
+    public IQueryable<Product> GetAll()
+    {
+        return products.AsQueryable();
     }
 }
 ```
 
-We gebruiken hier `IEnumerable` als return type om hier zo algemeen mogelijk te zijn voor later. Dit zou even goed een `List` kunnen geweest zijn \(die `IEnumerable` interface implementeert\).
+We hebben hier een lijst met studenten en in de constructor vullen we de lijst op met een aantal default waarden. We implementeren de interface door de `GetAll` methode in te vullen. We geven hier gewoon de lijst van producten terug.
 
-Nu maken we in de `Model` map een nieuwe klasse `StudentInMemoryRepository` die de `IStudentRepository` implementeerd.
-
-```csharp
-namespace EersteProjectWebFrameworks.Models
-{
-    public class StudentInMemoryRepository : IStudentRepository
-    {
-        private List<Student> students = new List<Student>();
-
-        public StudentInMemoryRepository()
-        {
-            students.Add(new Student(0, "Andie", "Similon", 2020));
-            students.Add(new Student(1, "Jon", "Beton", 2020));
-        }
-
-        public IEnumerable<Student> GetAll() {
-        {
-            return students;
-        }
-    }
-}
-```
-
-We hebben hier een lijst met studenten en in de constructor vullen we de lijst op met een aantal default waarden. We implementeren de interface door de `GetAll` methode in te vullen. We geven hier gewoon de lijst van studenten terug.
-
-We passen de `StudentsController` een beetje aan zodat we nu deze klasse gebruiken in plaats van elke keer de `List` aan te maken.
+We passen de `ProductController` een beetje aan zodat we nu deze klasse gebruiken in plaats van elke keer de `List` aan te maken.
 
 ```csharp
 namespace EersteProjectWebFrameworks.Controllers

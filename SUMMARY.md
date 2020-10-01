@@ -46,7 +46,7 @@
 * [Restriction operators](les-4-1/restriction-operators.md)
 * [Oefeningen](les-4-1/oefeningen.md)
 
-## LES 6
+## LES 7 <a id="les-6"></a>
 
 * [Formulieren](les-6/formulieren.md)
 
