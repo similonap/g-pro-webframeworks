@@ -78,35 +78,32 @@ Dependency injection in de klasse, die ze nodig heeft, is een goede manier om on
 
 ## Inversion of control
 
-Inversion of Control is een principe in software engineering waar de controle van objecten worden uitbesteed aan een framework \(in ons geval het framework van ASP.NET Core MVC\). De `StudentController` is niet meer verantwoordelijk voor het aanmaken van de `StudentInMemoryRepository` klasse, maar we vertrouwen er op dat het framework dit wel zal doen voor ons.
+Inversion of Control is een principe in software engineering waar de controle van objecten worden uitbesteed aan een framework \(in ons geval het framework van ASP.NET Core MVC\). De `ProductController` is niet meer verantwoordelijk voor het aanmaken van de `ProductInMemoryRepository` klasse, maar we vertrouwen er op dat het framework dit wel zal doen voor ons.
 
-We passen dus de `StudentController` aan zodat de `IStudentRepository` via de constructor binnenkomt. We trekken ons dus niets aan van waar die komt, of wat de implementatie is.
+We passen dus de `ProductController` aan zodat de `IProductRepository` via de constructor binnenkomt. We trekken ons dus niets aan van waar die komt, of wat de implementatie is.
 
 ```csharp
-namespace EersteProjectWebFrameworks.Controllers
+public class ProductController : Controller
 {
-    public class StudentController : Controller
+    private IProductRepository productRepository;
+
+    public ProductController(IProductRepository productRepository)
     {
-        private IStudentRepository studentRepository;
-
-        public StudentController(IStudentRepository studentRepository)
-        {
-            this.studentRepository = studentRepository;
-        }
-
-        public IActionResult Index()
-        {
-            return View(studentRepository.GetAll());
-        }
+        this.productRepository = productRepository;
+    }
+    public IActionResult Index()
+    {
+        
+        return View(productRepository.GetAll());
     }
 }
 ```
 
-Als we de applicatie opstarten en naar de Students gaan zien dan krijgen we deze 'cryptische' error message:
+Als we de applicatie opstarten en naar de Products gaan zien dan krijgen we deze 'cryptische' error message:
 
-![De html pagina die de woorden Hello World laat zien aan de gebruiker](.gitbook/assets/DI1.png)
+![](.gitbook/assets/image%20%2846%29.png)
 
-Maar eigenlijk is deze niet zo cryptisch. Hij zegt dat we geen service kunnen vinden voor het type `IStudentRepository`. Dat klopt, we hebben ook nergens aangegeven wat voor repository het framework voor ons moet aanmaken, dus hij kan dit natuurlijk niet doen op dit moment.
+Maar eigenlijk is deze niet zo cryptisch. Hij zegt dat we geen service kunnen vinden voor het type `IProductRepository`. Dat klopt, we hebben ook nergens aangegeven wat voor repository het framework voor ons moet aanmaken, dus hij kan dit natuurlijk niet doen op dit moment.
 
 Dit doen we in de `ConfigureServices` methode in de `Startup.cs` klasse.
 
@@ -115,7 +112,7 @@ public void ConfigureServices(IServiceCollection services)
 {
     services.AddControllersWithViews();
 
-    services.AddSingleton<IStudentRepository, StudentInMemoryRepository>();
+    services.AddSingleton<IProductRepository, ProductsInMemoryRepository>();
 }
 ```
 
