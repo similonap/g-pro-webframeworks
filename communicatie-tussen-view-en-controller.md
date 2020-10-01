@@ -74,7 +74,6 @@ Eerst moeten we een map `Models` aanmaken waar we onze modellen in zullen opslaa
 public class Product
 {
     public int Id { get; set; }
-    public string Image { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public decimal Price { get; set; }
@@ -84,7 +83,7 @@ public class Product
 We maken hiervoor ook een nieuwe controller `ProductController.cs` aan.
 
 ```csharp
-public class StudentController : Controller
+public class ProductController : Controller
 {
     public IActionResult Index()
     {
@@ -96,30 +95,22 @@ public class StudentController : Controller
 We passen de Index action hier aan zodat we eerst een `Student` Object aanmaken via zijn constructor.
 
 ```csharp
-using EersteProjectWebFrameworks.Models;
-using Microsoft.AspNetCore.Mvc;
-
-namespace EersteProjectWebFrameworks.Controllers
+public class ProductController : Controller
 {
-    public class StudentController : Controller
+    public IActionResult Index()
     {
-        public IActionResult Index()
-        {
-            Student student = new Student(0, "Andie", "Similon", 2020);
-
-            return View(student);
-        }
+        Product product = new Product { Id = 1, Name = "Fluffy Llama", Description = "A fluffy llama that is very nice for small children", Price = 13.99M };
+        return View(product);
     }
 }
 ```
 
-Zoals je hier boven ziet geven we de student klasse niet mee aan de hand van een `ViewBag` object maar geven we dit rechtstreeks aan de View functie mee. Zo zal de view gebonden worden met het student object.
+Zoals je hier boven ziet geven we de Product klasse niet mee aan de hand van een `ViewBag` object maar geven we dit rechtstreeks aan de View functie mee. Zo zal de view gebonden worden met het student object.
 
-We maken een nieuwe View aan in `Views/Student` genaamd `Index.cshtml`. Omdat we deze view willen binden met het model voor de Student klasse plaatsen we als eerste lijn van de view:
+We maken een nieuwe View aan in `Views/Product` genaamd `Index.cshtml`. Omdat we deze view willen binden met het model voor de Student klasse plaatsen we als eerste lijn van de view:
 
 ```csharp
-@model EersteProjectWebFrameworks.Models.Student
-`
+@model LlamaStore.Models.Product
 ```
 
 Als we nu de inhoud van het model willen gebruiken in de view kunnen we dit eenvoudig doen door deze aan te spreken met `@Model.PropertyName`. Zo komen we in ons voorbeeld op:
@@ -127,8 +118,7 @@ Als we nu de inhoud van het model willen gebruiken in de view kunnen we dit eenv
 ```markup
 @model EersteProjectWebFrameworks.Models.Student
 @{
-    Layout = "_Layout";
-    ViewBag.Title = "Students";
+    ViewBag.Title = "Product";
 }
 
 @Model.FirstName
