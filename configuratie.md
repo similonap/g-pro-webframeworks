@@ -89,19 +89,30 @@ We kunnen uiteraard ook configuratie variabelen gaan uitlezen vanuit je `Control
 
 ```csharp
 public class HomeController : Controller
+{
+    private IConfiguration configuration;
+    private ILogger<HomeController> logger;
+
+    public HomeController(IConfiguration configuration, ILogger<HomeController> logger)
     {
-        private IConfiguration configuration;
-        private ILogger<HomeController> logger;
-
-        public HomeController(IConfiguration configuration, ILogger<HomeController> logger)
-        {
-            this.configuration = configuration;
-            this.logger = logger;
-        }
-
-        // Hier staan nog actions
+        this.configuration = configuration;
+        this.logger = logger;
     }
+
+    // Hier staan nog actions
+}
 ```
 
-We gaan hier een `IConfiguration` injecteren en een `ILogger` injecteren zodat we die kunnen gebruiken in onze `HomeController`. 
+We gaan hier een `IConfiguration` injecteren en een `ILogger` injecteren zodat we die kunnen gebruiken in onze `HomeController` om een aantal configuratie variabelen in onze logging te printen.
+
+we kunnen nu onderaan in de constructor de volgende code zetten om de 2 configuratie variabelen te loggen in onze log output:
+
+```text
+logger.LogInformation($"NavBar color {configuration["NavBar"]}");
+logger.LogInformation($"StoreName {configuration["StoreName"]}");
+```
+
+![](.gitbook/assets/image%20%2843%29.png)
+
+
 
