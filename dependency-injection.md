@@ -45,28 +45,27 @@ We hebben hier een lijst met studenten en in de constructor vullen we de lijst o
 We passen de `ProductController` een beetje aan zodat we nu deze klasse gebruiken in plaats van elke keer de `List` aan te maken.
 
 ```csharp
-namespace EersteProjectWebFrameworks.Controllers
+public class ProductController : Controller
 {
-    public class StudentController : Controller
-    {
-        private IStudentRepository studentRepository;
-        public StudentController()
-        {
-            studentRepository = new StudentInMemoryRepository();
-        }
 
-        public IActionResult Index()
-        {
-            return View(studentRepository.GetAll());
-        }
+    private IProductRepository productRepository;
+
+    public ProductController()
+    {
+        this.productRepository = new ProductsInMemoryRepository();
+    }
+    public IActionResult Index()
+    {
+        
+        return View(productRepository.GetAll());
     }
 }
 ```
 
-We passen ook nog in `Views/Student` het `Index.cshtml` bestand aan dat dit ook gebruik maakt van de `IEnumerable` interface.
+We passen ook nog in `Views/Student` het `Index.cshtml` bestand aan dat dit ook gebruik maakt van de `IQueryable` interface.
 
 ```text
-@model IEnumerable<Student>
+@model IQueryable<Product>
 ```
 
 ## Klasse afhankelijkheid
