@@ -34,7 +34,6 @@
 ---
 
 * [Gegevens doorgeven](communicatie-tussen-view-en-controller.md)
-* [Dependency Injection](dependency-injection.md)
 * [Oefeningen](oefeningen-2.md)
 
 ## LES 5 \(Thuis\) <a id="les-4-1"></a>
@@ -46,7 +45,16 @@
 * [Restriction operators](les-4-1/restriction-operators.md)
 * [Oefeningen](les-4-1/oefeningen.md)
 
-## LES 7 <a id="les-6"></a>
+## LES 6 <a id="les-6-1"></a>
+
+* [Dependency Injection](les-6-1/dependency-injection.md)
+* [Oefeningen](les-6-1/oefeningen.md)
+
+## LES 7 \(THUIS\) <a id="les-7"></a>
+
+* [Untitled](les-7/untitled.md)
+
+## LES 8 <a id="les-6"></a>
 
 * [Formulieren](les-6/formulieren.md)
 

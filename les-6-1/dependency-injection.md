@@ -101,7 +101,7 @@ public class ProductController : Controller
 
 Als we de applicatie opstarten en naar de Products gaan zien dan krijgen we deze 'cryptische' error message:
 
-![](.gitbook/assets/image%20%2846%29.png)
+![](../.gitbook/assets/image%20%2846%29.png)
 
 Maar eigenlijk is deze niet zo cryptisch. Hij zegt dat we geen service kunnen vinden voor het type `IProductRepository`. Dat klopt, we hebben ook nergens aangegeven wat voor repository het framework voor ons moet aanmaken, dus hij kan dit natuurlijk niet doen op dit moment.
 
@@ -120,19 +120,9 @@ Hier geven we aan dat we een service registreren als een Singleton \(een klasse 
 
 Nu zal het voorbeeld terug werken. Maar nu is de koppeling tussen de `ProductController` en de `ProductsInMemoryRepository` volledig weg gewerkt.
 
-## Oefeningen
+## Nog een extra methode
 
-Voeg een `Create` methode toe aan de `IStudentRepository` waarmee je nieuwe `Student` objecten kan opslaan. Zorg ervoor dat deze automatisch een Id krijgt toegewezen die 1 hoger is als de vorige. De signature van deze methode is
+We willen nu een `Create` methode toevoegen aan de `IProductRepository` dat we ook nieuwe `Product` objecten kunnen opslaan. 
 
-```csharp
-public void Create(Student student);
-```
 
-Voeg een `Get` methode toe met als argument id die het element opvraagt met de meegegeven `Id`. De signature van deze methode is.
-
-```csharp
-public Student Get(int id);
-```
-
-We gaan deze methoden in een later hoofdstuk nodig hebben.
 
