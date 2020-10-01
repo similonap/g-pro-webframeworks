@@ -71,8 +71,8 @@ Stel dat je een array hebt van Person objecten:
 @{
     var people = new Person[]
     {
-          new Person("Andie", 36),
-          new Person("Joske", 41),
+          new Person { Name: "Andie", Age: 36 },
+          new Person { Name: "Joske", Age: 41 },
           ...
     };
 }
