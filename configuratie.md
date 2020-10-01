@@ -88,12 +88,20 @@ Als we nu de appsettings.json aanpassen en de web applicatie terug starten gaat 
 We kunnen uiteraard ook configuratie variabelen gaan uitlezen vanuit je `Controller` klassen. Dit gaan we ook aan de hand van Dependency Injection laten doen. We maken een constructor aan in de `HomeController` klasse
 
 ```csharp
-public HomeController(IConfiguration configuration, ILogger<HomeController> logger)
-{
-    this.configuration = configuration;
-    this.logger = logger;
-}
+public class HomeController : Controller
+    {
+        private IConfiguration configuration;
+        private ILogger<HomeController> logger;
+
+        public HomeController(IConfiguration configuration, ILogger<HomeController> logger)
+        {
+            this.configuration = configuration;
+            this.logger = logger;
+        }
+
+        // Hier staan nog actions
+    }
 ```
 
-We gaan hier een `IConfiguration` injecteren en een `ILogger` injecteren zodat we die kunnen gebruiken in onze `HomeController`
+We gaan hier een `IConfiguration` injecteren en een `ILogger` injecteren zodat we die kunnen gebruiken in onze `HomeController`. 
 
