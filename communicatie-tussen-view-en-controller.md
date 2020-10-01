@@ -68,25 +68,18 @@ Het model is verantwoordelijk voor de informatie die door de toepassing wordt we
 
 In ASP.NET is mogelijk om een View aan een specifiek klasse te binden en deze door te geven via de controller. We zullen eerst zien hoe we een eenvoudige string doorgeven.
 
-Eerst moeten we een map `Models` aanmaken waar we onze modellen in zullen opslaan. Hierin maken we de klasse `Student` aan.
+Eerst moeten we een map `Models` aanmaken waar we onze modellen in zullen opslaan. Hierin maken we de klasse `Product` aan.
 
 ```csharp
-namespace EersteProjectWebFrameworks.Models
+namespace LlamaStore.Models
 {
-    public class Student
+    public class Product
     {
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int EnrollmentYear { get; set; }
-
-        public Student(int id, string firstName, string lastName, int enrollmentYear)
-        {
-            this.Id = id;
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.EnrollmentYear = enrollmentYear;
-        }
+        public string Image { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
     }
 }
 ```
