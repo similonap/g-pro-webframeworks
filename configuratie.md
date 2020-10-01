@@ -57,5 +57,7 @@ Nu moeten we onze algemene layout gaan aanpassen zodat die gebruik gaat maken va
 @inject IConfiguration Configuration
 ```
 
+De eerste lijn code importeert de namespace van `Configuration` zodat we het `Configuration` object kunnen gebruiken. 
 
+De tweede lijn code gebruikt dependency injection om het `Configuration` object te injecteren in onze view zodat we het kunnen gebruiken. Meer over dependency injection zien we later. 
 
