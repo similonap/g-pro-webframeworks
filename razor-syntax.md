@@ -71,8 +71,8 @@ Stel dat je een array hebt van Person objecten:
 @{
     var people = new SpelenMetRazor.Models.Person[]
     {
-          new SpelenMetRazor.Models.Person { Name: "Andie", Age: 36 },
-          new SpelenMetRazor.Models.Person  { Name: "Joske", Age: 41 },
+          new SpelenMetRazor.Models.Person { Name = "Andie", Age = 36 },
+          new SpelenMetRazor.Models.Person  { Name = "Joske", Age = 41 },
           ...
     };
 }
