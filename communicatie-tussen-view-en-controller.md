@@ -144,40 +144,60 @@ opgeven in het View bestand.
 Willen we nu een hele lijst van studenten meegeven dan is dit ook eenvoudig mogelijk.
 
 ```csharp
-using EersteProjectWebFrameworks.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-
-namespace EersteProjectWebFrameworks.Controllers
+public IActionResult Index()
 {
-    public class StudentController : Controller
+    var products = new List<Product>
     {
-        public IActionResult Index()
-        {
-            List<Student> students = new List<Student>();
-            students.Add(new Student(0, "Andie", "Similon", 2020));
-            students.Add(new Student(1, "Jon", "Beton", 2020));
+        new Product { Id = 1, Name = "Fluffy Llama", Description = "A fluffy llama that is very nice for small children", Price = 13.99M },
+        new Product { Id = 2, Name = "Colorful Llama", Description = "A colorful llama that will make you warm with joy", Price = 20.99M },
+    };
 
-            return View(students);
-        }
-    }
+    return View(products);
 }
 ```
 
 en de Index.cshtml file:
 
 ```markup
-@model List<Student>
-@{
-    Layout = "_Layout";
-    ViewBag.Title = "Students";
+@model List<Product>
+@{ ViewBag.Title = "Products"; }
+
+@foreach (Product product in Model)
+{
+    <img src="~/images/products/@(product.Id).jpg"/>
+    <p>@product.Name</p>
+    <p>@product.Description</p>
+    <p>@product.Price</p>
 }
 
-@foreach (Student student in Model)
-{
-    @student.FirstName @student.LastName @student.EnrollmentYear<br/>
-}
 ```
 
+en dankzij wat Bootstrap magie vormen we dit om tot een mooie tabel.
 
+```aspnet
+@model List<Product>
+@{ ViewBag.Title = "Products"; }
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Product product in Model)
+        {
+        <tr>
+            <td><img src="~/images/products/@(product.Id).jpg" width="50" height="50"/></td>
+            <td>@product.Name</td>
+            <td>@product.Description</td>
+            <td>@product.Price</td>
+        </tr>
+        }
+    </tbody>
+</table>
+```
 
