@@ -117,13 +117,12 @@ Als we nu de inhoud van het model willen gebruiken in de view kunnen we dit eenv
 
 ```markup
 @model LlamaStore.Models.Product
-@{
-    ViewBag.Title = "Product";
-}
+@{ ViewBag.Title = "Product"; }
 
-@Model.FirstName
-@Model.LastName
-@Model.EnrollmentYear
+<img src="~/images/products/@(Model.Id).jpg"/>
+<p>@Model.Name</p>
+<p>@Model.Description</p>
+<p>@Model.Price</p>
 ```
 
 Omdat we niet voor elk model de hele namespace willen opgeven kunnen we in het `_ViewImports.cs` bestand ook de namespace includeren.
