@@ -62,10 +62,6 @@ en het gebruik is gelijkaardig in de View:
 
 We spreken af dat we vooral het `ViewBag` object zullen gebruiken omdat dit eenvoudiger in gebruik is.
 
-### Oefeningen
-
-Pas de Time action die je in de vorige oefeningen hebt gemaakt aan zodat deze het uur en de minuten doorgeeft aan de view en deze laat zien aan de gebruiker. Gebruik hiervoor de `ViewBag`.
-
 ## Model
 
 Het model is verantwoordelijk voor de informatie die door de toepassing wordt weergegeven. In de context van ASP.NET stelt het model bijvoorbeeld de data die wordt gepost vanuit een formulier voor, de data die moet worden weergegeven in een view,... Het zijn de bedrijfsspecifieke concepten die daar worden weergegeven en doorgegeven aan de controller door middel van klassen.
@@ -210,11 +206,5 @@ en de Index.cshtml file:
 }
 ```
 
-### Oefeningen
 
-De layout van de pagina voor de studenten is momenteel nog heel basis. Ga eens kijken naar [https://getbootstrap.com/docs/4.1/content/tables/](https://getbootstrap.com/docs/4.1/content/tables/) en gebruik dit voor de studenten tabel te stylen.
-
-Zorg er ook voor dat er een studenten tab bij komt in de navigatie balk.
-
-![.](.gitbook/assets/Students1.png)
 
