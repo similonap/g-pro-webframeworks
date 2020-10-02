@@ -130,5 +130,9 @@ Indien je de applicatie wil opstarten via command line kan je ook gewoon in powe
 dotnet run StoreName=Test NavBar=dark
 ```
 
+## Begeleidend videomateriaal
+
+[https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1b05ff48-3af5-434c-9e98-ac4800d3dab8](https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1b05ff48-3af5-434c-9e98-ac4800d3dab8)
+
 
 
