@@ -209,3 +209,9 @@ Wil je een bepaalde namespace importeren zodat je de klassen in die namespace ka
 <p>@dir</p>
 ```
 
+## Begeleidend videomateriaal
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=18a7e731-4771-4623-8e17-ac4800d3da79" %}
+
+
+
