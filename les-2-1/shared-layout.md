@@ -142,6 +142,8 @@ kunnen we een bestand \``_ViewStart` aanmaken in Views met de inhoud:
 
 Elke pagina zal dus bovenaan beginnen met dit stuk code en mogen de aparte Layout's verwijderd worden van de verschillende pagina's.
 
+## Begeleidend videomateriaal
+
 [https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=83aa7ae8-06bd-4374-8629-ac4100c0acc0  
 ](
 https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=83aa7ae8-06bd-4374-8629-ac4100c0acc0
