@@ -16,5 +16,9 @@ Hieronder staat een zip file met 151 images van pokemon. Download deze en zorg d
 
 ![](.gitbook/assets/image%20%2848%29.png)
 
-### 
+### Uitbreiding
+
+* Zorg ook dat de kleur van de navigatiebalk volledig configureerbaar is. Kijk naar de documentatie van bootstrap om te zien hoe je die kleur verandert.
+
+
 
