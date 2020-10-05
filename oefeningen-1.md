@@ -19,6 +19,22 @@ Hieronder staat een zip file met 151 images van pokemon. Download deze en zorg d
 ### Uitbreiding
 
 * Zorg ook dat de kleur van de navigatiebalk volledig configureerbaar is. Kijk naar de documentatie van bootstrap om te zien hoe je die kleur verandert.
+* Gebruik de functie `isDarkMode` om te bepalen of de navigatiebalk in dark mode moet komen of ik light mode
+
+```aspnet
+bool isDarkMode(string color)
+{
+    System.Drawing.Color col = System.Drawing.ColorTranslator.FromHtml(color);
+    if (col.R * 0.2126 + col.G * 0.7152 + col.B * 0.0722 > 255 / 2)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+```
 
 
 
