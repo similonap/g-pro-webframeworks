@@ -12,16 +12,16 @@ Hieronder staat een zip file met 151 images van pokemon. Download deze en zorg d
 * Gebruik logging om telkens als de gebruiker naar de Pokedex pagina gaat een bericht te loggen op je console met "A user has used the pokedex".
 * Zorg ervoor dat er rechtsbovenaan de navigatiebalk een image komt te staan waarin willekeurig een andere pokemon wordt getoond elke keer de pagina wordt gerefreshed.
 
-![](.gitbook/assets/image%20%2847%29.png)
-
 ![](.gitbook/assets/image%20%2848%29.png)
+
+![](.gitbook/assets/image%20%2850%29.png)
 
 ### Uitbreiding
 
 * Zorg ook dat de kleur van de navigatiebalk volledig configureerbaar is. Kijk naar de documentatie van bootstrap om te zien hoe je die kleur verandert.
 * Gebruik de functie `isDarkMode` om te bepalen of de navigatiebalk in dark mode moet komen of ik light mode
 
-```aspnet
+```csharp
 bool isDarkMode(string color)
 {
     System.Drawing.Color col = System.Drawing.ColorTranslator.FromHtml(color);
@@ -36,5 +36,11 @@ bool isDarkMode(string color)
 }
 ```
 
+Bij NavBarColor = "\#400000" zal het er zo uit zien:
 
+![](.gitbook/assets/image%20%2849%29.png)
+
+Bij NavBarColor = "\#FFBDBD" zal het er zo uit zien:
+
+![](.gitbook/assets/image%20%2847%29.png)
 
