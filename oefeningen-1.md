@@ -1,5 +1,7 @@
 # Oefeningen
 
+### Hoofdopdracht
+
 Maak een nieuw project "Pokedex" aan de hand van een empty ASP.NET Core Web Application \(zoals we de voorgaande lessen hebben gedaan\).
 
 Hieronder staat een zip file met 151 images van pokemon. Download deze en zorg dat deze beschikbaar is via je **wwwroot** directory.
