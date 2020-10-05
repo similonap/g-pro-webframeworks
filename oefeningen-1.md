@@ -10,9 +10,9 @@ Maak een `HomeController` die een navigatiebalk bevat en een welkomst pagina. In
 
 Maak vervolgens een PokedexController met bijbehorende index actie. In de view van deze actie zorg je ervoor dat de images van alle 151 pokemon getoond worden aan de gebruiker. Er dienen geen namen getoond te worden.
 
+Vervolgens zorg je ervoor dat het aantal pokemon dat getoond worden configureerbaar zijn aan de hand van de `appsettings.json` file met een configuratie variabele `MaxPokemon`
 
-
-### 
+Gebruik logging om telkens als de gebruiker naar de Pokedex pagina gaat een bericht te loggen op je console met "A user has used the pokedex".
 
 ### 
 
