@@ -20,7 +20,7 @@ Hieronder staat een zip file met 151 images van pokemon. Download deze en zorg d
 
 ### Uitbreiding
 
-* Zorg ook dat de kleur van de navigatiebalk volledig configureerbaar is. Kijk naar de documentatie van bootstrap om te zien hoe je die kleur verandert.
+* Zorg ook dat de kleur van de navigatiebalk volledig configureerbaar is \(in appsettings.json\). Kijk naar de documentatie van bootstrap om te zien hoe je die kleur verandert.
 * Gebruik de functie `isDarkMode` om te bepalen of de navigatiebalk in dark mode moet komen of ik light mode
 
 ```csharp
