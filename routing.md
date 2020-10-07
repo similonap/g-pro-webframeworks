@@ -55,37 +55,15 @@ public IActionResult Details(int id)
 Zoals je ziet zal de argument `id` automatisch gemapped worden naar de parameter in het pad. We gebruiken onze `products` lijst hier om de gevraagde student op te vragen. Als deze niet gevonden wordt  geven we `NotFound` terug wat zal mappen naar een http error code 404. Als deze wel gevonden wordt dan zal de details page worden getoond, dit zal weer een formulier zijn om de student aan te passen. We maken dus een view `Details.cshtml` aan.
 
 ```markup
-@model Student
+@model Product
 @{
-    Layout = "_Layout";
-    ViewBag.Title = "Students - Overview";
+    ViewBag.Title = "Products - Detail";
 }
-<form method="post" asp-controller="Student" asp-action="Update" asp-route-id="@Model.Id">
-    <div class="form-group">
-        <label asp-for="FirstName"></label>
-        <input class="form-control" asp-for="FirstName">
-        <span class="text-danger" asp-validation-for="FirstName"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="LastName"></label>
-        <input class="form-control" asp-for="LastName">
-        <span class="text-danger" asp-validation-for="LastName"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Email"></label>
-        <input class="form-control" asp-for="Email">
-        <span class="text-danger" asp-validation-for="Email"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="EnrollmentYear"></label>
-        <input class="form-control" asp-for="EnrollmentYear">
-        <span class="text-danger" asp-validation-for="EnrollmentYear"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Update</button>
-</form>
+<img src="~/images/products/@(Model.Id).jpg" />
+<p>@Model.Name</p>
+<p>@Model.Description</p>
+<p>@Model.Price</p>
 ```
-
-Dit is bijna een volledige kopie van het formulier uit de `Create`. We leren later hoe we deze code kunnen apart plaatsen en kunnen hergebruiken aan de hand van partial views.
 
 ### Route Tag Helper
 
