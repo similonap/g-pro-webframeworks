@@ -52,7 +52,7 @@ public IActionResult Details(int id)
 }
 ```
 
-Zoals je ziet zal de argument `id` automatisch gemapped worden naar de parameter in het pad. We gebruiken onze `products` lijst hier om de gevraagde student op te vragen. Als deze niet gevonden wordt  geven we `NotFound` terug wat zal mappen naar een http error code 404. Als deze wel gevonden wordt dan zal de details page worden getoond, dit zal weer een formulier zijn om de student aan te passen. We maken dus een view `Details.cshtml` aan.
+Zoals je ziet zal de argument `id` automatisch gemapped worden naar de parameter in het pad. We gebruiken onze `products` lijst hier om de gevraagde producten op te vragen. Als deze niet gevonden wordt  geven we `NotFound` terug wat zal mappen naar een http error code 404. Als deze wel gevonden wordt dan zal de details page worden getoond, dit zal weer een formulier zijn om de student aan te passen. We maken dus een view `Details.cshtml` aan.
 
 ```markup
 @model Product
