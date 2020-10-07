@@ -67,15 +67,11 @@ Zoals je ziet zal de argument `id` automatisch gemapped worden naar de parameter
 
 ### Route Tag Helper
 
-We hebben al hiervoor geleerd hoe we links maken aan de hand van de link tag helper. Zo kunnen we dus een link maken naar de `Details` action van de `StudentController`. Maar we missen hier nog een manier om de `id` mee te geven van de route. Hiervoor hebben we de `asp-route-*` tag helper. De \* kan je hier vervangen met de naam van het argument. In dit geval is dit dus `asp-route-id`.
+We hebben al hiervoor geleerd hoe we links maken aan de hand van de link tag helper. Zo kunnen we dus een link maken naar de `Details` action van de `ProductController`. Maar we missen hier nog een manier om de `id` mee te geven van de route. Hiervoor hebben we de `asp-route-*` tag helper. De \* kan je hier vervangen met de naam van het argument. In dit geval is dit dus `asp-route-id`.
 
 Een link naar de detail pagina kan dan zijn
 
 ```markup
 <a asp-action="Details" asp-controller="Product" asp-route-id="2">Detail</a>
 ```
-
-![](.gitbook/assets/Routing1.png)
-
-
 
