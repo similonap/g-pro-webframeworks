@@ -72,6 +72,6 @@ We hebben al hiervoor geleerd hoe we links maken aan de hand van de link tag hel
 Een link naar de detail pagina kan dan zijn
 
 ```markup
-<a asp-action="Details" asp-controller="Product" asp-route-id="2">Detail</a>
+<a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id">@product.Name</a>
 ```
 
