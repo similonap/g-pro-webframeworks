@@ -85,13 +85,13 @@ Een link naar de detail pagina kan dan zijn
 <a asp-action="Details" asp-controller="Student" asp-route-id="2">Detail</a>
 ```
 
-![](../.gitbook/assets/Routing1.png)
+![](.gitbook/assets/Routing1.png)
 
 ### Oefeningen
 
 Zorg ervoor dat elke rij in het overzicht van de studenten een button bevat met als label `Edit` als je daar op klikt kom je op het Details page nodig van die gebruiker. Kijk op de [bootstrap documentatie](https://getbootstrap.com/docs/4.0/components/buttons/#active-state) hoe je een link kan laten uitzien als een button.
 
-![](../.gitbook/assets/RoutingOefening1.png)
+![](.gitbook/assets/RoutingOefening1.png)
 
 Zorg voor een nieuwe methode in de `IStudentRepository` met de signature
 

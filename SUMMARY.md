@@ -34,6 +34,7 @@
 ---
 
 * [Gegevens doorgeven](communicatie-tussen-view-en-controller.md)
+* [Routering](routing.md)
 * [Oefeningen](oefeningen-2.md)
 
 ## LES 5 \(Thuis\) <a id="les-4-1"></a>
@@ -64,7 +65,6 @@
 
 ## ASP.NET Core MVC <a id="asp.net"></a>
 
-* [Routering](asp.net/routing.md)
 * [Entity Framework](asp.net/entity-framework.md)
 
 ## Bootstrap

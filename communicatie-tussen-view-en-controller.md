@@ -15,7 +15,7 @@ public IActionResult BrowserInfo()
 {
     string userAgent = Request.Headers["User-Agent"].ToString();
 
-    ViewData["User-Agent"] = userAgent;
+    ViewData["UserAgent"] = userAgent;
 
     return View();
 }
