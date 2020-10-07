@@ -72,32 +72,10 @@ We hebben al hiervoor geleerd hoe we links maken aan de hand van de link tag hel
 Een link naar de detail pagina kan dan zijn
 
 ```markup
-<a asp-action="Details" asp-controller="Student" asp-route-id="2">Detail</a>
+<a asp-action="Details" asp-controller="Product" asp-route-id="2">Detail</a>
 ```
 
 ![](.gitbook/assets/Routing1.png)
 
-### Oefeningen
 
-Zorg ervoor dat elke rij in het overzicht van de studenten een button bevat met als label `Edit` als je daar op klikt kom je op het Details page nodig van die gebruiker. Kijk op de [bootstrap documentatie](https://getbootstrap.com/docs/4.0/components/buttons/#active-state) hoe je een link kan laten uitzien als een button.
-
-![](.gitbook/assets/RoutingOefening1.png)
-
-Zorg voor een nieuwe methode in de `IStudentRepository` met de signature
-
-```csharp
-public void Update(int id, Student student);
-```
-
-en implementeer die in de `StudentInMemoryRepository.cs` klasse. Je mag verder gebruik maken van de `List` uit het voorbeeld maar misschien wordt een `Dictionary` wel interessanter.
-
-Maak nu de `Update` action aan met als signature
-
-```csharp
-public IActionResult Update(int id, Student student) {
-
-}
-```
-
-Deze zal dan gebruik maken van de `Update` methode die je juist hebt aangemaakt.
 
