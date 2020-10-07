@@ -12,5 +12,20 @@ Download het onderstaande `pokedex.json`  bestand en plaats dit in je project. J
 
 {% file src=".gitbook/assets/pokedex.json" caption="Pokedex.json" %}
 
+Plaats de volgende functie `loadPokemonData()` in je PokedexController
+
+```csharp
+private List<Pokemon> getPokemon()
+{
+    var options = new JsonSerializerOptions
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        WriteIndented = true
+    };
+    var lines = System.IO.File.ReadAllText(@"pokedex.json");
+    return JsonSerializer.Deserialize<List<Pokemon>>(lines, options);
+}
+```
+
 
 
