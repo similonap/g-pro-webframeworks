@@ -75,3 +75,5 @@ Een link naar de detail pagina kan dan zijn
 <a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id">@product.Name</a>
 ```
 
+![](.gitbook/assets/image%20%2851%29.png)
+
