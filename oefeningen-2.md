@@ -31,3 +31,11 @@ private List<Pokemon> getPokemon()
 
 Maak een action `Details` in de `PokedexController` die een `id` meekrijgt. In deze action moet je code schrijven om over de array te itereren \(foreach\) en de juiste pokemon te zoeken met dezelfde Id. Vervolgens geef je deze mee aan de view.
 
+Vervolgens zorg je ervoor dat als je op de `Index` pagina van de Pokedex op een image klikt dat je dan in de correcte Details pagina van de pokemon terecht komt.
+
+De details pagina moet er als volgt uitzien:
+
+![](.gitbook/assets/image%20%2855%29.png)
+
+
+
