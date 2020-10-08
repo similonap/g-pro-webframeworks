@@ -37,5 +37,9 @@ De details pagina moet er als volgt uitzien:
 
 ![](.gitbook/assets/image%20%2855%29.png)
 
+Zorg er nu voor dat in de `Index` action ook de huidige timestamp wordt meegegeven aan de View \(via ViewBag\) en dat er onderaan de pagina van de pokemon het tijdstip komt te staan wanneer de pagina gemaakt werd. **Opgelet: De DateTime en de omzetting naar een string moet in de controller gebeuren, niet in de view!**
+
+![](.gitbook/assets/image%20%2856%29.png)
+
 
 
