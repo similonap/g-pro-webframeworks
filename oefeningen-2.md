@@ -1,5 +1,7 @@
 # Oefeningen
 
+We gaan verder op de **Pokedex** oefening van **Les 3**
+
 Maak de 3 volgende klassen van dit klasse diagram in de Models directory. Let goed op dat je exact dezelfde property names gebruiken \(en let op hoofdletters!\)
 
 ![](.gitbook/assets/image%20%2853%29.png)
@@ -27,5 +29,5 @@ private List<Pokemon> getPokemon()
 }
 ```
 
-
+Maak een action `Details` in de `PokedexController` die een `id` meekrijgt. In deze action moet je code schrijven om over de array te itereren \(foreach\) en de juiste pokemon te zoeken met dezelfde Id. Vervolgens geef je deze mee aan de view.
 
