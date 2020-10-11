@@ -201,3 +201,9 @@ en dankzij wat Bootstrap magie vormen we dit om tot een mooie tabel.
 </table>
 ```
 
+### Begeleidend videomateriaal
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=cdb6bc97-de58-4616-84a7-ac4d007a53c4" %}
+
+
+
