@@ -77,3 +77,9 @@ Een link naar de detail pagina kan dan zijn
 
 ![](.gitbook/assets/image%20%2851%29.png)
 
+### Begeleidend videomateriaal
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=950ac748-75f4-4b03-89bf-ac4d008b12b4" %}
+
+
+
