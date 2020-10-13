@@ -112,10 +112,12 @@ public class ProductController : Controller
     {
         this.productRepository = productRepository;
     }
+    
     public IActionResult Index()
     {
         return View(productRepository.GetAll());
-    }    
+    }   
+     
     public IActionResult Details(int id)
     {
         Product product = this.productRepository.Get(id);
