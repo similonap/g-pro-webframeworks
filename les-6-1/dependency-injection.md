@@ -172,6 +172,8 @@ public void Create(Product product)
 
 Omdat we onze Id's automatisch willen ophogen naar de maximale ID + 1 hebben we hier gebruik gemaakt van de Max functie uit LINQ. We tellen er altijd 1 bij zodat we altijd een unieke Id hebben die 1 hoger is dan de vorige. Daarna voegen we het product toe aan de lijst.
 
+Meer informatie over LINQ zien we later. We hadden dit ook kunnen doen via een for lus.
+
 Omdat de eeuwen oude term in de programmeerwereld zegt: "Eat your own dogfood" gaan we onze eigen methode gebruiken in onze constructor zodat we nu ook zelf geen Id's meer moeten aanmaken.
 
 ```csharp
