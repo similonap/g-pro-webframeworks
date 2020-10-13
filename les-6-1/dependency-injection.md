@@ -174,6 +174,23 @@ Omdat we onze Id's automatisch willen ophogen naar de maximale ID + 1 hebben we 
 
 Meer informatie over LINQ zien we later. We hadden dit ook kunnen doen via een for lus.
 
+```csharp
+public void Create(Product product)
+{
+    int max = 0;
+    foreach (Product p in products)
+    {
+        if (p.Id > max)
+        {
+            max = p.Id;
+        }
+    }
+
+    product.Id = max + 1;
+    products.Add(product);
+}
+```
+
 Omdat de eeuwen oude term in de programmeerwereld zegt: "Eat your own dogfood" gaan we onze eigen methode gebruiken in onze constructor zodat we nu ook zelf geen Id's meer moeten aanmaken.
 
 ```csharp
