@@ -40,7 +40,7 @@ public class ProductsInMemoryRepository
 }
 ```
 
-We hebben hier een lijst met studenten en in de constructor vullen we de lijst op met een aantal default waarden. We implementeren de interface door de `GetAll` methode in te vullen. We geven hier gewoon de lijst van producten terug.
+We hebben hier een lijst met producten in de constructor vullen we de lijst op met een aantal default waarden. We implementeren de interface door de `GetAll` methode in te vullen. We geven hier gewoon de lijst van producten terug.
 
 We passen de `ProductController` een beetje aan zodat we nu deze klasse gebruiken in plaats van elke keer de `List` aan te maken.
 
@@ -62,7 +62,7 @@ public class ProductController : Controller
 }
 ```
 
-We passen ook nog in `Views/Student` het `Index.cshtml` bestand aan dat dit ook gebruik maakt van de `IQueryable` interface.
+We passen ook nog in `Views/Product` het `Index.cshtml` bestand aan dat dit ook gebruik maakt van de `IQueryable` interface.
 
 ```text
 @model IQueryable<Product>
