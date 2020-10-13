@@ -37,6 +37,11 @@
 * [Routering](routing.md)
 * [Oefeningen](oefeningen-2.md)
 
+## LES 5 <a id="les-6-1"></a>
+
+* [Dependency Injection](les-6-1/dependency-injection.md)
+* [Oefeningen](les-6-1/oefeningen.md)
+
 ## LES 5 \(Thuis\) <a id="les-4-1"></a>
 
 * [LINQ Introductie](les-4-1/untitled.md)
@@ -45,11 +50,6 @@
 * [Projection operators](les-4-1/projectie-operatoren.md)
 * [Restriction operators](les-4-1/restriction-operators.md)
 * [Oefeningen](les-4-1/oefeningen.md)
-
-## LES 6 <a id="les-6-1"></a>
-
-* [Dependency Injection](les-6-1/dependency-injection.md)
-* [Oefeningen](les-6-1/oefeningen.md)
 
 ## LES 7 \(THUIS\) <a id="les-7"></a>
 
