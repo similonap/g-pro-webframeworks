@@ -12,6 +12,7 @@ We maken in de `Model` map een nieuwe `Interface` `IProductRepostory` met de inh
 public interface IProductRepository
 {
     IQueryable<Product> GetAll();
+    Product Get(int id);
 }
 ```
 
@@ -37,10 +38,22 @@ public class ProductsInMemoryRepository
     {
         return products.AsQueryable();
     }
+    
+    public Product Get(int id)
+    {
+        foreach (Product product in products)
+        {
+            if (product.Id == id)
+            {
+                return product;
+            }
+        }
+        return null;
+    }
 }
 ```
 
-We hebben hier een lijst met producten in de constructor vullen we de lijst op met een aantal default waarden. We implementeren de interface door de `GetAll` methode in te vullen. We geven hier gewoon de lijst van producten terug.
+We hebben hier een lijst met producten in de constructor vullen we de lijst op met een aantal default waarden. We implementeren de interface door de `GetAll` methode in te vullen. We geven hier gewoon de lijst van producten terug. We maken ook een `Get` functie die een product gaat teruggeven op basis van zijn id.
 
 We passen de `ProductController` een beetje aan zodat we nu deze klasse gebruiken in plaats van elke keer de `List` aan te maken.
 
