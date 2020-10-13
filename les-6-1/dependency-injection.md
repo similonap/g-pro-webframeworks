@@ -114,8 +114,16 @@ public class ProductController : Controller
     }
     public IActionResult Index()
     {
-        
         return View(productRepository.GetAll());
+    }    
+    public IActionResult Details(int id)
+    {
+        Product product = this.productRepository.Get(id);
+        if (product != null)
+        {
+            return View(product);
+        }
+        return NotFound();
     }
 }
 ```
