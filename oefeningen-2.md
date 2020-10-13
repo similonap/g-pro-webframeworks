@@ -6,6 +6,8 @@ Maak de 3 volgende klassen van dit klasse diagram in de Models directory. Let go
 
 ![](.gitbook/assets/image%20%2853%29.png)
 
+**Let op:** het type van een pokemon is een array van strings omdat pokemon meerdere types kunnen hebben.
+
 Download het onderstaande `pokedex.json`  bestand en plaats dit in je project. Je project zal er ongeveer zo uitzien:
 
 ![](.gitbook/assets/image%20%2852%29.png)
