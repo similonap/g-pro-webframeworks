@@ -202,3 +202,9 @@ public ProductsInMemoryRepository()
 }
 ```
 
+### Begeleidend videomateriaal
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4f5823d2-54eb-4aa6-ad83-ac5300cdd026" %}
+
+
+

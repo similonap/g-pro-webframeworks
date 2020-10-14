@@ -21,7 +21,7 @@
 * [Gedeelde layout](les-2-1/shared-layout.md)
 * [Oefeningen](les-2-1/oefeningen.md)
 
-## LES 3 \(Thuis\) <a id="les-2"></a>
+## LES 3 <a id="les-2"></a>
 
 ---
 
@@ -42,7 +42,7 @@
 * [Dependency Injection](les-6-1/dependency-injection.md)
 * [Oefeningen](les-6-1/oefeningen.md)
 
-## LES 5 \(Thuis\) <a id="les-4-1"></a>
+## LES 6 <a id="les-4-1"></a>
 
 * [LINQ Introductie](les-4-1/untitled.md)
 * [Ordering operators](les-4-1/ordeningsoperatoren.md)
