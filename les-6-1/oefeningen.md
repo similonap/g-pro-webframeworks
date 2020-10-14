@@ -11,7 +11,7 @@ Maak nu ook een `JsonPokedex` klasse aan in je Models directory. Deze moet de in
 * `Get` de pokemon teruggeeft die overeentkomt met de id die meegegeven is aan de methode
 * `GetAll` een lijst van alle pokemon teruggeeft
 
-Gebruik hiervoor weer de `getPokemon` functie die je in vorige oefeningen sessie hebt gebruikt om de pokemon in te lezen vanuit het JSON bestand. Verplaats die uiteraard in de `JsonPokedex` klasse. Zorg ervoor dat de lijst gevuld wordt in de constructor zodat we niet elke keer de `getPokemon` methode moeten aanroepen.
+Gebruik hiervoor weer de `getPokemon` functie die je in vorige oefeningen sessie hebt gebruikt om de pokemon in te lezen vanuit het JSON bestand. Verplaats die uiteraard in de `JsonPokedex` klasse. Zorg dat je een private field hebt met een lijst van pokemon en vul deze in de constructor.
 
 Zorg er nu voor dat de `PokedexController` een private field `pokedex` heeft met als type `IPokedex` en zorg ervoor dat die wordt meegegeven als argument in de PokedexController constructor. Pas nu de `Index` en de `Details` action aan dat die de methoden van de interface gebruiken.
 
