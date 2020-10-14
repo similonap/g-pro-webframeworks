@@ -21,5 +21,6 @@ Pas de Startup klasse aan zodat je de `JSONPokedex` gebruikt als er een `IPokede
 
 * Zorg ervoor dat de interface `IPokedex` ook een `GeneratedAt` property heeft \(get en set\) met type DateTime
 * Zorg ervoor dat de property `GeneratedAt` wordt gezet op het tijdstip wanneer de constructor aangeroepen wordt.
-* Pas de `Index` action van de `PokedexController` aan zodat de `GeneratedAt` property van de pokedex gebruikt wordt in de \`\`\`ViewBag.TimeStampGenerated
+* Pas de `Index` action van de `PokedexController` aan zodat de `GeneratedAt` property van de pokedex gebruikt wordt in de `ViewBag.TimeStampGenerated`
+* Als je nu naar de pokedex pagina gaat kijken ga je zien dat de tijdstip niet meer zal aanpassen na een refresh.
 
