@@ -17,3 +17,9 @@ Zorg er nu voor dat de `PokedexController` een private field `pokedex` heeft met
 
 Pas de Startup klasse aan zodat je de `JSONPokedex` gebruikt als er een `IPokedex` service gebruikt wordt. We doen dit momenteel  met `AddSingleton` omdat we maar 1 keer de pokemon in het geheugen willen laden en dus niet bij elke request.
 
+**Uitbreiding:**
+
+* Zorg ervoor dat de interface `IPokedex` ook een `GeneratedAt` property heeft \(get en set\) met type DateTime
+* Zorg ervoor dat de property `GeneratedAt` wordt gezet op het tijdstip wanneer de constructor aangeroepen wordt.
+* Pas de `Index` action van de `PokedexController` aan zodat de `GeneratedAt` property van de pokedex gebruikt wordt in de \`\`\`ViewBag.TimeStampGenerated
+
