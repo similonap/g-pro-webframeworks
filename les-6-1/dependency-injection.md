@@ -151,6 +151,15 @@ Hier geven we aan dat we een service registreren als een Singleton \(een klasse 
 
 Nu zal het voorbeeld terug werken. Maar nu is de koppeling tussen de `ProductController` en de `ProductsInMemoryRepository` volledig weg gewerkt.
 
+We hebben hier nu de service als Singleton toegevoegd maar we kunnen dit ook doen met
+
+* **AddTransient**
+  * De service wordt elke keer aangemaakt als ze gevraagd worden van de service container. 
+* **AddScoped**
+  * De service blijft hetzelfde tijdens dezelfde request door de client. Bij de volgende request van bv een browser zal de service terug opnieuw aangemaakt worden.
+* **AddSingleton**
+  * De service blijft bestaan tussen de verschillende requests.
+
 ## Nog een extra methode
 
 We willen nu een `Create` methode toevoegen aan de `IProductRepository` dat we ook nieuwe `Product` objecten kunnen opslaan. We voegen dus een extra methode toe aan de `IProductRepository`
