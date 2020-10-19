@@ -43,17 +43,6 @@ Er wordt hier ook gebruik gemaakt van de `Distinct` query operator. Die geeft ee
 
 ![](../.gitbook/assets/image%20%2832%29.png)
 
-#### First 
-
-Deze operator geeft het eerste element terug in de reeks. Het datatype van de waarde die wordt teruggegeven hangt van van het type `T` in `IEnumerable<T>`waarop de operator uitgevoerd wordt. Als het een reeks is van integers dan zal First\(\) ook een integer terug geven.
-
-```text
-List<int> getallen = new List<double> { 1,2,3,4,5 };
-int whatsThis = getallen.First();
-```
-
-Je hebt hier ook de variant Last\(\) die uiteraard het laatste element van een reeks teruggeeft.
-
 ### Uitgestelde uitvoering
 
 De meeste queries worden niet onmiddellijk uitgevoerd. De uitvoering ervan wordt uitgesteld tot een later tijdstip in de uitvoering van het programma. Dit betekent dat de query niet wordt uitgevoerd wanneer ze wordt gemaakt, maar wanneer ze wordt gebruikt, bijvoorbeeld wanneer er over geïtereerd wordt met foreach.

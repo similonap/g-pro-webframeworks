@@ -50,10 +50,6 @@
 
 * [LINQ Introductie](les-4-1/untitled.md)
 * [Operatoren](les-4-1/operatoren.md)
-* [Ordering operators](les-4-1/ordeningsoperatoren.md)
-* [Partitioning operators](les-4-1/partitioneringsoperatoren.md)
-* [Projection operators](les-4-1/projectie-operatoren.md)
-* [Restriction operators](les-4-1/restriction-operators.md)
 * [Oefeningen](les-4-1/oefeningen.md)
 
 ## LES 8 <a id="les-7"></a>
