@@ -48,8 +48,7 @@
 
 ## LES 7 <a id="les-4-1"></a>
 
-* [LINQ Introductie](les-4-1/untitled.md)
-* [Operatoren](les-4-1/operatoren.md)
+* [LINQ](les-4-1/untitled.md)
 * [Oefeningen](les-4-1/oefeningen.md)
 
 ## LES 8 <a id="les-7"></a>

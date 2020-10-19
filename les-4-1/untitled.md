@@ -1,4 +1,4 @@
-# LINQ Introductie
+# LINQ
 
 ## Introductie
 
