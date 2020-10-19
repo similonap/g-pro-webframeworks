@@ -45,6 +45,8 @@ Er wordt hier ook gebruik gemaakt van de `Distinct` query operator. Die geeft ee
 
 ![](../.gitbook/assets/image%20%2832%29.png)
 
+**Opgelet:** Let op dat je `using System.Collections.Generic`gebruikt en niet `using using System.Collections` .
+
 ### Uitgestelde uitvoering
 
 De meeste queries worden niet onmiddellijk uitgevoerd. De uitvoering ervan wordt uitgesteld tot een later tijdstip in de uitvoering van het programma. Dit betekent dat de query niet wordt uitgevoerd wanneer ze wordt gemaakt, maar wanneer ze wordt gebruikt, bijvoorbeeld wanneer er over geïtereerd wordt met foreach.
