@@ -136,27 +136,41 @@ We gaan vooral in deze cursus gebruikmaken van de fluent style.
 
 ## Element operatoren
 
-Elementoperatoren zijn operatoren die exact 1 waarde van de outputreeks terug geeft. Als deze waarde niet gevonden wordt dan krijg je een exception.
+Elementoperatoren zijn operatoren die exact 1 waarde van de outputreeks terug geeft. 
 
 ### First
 
 Geeft  het eerste element terug van de inputreeks. 
 
-```text
-List<double> doubles = new List<double> { 2.0, 2.1, 2.2, 2.3 };
-double whatsThis = doubles.First();
+```csharp
+List<double> getallen = new List<int> { 1, 2, 3, 4, 5 };
+int whatsThis = doubles.First();
 ```
 
 Je kan hier ook een lambda expressie aan meegeven om een conditie mee te geven.
 
-```text
-List<double> doubles = new List<double> { 2.0, 2.1, 2.2, 2.3 };
-double whatsThis = doubles.First(val => val > 2.3);
+```csharp
+List<double> getallen = new List<int> { 1, 2, 3, 4, 5 };
+int whatsThis = getallen.First(val => val > 2);
 ```
 
 ### Last
 
 Uiteraard heb je ook een Last operator. Deze is gelijkaardig aan de First operator maar neemt het laatste element van een input reeks.
+
+```csharp
+List<double> getallen = new List<int> { 1, 2, 3, 4, 5 };
+int whatsThis = doubles.Last();
+```
+
+### FirstOrDefault en LastOrDefault
+
+Als het niet mogelijk is om een element terug te geven dan gooit`First` en `Last` een exception. Om dit te voorkomen kan je ook de OrDefault varianten gebruiken voor een element te selecteren. Hij zal dan de default waarde van je type teruggeven als er niets gevonden is. 
+
+```csharp
+List<double> getallen = new List<int> { 1, 2, 3, 4, 5 };
+int whatsThis = getallen.FirstOrDefault(val => val > 5);
+```
 
 ## Restrictie operatoren
 
