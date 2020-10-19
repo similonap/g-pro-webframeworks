@@ -37,10 +37,14 @@
 * [Routering](routing.md)
 * [Oefeningen](oefeningen-2.md)
 
-## LES 5 <a id="les-6-1"></a>
+## LES 5 <a id="les-5-1"></a>
 
-* [Dependency Injection](les-6-1/dependency-injection.md)
-* [Oefeningen](les-6-1/oefeningen.md)
+* [Dependency Injection](les-5-1/dependency-injection.md)
+* [Oefeningen](les-5-1/oefeningen.md)
+
+## LES 6 <a id="les-6-2"></a>
+
+* [Herhalingsoefening](les-6-2/herhalingsoefening.md)
 
 ## LES 7 <a id="les-4-1"></a>
 
@@ -51,21 +55,19 @@
 * [Restriction operators](les-4-1/restriction-operators.md)
 * [Oefeningen](les-4-1/oefeningen.md)
 
-## LES 7 \(THUIS\) <a id="les-7"></a>
+## LES 8 <a id="les-7"></a>
 
-* [Untitled](les-7/untitled.md)
+* [Formulieren](les-7/formulieren.md)
 
-## LES 8 <a id="les-6"></a>
+## LES 9 <a id="les-6"></a>
 
-* [Formulieren](les-6/formulieren.md)
+---
+
+* [Entity Framework](entity-framework.md)
 
 ## Nog Niet Toegekend
 
 * [Thuisopdracht](nog-niet-toegekend/thuisopdracht.md)
-
-## ASP.NET Core MVC <a id="asp.net"></a>
-
-* [Entity Framework](asp.net/entity-framework.md)
 
 ## Bootstrap
 
