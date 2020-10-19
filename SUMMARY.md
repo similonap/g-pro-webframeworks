@@ -49,7 +49,7 @@
 ## LES 7 <a id="les-4-1"></a>
 
 * [LINQ Introductie](les-4-1/untitled.md)
-* [Operators voor 1 waarde](les-4-1/scalaire-waarden.md)
+* [Operatoren](les-4-1/operatoren.md)
 * [Ordering operators](les-4-1/ordeningsoperatoren.md)
 * [Partitioning operators](les-4-1/partitioneringsoperatoren.md)
 * [Projection operators](les-4-1/projectie-operatoren.md)
