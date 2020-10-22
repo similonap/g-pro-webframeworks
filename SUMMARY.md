@@ -44,7 +44,7 @@
 
 ## LES 6 <a id="les-6-2"></a>
 
-* [Herhalingsoefening](les-6-2/herhalingsoefening.md)
+* [Formulieren](les-6-2/formulieren.md)
 
 ## LES 7 <a id="les-4-1"></a>
 
@@ -52,8 +52,6 @@
 * [Oefeningen](les-4-1/oefeningen.md)
 
 ## LES 8 <a id="les-7"></a>
-
-* [Formulieren](les-7/formulieren.md)
 
 ## LES 9 <a id="les-6"></a>
 
