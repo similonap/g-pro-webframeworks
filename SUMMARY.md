@@ -53,11 +53,11 @@
 
 ## LES 8 <a id="les-7"></a>
 
-## LES 9 <a id="les-6"></a>
-
 ---
 
 * [Entity Framework](entity-framework.md)
+
+## LES 9 <a id="les-6"></a>
 
 ## Nog Niet Toegekend
 
