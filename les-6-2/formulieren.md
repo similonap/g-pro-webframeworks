@@ -189,27 +189,41 @@ public IActionResult Create(Product product)
 
 We weten nu al hoe we validatie foutmeldingen moeten maken, maar nog niet hoe we die aan de gebruiker moeten tonen. Dat gebeurt op een andere plaats in de MVC architectuur, namelijk in de view. We gaan dus naar de `Create.cshtml` view.
 
-Als we ons niet te veel van de layout aantrekken en we gewoon een lijstje willen laten zien kunnen we gebruik maken van `@Html.ValidationSummary()` wat een overzicht van alle validatie fouten laat zien in html.
-
-![](../.gitbook/assets/Validation1.png)
+Als we ons niet te veel van de layout aantrekken en we gewoon een lijstje willen laten zien kunnen we gebruik maken van de `asp-validation-summary` tag helper die een overzicht van alle validatie fouten laat zien in html.
 
 Dan wordt `Create.cshtml` gewoon
 
 ```markup
-@model Student
-@{
+@{ 
     Layout = "_Layout";
-    ViewBag.Title = "Students - Create";
+    ViewBag.Title = "Products - Create"; 
 }
-@Html.ValidationSummary()
-<form method="post" asp-controller="Student" asp-action="Create">
-    ...
+<div asp-validation-summary="All"></div>
+<form method="post" asp-controller="Product" asp-action="Create">
+   ...
 </form>
 ```
 
-Wat we eigenlijk willen doen is een error laten zien bij het juiste input veld. We zullen verder zien hoe we dit doen.
+![](../.gitbook/assets/image%20%2862%29.png)
 
 ### Toevoegen van fout boodschappen
+
+Je kan de foutboodschappen aanpassen om een meer gebruiksvriendelijke tekst mee te geven aan de gebruiker. Dit kan je doen door aan de data annotaties een parameter `ErrorMessage` mee te geven
+
+```csharp
+[Required(ErrorMessage = "Naam is een verplicht veld")]
+public string Name { get; set; }
+
+[Required(ErrorMessage ="Beschrijving is een verplicht veld")]
+public string Description { get; set; }
+
+[Required]
+[Range(0, 999.99, ErrorMessage = "Prijs moet tussen 0 en 1000 euro liggen")]
+public decimal Price { get; set; }
+
+[Required(ErrorMessage = "Afbeelding is een verplicht veld")]
+public string ImageURL { get; set; }
+```
 
 Je kan ook zelf foutboodschappen toevoegen aan je `ModelState` zodat je meer speciale cases kan afhandelen in je controller code. Als we bijvoorbeeld niet willen dat er studenten worden toegevoegd worden met de naam 'Donald' dan kunnen we aan de hand van `ModelState.AddModelError` er een error toevoegen.
 
