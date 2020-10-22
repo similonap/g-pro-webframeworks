@@ -185,30 +185,6 @@ public IActionResult Create(Product product)
 }
 ```
 
-### Toevoegen van fout boodschappen
-
-Je kan ook zelf foutboodschappen toevoegen aan je `ModelState` zodat je meer speciale cases kan afhandelen in je controller code. Als we bijvoorbeeld niet willen dat er studenten worden toegevoegd worden met de naam 'Donald' dan kunnen we aan de hand van `ModelState.AddModelError` er een error toevoegen.
-
-```csharp
- [HttpPost]
-public IActionResult Create(Student student)
-{
-    if ("Donald".Equals(student.FirstName)) {
-        ModelState.AddModelError(nameof(Student.FirstName), "Your first name cannot be Donald!");
-    }
-
-    if (ModelState.IsValid)
-    {
-        studentRepository.Create(student);
-        TempData["Message"] = $"{student.FirstName} {student.LastName} was added succesfully";
-        return RedirectToAction("Index", "Student");
-    }
-    return View();
-}
-```
-
-Merk op dat we hier `nameof(Student.FirstName)` gebruiken in plaats van gewoon de string "FirstName". We doen dit zodat als we de property zouden veranderen dat de compiler hier over zal klagen.
-
 ### Validatie foutmeldingen tonen
 
 We weten nu al hoe we validatie foutmeldingen moeten maken, maar nog niet hoe we die aan de gebruiker moeten tonen. Dat gebeurt op een andere plaats in de MVC architectuur, namelijk in de view. We gaan dus naar de `Create.cshtml` view.
@@ -232,6 +208,30 @@ Dan wordt `Create.cshtml` gewoon
 ```
 
 Wat we eigenlijk willen doen is een error laten zien bij het juiste input veld. We zullen verder zien hoe we dit doen.
+
+### Toevoegen van fout boodschappen
+
+Je kan ook zelf foutboodschappen toevoegen aan je `ModelState` zodat je meer speciale cases kan afhandelen in je controller code. Als we bijvoorbeeld niet willen dat er studenten worden toegevoegd worden met de naam 'Donald' dan kunnen we aan de hand van `ModelState.AddModelError` er een error toevoegen.
+
+```csharp
+ [HttpPost]
+public IActionResult Create(Student student)
+{
+    if ("Donald".Equals(student.FirstName)) {
+        ModelState.AddModelError(nameof(Student.FirstName), "Your first name cannot be Donald!");
+    }
+
+    if (ModelState.IsValid)
+    {
+        studentRepository.Create(student);
+        TempData["Message"] = $"{student.FirstName} {student.LastName} was added succesfully";
+        return RedirectToAction("Index", "Student");
+    }
+    return View();
+}
+```
+
+Merk op dat we hier `nameof(Student.FirstName)` gebruiken in plaats van gewoon de string "FirstName". We doen dit zodat als we de property zouden veranderen dat de compiler hier over zal klagen.
 
 ## TempData
 
