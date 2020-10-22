@@ -23,6 +23,12 @@ public ProductsInMemoryRepository()
 }
 ```
 
+Nu moeten we uiteraard nog twee kleine dingen aanpassen in de `Index.cshtml` en de `Details.cshtml` view om de ImageUrl te gebruiken als image:
+
+```text
+<img src="@product.ImageURL" />
+```
+
 ## Formulier via argumenten
 
 Voor we beginnen gaan we een link aanmaken op de `Index` view van de `ProductController` die naar de `Create` actie verwijst \(deze bestaat nog niet\). We voegen dus
