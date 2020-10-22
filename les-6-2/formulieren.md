@@ -1,4 +1,4 @@
-# Formulieren
+# Forms en Validatie
 
 In dit deel gaan we leren hoe we een formulier aanmaken in html code en vervolgens deze doorsturen naar de controller. Ook validatie van de gegevens zal hier kort aan bod komen.
 

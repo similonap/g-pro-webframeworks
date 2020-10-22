@@ -44,7 +44,8 @@
 
 ## LES 6 <a id="les-6-2"></a>
 
-* [Formulieren](les-6-2/formulieren.md)
+* [Forms en Validatie](les-6-2/formulieren.md)
+* [Dropdown List](les-6-2/dropdown-list.md)
 
 ## LES 7 <a id="les-4-1"></a>
 
