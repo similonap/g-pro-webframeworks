@@ -366,7 +366,46 @@ Als er dan iemand het formulier doorstuurt en `FirstName` is niet ingevuld dan w
    The FirstName field is required.</span>
 ```
 
+Met wat boostrap magie kunnen we deze text ook er duidelijk uit laten zien als een error
 
+```markup
+@model Product
+@{ 
+    Layout = "_Layout";
+    ViewBag.Title = "Products - Create"; 
+}
+<form method="post" asp-controller="Product" asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name">
+        <div class="invalid-feedback" style="display:block;">
+            <span asp-validation-for="Name"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input class="form-control" asp-for="Description">
+        <div class="invalid-feedback" style="display:block;">
+            <span asp-validation-for="Description"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input class="form-control" asp-for="Price">
+        <div class="invalid-feedback" style="display:block;">
+            <span asp-validation-for="Price"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageURL"></label>
+        <input class="form-control" asp-for="ImageURL">
+        <div class="invalid-feedback" style="display:block;">
+            <span asp-validation-for="ImageURL"></span>
+        </div>
+    </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
 
 ![](https://github.com/similonap/g-pro-webframeworks/tree/68ccc05b565fea247dd6aecc7d351478cdb145f5/.gitbook/assets/ExtraEmailFIeld1.png) ![](https://github.com/similonap/g-pro-webframeworks/tree/68ccc05b565fea247dd6aecc7d351478cdb145f5/.gitbook/assets/ExtraEmailFIeld2.png)
 
