@@ -172,14 +172,16 @@ Wanneer het ASP.NET MVC Framework de actiemethode van een controller uitvoert ka
 
 ```csharp
 [HttpPost]
-public IActionResult Create(Student student)
+public IActionResult Create(Product product)
 {
     if (ModelState.IsValid)
     {
-        studentRepository.Create(student);
-        return RedirectToAction("Index", "Student");
+        productRepository.Create(product);
+        return RedirectToAction("Index", "Product");
+    } else
+    {
+        return View();
     }
-    return View();
 }
 ```
 
