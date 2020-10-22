@@ -285,21 +285,34 @@ Deze genereert de `id` en `name` attributen voor het input veld. Het vult ook dy
 Zo zal in onze `Create.cshtml` het formulier er al veel overzichtelijker worden:
 
 ```markup
-...
-<div class="form-group">
-    <label for="FirstName">FirstName</label>
-    <input class="form-control" asp-for="FirstName">
-</div>
-<div class="form-group">
-    <label for="LastName">LastName</label>
-    <input class="form-control" asp-for="LastName">
-</div>
-<div class="form-group">
-    <label for="EnrollmentYear">Year</label>
-    <input class="form-control" asp-for="EnrollmentYear">
-</div>
-...
+@model Product
+@{ 
+    Layout = "_Layout";
+    ViewBag.Title = "Products - Create"; 
+}
+<div asp-validation-summary="All"></div>
+<form method="post" asp-controller="Product" asp-action="Create">
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input class="form-control" asp-for="Name">
+    </div>
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <input class="form-control" asp-for="Description">
+    </div>
+    <div class="form-group">
+        <label for="Price">Price</label>
+        <input class="form-control" asp-for="Price">
+    </div>
+    <div class="form-group">
+        <label for="ImageURL">ImageURL</label>
+        <input class="form-control" asp-for="ImageURL">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 ```
+
+Vergeet hier bovenaan niet het model te definieren anders weet asp-for niet naar welk model object hij moet verwijzen.
 
 ### Label tag helper
 
