@@ -45,3 +45,34 @@ Eenvoudig! We voegen gewoon de volgende html code toe aan onze view.
 
 Alle items worden voor ons gegenereerd aan de hand van de Html.GetEnumSelectList functie en meegegeven via de asp-items taghelper.
 
+Het enige wat we nu nog willen doen is de ProductType laten zien in de lijst van producten:
+
+```markup
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Product product in Model)
+        {
+        <tr>
+            <td><img src="@Url.Content(product.ImageURL)" width="100" /></td>
+            <td><a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id">@product.Name</a></td>
+            <td><p>@product.Description</p></td>
+            <td><p>@product.Price</p></td>
+            <td><p>@Html.DisplayFor(m => product.Type)</p></td>
+        </tr>
+        }
+    </tbody>
+
+</table>
+```
+
+We gebruiken `Html.DisplayFor` om het type om te zetten naar zijn gebruiksvriendelijke display name.
+
