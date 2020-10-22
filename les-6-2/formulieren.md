@@ -49,22 +49,26 @@ public IActionResult Create()
 Momenteel doet deze actie nog niet veel. We moeten ook nog een view aanmaken hiervoor. We maken dus een nieuw bestand `Create.cshthml` met de inhoud:
 
 ```markup
-@{
+@{ 
     Layout = "_Layout";
-    ViewBag.Title = "Students - Create";
+    ViewBag.Title = "Products - Create"; 
 }
-<form method="post" asp-controller="Student" asp-action="Create">
+<form method="post" asp-controller="Product" asp-action="Create">
     <div class="form-group">
-        <label for="FirstName">FirstName</label>
-        <input class="form-control" id="firstName" name="FirstName">
+        <label for="Name">Name</label>
+        <input class="form-control" id="Name" name="Name">
     </div>
     <div class="form-group">
-        <label for="LastName">LastName</label>
-        <input class="form-control" id="lastName" name="LastName">
+        <label for="Description">Description</label>
+        <input class="form-control" id="Description" name="Description">
     </div>
     <div class="form-group">
-        <label for="EnrollmentYear">Year</label>
-        <input class="form-control" id="enrollmentYear" name="EnrollmentYear">
+        <label for="Price">Price</label>
+        <input class="form-control" id="Price" name="Price">
+    </div>
+    <div class="form-group">
+        <label for="ImageURL">ImageURL</label>
+        <input class="form-control" id="ImageURL" name="ImageURL">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
