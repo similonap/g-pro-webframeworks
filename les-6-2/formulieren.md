@@ -135,23 +135,23 @@ Als je nu terug naar de web applicatie gaat zal je zien dat het gedrag ongewijzi
 
 ## Model Validatie
 
-Zoals je misschien wel al opgemerkt hebt kan je in ons formulier invullen wat je wil. Laat je velden leeg, dan zal er ook een `Student` aangemaakt worden. Dit willen we uiteraard niet.
+Zoals je misschien wel al opgemerkt hebt kan je in ons formulier invullen wat je wil. Laat je velden leeg, dan zal er ook een `Product` aangemaakt worden. Dit willen we uiteraard niet.
 
 Microsoft heeft een zeer effectieve en gemakkelijk te gebruiken gegevensvalidering API ontwikkeld in de kern .NET Framework met de naam Data Annotations. Zoals de naam impliceert, biedt de met de naam Data Annotations API een set .NET attributen die ontwikkelaars kunnen toegepassen op klasse-eigenschappen van data-objecten. Deze eigenschappen bieden een declaratieve manier om validatieregels rechtstreeks op een model toe te passen.
 
 ### Verplichte velden
 
-Alle velden in onze `Student` klasse zijn verplicht \(buiten de `Id` momenteel\). Om dit aan te geven gebruiken we het `[Required]` attribuut. We geven dit dus ook aan in de `Student` klasse.
+Alle velden in onze `Product` klasse zijn verplicht \(buiten de `Id` momenteel\). Om dit aan te geven gebruiken we het `[Required]` attribuut. We geven dit dus ook aan in de `Product` klasse.
 
 ```csharp
 [Required]
-public string FirstName { get; set; }
-
+public string Name { get; set; }
 [Required]
-public string LastName { get; set; }
-
+public string Description { get; set; }
 [Required]
-public int EnrollmentYear { get; set; }
+public decimal Price { get; set; }
+[Required]
+public string ImageURL { get; set; }
 ```
 
 ### Andere attributen
