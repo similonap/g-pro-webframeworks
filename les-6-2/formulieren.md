@@ -10,7 +10,7 @@ Voor we beginnen gaan we een link aanmaken op de `Index` view van de `ProductCon
 <a asp-controller="Product" asp-action="Create">Add product</a>
 ```
 
-toe en dan gaan we verder met de `StudentController` die we in vorig deeltje hebben aangemaakt. Hier maken we een nieuwe actie `Create` aan om een nieuwe student aan te maken.
+toe en dan gaan we verder met de `ProductController` die we in vorig deeltje hebben aangemaakt. Hier maken we een nieuwe actie `Create` aan om een nieuw product aan te maken.
 
 ```csharp
 public IActionResult Create()
