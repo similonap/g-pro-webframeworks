@@ -7,7 +7,7 @@ In dit deel gaan we leren hoe we een formulier aanmaken in html code en vervolge
 Voor we beginnen gaan we een link aanmaken op de `Index` view van de `ProductController` die naar de `Create` actie verwijst \(deze bestaat nog niet\). We voegen dus
 
 ```csharp
-<a asp-controller="Product" asp-action="Create">Add student</a>
+<a asp-controller="Product" asp-action="Create">Add product</a>
 ```
 
 toe en dan gaan we verder met de `StudentController` die we in vorig deeltje hebben aangemaakt. Hier maken we een nieuwe actie `Create` aan om een nieuwe student aan te maken.
