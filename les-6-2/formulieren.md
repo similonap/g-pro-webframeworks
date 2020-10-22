@@ -204,7 +204,7 @@ Dan wordt `Create.cshtml` gewoon
 </form>
 ```
 
-![](../.gitbook/assets/image%20%2862%29.png)
+![](../.gitbook/assets/image%20%2863%29.png)
 
 ### Toevoegen van fout boodschappen
 
@@ -225,65 +225,46 @@ public decimal Price { get; set; }
 public string ImageURL { get; set; }
 ```
 
-Je kan ook zelf foutboodschappen toevoegen aan je `ModelState` zodat je meer speciale cases kan afhandelen in je controller code. Als we bijvoorbeeld niet willen dat er studenten worden toegevoegd worden met de naam 'Donald' dan kunnen we aan de hand van `ModelState.AddModelError` er een error toevoegen.
-
-```csharp
- [HttpPost]
-public IActionResult Create(Student student)
-{
-    if ("Donald".Equals(student.FirstName)) {
-        ModelState.AddModelError(nameof(Student.FirstName), "Your first name cannot be Donald!");
-    }
-
-    if (ModelState.IsValid)
-    {
-        studentRepository.Create(student);
-        TempData["Message"] = $"{student.FirstName} {student.LastName} was added succesfully";
-        return RedirectToAction("Index", "Student");
-    }
-    return View();
-}
-```
-
-Merk op dat we hier `nameof(Student.FirstName)` gebruiken in plaats van gewoon de string "FirstName". We doen dit zodat als we de property zouden veranderen dat de compiler hier over zal klagen.
+![](../.gitbook/assets/image%20%2864%29.png)
 
 ## TempData
 
-We hebben in de `Create` action van de `StudentController` gebruik gemaakt van `RedirectToAction` om na het toevoegen terug naar de lijst van studenten te gaan. We zouden graag ook nog een message willen meegeven aan deze view als het toevoegen gelukt is. Je zou denken dat dit een goede use case is voor het gebruik van een `ViewBag` maar als je dit zou proberen zal dit niet werken. Hiervoor bestaat het `TempData` object. Dit object blijft bestaan tussen een redirect dus is hier ideaal voor.
+We hebben in de `Create` action van de `ProductController` gebruik gemaakt van `RedirectToAction` om na het toevoegen terug naar de lijst van producten te gaan. We zouden graag ook nog een message willen meegeven aan deze view als het toevoegen gelukt is. Je zou denken dat dit een goede use case is voor het gebruik van een `ViewBag` maar als je dit zou proberen zal dit niet werken. Hiervoor bestaat het `TempData` object. Dit object blijft bestaan tussen een redirect dus is hier ideaal voor.
 
 We passen de `Create` action aan zodat er in TempData een message wordt gestoken als het toevoegen gelukt is.
 
 ```csharp
 [HttpPost]
-public IActionResult Create(Student student)
+public IActionResult Create(Product product)
 {
     if (ModelState.IsValid)
     {
-        studentRepository.Create(student);
-        TempData["Message"] = $"{student.FirstName} {student.LastName} was added succesfully";
-        return RedirectToAction("Index", "Student");
+        productRepository.Create(product);
+        TempData["Message"] = $"{product.Name} was added succesfully";
+        return RedirectToAction("Index", "Product");
+    } else
+    {
+        return View();
     }
-    return View();
 }
 ```
 
 Nu is het enige wat we nog moeten doen is het aanpassen van de `Index.cshtml` view zodat het dit bericht laat zien als het meegegeven wordt.
 
 ```markup
-@model IEnumerable<Student>
-@{
-    Layout = "_Layout";
-    ViewBag.Title = "Students";
-}
-@if (TempData["Message"] != null) {
+@model IQueryable<Product>
+@{ ViewBag.Title = "Product"; }
+
+@if (TempData["Message"] != null)
+{
 <div class="alert alert-success" role="alert">
     @TempData["Message"]
 </div>
-...
 }
+...
 ```
 
-![](../.gitbook/assets/TempData1.png)
+![](../.gitbook/assets/image%20%2862%29.png)
 
 ## Tag helpers
 
