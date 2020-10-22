@@ -14,9 +14,15 @@ void Save(Pokemon pokemon);
 
 en zorg voor een implementatie in de JsonPokedex. Je hoeft uiteraard enkel het element in de lijst aan te passen en niet in de originele json file.
 
+Zorg er nu voor dat de Base stats van de pokemon nu kunnen aangepast worden aan de hand van input elementen in een form. Deze form moet een **POST** doen naar de `Details` action in de `Pokedex` ****controller.
+
 ![](../.gitbook/assets/image%20%2866%29.png)
 
+Als de pokemon is geupdated in de pokedex moet je een melding geven dat de pokemon is geupdated.
+
 ![](../.gitbook/assets/image%20%2865%29.png)
+
+Zorg ervoor dat er validatie is op de waarden die worden meegegeven aan de base stats \(Hp, Speed, Attack, Defense, SpAttack en SpDefense\). Deze waarden moeten tussen 1 en 255 liggen.
 
 ![](../.gitbook/assets/image%20%2867%29.png)
 
