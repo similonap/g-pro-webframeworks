@@ -362,8 +362,8 @@ Als er dan iemand het formulier doorstuurt en `FirstName` is niet ingevuld dan w
 ```markup
 <span class="field-validation-error" 
          data-valmsg-replace="true" 
-         data-valmsg-for="Email"> 
-   The FirstName field is required.</span>
+         data-valmsg-for="Name"> 
+   The Name field is required.</span>
 ```
 
 Met wat boostrap magie kunnen we deze text ook er duidelijk uit laten zien als een error
