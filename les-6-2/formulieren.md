@@ -319,16 +319,35 @@ Vergeet hier bovenaan niet het model te definieren anders weet asp-for niet naar
 Momenteel maken we nog altijd gewoon gebruik van de html label tag en vullen we deze nog zelf in.
 
 ```markup
-<label for="<label for="LastName">LastName</label>
+<label for="Name">Name</label>
 ```
 
 Dankzij de label tag helpers kunnen we dit ook nog sterk vereenvoudigen. Als we nu dit vervangen met
 
 ```markup
-<label asp-for="LastName"></label>
+<label asp-for="Name"></label>
 ```
 
 zal er automatisch een label tekst worden gegeven met de naam van de property. Als we toch andere labels willen zien dan moeten we dit in het model aanduiden met `[Display(Name = "Andere label")]`
+
+```csharp
+  [Display(Name = "Productnaam")]
+  [Required(ErrorMessage = "Naam is een verplicht veld")]
+  public string Name { get; set; }
+  
+  [Display(Name = "Beschrijving")]
+  [Required(ErrorMessage ="Beschrijving is een verplicht veld")]
+  public string Description { get; set; }
+  
+  [Display(Name = "Prijs")]
+  [Required(ErrorMessage = "Prijs is een verplicht veld")]
+  [Range(0, 999.99, ErrorMessage = "Prijs moet tussen 0 en 1000 euro liggen")]
+  public decimal Price { get; set; }
+  
+  [Display(Name = "Afbeelding")]
+  [Required(ErrorMessage = "Afbeelding is een verplicht veld")]
+  public string ImageURL { get; set; }
+```
 
 ### Validation tag helper
 
