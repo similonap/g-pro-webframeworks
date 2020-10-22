@@ -46,6 +46,7 @@
 
 * [Forms en Validatie](les-6-2/formulieren.md)
 * [Dropdown List](les-6-2/dropdown-list.md)
+* [Oefeningen](les-6-2/oefeningen.md)
 
 ## LES 7 <a id="les-4-1"></a>
 
