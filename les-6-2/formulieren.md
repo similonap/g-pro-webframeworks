@@ -107,26 +107,26 @@ We overlopen even de nieuwe dingen hier:
 
 ## Model Binding
 
-De manier die we hierboven hebben beschreven is omslachtig. We willen hier gebruik maken van model binding om het formulier automatisch om te zetten naar een object. We passen de `Create` action aan van de `StudentController`
+De manier die we hierboven hebben beschreven is omslachtig. We willen hier gebruik maken van model binding om het formulier automatisch om te zetten naar een object. We passen de `Create` action aan van de `ProductController`
 
 ```csharp
 [HttpPost]
-public IActionResult Create(Student student)
+public IActionResult Create(Product product)
 {
-    studentRepository.Create(student);
-    return RedirectToAction("Index", "Student");
+    productRepository.Create(product);
+    return RedirectToAction("Index", "Product");
 }
 ```
 
-We gebruiken hier gewoon de `Student` klasse als argument van de methode en de omzetting van de form body wordt automatisch voor jou gedaan. Er zijn hier een paar kleine dingen waar je moet op letten:
+We gebruiken hier gewoon de `Product` klasse als argument van de methode en de omzetting van de form body wordt automatisch voor jou gedaan. Er zijn hier een paar kleine dingen waar je moet op letten:
 
-* Zorg voor een empty constructor voor de klasse waar je wil gebruiken voor het binden.
+* Zorg voor een empty constructor als je al een constructor hebt \(als je gewoon de default constructor hebt hoeft dit niet\)
 
   ```csharp
-    public Student()
-    {
+  public Product()
+  {
 
-    }
+  }
   ```
 
 * Zorg ervoor dat de properties van de klasse overeenkomen met de name attributen van het form element.
