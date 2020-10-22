@@ -2,6 +2,27 @@
 
 In dit deel gaan we leren hoe we een formulier aanmaken in html code en vervolgens deze doorsturen naar de controller. Ook validatie van de gegevens zal hier kort aan bod komen.
 
+Vooraleer we beginnen met die labo moeten we nog een aantal kleine wijzigingen aanbrengen omdat we nu ook nieuwe producten willen toevoegen met hun eigen image.
+
+We voegen nu de volgende property toe aan de `Product` klasse
+
+```csharp
+public string ImageURL { get; set; }
+```
+
+we willen nu niet meer werken met vaste paden voor bepaalde id's voor de images, dus we geven nu bij het aanmaken van de producten het pad van de image mee.
+
+```csharp
+public ProductsInMemoryRepository()
+{
+    this.products = new List<Product>();
+
+    Create(new Product { Name = "Fluffy Llama", Description = "A fluffy llama for the kids", Price = 9.99M, ImageURL = "/images/products/1.jpg" });
+    Create(new Product { Name = "Colorful llama", Description = "A colorful llama for the larger kids", Price = 19.99M, ImageURL = "/images/products/2.jpg" });
+
+}
+```
+
 ## Formulier via argumenten
 
 Voor we beginnen gaan we een link aanmaken op de `Index` view van de `ProductController` die naar de `Create` actie verwijst \(deze bestaat nog niet\). We voegen dus
