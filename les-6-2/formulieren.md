@@ -354,7 +354,7 @@ zal er automatisch een label tekst worden gegeven met de naam van de property. A
 Hiervoor hebben we de foutbootschappen gewoon bovenaan laten zien na het valideren van het model. Maar wat we echt willen is dat de foutboodschap bij het input veld in kwestie komt staan. Hiervoor hebben we de validation tag helper.
 
 ```markup
-<span asp-validation-for="FirstName"></span>
+<span asp-validation-for="Name"></span>
 ```
 
 Als er dan iemand het formulier doorstuurt en `FirstName` is niet ingevuld dan wordt dit vervangen met de volgende html code
@@ -366,17 +366,7 @@ Als er dan iemand het formulier doorstuurt en `FirstName` is niet ingevuld dan w
    The FirstName field is required.</span>
 ```
 
-## Oefeningen
 
-Zorg ervoor dat het formulier overeenkomt met de onderstaande screenshots. De labels moeten komen uit het model.
-
-![](../.gitbook/assets/LabelTag1.png)
-
-Zorg ervoor dat voor elk veld een error message wordt getoond.
-
-![](../.gitbook/assets/ErrorMessages1.png)
-
-Zorg voor een nieuwe property `Email` in het `Student` model. Pas alles aan zodat je nu ook een email adres moet ingeven.
 
 ![](https://github.com/similonap/g-pro-webframeworks/tree/68ccc05b565fea247dd6aecc7d351478cdb145f5/.gitbook/assets/ExtraEmailFIeld1.png) ![](https://github.com/similonap/g-pro-webframeworks/tree/68ccc05b565fea247dd6aecc7d351478cdb145f5/.gitbook/assets/ExtraEmailFIeld2.png)
 
