@@ -76,23 +76,24 @@ Momenteel doet deze actie nog niet veel. We moeten ook nog een view aanmaken hie
 
 We willen het formulier via een `post` methode versturen. Dit is gangbaar bij formulieren. Het alternatief is via een `get` methode maar dan komen alle doorgestuurde variabelen in de url te staan en dit is niet wenselijk.
 
-Je merkt hierboven dat we gebruik maken van de taghelpers `asp-controller` en `asp-action` om de juiste action te gebruiken voor het formulier. Zo zal het formulier worden doorgestuurd naar de `Create` action van de `StudentController`.
+Je merkt hierboven dat we gebruik maken van de taghelpers `asp-controller` en `asp-action` om de juiste action te gebruiken voor het formulier. Zo zal het formulier worden doorgestuurd naar de `Create` action van de `ProductController`.
 
 De rest van het formulier is standaard html en gebruik gemaakt van bootstrap om te stijlen. Meer informatie kan je vinden op [https://getbootstrap.com/docs/4.0/components/forms/](https://getbootstrap.com/docs/4.0/components/forms/)
 
-![](../.gitbook/assets/StudentsCreate1.png)
+![](../.gitbook/assets/image%20%2861%29.png)
 
 Als we nu het formulier doorsturen door op submit te drukken gebeurt er uiteraard niet veel. We moeten nog controller code schrijven om met deze doorgestuurde gegevens te kunnen werken.
 
-We voegen dus een extra action toe aan de `StudentController`. Deze zal ook `Create` noemen maar zal de andere `Create` action overloaden
+We voegen dus een extra action toe aan de `ProductController`. Deze zal ook `Create` noemen maar zal de andere `Create` action overloaden
 
 ```csharp
 [HttpPost]
-public IActionResult Create([FromForm] string firstName, [FromForm] string lastName, [FromForm] int enrollmentYear)
+public IActionResult Create([FromForm] string name, [FromForm] string description, [FromForm] decimal price, [FromForm] string imageUrl)
 {
-    Student student = new Student(0, firstName, lastName, enrollmentYear);
-    studentRepository.Create(student);
-    return RedirectToAction("Index", "Student");
+    Product product = new Product { Name = name, Description = description, Price = price, ImageURL = imageUrl };
+
+    productRepository.Create(product);
+    return RedirectToAction("Index", "Product");
 }
 ```
 
@@ -100,8 +101,8 @@ We overlopen even de nieuwe dingen hier:
 
 * `[HttpPost]` is een `Attribute` die aangeeft dat deze action enkel moet gebruikt worden bij een POST vanuit een formulier. Zo heb je voor alle http methoden \(GET, POST, DELETE,...\) een eigen variant.
 * Als argumenten van de methode `Create` gebruiken we de argumenten die we doorsturen vanuit het formulier. De namen moeten overeenkomen met de `name` uit het formulier in html. Dit kan je niet wijzigen, zorg er dus altijd voor dat deze overeenkomen.
-* We maken hier een instantie van Student aan met de waarden die zijn doorgegeven. 
-* We voegen deze toe aan de `studentRepository` met de zelfgemaakte `Create` methode.
+* We maken hier een instantie van Product aan met de waarden die zijn doorgegeven. 
+* We voegen deze toe aan de `ProductRepository` met de zelfgemaakte `Create` methode.
 * Omdat we bij het succesvol toevoegen van een gebruiker terug de lijst van studenten willen laten zien gebruiken we hier de `RedirectToAction` die als eerste argument de `Action` aanneemt en als 2de de `Controller`.
 
 ## Model Binding
