@@ -17,8 +17,8 @@ public ProductsInMemoryRepository()
 {
     this.products = new List<Product>();
 
-    Create(new Product { Name = "Fluffy Llama", Description = "A fluffy llama for the kids", Price = 9.99M, ImageURL = "/images/products/1.jpg" });
-    Create(new Product { Name = "Colorful llama", Description = "A colorful llama for the larger kids", Price = 19.99M, ImageURL = "/images/products/2.jpg" });
+    Create(new Product { Name = "Fluffy Llama", Description = "A fluffy llama for the kids", Price = 9.99M, ImageURL = "~/images/products/1.jpg" });
+    Create(new Product { Name = "Colorful llama", Description = "A colorful llama for the larger kids", Price = 19.99M, ImageURL = "~/images/products/2.jpg" });
 
 }
 ```
@@ -26,7 +26,7 @@ public ProductsInMemoryRepository()
 Nu moeten we uiteraard nog twee kleine dingen aanpassen in de `Index.cshtml` en de `Details.cshtml` view om de ImageUrl te gebruiken als image:
 
 ```text
-<img src="@product.ImageURL" />
+<img src="@Url.Content(product.ImageURL)" />
 ```
 
 ## Formulier via argumenten
