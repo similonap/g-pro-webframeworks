@@ -407,5 +407,11 @@ Met wat boostrap magie kunnen we deze text ook er duidelijk uit laten zien als e
 </form>
 ```
 
-![](https://github.com/similonap/g-pro-webframeworks/tree/68ccc05b565fea247dd6aecc7d351478cdb145f5/.gitbook/assets/ExtraEmailFIeld1.png) ![](https://github.com/similonap/g-pro-webframeworks/tree/68ccc05b565fea247dd6aecc7d351478cdb145f5/.gitbook/assets/ExtraEmailFIeld2.png)
+## ![](https://github.com/similonap/g-pro-webframeworks/tree/68ccc05b565fea247dd6aecc7d351478cdb145f5/.gitbook/assets/ExtraEmailFIeld1.png) ![](https://github.com/similonap/g-pro-webframeworks/tree/68ccc05b565fea247dd6aecc7d351478cdb145f5/.gitbook/assets/ExtraEmailFIeld2.png)Begeleidend videomateriaal
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=86c28aa7-3626-4c05-ae43-ac5d0089df03" %}
+
+
+
+## 
 
