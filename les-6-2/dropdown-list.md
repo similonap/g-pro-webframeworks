@@ -76,3 +76,9 @@ Het enige wat we nu nog willen doen is de ProductType laten zien in de lijst van
 
 We gebruiken `Html.DisplayFor` om het type om te zetten naar zijn gebruiksvriendelijke display name.
 
+## Begeleidend videomateriaal
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9e215e85-8f4a-4ba7-9c84-ac5d0089e235" %}
+
+
+
