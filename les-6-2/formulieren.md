@@ -103,7 +103,7 @@ We overlopen even de nieuwe dingen hier:
 * Als argumenten van de methode `Create` gebruiken we de argumenten die we doorsturen vanuit het formulier. De namen moeten overeenkomen met de `name` uit het formulier in html. Dit kan je niet wijzigen, zorg er dus altijd voor dat deze overeenkomen.
 * We maken hier een instantie van Product aan met de waarden die zijn doorgegeven. 
 * We voegen deze toe aan de `ProductRepository` met de zelfgemaakte `Create` methode.
-* Omdat we bij het succesvol toevoegen van een gebruiker terug de lijst van studenten willen laten zien gebruiken we hier de `RedirectToAction` die als eerste argument de `Action` aanneemt en als 2de de `Controller`.
+* Omdat we bij het succesvol toevoegen van een gebruiker terug de lijst van producten willen laten zien gebruiken we hier de `RedirectToAction` die als eerste argument de `Action` aanneemt en als 2de de `Controller`.
 
 ## Model Binding
 
