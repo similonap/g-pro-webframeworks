@@ -158,12 +158,12 @@ public string ImageURL { get; set; }
 
 Er zijn nog veel andere attributen. Zo vindt je op de [officiele documentatie](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation?view=aspnetcore-3.1#built-in-attributes).
 
-Zo kan bijvoorbeeld het `Range` attribuut wel interessant zijn voor het jaartal van de `EnrollmentYear`. We willen bijvoorbeeld alleen getallen tussen 2010 en 2022 toelaten.
+Zo kan bijvoorbeeld het `Range` attribuut wel interessant zijn voor de prijs. We willen bijvoorbeeld alleen getallen tussen 0 en 1000 toelaten.
 
 ```csharp
-[Range(2010, 2021)]
+[Range(0, 1000)]
 [Required]
-public int EnrollmentYear { get; set; }
+public decimal Price { get; set; }
 ```
 
 ### ModelState
