@@ -161,7 +161,7 @@ Er zijn nog veel andere attributen. Zo vindt je op de [officiele documentatie](h
 Zo kan bijvoorbeeld het `Range` attribuut wel interessant zijn voor de prijs. We willen bijvoorbeeld alleen getallen tussen 0 en 1000 toelaten.
 
 ```csharp
-[Range(0, 1000)]
+[Range(0, 999.99)]
 [Required]
 public decimal Price { get; set; }
 ```
