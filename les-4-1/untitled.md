@@ -413,5 +413,30 @@ We maken hier dus een ketting van de `Where` operator die alleen de elementen se
 
 ## Aggregatie operatoren
 
+Als je met reeksen getallen werkt dan kan je een aantal ingebouwde aggregatie operatoren gebruiken zoals `Max`, `Min`, `Average` en `Sum`. Het gebruik hiervan is triviaal. 
+
+```csharp
+int[] getallen = { 1, 2, 3, 5, 3, 2, 10 };
+
+Console.WriteLine(getallen.Max());
+```
+
+Wil je het maximum van een van de properties van een reeks objecten dan doe je dit aan de hand van een lambda:
+
+```csharp
+Person[] personen =
+{
+    new Person { Age = 60, Name = "Jan"},
+    new Person { Age = 100, Name = "An"},
+    new Person { Age = 15, Name = "Peter"},
+    new Person { Age = 11, Name = "Hans"},
+    new Person { Age = 15, Name = "Marijke"},
+    new Person { Age = 20, Name = "Youssef"}
+};
+
+
+Console.WriteLine(personen.Max(p => p.Age));
+```
+
 
 
