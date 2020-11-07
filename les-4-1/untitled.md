@@ -459,6 +459,6 @@ Console.WriteLine((double) getallen.Aggregate((acc, getal) => acc + getal) / get
 Willen we nu bijvoorbeeld onze eigen aggregatie functie maken om de namen van onze personen objecten aan elkaar te concateneren, dan moeten we eerst Select gebruiken om de namen te selecteren en dan kunnen we de `Aggregate` operator gebruiken
 
 ```csharp
-Console.WriteLine(personen.Select(p => p.Name).Aggregate((prev, name) => prev + name));
+Console.WriteLine(personen.Select(p => p.Name).Aggregate((prev, name) => prev + "," + name));
 ```
 
