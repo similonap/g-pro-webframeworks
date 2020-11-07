@@ -413,3 +413,5 @@ We maken hier dus een ketting van de `Where` operator die alleen de elementen se
 
 ## Aggregatie operatoren
 
+
+
