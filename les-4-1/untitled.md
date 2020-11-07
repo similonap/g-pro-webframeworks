@@ -444,22 +444,22 @@ Je kan ook een eigen aggregatie operator definiëren als deze bovenstaande niet 
 
 ```csharp
 //SUM
-Console.WriteLine(getallen.Aggregate((acc, getal) => acc + getal)) ;
+Console.WriteLine(getallen.Aggregate((prev, curr) => prev + curr)) ;
 
 //MAX
-Console.WriteLine(getallen.Aggregate((acc, getal) => getal > acc ? getal : acc));
+Console.WriteLine(getallen.Aggregate((prev, curr) => curr > prev ? curr : prev));
 
 //MIN
-Console.WriteLine(getallen.Aggregate((acc, getal) => getal > acc ? acc : getal));
+Console.WriteLine(getallen.Aggregate((prev, curr) => curr < prev ? curr : prev));
 
 //AVERAGE
-Console.WriteLine((double) getallen.Aggregate((acc, getal) => acc + getal) / getallen.Count());
+Console.WriteLine((double) getallen.Aggregate((prev, curr) => prev + curr) / getallen.Count());
 ```
 
 Willen we nu bijvoorbeeld onze eigen aggregatie functie maken om de namen van onze personen objecten aan elkaar te concateneren, dan moeten we eerst Select gebruiken om de namen te selecteren en dan kunnen we de `Aggregate` operator gebruiken
 
 ```csharp
-Console.WriteLine(personen.Select(p => p.Name).Aggregate((prev, name) => prev + "," + name));
+Console.WriteLine(personen.Select(p => p.Name).Aggregate((prev, curr) => prev + "," + curr));
 ```
 
 
