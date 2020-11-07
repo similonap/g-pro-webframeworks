@@ -438,7 +438,23 @@ Person[] personen =
 Console.WriteLine(personen.Max(p => p.Age));
 ```
 
-De operatoren Min, Average en Sum werken op identiek dezelfde wijze.
+De operatoren `Min`, `Average` en `Sum` werken op identiek dezelfde wijze.
+
+Je kan ook een eigen aggregatie functie definiëren als deze bovenstaande niet exact doen wat jij wil. Zo kan je bijvoorbeeld de voorgedefinieerde aggregatie operatoren op de volgende manier zelf maken:
+
+```csharp
+//SUM
+Console.WriteLine(getallen.Aggregate(0, (acc, getal) => acc + getal)) ;
+
+//MAX
+Console.WriteLine(getallen.Aggregate(0, (acc, getal) => getal > acc ? getal : acc));
+
+//MIN
+Console.WriteLine(getallen.Aggregate(getallen[0], (acc, getal) => getal > acc ? acc : getal));
+
+//AVERAGE
+Console.WriteLine((double) getallen.Aggregate(0, (acc, getal) => acc + getal) / getallen.Count());
+```
 
 
 
