@@ -411,5 +411,5 @@ We maken hier dus een ketting van de `Where` operator die alleen de elementen se
 
 ![](../.gitbook/assets/image%20%2821%29.png)
 
-
+## Aggregatie operatoren
 
