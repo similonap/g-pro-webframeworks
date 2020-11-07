@@ -440,7 +440,7 @@ Console.WriteLine(personen.Max(p => p.Age));
 
 De operatoren `Min`, `Average` en `Sum` werken op identiek dezelfde wijze.
 
-Je kan ook een eigen aggregatie functie definiëren als deze bovenstaande niet exact doen wat jij wil. Zo kan je bijvoorbeeld de voorgedefinieerde aggregatie operatoren op de volgende manier zelf maken:
+Je kan ook een eigen aggregatie operator definiëren als deze bovenstaande niet exact doen wat jij wil. Zo kan je bijvoorbeeld de voorgedefinieerde aggregatie operatoren op de volgende manier zelf maken:
 
 ```csharp
 //SUM
