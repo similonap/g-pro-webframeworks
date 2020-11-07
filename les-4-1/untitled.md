@@ -462,3 +462,5 @@ Willen we nu bijvoorbeeld onze eigen aggregatie functie maken om de namen van on
 Console.WriteLine(personen.Select(p => p.Name).Aggregate((prev, name) => prev + "," + name));
 ```
 
+
+
