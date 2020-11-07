@@ -438,5 +438,7 @@ Person[] personen =
 Console.WriteLine(personen.Max(p => p.Age));
 ```
 
+De operatoren Min, Average en Sum werken op identiek dezelfde wijze.
+
 
 
