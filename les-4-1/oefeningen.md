@@ -37,8 +37,10 @@ Gebruik de LINQ queries om de volgende dingen te laten zien op je console:
 * De top 3 van studenten \(waar de beste bovenaan staat\). 
 * De beste student
 * Een overzicht van alle punten op 10 \(in een array van `double` waarden\) TIP: gebruik select
+* Het gemiddelde van alle punten van de studenten
+* Concateneer alle namen van de studenten aan elkaar aan de hand van `Aggregate`.
 
 **Dit is de verwachte output:**
 
-![](../.gitbook/assets/image%20%2869%29.png)
+![](../.gitbook/assets/image%20%2870%29.png)
 
