@@ -462,5 +462,9 @@ Willen we nu bijvoorbeeld onze eigen aggregatie functie maken om de namen van on
 Console.WriteLine(personen.Select(p => p.Name).Aggregate((prev, curr) => prev + "," + curr));
 ```
 
+## Begeleidend videomateriaal
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5f04d086-54b8-46c9-87ca-ac6c015e0842" %}
+
 
 
