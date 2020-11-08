@@ -50,7 +50,7 @@
 
 ## LES 7 <a id="les-4-1"></a>
 
-* [LINQ](les-4-1/untitled.md)
+* [LINQ](les-4-1/linq.md)
 * [Oefeningen](les-4-1/oefeningen.md)
 
 ## LES 8 <a id="les-7"></a>
