@@ -57,8 +57,8 @@
 
 ---
 
-* [CRUD](crud.md)
 * [Filtering, Sortering en Paginering](filtering-sortering-en-paginering.md)
+* [CRUD](crud.md)
 
 ## LES 9 <a id="les-6"></a>
 
