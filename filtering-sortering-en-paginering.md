@@ -136,5 +136,11 @@ doen.
 
 ### Paginering
 
+We willen nu gaan beperken hoeveel producten er maximaal op de pagina mogen staan om te voorkomen dat we hele grote lijsten van producten gaan laten zien aan de gebruiker wat het overzicht moeilijker maakt. We defineren bovenaan de ProductController klasse een static int field dat de grootte van de paginas bevat.
+
+```csharp
+public static int PAGE_SIZE = 5;
+```
+
 
 
