@@ -175,5 +175,7 @@ We maken hier een lus van 1 tot het aantal paginas dat in de ViewBag zit \(+1 wa
 
 ![](.gitbook/assets/image%20%2871%29.png)
 
+### Filtering
+
 
 
