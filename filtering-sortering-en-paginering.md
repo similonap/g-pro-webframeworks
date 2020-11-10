@@ -1,4 +1,4 @@
-# Filtering, Sortering en Paginering
+# Sorteren
 
 Als voorbereiding van deze les gaan we even een aantal nieuwe producten toevoegen aan onze `ProductsInMemoryRepository` want we gaan iets meer data willen hebben waarmee we kunnen werken in onze voorbeelden. We voegen dus de volgende producten toe in de constructor van onze `ProductsInMemoryRepository` 
 
@@ -114,4 +114,23 @@ public IActionResult Index([FromQuery] SortField sort = SortField.Type, [FromQue
 ```
 
 Merk op dat we op het einde onze sorteer richting en veld meegeven in een ViewBag object zodat we deze kunnen opvragen vanuit onze view code.
+
+Bovenaan onze `Index.cshtml` maken we een nieuwe variabele aan die bepaald wat de nieuwe sorteerrichting is. Dit komt er op neer dat we gewoon de omgekeerde richting nemen dan die van diegene die in de ViewBag is opgeslagen
+
+```text
+@{
+    var newSortDirection = ViewBag.SortDirection == LlamaStore.Controllers.SortDirection.ASC ? LlamaStore.Controllers.SortDirection.DESC : LlamaStore.Controllers.SortDirection.ASC;
+}
+```
+
+en dan kunnen we in de table header:
+
+```csharp
+<th scope="col"><a asp-action="Index" asp-route-sort="Name" asp-route-sortDirection="@newSortDirection">Name</a></th>
+<th scope="col"><a asp-action="Index" asp-route-sort="Description" asp-route-sortDirection="@newSortDirection">Description</a></th>
+<th scope="col"><a asp-action="Index" asp-route-sort="Price" asp-route-sortDirection="@newSortDirection">Price</a></th>
+<th scope="col"><a asp-action="Index" asp-route-sort="Type" asp-route-sortDirection="@newSortDirection">Type</a></th>
+```
+
+doen.
 
