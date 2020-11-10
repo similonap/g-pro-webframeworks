@@ -199,3 +199,5 @@ Merk op dat we achter het type van de ProductType een vraagteken plaatsen. Dit m
 
 Nu kunnen we bijvoorbeeld naar `Product?filter=StuffedAnimal` surfen en dan krijgen we alleen de StuffedAnimals te zien.
 
+Zoals bij filtering en sortering gaan we uiteraard dit ook nog toevoegen in onze view.
+
