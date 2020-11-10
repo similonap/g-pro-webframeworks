@@ -29,21 +29,30 @@ We zien nu dat er wel wat producten aanwezig zijn in onze winkel en wordt het mo
 
 ### Sortering
 
-Door middel van LINQ quries kunnen we eenvoudig een sortering toevoegen aan onze producten. 
+Door middel van LINQ quries kunnen we eenvoudig een sortering toevoegen aan onze producten. We maken eerst een enum aan voor de velden aan te duiden waarop gesorteerd kan worden:
 
 ```csharp
-public IActionResult Index([FromQuery] string sort = "type")
+public enum SortField
+{
+    Name,
+    Price,
+    Type
+}
+```
+
+```csharp
+public IActionResult Index([FromQuery] SortField sort = SortField.Type)
 {
     var products = this.productRepository.GetAll();
     switch (sort)
     {
-        case "name":
+        case SortField.Name:
             products = products.OrderBy(p => p.Name);
             break;
-        case "price":
+        case SortField.Price:
             products = products.OrderBy(p => p.Price);
             break;
-        default:
+        case SortField.Type:
             products = products.OrderBy(p => p.Type);
             break;
     }
@@ -51,7 +60,7 @@ public IActionResult Index([FromQuery] string sort = "type")
 }
 ```
 
-Als argument van de Index action gebruiken we hier een string voor de sorterings velden mee te geven. We geven hier expliciet aan dat deze parameter van de query string moet komen. In principe is dit niet nodig, maar voor de veiligheid geven we dit toch aan.
+Als argument van de Index action gebruiken we hier de enum waarde voor de sorterings velden mee te geven. We geven hier expliciet aan dat deze parameter van de query string moet komen. In principe is dit niet nodig, maar voor de veiligheid geven we dit toch aan.
 
 Als we nu in de browser naar `Products?sort=price` gaan dan worden onze producten gesorteerd op prijs. Als we deze query parameter niet meegeven zal hij deze standaard sorteren op het type.
 
