@@ -304,7 +304,7 @@ Zoals bij filtering en sortering gaan we uiteraard dit ook nog toevoegen in onze
 
 ```markup
 <form method="get" asp-action="Index">
-    <select asp-items="Html.GetEnumSelectList<ProductType>()" name="Filter">
+    <select asp-for="Filter" asp-items="Html.GetEnumSelectList<ProductType>()" name="Filter">
         <option value="">All</option>
     </select>
     <button type="submit">Filter</button>
@@ -314,16 +314,16 @@ Zoals bij filtering en sortering gaan we uiteraard dit ook nog toevoegen in onze
 Dit maakt een form element aan om via de get methode \(dus via query parameters\). Daarin hebben we een dropdown box met alle mogelijkheden in van een `ProductType` . We plaatsen hier nog wel een `All` option om terug onze filtering af te zetten. Let er op dat je bij het sorteren ook 
 
 ```text
-asp-route-filter="@ViewBag.Filter"
+asp-route-filter="@Model.Filter"
 ```
 
 toevoegd. Anders zal de filter verdwijnen bij het sorteren. Zo komen we dan op
 
 ```text
-<th scope="col"><a asp-action="Index" asp-route-sort="Name" asp-route-sortDirection="@newSortDirection" asp-route-filter="@ViewBag.Filter">Name</a></th>
-<th scope="col"><a asp-action="Index" asp-route-sort="Description" asp-route-sortDirection="@newSortDirection" asp-route-filter="@ViewBag.Filter">Description</a></th>
-<th scope="col"><a asp-action="Index" asp-route-sort="Price" asp-route-sortDirection="@newSortDirection" asp-route-filter="@ViewBag.Filter">Price</a></th>
-<th scope="col"><a asp-action="Index" asp-route-sort="Type" asp-route-sortDirection="@newSortDirection" asp-route-filter="@ViewBag.Filter">Type</a></th>
+<th scope="col"><a asp-action="Index" asp-route-sort="Name" asp-route-sortDirection="@newSortDirection" asp-route-filter="@Model.Filter">Name</a></th>
+<th scope="col"><a asp-action="Index" asp-route-sort="Description" asp-route-sortDirection="@newSortDirection" asp-route-filter="@Model.Filter">Description</a></th>
+<th scope="col"><a asp-action="Index" asp-route-sort="Price" asp-route-sortDirection="@newSortDirection" asp-route-filter="@Model.Filter">Price</a></th>
+<th scope="col"><a asp-action="Index" asp-route-sort="Type" asp-route-sortDirection="@newSortDirection" asp-route-filter="@Model.Filter">Type</a></th>
 ```
 
 
