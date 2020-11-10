@@ -68,6 +68,15 @@ Als argument van de Index action gebruiken we hier de enum waarde voor de sorter
 
 Als we nu in de browser naar `Products?sort=price` gaan dan worden onze producten gesorteerd op prijs. Als we deze query parameter niet meegeven zal hij deze standaard sorteren op het type.
 
+We willen uiteraard niet enkel kunnen sorteren door de url aan te passen, maar we willen ook kunnen sorteren vanuit onze webapplicatie zelf. We passen de view van de Index action aan zodat de headers van de kolommen kunnen aangeklikt worden om te sorteren:
+
+```markup
+<th scope="col"><a asp-action="Index" asp-route-sort="Name">Name</a></th>
+<th scope="col"><a asp-action="Index" asp-route-sort="Description">Description</a></th>
+<th scope="col"><a asp-action="Index" asp-route-sort="Price">Price</a></th>
+<th scope="col"><a asp-action="Index" asp-route-sort="Type">Type</a></th>
+```
+
 Willen we nu ook de sort direction meegeven dan kunnen we dit ook nog doen aan de hand van een extra parameter. We maken eerst voor de richting van het sorteren een enum aan:
 
 ```csharp
@@ -101,8 +110,6 @@ public IActionResult Index([FromQuery] SortField sort = SortField.Type, [FromQue
     return View(products);
 }
 ```
-
-Tot nu toe hebben we de sortering gedaan aan de hand van gewoon in de adresbalk de query parameters in te geven. Nu willen we uiteraard dit ook kunnen doen vanuit onze eigen webapplicatie.
 
 
 
