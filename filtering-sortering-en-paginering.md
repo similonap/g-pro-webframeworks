@@ -107,9 +107,11 @@ public IActionResult Index([FromQuery] SortField sort = SortField.Type, [FromQue
             products = (sortDirection == SortDirection.ASC) ? products.OrderBy(p => p.Type) : products.OrderByDescending(p => p.Type);
             break;
     }
+    ViewBag.SortDirection = sortDirection;
+    ViewBag.SortField = sort;    
     return View(products);
 }
 ```
 
-
+Merk op dat we op het einde onze sorteer richting en veld meegeven in een ViewBag object zodat we deze kunnen opvragen vanuit onze view code.
 
