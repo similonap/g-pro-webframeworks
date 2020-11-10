@@ -175,6 +175,10 @@ We maken hier een lus van 1 tot het aantal paginas dat in de ViewBag zit \(+1 wa
 
 ![](.gitbook/assets/image%20%2871%29.png)
 
+### ViewModel
+
+
+
 ### Filtering
 
 We willen nu ook de gebruiker de mogelijkheid geven om te filteren op het type van producten. Dit gaan we doen door nog een extra argument toe te voegen aan de Index action.
