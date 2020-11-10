@@ -158,3 +158,18 @@ We plaatsen dus de huidige pagina terug in de ViewBag en berekenen het aantal pa
 
 Vervolgens geven we nu niet meer de hele reeks producten mee maar slagen we de eerste paginas over door middel van `Skip` en nemen we met `Take` maar het aantal elemeten dat in `PAGE_SIZE` is opgegeven.  
 
+We kunnen dit nu allemaal uitproberen door naar `Product?page=1`, `Product?page=2`, `Product?page=3` te gaan. Je ziet dat het nu allemaal blokken 5 zijn en dat op elke pagina andere items staan. Nu willen we nog onze view aanpassen zodat we ook daar de pagina's kunnen aanduiden.
+
+Bovenaan het `Index.cshtml` plaatsen we nu
+
+```csharp
+<ul class="pagination">
+    @for (int i = 1; i < ViewBag.TotalPages + 1; i++)
+    {
+        <li class="page-item @(i==ViewBag.CurrentPage?"active":"")"><a class="page-link" asp-action="Index" asp-route-page="@i" asp-route-sort="@ViewBag.SortField" asp-route-sortDirection="@ViewBag.SortDirection">@i</a></li>
+    }
+</ul>
+```
+
+We maken hier een lus van 1 tot het aantal paginas dat in de ViewBag zit \(+1 want we indexeren vanaf 1 niet 0\) en dan maken we een nieuwe link voor elke pagina. We markeren het list item als 'active' als de huidige index overeenkomt met de huidige pagina.
+

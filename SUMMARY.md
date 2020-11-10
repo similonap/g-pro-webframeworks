@@ -58,20 +58,20 @@
 ---
 
 * [Sorteren en pagineren](filtering-sortering-en-paginering.md)
-* [CRUD](crud.md)
 
 ## LES 9 <a id="les-6"></a>
 
 ---
 
-* [ADO.NET](ado.net.md)
+* [CRUD](crud.md)
 
 ## LES 10
 
-* [Entity Framework](les-10/entity-framework.md)
+* [ADO.NET](les-10/ado.net.md)
 
 ## LES 11
 
+* [Entity Framework](les-11/entity-framework.md)
 * [Untitled](les-11/untitled.md)
 
 ## LES 12
