@@ -32,7 +32,7 @@ We zien nu dat er wel wat producten aanwezig zijn in onze winkel en wordt het mo
 Door middel van LINQ quries kunnen we eenvoudig een sortering toevoegen aan onze producten. 
 
 ```csharp
-public IActionResult Index(string sort)
+public IActionResult Index([FromQuery] string sort)
 {
     var products = this.productRepository.GetAll();
     switch (sort)
@@ -43,9 +43,6 @@ public IActionResult Index(string sort)
         case "price":
             products = products.OrderBy(p => p.Price);
             break;
-        case "type":
-            products = products.OrderBy(p => p.Type);
-            break;
         default:
             products = products.OrderBy(p => p.Type);
             break;
@@ -53,4 +50,10 @@ public IActionResult Index(string sort)
     return View(products);
 }
 ```
+
+Als argument van de Index action gebruiken we hier een string voor de sorterings velden mee te geven. We geven hier expliciet aan dat deze parameter van de query string moet komen. In principe is dit niet nodig, maar voor de veiligheid geven we dit toch aan.
+
+Als we nu in de browser naar `Products?sort=price` gaan dan worden onze producten gesorteerd op prijs. Als we deze query parameter niet meegeven zal hij deze standaard sorteren op het type.
+
+
 
