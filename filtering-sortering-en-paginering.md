@@ -220,6 +220,32 @@ Nu moeten we uiteraard ook nog een aantal aanpassingen doen aan de `Index.cshtml
 
 toe te voegen bovenaan de pagina. Nu moeten we enkel de pagina nog aanpassen zodat we overal waar we ViewBag gebruiken nu in de plaats `Model` gebruiken.
 
+```csharp
+@{
+    var newSortDirection = Model.SortDirection == LlamaStore.Controllers.SortDirection.ASC ? LlamaStore.Controllers.SortDirection.DESC : LlamaStore.Controllers.SortDirection.ASC;
+}
+```
+
+```text
+@for (int i = 1; i < Model.TotalPages + 1; i++)
+{
+    <li class="page-item @(i==Model.CurrentPage?"active":"")"><a class="page-link" asp-action="Index" asp-route-page="@i" asp-route-sort="@Model.SortField" asp-route-sortDirection="@Model.SortDirection">@i</a></li>
+}
+```
+
+```csharp
+@foreach (Product product in Model.Products)
+{
+    <tr style="height: 200px">
+        <td><img src="@Url.Content(product.ImageURL)" width="100" /></td>
+        <td><a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id">@product.Name</a></td>
+        <td><p>@product.Description</p></td>
+        <td><p>@product.Price</p></td>
+        <td><p>@Html.DisplayFor(m => product.Type)</p></td>
+    </tr>
+}
+```
+
 ### Filtering
 
 We willen nu ook de gebruiker de mogelijkheid geven om te filteren op het type van producten. Dit gaan we doen door nog een extra argument toe te voegen aan de Index action.
