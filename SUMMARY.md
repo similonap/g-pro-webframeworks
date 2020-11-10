@@ -57,7 +57,7 @@
 
 ---
 
-* [Sorteren](filtering-sortering-en-paginering.md)
+* [Sorteren en pagineren](filtering-sortering-en-paginering.md)
 * [CRUD](crud.md)
 
 ## LES 9 <a id="les-6"></a>

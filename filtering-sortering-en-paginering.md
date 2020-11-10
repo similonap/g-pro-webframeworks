@@ -1,4 +1,4 @@
-# Sorteren
+# Sorteren en pagineren
 
 Als voorbereiding van deze les gaan we even een aantal nieuwe producten toevoegen aan onze `ProductsInMemoryRepository` want we gaan iets meer data willen hebben waarmee we kunnen werken in onze voorbeelden. We voegen dus de volgende producten toe in de constructor van onze `ProductsInMemoryRepository` 
 
@@ -133,4 +133,8 @@ en dan kunnen we in de table header:
 ```
 
 doen.
+
+### Paginering
+
+
 
