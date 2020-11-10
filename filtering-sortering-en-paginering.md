@@ -80,18 +80,21 @@ public enum SortDirection {
 en dan passen we onze Index action lichtjes aan zodat we ook kunnen sorteren in andere richtingen:
 
 ```csharp
-public IActionResult Index([FromQuery] string sort = "type", [FromQuery] SortDirection sortDirection = SortDirection.ASC)
+public IActionResult Index([FromQuery] SortField sort = SortField.Type, [FromQuery] SortDirection sortDirection = SortDirection.ASC)
 {
     var products = this.productRepository.GetAll();
     switch (sort)
     {
-        case "name":
+        case SortField.Name:
             products = (sortDirection == SortDirection.ASC) ? products.OrderBy(p => p.Name) : products.OrderByDescending(p => p.Name);
             break;
-        case "price":
+        case SortField.Price:
             products = (sortDirection == SortDirection.ASC) ? products.OrderBy(p => p.Price) : products.OrderByDescending(p => p.Price);
             break;
-        case "type":
+        case SortField.Description:
+            products = (sortDirection == SortDirection.ASC) ? products.OrderBy(p => p.Description) : products.OrderByDescending(p => p.Description);
+            break;
+        case SortField.Type:
             products = (sortDirection == SortDirection.ASC) ? products.OrderBy(p => p.Type) : products.OrderByDescending(p => p.Type);
             break;
     }
