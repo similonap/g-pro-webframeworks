@@ -86,5 +86,7 @@ public IActionResult Index([FromQuery] string sort = "type", [FromQuery] SortDir
 }
 ```
 
+Tot nu toe hebben we de sortering gedaan aan de hand van gewoon in de adresbalk de query parameters in te geven. Nu willen we uiteraard dit ook kunnen doen vanuit onze eigen webapplicatie.
+
 
 
