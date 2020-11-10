@@ -142,5 +142,19 @@ We willen nu gaan beperken hoeveel producten er maximaal op de pagina mogen staa
 public static int PAGE_SIZE = 5;
 ```
 
+Vervolgens voegen we een extra query parameter toe voor de pagina mee te geven aan de Index action en passen we een aantal dingen aan:
 
+```csharp
+public IActionResult Index([FromQuery] SortField sort = SortField.Type, [FromQuery] SortDirection sortDirection = SortDirection.ASC, [FromQuery] int page = 1)
+{
+    ...
+    ViewBag.CurrentPage = page;
+    ViewBag.TotalPages = Math.Ceiling((double) products.Count() / PAGE_SIZE);
+    return View(products.Skip((page-1) * PAGE_SIZE).Take(PAGE_SIZE));
+}
+```
+
+We plaatsen dus de huidige pagina terug in de ViewBag en berekenen het aantal paginas er zijn in totaal. Dit doen we door het aantal producten te nemen en dit te delen door de PAGE\_SIZE. We moeten dit wel omzetten naar double zodat we met kommagetallen werken en dan moeten we dit naar boven afronden.
+
+Vervolgens geven we nu niet meer de hele reeks producten mee maar slagen we de eerste paginas over door middel van `Skip` en nemen we met `Take` maar het aantal elemeten dat in `PAGE_SIZE` is opgegeven.  
 
