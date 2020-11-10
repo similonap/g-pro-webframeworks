@@ -36,6 +36,7 @@ public enum SortField
 {
     Name,
     Price,
+    Description,
     Type
 }
 ```
@@ -51,6 +52,9 @@ public IActionResult Index([FromQuery] SortField sort = SortField.Type)
             break;
         case SortField.Price:
             products = products.OrderBy(p => p.Price);
+            break;
+        case SortField.Description:
+            products = products.OrderBy(p => p.Description);
             break;
         case SortField.Type:
             products = products.OrderBy(p => p.Type);
