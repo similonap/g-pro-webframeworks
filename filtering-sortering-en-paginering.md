@@ -177,7 +177,23 @@ We maken hier een lus van 1 tot het aantal paginas dat in de ViewBag zit \(+1 wa
 
 ### ViewModel
 
+We zijn tot nu toe al heel de tijd dingen in de `ViewBag` aan het steken. Zoals de SortDirection, SortField,... Wat we nu willen doen is hiervoor een klasse aanmaken waarin we die properties kunnen steken en vervolgens onze view willen mee binden ipv met de lijst van producten zelf. Omdat we nu specifiek een klasse aanmaken voor de view noemen we deze klasse geen `Model` maar een `ViewModel` en plaatsen we die klasse ook in een aparte directory `ViewModels`
 
+```text
+namespace LlamaStore.ViewModels
+{
+    public class ProductListViewModel
+    {
+
+        public SortDirection SortDirection { get; set; }
+        public SortField SortField { get; set; }
+        public int CurrentPage { get; set; }    
+        public int TotalPages { get; set; }
+        public IEnumerable<Product> Products { get; set; }
+
+    }
+}
+```
 
 ### Filtering
 
