@@ -256,19 +256,47 @@ We willen nu ook de gebruiker de mogelijkheid geven om te filteren op het type v
 public IActionResult Index([FromQuery] SortField sort = SortField.Type, [FromQuery] SortDirection sortDirection = SortDirection.ASC, [FromQuery] int page = 1, [FromQuery] ProductType? filter = null)
 {
     ...
-
-    if (filter != null)
-    {
-        products = products.Where(p => p.Type == filter);
-    }
-
-    ...
-    ViewBag.Filter = filter;
-    return View(products.Skip((page-1) * PAGE_SIZE).Take(PAGE_SIZE));
 }
 ```
 
-Merk op dat we achter het type van de ProductType een vraagteken plaatsen. Dit moeten we doen anders aanvaard deze parameter geen null value. En we gebruiken de null value als default om niets te filteren.
+Merk op dat we achter het type van de ProductType een vraagteken plaatsen. Dit moeten we doen anders aanvaard deze parameter geen null value. En we gebruiken de null value als default om niets te filteren. 
+
+We willen ook in ons ViewModel bijhouden op welke waarde er gefiltered wordt dus we passen deze aan zodat deze ook een property `Filter` heeft.
+
+```csharp
+public class ProductListViewModel
+{
+    public SortDirection SortDirection { get; set; }
+    public SortField SortField { get; set; }
+    public int CurrentPage { get; set; }
+    public int TotalPages { get; set; }
+    public ProductType? Filter { get; set; }
+    public IEnumerable<Product> Products { get; set; }
+}
+```
+
+En nu filteren we de producten er uit die overeenkomen met de filter aan de hand van de Where query in LINQ:
+
+```csharp
+if (filter != null)
+{
+    products = products.Where(p => p.Type == filter);
+}
+```
+
+en zorgen we dat ook de filter in het viewModel wordt geplaatst.
+
+```csharp
+ProductListViewModel productListViewModel = new ProductListViewModel
+{
+    SortDirection = sortDirection,
+    SortField = sort,
+    CurrentPage = page,
+    TotalPages = (int)Math.Ceiling((double)products.Count() / PAGE_SIZE),
+    Filter = filter,
+    Products = products.Skip((page - 1) * PAGE_SIZE).Take(PAGE_SIZE)
+};
+```
 
 Nu kunnen we bijvoorbeeld naar `Product?filter=StuffedAnimal` surfen en dan krijgen we alleen de StuffedAnimals te zien.
 
