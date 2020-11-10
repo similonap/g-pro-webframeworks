@@ -32,7 +32,7 @@ We zien nu dat er wel wat producten aanwezig zijn in onze winkel en wordt het mo
 Door middel van LINQ quries kunnen we eenvoudig een sortering toevoegen aan onze producten. 
 
 ```csharp
-public IActionResult Index([FromQuery] string sort)
+public IActionResult Index([FromQuery] string sort = "type")
 {
     var products = this.productRepository.GetAll();
     switch (sort)
@@ -54,6 +54,37 @@ public IActionResult Index([FromQuery] string sort)
 Als argument van de Index action gebruiken we hier een string voor de sorterings velden mee te geven. We geven hier expliciet aan dat deze parameter van de query string moet komen. In principe is dit niet nodig, maar voor de veiligheid geven we dit toch aan.
 
 Als we nu in de browser naar `Products?sort=price` gaan dan worden onze producten gesorteerd op prijs. Als we deze query parameter niet meegeven zal hij deze standaard sorteren op het type.
+
+Willen we nu ook de sort direction meegeven dan kunnen we dit ook nog doen aan de hand van een extra parameter. We maken eerst voor de richting van het sorteren een enum aan:
+
+```csharp
+public enum SortDirection {
+    DESC,
+    ASC
+}
+```
+
+en dan passen we onze Index action lichtjes aan zodat we ook kunnen sorteren in andere richtingen:
+
+```csharp
+public IActionResult Index([FromQuery] string sort = "type", [FromQuery] SortDirection sortDirection = SortDirection.ASC)
+{
+    var products = this.productRepository.GetAll();
+    switch (sort)
+    {
+        case "name":
+            products = (sortDirection == SortDirection.ASC) ? products.OrderBy(p => p.Name) : products.OrderByDescending(p => p.Name);
+            break;
+        case "price":
+            products = (sortDirection == SortDirection.ASC) ? products.OrderBy(p => p.Price) : products.OrderByDescending(p => p.Price);
+            break;
+        case "type":
+            products = (sortDirection == SortDirection.ASC) ? products.OrderBy(p => p.Type) : products.OrderByDescending(p => p.Type);
+            break;
+    }
+    return View(products);
+}
+```
 
 
 
