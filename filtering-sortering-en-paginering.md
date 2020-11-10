@@ -246,6 +246,8 @@ toe te voegen bovenaan de pagina. Nu moeten we enkel de pagina nog aanpassen zod
 }
 ```
 
+We starten alles nog eens op en kijken na of alles nog werkt. 
+
 ### Filtering
 
 We willen nu ook de gebruiker de mogelijkheid geven om te filteren op het type van producten. Dit gaan we doen door nog een extra argument toe te voegen aan de Index action.
