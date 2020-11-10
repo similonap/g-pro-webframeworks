@@ -27,5 +27,30 @@ en we voegen een aantal nieuwe images toe aan onze `wwwroot/images/products` map
 
 We zien nu dat er wel wat producten aanwezig zijn in onze winkel en wordt het moeilijker om het product te vinden wat willen.
 
-### Paginering
+### Sortering
+
+Door middel van LINQ quries kunnen we eenvoudig een sortering toevoegen aan onze producten. 
+
+```csharp
+public IActionResult Index(string sort)
+{
+    var products = this.productRepository.GetAll();
+    switch (sort)
+    {
+        case "name":
+            products = products.OrderBy(p => p.Name);
+            break;
+        case "price":
+            products = products.OrderBy(p => p.Price);
+            break;
+        case "type":
+            products = products.OrderBy(p => p.Type);
+            break;
+        default:
+            products = products.OrderBy(p => p.Type);
+            break;
+    }
+    return View(products);
+}
+```
 
