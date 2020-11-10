@@ -23,7 +23,7 @@ en we voegen een aantal nieuwe images toe aan onze `wwwroot/images/products` map
 
 {% file src=".gitbook/assets/images.zip" caption="Product images" %}
 
-![](.gitbook/assets/image%20%2871%29.png)
+![](.gitbook/assets/image%20%2872%29.png)
 
 We zien nu dat er wel wat producten aanwezig zijn in onze winkel en wordt het moeilijker om het product te vinden wat willen.
 
@@ -171,5 +171,9 @@ Bovenaan het `Index.cshtml` plaatsen we nu
 </ul>
 ```
 
-We maken hier een lus van 1 tot het aantal paginas dat in de ViewBag zit \(+1 want we indexeren vanaf 1 niet 0\) en dan maken we een nieuwe link voor elke pagina. We markeren het list item als 'active' als de huidige index overeenkomt met de huidige pagina.
+We maken hier een lus van 1 tot het aantal paginas dat in de ViewBag zit \(+1 want we indexeren vanaf 1 niet 0\) en dan maken we een nieuwe link voor elke pagina. We markeren het list item als 'active' als de huidige index overeenkomt met de huidige pagina. Merk ook op dat we hier ook terug de sort en de sortDirection meegeven anders zouden we deze kwijtspelen als we naar de volgende pagina zouden gaan.
+
+![](.gitbook/assets/image%20%2871%29.png)
+
+
 
