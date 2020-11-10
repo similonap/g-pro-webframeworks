@@ -311,7 +311,7 @@ Zoals bij filtering en sortering gaan we uiteraard dit ook nog toevoegen in onze
 </form>
 ```
 
-Dit maakt een form element aan om via de get methode \(dus via query parameters\). Daarin hebben we een dropdown box met alle mogelijkheden in van een `ProductType` . We plaatsen hier nog wel een `All` option om terug onze filtering af te zetten. Let er op dat je bij het sorteren ook 
+Dit maakt een form element aan om via de get methode \(dus via query parameters\). Daarin hebben we een dropdown box met alle mogelijkheden in van een `ProductType` . We plaatsen hier nog wel een `All` option om terug onze filtering af te zetten. Let er op dat je bij het sorteren en de paginering ook 
 
 ```text
 asp-route-filter="@Model.Filter"
@@ -326,5 +326,14 @@ toevoegd. Anders zal de filter verdwijnen bij het sorteren. Zo komen we dan op
 <th scope="col"><a asp-action="Index" asp-route-sort="Type" asp-route-sortDirection="@newSortDirection" asp-route-filter="@Model.Filter">Type</a></th>
 ```
 
+en 
 
+```text
+<ul class="pagination">
+    @for (int i = 1; i < Model.TotalPages + 1; i++)
+    {
+        <li class="page-item @(i==Model.CurrentPage?"active":"")"><a class="page-link" asp-action="Index" asp-route-page="@i" asp-route-sort="@Model.SortField" asp-route-sortDirection="@Model.SortDirection" asp-route-filter="@Model.Filter">@i</a></li>
+    }
+</ul>
+```
 
