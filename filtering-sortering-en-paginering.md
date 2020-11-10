@@ -179,7 +179,7 @@ We maken hier een lus van 1 tot het aantal paginas dat in de ViewBag zit \(+1 wa
 
 We zijn tot nu toe al heel de tijd dingen in de `ViewBag` aan het steken. Zoals de SortDirection, SortField,... Wat we nu willen doen is hiervoor een klasse aanmaken waarin we die properties kunnen steken en vervolgens onze view willen mee binden ipv met de lijst van producten zelf. Omdat we nu specifiek een klasse aanmaken voor de view noemen we deze klasse geen `Model` maar een `ViewModel` en plaatsen we die klasse ook in een aparte directory `ViewModels`
 
-```text
+```csharp
 namespace LlamaStore.ViewModels
 {
     public class ProductListViewModel
@@ -194,6 +194,31 @@ namespace LlamaStore.ViewModels
     }
 }
 ```
+
+We passen nu ook onze Index action aan zodat deze niet meer gebruik maakt van de ViewBag maar van het ViewModel:
+
+```csharp
+ProductListViewModel productListViewModel = new ProductListViewModel
+{
+    SortDirection = sortDirection,
+    SortField = sort,
+    CurrentPage = page,
+    TotalPages = (int)Math.Ceiling((double)products.Count() / PAGE_SIZE),
+    Products = products.Skip((page - 1) * PAGE_SIZE).Take(PAGE_SIZE)
+};
+
+return View(productListViewModel);
+```
+
+We voegen nu ook `@using LlamaStore.ViewModels` toe aan de `_ViewImports.cshtml` file toe zodat deze namespace ook beschikbaar is vanuit alle views.
+
+Nu moeten we uiteraard ook nog een aantal aanpassingen doen aan de `Index.cshtml` file want nu willen we niet meer binden met de IQueryable&lt;Product&gt; maar met `ProductListViewModel` dit doen we met 
+
+```text
+@model ProductListViewModel
+```
+
+toe te voegen bovenaan de pagina. Nu moeten we enkel de pagina nog aanpassen zodat we overal waar we ViewBag gebruiken nu in de plaats `Model` gebruiken.
 
 ### Filtering
 
