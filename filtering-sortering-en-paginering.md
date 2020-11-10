@@ -195,5 +195,5 @@ public IActionResult Index([FromQuery] SortField sort = SortField.Type, [FromQue
 }
 ```
 
-Merk op dat we 
+Merk op dat we achter het type van de ProductType een vraagteken plaatsen. Dit moeten we doen anders aanvaard deze parameter geen null value. En we gebruiken de null value als default om niets te filteren.
 
