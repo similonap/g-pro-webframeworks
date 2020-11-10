@@ -57,7 +57,7 @@
 
 ---
 
-* [Sorteren en pagineren](filtering-sortering-en-paginering.md)
+* [Sorteren, pagineren en filteren](filtering-sortering-en-paginering.md)
 
 ## LES 9 <a id="les-6"></a>
 

@@ -1,4 +1,4 @@
-# Sorteren en pagineren
+# Sorteren, pagineren en filteren
 
 Als voorbereiding van deze les gaan we even een aantal nieuwe producten toevoegen aan onze `ProductsInMemoryRepository` want we gaan iets meer data willen hebben waarmee we kunnen werken in onze voorbeelden. We voegen dus de volgende producten toe in de constructor van onze `ProductsInMemoryRepository` 
 
@@ -177,5 +177,23 @@ We maken hier een lus van 1 tot het aantal paginas dat in de ViewBag zit \(+1 wa
 
 ### Filtering
 
+We willen nu ook de gebruiker de mogelijkheid geven om te filteren op het type van producten. Dit gaan we doen door nog een extra argument toe te voegen aan de Index action.
 
+```csharp
+public IActionResult Index([FromQuery] SortField sort = SortField.Type, [FromQuery] SortDirection sortDirection = SortDirection.ASC, [FromQuery] int page = 1, [FromQuery] ProductType? filter = null)
+{
+    ...
+
+    if (filter != null)
+    {
+        products = products.Where(p => p.Type == filter);
+    }
+
+    ...
+    ViewBag.Filter = filter;
+    return View(products.Skip((page-1) * PAGE_SIZE).Take(PAGE_SIZE));
+}
+```
+
+Merk op dat we 
 
