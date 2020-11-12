@@ -58,6 +58,7 @@
 ---
 
 * [Sorteren, pagineren en filteren](filtering-sortering-en-paginering.md)
+* [Oefeningen](oefeningen-3.md)
 
 ## LES 9 <a id="les-6"></a>
 
