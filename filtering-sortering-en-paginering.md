@@ -337,3 +337,9 @@ en
 </ul>
 ```
 
+### Begeleidend videomateriaal
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c1500edb-ca82-47c6-830f-ac7100fe1b0b" %}
+
+
+
