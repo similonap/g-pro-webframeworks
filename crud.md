@@ -312,5 +312,31 @@ We moeten nu nog een aanpassing op de `Index.cshtml` view voor een link naar de 
 <a asp-action="Update" asp-controller="Product" asp-route-id="@product.Id" role="button" class="btn btn-labeled btn-primary"><i class="fas fa-edit"></i></a><a asp-action="Update" asp-controller="Product" asp-route-id="@product.Id" role="button" class="btn btn-labeled btn-primary"><i class="fas fa-edit"></i></a>
 ```
 
+### Hidden fields en Referer
+
+Momenteel hebben we nog 1 probleem. Als we een product aanpassen gaat hij altijd terug naar de eerste pagina van de lijst van producten springen. We willen uiteraard dat de pagina blijft staan na een update. Er zijn een aantal manieren om dit te doen. Wij gaan gebruik maken van het Referer veld van de header van een request. Deze geeft aan wat pagina is die naar deze pagina gelinkt heeft. 
+
+Bij een delete is dit bijvoorbeeld heel eenvoudig. In plaats van standaard naar de Index action te redirecten gaan we nu nakijken of het Referer veld leeg is of niet. Als het niet leeg is, dan redirecten we na de delete naar de url van de referer:
+
+```csharp
+public IActionResult Delete(int id)
+{
+    ...
+    if (product != null)
+    {
+        ...
+        if (Request.Headers["Referer"].ToString() != "")
+        {
+            return Redirect(Request.Headers["Referer"].ToString());
+        }
+        else
+        {
+            return RedirectToAction("Index", "Product");
+        }
+    }
+...
+}
+```
+
 
 
