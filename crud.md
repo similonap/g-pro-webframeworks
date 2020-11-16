@@ -254,7 +254,8 @@ public IActionResult Update(int id, ProductUpdateViewModel productUpdateViewMode
             product.Description = productUpdateViewModel.Description;
 
             this.productRepository.Update(product);
-            return View(productUpdateViewModel);
+            TempData["Message"] = $"{product.Name} was updated succesfully";
+            return RedirectToAction("Index", "Product");
         }
         else
         {
