@@ -93,7 +93,7 @@ We doen weer een loop over alle producten in het model en maken voor elk product
 We passen nu ook nog de link naar de delete page aan zodat dit een button wordt die eerst het bevestigingsscherm laat zien vooraleer hij het product gaat verwijderen
 
 ```markup
-<td><button type="button" data-toggle="modal" data-target="#delete-modal-@product.Id" class="btn btn-labeled btn-danger"><i class="fas fa-trash"></button></td>
+<td><button type="button" data-toggle="modal" data-target="#delete-modal-@product.Id" class="btn btn-labeled btn-danger"><i class="fas fa-trash"></i></button></td>
 ```
 
 ![](.gitbook/assets/image%20%2876%29.png)
@@ -215,6 +215,60 @@ public class ProductUpdateViewModel
 ```
 
 Dit is een ideaal voorbeeld voor waarom we verschillende ViewModels willen gebruiken ipv 1 model klasse.
+
+We maken nu een `Update` action voor de Get aan:
+
+```csharp
+[HttpGet] 
+public IActionResult Update(int id)
+{
+    var product = this.productRepository.Get(id);
+    if (product != null)
+    {
+        ProductUpdateViewModel productUpdateViewModel = new ProductUpdateViewModel
+        {
+            Description = product.Description,
+            Name = product.Name,
+            Price = product.Price,
+        };
+        return View(productUpdateViewModel);
+    } else
+    {
+        return NotFound();
+    }
+}
+```
+
+Deze geeft gewoon de description, prijs en name door aan de view. Deze zal worden gebruikt als de gebruiker gewoon naar de Update pagina surft. Als we de uiteindelijke Post vanuit de form willen afhandelen moeten we uiteraard ook nog een action maken voor de Http Post:
+
+```csharp
+[HttpPost]
+public IActionResult Update(int id, ProductUpdateViewModel productUpdateViewModel)
+{
+    var product = this.productRepository.Get(id);
+    if (product != null)
+    {
+        if (ModelState.IsValid)
+        {
+            product.Price = productUpdateViewModel.Price;
+            product.Description = productUpdateViewModel.Description;
+
+            this.productRepository.Update(product);
+            return View(productUpdateViewModel);
+        }
+        else
+        {
+            return View(productUpdateViewModel);
+        }
+    }
+    else
+    {
+        return NotFound();
+    }
+}
+```
+
+Nu nog een aanpassing op de `Index.cshtml` view voor een link naar de update pagina aanmaken:
 
 
 
