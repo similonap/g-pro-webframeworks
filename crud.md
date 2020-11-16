@@ -269,7 +269,48 @@ public IActionResult Update(int id, ProductUpdateViewModel productUpdateViewMode
 }
 ```
 
-Nu nog een aanpassing op de `Index.cshtml` view voor een link naar de update pagina aanmaken:
+We maken een kopie van de `Create.cshtml` en dan passen we deze aan zodat we enkel de te updaten velden te zien krijgen.
+
+```csharp
+@model ProductUpdateViewModel
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Products - Create";
+}
+
+<form method="post" asp-controller="Product" asp-action="Update">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" ReadOnly="@(true)" />
+        <div class="invalid-feedback" style="display:block;">
+            <span asp-validation-for="Name"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input class="form-control" asp-for="Description" />
+        <div class="invalid-feedback" style="display:block;">
+            <span asp-validation-for="Description"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input class="form-control" asp-for="Price" />
+        <div class="invalid-feedback" style="display:block;">
+            <span asp-validation-for="Price"></span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
+
+Je kan aangeven dat de titel readonly is door ReadOnly="@true" mee te geven aan het veld.
+
+We moeten nu nog een aanpassing op de `Index.cshtml` view voor een link naar de update pagina aanmaken:
+
+```markup
+<a asp-action="Update" asp-controller="Product" asp-route-id="@product.Id" role="button" class="btn btn-labeled btn-primary"><i class="fas fa-edit"></i></a><a asp-action="Update" asp-controller="Product" asp-route-id="@product.Id" role="button" class="btn btn-labeled btn-primary"><i class="fas fa-edit"></i></a>
+```
 
 
 
