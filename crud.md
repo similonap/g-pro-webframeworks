@@ -312,7 +312,7 @@ We moeten nu nog een aanpassing op de `Index.cshtml` view voor een link naar de 
 <a asp-action="Update" asp-controller="Product" asp-route-id="@product.Id" role="button" class="btn btn-labeled btn-primary"><i class="fas fa-edit"></i></a><a asp-action="Update" asp-controller="Product" asp-route-id="@product.Id" role="button" class="btn btn-labeled btn-primary"><i class="fas fa-edit"></i></a>
 ```
 
-### Hidden fields en Referer
+### Referer
 
 Momenteel hebben we nog 1 probleem. Als we een product aanpassen gaat hij altijd terug naar de eerste pagina van de lijst van producten springen. We willen uiteraard dat de pagina blijft staan na een update. Er zijn een aantal manieren om dit te doen. Wij gaan gebruik maken van het Referer veld van de header van een request. Deze geeft aan wat pagina is die naar deze pagina gelinkt heeft. 
 
@@ -338,5 +338,43 @@ public IActionResult Delete(int id)
 }
 ```
 
+Bij een update gaan we nog iets meer aanpassingen moeten doen omdat er nog een tussenliggende actie is die wordt uitgevoerd.
 
+We voegen een extra property toe aan het ProductUpdateViewModel om de Referer op te slaan:
+
+```csharp
+public string Referer { get; set; }
+```
+
+en op het moment dat we de Update action uitvoeren zetten we de property referer van de viewModel op de waarde van `Request.Headers["referer"].ToString()` 
+
+```csharp
+ProductUpdateViewModel productUpdateViewModel = new ProductUpdateViewModel
+{
+    Description = product.Description,
+    Name = product.Name,
+    Price = product.Price,
+    Referer = Request.Headers["Referer"].ToString()
+};
+```
+
+Op de update pagina geven we deze string dan terug mee aan met het posten van het formulier aan de hand van een hidden field:
+
+```csharp
+<input type="hidden" name="Referer" value="@Model.Referer"/>
+```
+
+Bij de update post action kunnen we het dan simpelweg terug uit het viewModel halen:
+
+```csharp
+if (productUpdateViewModel.Referer != "")
+{
+    return Redirect(productUpdateViewModel.Referer);
+} else
+{
+    return RedirectToAction("Index","Product");
+}
+```
+
+Nu zal ook na de update alles terug naar de juiste pagina geredirected worden.
 
