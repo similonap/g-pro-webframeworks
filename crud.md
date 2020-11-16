@@ -100,5 +100,29 @@ We passen nu ook nog de link naar de delete page aan zodat dit een button wordt 
 
 ![](.gitbook/assets/image%20%2875%29.png)
 
+### Update
+
+Om onze producten te kunnen updaten voegen we nu ook nog een Update methode toe aan onze `IProductRepository` 
+
+```csharp
+void Update(Product product);
+```
+
+en implementeren we die in onze `ProductsInMemoryRepository`
+
+```csharp
+public void Update(Product product)
+{
+    var oldProduct = Get(product.Id);
+    oldProduct.Name = product.Name;
+    oldProduct.ImageURL = product.ImageURL;
+    oldProduct.Price = product.Price;
+    oldProduct.Type = product.Type;
+    oldProduct.Description = product.Description;
+}
+```
+
+We halen hier eerst het product op uit onze repository zodat we een referentie hebben naar het product in onze lijst en vervolgens updaten we alle properties van dit product naar het aangepaste product.
+
 
 
