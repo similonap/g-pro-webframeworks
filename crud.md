@@ -197,7 +197,24 @@ We passen nu ook de `Create.cshtml` file aan zodat deze gebruik maakt van het Vi
 @model ProductCreateViewModel
 ```
 
-Nu zijn we klaar om de update actie te gaan implementeren. We maken eerst een kopie van de `ProductCreateViewModel` en hernoemen die naar `ProductUpdateViewModel`
+Nu zijn we klaar om de update actie te gaan implementeren. We maken eerst een kopie van de `ProductCreateViewModel` en hernoemen die naar `ProductUpdateViewModel` . We willen hier enkel dat de Prijs en de Description kan geupdated worden dus we verwijderen alle Requirements uit het UpdateViewModel.
+
+```csharp
+public class ProductUpdateViewModel
+{
+    [Display(Name = "Productnaam")]
+    public string Name { get; set; }
+    [Required(ErrorMessage = "Description is een verplicht veld")]
+    [Display(Name = "Beschrijving")]
+    public string Description { get; set; }
+    [Display(Name = "Prijs")]
+    [Range(0, 1000, ErrorMessage = "De prijs moet tussen 0 en 1000 euro liggen")]
+    [Required(ErrorMessage = "Prijs is een verplicht veld")]
+    public decimal Price { get; set; }
+}
+```
+
+Dit is een ideaal voorbeeld voor waarom we verschillende ViewModels willen gebruiken ipv 1 model klasse.
 
 
 
