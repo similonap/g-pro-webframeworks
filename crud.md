@@ -38,5 +38,7 @@ public IActionResult Delete(int id)
 }
 ```
 
+Nu we deze actie hebben aangemaakt moeten we enkel nog maar onze views aanpassen zodat we nu ook producten kunnen verwijderen.
+
 
 
