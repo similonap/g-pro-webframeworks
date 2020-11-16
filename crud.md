@@ -124,5 +124,48 @@ public void Update(Product product)
 
 We halen hier eerst het product op uit onze repository zodat we een referentie hebben naar het product in onze lijst en vervolgens updaten we alle properties van dit product naar het aangepaste product.
 
+Omdat we nu onze model klasse `Product` voor twee handelingen willen gebruiken \(een create en een update\) is het aangewezen om hier nu een aparte ViewModel klasse van te maken, zodat we andere annotaties en berichten kunnen teruggeven bij het updaten en bij het aanmaken van producten. 
+
+We maken nu een `CreateProductViewModel` en een `UpdateProductViewModel` klasse aan in onze `ViewModels` directory. 
+
+Momenteel houden we deze volledig analoog met de product klasse die we hiervoor gebruikten zonder de `Id` property.
+
+```csharp
+public class ProductCreateViewModel
+{
+    [Required(ErrorMessage = "Naam is een verplicht veld")]
+    [Display(Name = "Productnaam")]
+    public string Name { get; set; }
+    [Required(ErrorMessage = "Description is een verplicht veld")]
+    [Display(Name = "Beschrijving")]
+    public string Description { get; set; }
+    [Display(Name = "Prijs")]
+    [Range(0, 1000, ErrorMessage = "De prijs moet tussen 0 en 1000 euro liggen")]
+    [Required(ErrorMessage = "Prijs is een verplicht veld")]
+    public decimal Price { get; set; }
+    [Display(Name = "Afbeelding")]
+    [Url(ErrorMessage = "Het moet een geldige url zijn")]
+    [Required(ErrorMessage = "ImageURL is een verplicht veld")]
+    public string ImageURL { get; set; }
+    public ProductType Type { get; set; }
+}
+```
+
+en we kunnen dan de Product klasse terug opschonen zodat hier geen View specifieke annotaties meer instaan:
+
+```csharp
+public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public decimal Price { get; set; }
+    public string ImageURL { get; set; }
+    public ProductType Type { get; set; }
+}
+```
+
+De `ProductUpdateViewModel` is identiek aan de `ProductCreateViewModel` op dit moment.
+
 
 
