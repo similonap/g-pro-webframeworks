@@ -64,7 +64,7 @@
 
 ---
 
-* [CRUD](crud.md)
+* [Delete en Update](crud.md)
 
 ## LES 10
 
