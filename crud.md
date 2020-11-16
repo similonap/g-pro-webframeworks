@@ -126,7 +126,7 @@ We halen hier eerst het product op uit onze repository zodat we een referentie h
 
 Omdat we nu onze model klasse `Product` voor twee handelingen willen gebruiken \(een create en een update\) is het aangewezen om hier nu een aparte ViewModel klasse van te maken, zodat we andere annotaties en berichten kunnen teruggeven bij het updaten en bij het aanmaken van producten. 
 
-We maken nu een `CreateProductViewModel` en een `UpdateProductViewModel` klasse aan in onze `ViewModels` directory. 
+We maken nu een `CreateProductViewModel` klasse aan in onze `ViewModels` directory. 
 
 Momenteel houden we deze volledig analoog met de product klasse die we hiervoor gebruikten zonder de `Id` property.
 
@@ -165,7 +165,39 @@ public class Product
 }
 ```
 
-De `ProductUpdateViewModel` is identiek aan de `ProductCreateViewModel` op dit moment.
+We passen nu ook nog onze `Create` actie aan zodat deze gebruik maakt van het `ProductCreateViewModel` ipv de `Product` klasse.
+
+```csharp
+[HttpPost]
+public IActionResult Create(ProductCreateViewModel productCreateViewModel)
+{
+    if (ModelState.IsValid)
+    {
+        Product product = new Product
+        {
+            Description = productCreateViewModel.Description,
+            Name = productCreateViewModel.Name,
+            Type = productCreateViewModel.Type,
+            ImageURL = productCreateViewModel.ImageURL,
+            Price = productCreateViewModel.Price
+        };
+        this.productRepository.Create(product);
+        TempData["Message"] = $"{product.Name} was added succesfully";
+        return RedirectToAction("Index", "Product");
+    } else
+    {
+        return View();
+    }
+}
+```
+
+We passen nu ook de `Create.cshtml` file aan zodat deze gebruik maakt van het ViewModel in plaats van de het model.
+
+```aspnet
+@model ProductCreateViewModel
+```
+
+Nu zijn we klaar om de update actie te gaan implementeren. We maken eerst een kopie van de `ProductCreateViewModel` en hernoemen die naar `ProductUpdateViewModel`
 
 
 
