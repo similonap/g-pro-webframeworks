@@ -369,7 +369,7 @@ Bij de update post action kunnen we het dan simpelweg terug uit het viewModel ha
 ```csharp
 if (productUpdateViewModel.Referer != "")
 {
-    return Redirect(productUpdateViewModel.Referer);
+    return Redirect(new Uri(productUpdateViewModel.Referer).PathAndQuery.ToString());
 } else
 {
     return RedirectToAction("Index","Product");
