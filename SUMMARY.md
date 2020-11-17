@@ -68,11 +68,11 @@
 
 ## LES 10
 
-* [ADO.NET](les-10/ado.net.md)
+* [Entity Framework](les-10/entity-framework.md)
 
 ## LES 11
 
-* [Entity Framework](les-11/entity-framework.md)
+* [ADO.NET](les-11/ado.net.md)
 * [Untitled](les-11/untitled.md)
 
 ## LES 12

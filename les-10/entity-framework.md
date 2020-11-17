@@ -12,13 +12,21 @@ We gaan in deze cursus werken met een code first aanpak. Dit betekent dat we nie
 
 EF heeft zijn eigen assembly, en wordt los van de reguliere NET releases vrijgegeven. Om het te installeren in een bestaand project, open je de **Manage NuGet Packages for Solution**:
 
-![.](../.gitbook/assets/InstallEF1.png)
+![](../.gitbook/assets/image%20%2877%29.png)
 
-We gaan in dit voorbeeld gebruik maken van de `Sqlite` provider voor EntityFramework. Dit is een database die het gemakkelijk maakt om een database op te zetten die gebruik maakt van een bestand. In productie systemen gaan we uiteraard gebruik maken van een echte database zoals MySQL, MSSQL of Oracle. Maar dit zal allemaal zeer gelijkaardig verlopen.
+Hier kan je de nodige dependencies installeren
 
-![.](../.gitbook/assets/InstallEF2.png)
+![](../.gitbook/assets/image%20%2879%29.png)
 
-Als je nu in het csproj bestand gaat kijken dan zal je zien dat er een extra lijn is toegevoegd die de dependency op EntityFramework Sqlite met zijn versie nummer uitdrukt.
+Installeer de volgende dependencies. Die zijn nodig voor EntityFramework te kunnen gebruiken met MySQL.
+
+1. **Microsoft.EntityFrameworkCore** \(3.1.10\)
+2. **Pomelo.EntityFrameworkCore.MySql** \(3.2.4\)
+3. **Microsoft.EntityFrameworkCore.Tools** \(3.1.0\)
+
+**Let op:** Installeer niet EntityFrameworkCore 5.0.0 want de MySQL driver ondersteund deze nog niet.
+
+Als je nu in het csproj bestand gaat kijken dan zal je zien dat er voor elke dependency die we hebben geinstalleerd hebben met NuGet een extra lijn is toegevoegd die de dependency voorstelt.
 
 ```markup
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -28,14 +36,16 @@ Als je nu in het csproj bestand gaat kijken dan zal je zien dat er een extra lij
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.4" />
   </ItemGroup>
 
 </Project>
+
+
 ```
 
 Voorlopig zijn we klaar met de NuGet tool.
@@ -48,27 +58,67 @@ Voordat een klassemodel kan worden gebruikt om een query op een database uit te 
 
 Een context is een klasse die erft van DbContext en die een aantal entiteit-collecties toegankelijk maakt in de vorm van DbSet eigenschappen.
 
-We maken een context voor onze school database genaamd `SchoolContext.cs` en we plaatsen die in de `Models` map:
+We maken een context voor onze school database genaamd `StoreContext.cs` en we plaatsen die in de `Models` map:
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
 
-namespace EersteProjectWebFrameworks.Models
+namespace LlamaStore.Models
 {
-    public class SchoolContext : DbContext
+    public class StoreContext : DbContext
     {
-        public SchoolContext(DbContextOptions options) : base(options)
+        public StoreContext(DbContextOptions options) : base(options)
         {
+
         }
 
-        public DbSet<Student> Students { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }
 ```
 
 De context klasse hierboven heeft een constructor die `DbContextOptions` als argument heeft. `dbContextOptions` bevat de configuratie informatie die nodig is om de `DbContext` te configureren. Het zal bijvoorbeeld de connection string bevatten die nodig is om met de database te verbinden.
 
-Deze klasse zal ook een aantal `DbSet` properties bevatten voor elke entiteit \(database tabel\). In ons voorbeeld is dat dus de `Students` tabel.
+Deze klasse zal ook een aantal `DbSet` properties bevatten voor elke entiteit \(database tabel\). In ons voorbeeld is dat dus de `Products` tabel.
+
+## Connection Settings
+
+Een connection string bevat:
+
+* de mysql **server** url
+* de **poort** van de server
+* **database** naam 
+* username
+* passwoord
+
+Deze connection string gaan we opslagen in ons configuratie bestand. Open `appsettings.json` en plaats deze connection string hier \(met de juiste login gegevens\)
+
+```text
+  "ConnectionStrings": {
+    "DefaultConnection": "server=xchk.be;port=3306;database=database;user=username;password=password"
+  },
+```
+
+Nu moeten we deze toegang tot de `StoreContext` die we hebben aangemaakt toevoegen aan ConfigureServices zodat we deze ook kunnen injecteren aan de hand van dependency injection.
+
+Vooraleer we aan de configuratie kunnen in de `Startup` klasse moeten we deze ook nog wel injecteren via de constructor van de Startup klasse. Zo kunnen we ook aan het configuratie object in de `ConfigureServices` methode.
+
+```csharp
+private IConfiguration configuration;
+public Startup(IConfiguration configuration)
+{
+    this.configuration = configuration;
+}
+```
+
+nu kunnen we in de ConfigureServices
+
+```csharp
+services.AddDbContextPool<StoreContext>(
+    options => options.UseMySql(configuration.GetConnectionString("DefaultConnection")));
+```
+
+toevoegen om de StoreContext injecteerbaar te maken en deze in te stellen.
 
 ## Dependency injection
 
@@ -143,54 +193,49 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Database aanmaken
 
-Voordat we de applicatie kunnen opstarten willen we er voor zorgen dat de database aangemaakt is. Dit kunnen we doen aan de hand van de `EnsureCreated` methode. Deze methode gaat er voor zorgen dat de database aangemaakt is. Als ze al aangemaakt is, dan zal deze methode niets doen.
+Voordat we de applicatie kunnen opstarten willen we er voor zorgen dat de database aangemaakt is en de tabellen aanwezig zijn. Dit kunnen we doen aan de hand van de `EnsureCreated` methode. Deze methode gaat er voor zorgen dat de database aangemaakt is. Als ze al aangemaakt is, dan zal deze methode niets doen.
 
-We maken hiervoor een klasse aan `DbInitializer`
+We plaatsen in onze constructor van onze `ProductsDbRepositoy` de code om de tabellen aan te maken.
 
 ```csharp
-namespace EersteProjectWebFrameworks.Models
+if (this.storeContext.Database.EnsureCreated())
 {
-    public class DbInitializer
-    {
-        public static void Initialize(SchoolContext context)
-        {
-            context.Database.EnsureCreated();
-        }
-    }
+    this.storeContext.Products.Add(new Product { Name = "Fluffy Llama", Description = "A fluffy llama for the kids", Price = 9.99M, ImageURL = "~/images/products/1.jpg", Type = ProductType.StuffedAnimal });
+    this.storeContext.Products.Add(new Product { Name = "Colorful llama", Description = "A colorful llama for the larger kids", Price = 19.99M, ImageURL = "~/images/products/2.jpg", Type = ProductType.StuffedAnimal });
+    this.storeContext.Products.Add(new Product { Name = "World of Llamacraft", Description = "An online RPG about llamas", Price = 59.99M, ImageURL = "~/images/products/3.png", Type = ProductType.ComputerGame });
+    this.storeContext.Products.Add(new Product { Name = "L.A.M.A", Description = "Llama card game", Price = 9.99M, ImageURL = "~/images/products/4.jpg", Type = ProductType.BoardGame });
+    this.storeContext.Products.Add(new Product { Name = "Altiplano", Description = "Flying llamas for everyone", Price = 12.99M, ImageURL = "~/images/products/5.jpg", Type = ProductType.BoardGame });
+    this.storeContext.Products.Add(new Product { Name = "Llamas unleashed", Description = "A fast paced llama game about crazy llamas", Price = 12.99M, ImageURL = "~/images/products/6.jpg", Type = ProductType.BoardGame });
+    this.storeContext.Products.Add(new Product { Name = "Leipe lama's", Description = "A card game about very dodgy llamas", Price = 12.99M, ImageURL = "~/images/products/7.jpg", Type = ProductType.BoardGame });
+    this.storeContext.Products.Add(new Product { Name = "Llama drama", Description = "Llamas can cause drama too", Price = 39.99M, ImageURL = "~/images/products/8.jpg", Type = ProductType.BoardGame });
+    this.storeContext.Products.Add(new Product { Name = "Llama lineup", Description = "Whodunnit game about llamas", Price = 20.99M, ImageURL = "~/images/products/9.jpg", Type = ProductType.BoardGame });
+    this.storeContext.Products.Add(new Product { Name = "VALA", Description = "Vicious llama apocalypse", Price = 49.99M, ImageURL = "~/images/products/10.jpg", Type = ProductType.ComputerGame });
+    this.storeContext.Products.Add(new Product { Name = "Booty shaking llama", Description = "a booty shaking llama", Price = 12.99M, ImageURL = "~/images/products/11.jpg", Type = ProductType.PlasticToy });
+    this.storeContext.Products.Add(new Product { Name = "Furreal llama", Description = "Furreal llama", Price = 12.99M, ImageURL = "~/images/products/12.jpg", Type = ProductType.StuffedAnimal });
+    this.storeContext.Products.Add(new Product { Name = "Fortnite llama", Description = "Fortnite llama", Price = 22.99M, ImageURL = "~/images/products/13.jpg", Type = ProductType.StuffedAnimal });
+    this.storeContext.Products.Add(new Product { Name = "Lego Llama", Description = "Lego llama", Price = 22.99M, ImageURL = "~/images/products/14.jpg", Type = ProductType.StuffedAnimal });
+    this.storeContext.SaveChanges();
 }
 ```
 
-We willen dat deze `Initialize` methode opgeroepen wordt voordat de applicatie opgestart wordt. We kunnen dit doen door de main methode van de `Program` klasse aan te passen
+Deze code zal enkel lopen als de database en de tabellen nog niet zijn aangemaakt. 
+
+Als we nu bijvoorbeeld met MySQL workbench inloggen op onze sql database dan kunnen we nu zien dat de tabel is aangemaakt en we SQL query kunnen uitvoeren om de inhoud te bekijken
+
+![](../.gitbook/assets/image%20%2880%29.png)
+
+We merken nu op dat de precisie van de decimal voor prijs fout staat. We hebben maar 2 cijfers na de comma nodig. We zouden dit nu kunnen oplossen met SQL queries, maar dat gaan we niet doen want we werken hier met een Code First approach, dus de code moet de enige waarheid bevatten.
+
+Als we nu de 
 
 ```csharp
-public static void Main(string[] args)
-{
-    IHost host = CreateHostBuilder(args).Build();
-    using (IServiceScope scope = host.Services.CreateScope())
-    {
-        IServiceProvider services = scope.ServiceProvider;
-        SchoolContext context = services.GetRequiredService<SchoolContext>();
-        DbInitializer.Initialize(context);
-    }
-    host.Run();
-}
+[Column(TypeName = "decimal(4,2)")]
+public decimal Price {get;set;}
 ```
 
-**Een beetje uitleg:**
+annotatie toevoegen, dan zal bij het genereren van een tabel hier rekening mee gehouden worden dat je maar 2 cijfers na de komma wilt en er maar 4 cijfers voor de komma gaan staan. Je moet hierna wel de tabel terug volledig droppen om het nieuwe schema aan te maken.
 
-Merk op dat we
+Er zijn manieren om te voorkomen dat je tabellen moet gaan droppen aan de hand van migrations, maar dit is buiten de scope van deze cursus.
 
-```csharp
-CreateWebHostBuilder(args).Build().Run();
-```
 
-opsplitsen in 2 delen. Het aanmaken van het `Host` object in het begin en het uitvoeren van de `host.Run()` op het einde.
-
-Daartussen doen we drie dingen:
-
-1. We halen de service provider op door `host.Services.CreateScope().ServiceProvider` op te roepen. 
-2. We halen de database context instantie op van de dependency injection container door `GetRequiredService<SchoolContext>()` uit te voeren
-3. We roepen de `DbInitializer.Initialize(context)` methode op om de database aan te maken. 
-
-Merk op dat we hier `using (host.Services.CreateScope())` gebruiken. We willen dat na het uitvoeren van deze instructies de Scope terug wordt gedisposed.
 
