@@ -237,5 +237,48 @@ annotatie toevoegen, dan zal bij het genereren van een tabel hier rekening mee g
 
 Er zijn manieren om te voorkomen dat je tabellen moet gaan droppen aan de hand van migrations, maar dit is buiten de scope van deze cursus.
 
+## CRUD
+
+Momenteel hebben we nog niet alle methoden van de interface `IProductRepository` geïmplementeerd. De applicatie werkt momenteel dus nog niet volledig. 
+
+We maken de Create methode. We voegen een product toe door de Add methode aan de roepen. Elke keer als een transactie moet uitgevoerd worden dan moeten we SaveChanges doen anders worden de wijzigingen niet opgeslagen in de database.
+
+```csharp
+public void Create(Product product)
+{
+    this.storeContext.Products.Add(product);
+    this.storeContext.SaveChanges();
+}
+```
+
+De Delete methode is zeer analoog
+
+```csharp
+public void Delete(Product product)
+{
+    this.storeContext.Products.Remove(product);
+    this.storeContext.SaveChanges();
+}
+```
+
+Voor de Get kunnen we de Find methode gebruiken op de Context
+
+```csharp
+public Product Get(int id)
+{
+    return this.storeContext.Products.Find(id);
+}
+```
+
+En de update is ook gelijkaardig aan de Create en de Delete
+
+```csharp
+public void Update(Product product)
+{
+    this.storeContext.Products.Update(product);
+    this.storeContext.SaveChanges();
+}
+```
+
 
 
