@@ -235,8 +235,6 @@ public decimal Price {get;set;}
 
 annotatie toevoegen, dan zal bij het genereren van een tabel hier rekening mee gehouden worden dat je maar 2 cijfers na de komma wilt en er maar 4 cijfers voor de komma gaan staan. Je moet hierna wel de tabel terug volledig droppen om het nieuwe schema aan te maken.
 
-Er zijn manieren om te voorkomen dat je tabellen moet gaan droppen aan de hand van migrations, maar dit is buiten de scope van deze cursus.
-
 ## CRUD
 
 Momenteel hebben we nog niet alle methoden van de interface `IProductRepository` geïmplementeerd. De applicatie werkt momenteel dus nog niet volledig. 

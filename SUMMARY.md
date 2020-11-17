@@ -72,16 +72,15 @@
 
 ## LES 11
 
-* [ADO.NET](les-11/ado.net.md)
-* [Untitled](les-11/untitled.md)
+* [Migrations](les-11/untitled.md)
 
 ## LES 12
 
 * [Untitled](les-12/untitled.md)
 
-## Nog Niet Toegekend
+## LES 13
 
-* [Thuisopdracht](nog-niet-toegekend/thuisopdracht.md)
+* [Thuisopdracht](les-13/thuisopdracht.md)
 
 ## Bootstrap
 
