@@ -58,27 +58,28 @@ Voordat een klassemodel kan worden gebruikt om een query op een database uit te 
 
 Een context is een klasse die erft van DbContext en die een aantal entiteit-collecties toegankelijk maakt in de vorm van DbSet eigenschappen.
 
-We maken een context voor onze school database genaamd `SchoolContext.cs` en we plaatsen die in de `Models` map:
+We maken een context voor onze school database genaamd `StoreContext.cs` en we plaatsen die in de `Models` map:
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
 
-namespace EersteProjectWebFrameworks.Models
+namespace LlamaStore.Models
 {
-    public class SchoolContext : DbContext
+    public class StoreContext : DbContext
     {
-        public SchoolContext(DbContextOptions options) : base(options)
+        public StoreContext(DbContextOptions options) : base(options)
         {
+
         }
 
-        public DbSet<Student> Students { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }
 ```
 
 De context klasse hierboven heeft een constructor die `DbContextOptions` als argument heeft. `dbContextOptions` bevat de configuratie informatie die nodig is om de `DbContext` te configureren. Het zal bijvoorbeeld de connection string bevatten die nodig is om met de database te verbinden.
 
-Deze klasse zal ook een aantal `DbSet` properties bevatten voor elke entiteit \(database tabel\). In ons voorbeeld is dat dus de `Students` tabel.
+Deze klasse zal ook een aantal `DbSet` properties bevatten voor elke entiteit \(database tabel\). In ons voorbeeld is dat dus de `Products` tabel.
 
 ## Dependency injection
 
