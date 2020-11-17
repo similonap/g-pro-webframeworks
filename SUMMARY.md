@@ -79,7 +79,8 @@
 
 ## LES 12
 
-* [Student Admin](les-12/untitled.md)
+* [Sessions](les-12/untitled.md)
+* [Oefeningen](les-12/oefeningen.md)
 
 ## LES 13
 
