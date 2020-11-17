@@ -31,7 +31,7 @@ dotnet ef migrations add InitialCreate
 
 EF Core will create a directory called **Migrations** in your project, and generate some files. It's a good idea to inspect what exactly EF Core generated - and possibly amend it - but we'll skip over that for now.
 
-![](../.gitbook/assets/image%20%2882%29.png)
+![](../.gitbook/assets/image%20%2883%29.png)
 
 ### Create your database and schema
 
@@ -44,4 +44,8 @@ dotnet ef database update
 ```
 
 That's all there is to it - your application is ready to run on your new database, and you didn't need to write a single line of SQL. Note that this way of applying migrations is ideal for local development, but is less suitable for production environments - see the [Applying Migrations page](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying) for more info.
+
+![](../.gitbook/assets/image%20%2882%29.png)
+
+
 
