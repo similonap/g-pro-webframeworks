@@ -338,6 +338,8 @@ public IActionResult Delete(int id)
 }
 ```
 
+**Opgelet:** We zetten de url om naar het Path gedeelte met zijn query zodat we zeker geen externe urls kunnen gebruiken als referer. Dit zou gevaarlijke gevolgen kunnen hebben.
+
 Bij een update gaan we nog iets meer aanpassingen moeten doen omdat er nog een tussenliggende actie is die wordt uitgevoerd.
 
 We voegen een extra property toe aan het ProductUpdateViewModel om de Referer op te slaan:
