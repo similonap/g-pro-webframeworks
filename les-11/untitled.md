@@ -1,55 +1,61 @@
 # Entity Framework - Migrations
 
-In real world projects, data models change as features get implemented: new entities or properties are added and removed, and database schemas needs to be changed accordingly to be kept in sync with the application. The migrations feature in EF Core provides a way to incrementally update the database schema to keep it in sync with the application's data model while preserving existing data in the database.
+In projecten in de echte wereld veranderen data models zeer vaak. Bij elke feature dat er bij komt, zal wel ergens een wijzing in het model vereisen. Nieuwe entiteiten of properties worden toegevoegd, en dus moeten de database schemas mee volgen zodat ze synchroon blijven met de rest van de applicatie. Hier komen migrations aan te pas. Dit is een feature die in Entity Framework zit die het mogelijk maakt om eenvoudig de database synchroon te houden met de applicatie. En het maakt het mogelijk om de bestaande data in de database te behouden.
 
-At a high level, migrations function in the following way:
+Op de manier dat we het in de vorige les hebben gedaan is dit niet mogelijk of heel moeilijk en moet de database heel de tijd terug gecleared worden naar zijn originele staat.
 
-* When a data model change is introduced, the developer uses EF Core tools to add a corresponding migration describing the updates necessary to keep the database schema in sync. EF Core compares the current model against a snapshot of the old model to determine the differences, and generates migration source files; the files can be tracked in your project's source control like any other source file.
-* Once a new migration has been generated, it can be applied to a database in various ways. EF Core records all applied migrations in a special history table, allowing it to know which migrations have been applied and which haven't.
+Migraties werken op de volgende wijze:
 
-### Installing the tools
+* Als er een data model verandering is, dan moet de developer de Enitity Framework Core Tools gebruiken om een nieuwe migratie file te generen die beschrijft welke wijzigingen er moeten gedaan worden om de database schemas in sync te houden. EF Core vergelijk het huidige model met een oudere versie van het model, en bepaald zo de verschillen. Met deze verschillen genereerd hij dan migraties files. Deze files kunnen gewoon samen met je versie beheersysteem bijgehouden worden \(bv met git\)
+* Alle migraties die worden gedaan worden in een speciale tabel bijgehouden in de database. Zo weet het framework welke wijzigingen er al gedaan werden en welke niet.
 
-`dotnet ef` can be installed as either a global or local tool. Most developers prefer installing `dotnet ef` as a global tool using the following command:.NET Core CLICopy
+### Aan de slag met de tools
+
+Het eerste wat we moeten doen is de dotnet ef tools installeren. We gaan dit globaal doen want moeten we dit maar 1 keer doen en niet voor elk project:
 
 ```text
 dotnet tool install --global dotnet-ef
 ```
 
-Via nuget
+We installeren ook via NuGet de volgende dependency
 
 ```text
 Microsoft.EntityFrameworkCore.Design (3.1.10)
 ```
 
-### Create your first migration
+### Het eerste migratie bestand aanmaken
 
-You're now ready to add your first migration! Instruct EF Core to create a migration named **InitialCreate**:
+We kunnen nu ons eerste migratie bestand aanmaken. We noemen deze migratie InitialCreate, want deze gaat het aanmaken van de initiele staat beschrijven
 
-```text
+```
 dotnet ef migrations add InitialCreate
 ```
 
-EF Core will create a directory called **Migrations** in your project, and generate some files. It's a good idea to inspect what exactly EF Core generated - and possibly amend it - but we'll skip over that for now.
+EF Core maakt dan een directory aan genaamd Migrations in je project, en genereert wat bestanden. Het is een goed idee om eens te gaan kijken wat daar allemaal instaat.
 
 ![](../.gitbook/assets/image%20%2885%29.png)
 
-### Create your database and schema
+Je ziet in dit bestand twee interessante methoden. De Up methode beschrijft wat er moet gebeuren als de migratiefile moet toegepast worden, en de Down methode als ze ongedaan moet maken. Uiteraard moet de Down methode alles ongedaan maken wat de Up methode toevoegd.
 
-Zorg ervoor dat je database gedeleted is!
+![](../.gitbook/assets/image%20%2889%29.png)
 
-At this point you can have EF create your database and create your schema from the migration. This can be done via the following:
+### Tabellen aanmaken
+
+Zorg ervoor dat je tabel gedeleted is!
+
+Op dit punt kan je EF je tabellen \(schemas\) laten aanmaken vanuit de database migratie files. Dit kan je doen via
 
 ```text
 dotnet ef database update
 ```
 
-That's all there is to it - your application is ready to run on your new database, and you didn't need to write a single line of SQL. Note that this way of applying migrations is ideal for local development, but is less suitable for production environments - see the [Applying Migrations page](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying) for more info.
+Dit is alles wat er moet gebeuren. De database zal worden aangemaakt \(als deze niet bestaat\) en de tabellen zullen worden aangemaakt met de juiste velden en types. We hebben hier net zoals in vorige les geen enkele lijn SQL moeten voor schrijven. 
 
 ![](../.gitbook/assets/image%20%2884%29.png)
 
-### Initial Seed Data
+### Initiele data
 
-Verwijder de EnsureCreated
+Op dit moment hebben we onze applicatie zo gebouwd dat er initiele data wordt aangemaakt in de ProductsDbRepository. Dit is iets wat je normaal gezien niet wil doen. We gaan deze code dus wegdoen en op een andere plaats zetten.
 
 ```csharp
 public ProductsDbRepository(StoreContext storeContext)
@@ -58,7 +64,7 @@ public ProductsDbRepository(StoreContext storeContext)
 }
 ```
 
-voeg toe OnModelCreating
+In de StoreContext plaatsen we nu de volgende code. 
 
 ```text
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -82,17 +88,27 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-Voer uit
+Het is nu tijd om nog eens een migratie file aan te maken voor deze nieuwe wijzigingen.
 
 ```text
 dotnet ef migrations add SeedData
 ```
 
+Als je nu gaat kijken in de nieuwe migratiefile zie je dat er code is bij gegenereerd die al deze producten gaat toevoegen aan onze database.
+
 ![](../.gitbook/assets/image%20%2882%29.png)
 
-### Evolving your model
+Als we nu weer
 
-A few days have passed, and you're asked to add a creation timestamp to your blogs. You've done the necessary changes to your application, and your model now looks like this. Added CreatedTimeStamp
+```text
+dotnet ef database update
+```
+
+uitvoeren dan zullen ook deze waarden worden toegevoegd aan onze tabel. 
+
+### Evoluerende modellen
+
+Stel je voor dat er een aantal dagen zijn gepasseerd en iemand vraagt om nu ook bij te houden wanneer producten zijn aangemaakt. We moeten hier een CreatedTimestamp voor aanmaken in ons model. 
 
 ```csharp
 public class Product
@@ -110,7 +126,7 @@ public class Product
 
 Bij de `Create` action voegen we nu ook nog een CreatedTimestamp die we op DateTime.Now zetten 
 
-```text
+```csharp
 [HttpPost]
 public IActionResult Create(ProductCreateViewModel productCreateViewModel)
 {
@@ -128,21 +144,33 @@ public IActionResult Create(ProductCreateViewModel productCreateViewModel)
 }
 ```
 
-Als we nu de applicatie opstarten en naar de producten gaan kijken loopt er nog iets mis:
+Maar nu als we de applicatie opstarten dan loopt alles mis:
 
 ![](../.gitbook/assets/image%20%2883%29.png)
 
-zetten in StoreContext alle Products een CreatedTimestamp op 01/01/2020.
+Ons model is nu wel aangepast maar de database is dus nog niet mee aangepast naar de nieuwe situatie. 
+
+Het eerste wat we nu nog moeten doen is het aanpassen van de initiele data in de StoreContext zodat alle producten nu ook een initiele waarde hebben.
+
+![](../.gitbook/assets/image%20%2888%29.png)
+
+Als je nu terug een migration bestand laat aanmaken met
 
 ```text
 dotnet ef migrations add AddedTimestamp
 ```
 
-uitvoeren alle migrations
+dan zie je dat in de migration file die is aangemaakt al die wijzigingen zijn gedetecteerd en mee opgenomen zijn in het migration bestand
+
+![](../.gitbook/assets/image%20%2887%29.png)
+
+Willen we nu die wijziging in de database laten gebeuren dan voeren we simpelweg
 
 ```text
 dotnet ef database update
 ```
 
+uit.
 
+![](../.gitbook/assets/image%20%2886%29.png)
 
