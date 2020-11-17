@@ -14,16 +14,18 @@ EF heeft zijn eigen assembly, en wordt los van de reguliere NET releases vrijgeg
 
 ![](../.gitbook/assets/image%20%2877%29.png)
 
-1. _Microsoft.EntityFrameworkCore \(5.0.0\)_
-2. _Microsoft.EntityFrameworkCore.Relational \(5.0.0\)_
-3. _Pomelo.EntityFrameworkCore.MySql \(3.2.4\)_
-4. _Microsoft.EntityFrameworkCore.Tools \(5.0.0\)_
+Hier kan je de nodige dependencies installeren
 
-We gaan in dit voorbeeld gebruik maken van de `Sqlite` provider voor EntityFramework. Dit is een database die het gemakkelijk maakt om een database op te zetten die gebruik maakt van een bestand. In productie systemen gaan we uiteraard gebruik maken van een echte database zoals MySQL, MSSQL of Oracle. Maar dit zal allemaal zeer gelijkaardig verlopen.
+![](../.gitbook/assets/image%20%2878%29.png)
 
-![.](../.gitbook/assets/InstallEF2.png)
+Installeer de volgende dependencies. Die zijn nodig voor EntityFramework te kunnen gebruiken met MySQL.
 
-Als je nu in het csproj bestand gaat kijken dan zal je zien dat er een extra lijn is toegevoegd die de dependency op EntityFramework Sqlite met zijn versie nummer uitdrukt.
+1. **Microsoft.EntityFrameworkCore** \(5.0.0\)
+2. **Microsoft.EntityFrameworkCore.Relational** \(5.0.0\)
+3. **Pomelo.EntityFrameworkCore.MySql** \(3.2.4\)
+4. **Microsoft.EntityFrameworkCore.Tools** \(5.0.0\)
+
+Als je nu in het csproj bestand gaat kijken dan zal je zien dat er voor elke dependency die we hebben geinstalleerd hebben met NuGet een extra lijn is toegevoegd die de dependency voorstelt.
 
 ```markup
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -33,14 +35,17 @@ Als je nu in het csproj bestand gaat kijken dan zal je zien dat er een extra lij
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.4" />
   </ItemGroup>
 
 </Project>
+
 ```
 
 Voorlopig zijn we klaar met de NuGet tool.
