@@ -68,11 +68,11 @@
 
 ## LES 10
 
-* [Entity Framework](les-10/entity-framework.md)
+* [Entity Framework - Introductie](les-10/entity-framework.md)
 
 ## LES 11
 
-* [Migrations](les-11/untitled.md)
+* [Entity Framework - Migrations](les-11/untitled.md)
 
 ## LES 12
 

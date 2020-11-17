@@ -1,4 +1,4 @@
-# Migrations
+# Entity Framework - Migrations
 
 In real world projects, data models change as features get implemented: new entities or properties are added and removed, and database schemas needs to be changed accordingly to be kept in sync with the application. The migrations feature in EF Core provides a way to incrementally update the database schema to keep it in sync with the application's data model while preserving existing data in the database.
 
@@ -31,7 +31,7 @@ dotnet ef migrations add InitialCreate
 
 EF Core will create a directory called **Migrations** in your project, and generate some files. It's a good idea to inspect what exactly EF Core generated - and possibly amend it - but we'll skip over that for now.
 
-![](../.gitbook/assets/image%20%2884%29.png)
+![](../.gitbook/assets/image%20%2885%29.png)
 
 ### Create your database and schema
 
@@ -45,7 +45,7 @@ dotnet ef database update
 
 That's all there is to it - your application is ready to run on your new database, and you didn't need to write a single line of SQL. Note that this way of applying migrations is ideal for local development, but is less suitable for production environments - see the [Applying Migrations page](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying) for more info.
 
-![](../.gitbook/assets/image%20%2883%29.png)
+![](../.gitbook/assets/image%20%2884%29.png)
 
 ### Initial Seed Data
 
@@ -89,6 +89,60 @@ dotnet ef migrations add SeedData
 ```
 
 ![](../.gitbook/assets/image%20%2882%29.png)
+
+### Evolving your model
+
+A few days have passed, and you're asked to add a creation timestamp to your blogs. You've done the necessary changes to your application, and your model now looks like this. Added CreatedTimeStamp
+
+```csharp
+public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    [Column(TypeName = "decimal(4,2)")]
+    public decimal Price { get; set; }
+    public string ImageURL { get; set; }
+    public ProductType Type { get; set; }
+    public DateTime CreatedTimestamp { get; set; }
+}
+```
+
+Bij de `Create` action voegen we nu ook nog een CreatedTimestamp die we op DateTime.Now zetten 
+
+```text
+[HttpPost]
+public IActionResult Create(ProductCreateViewModel productCreateViewModel)
+{
+...
+        Product product = new Product
+        {
+            Description = productCreateViewModel.Description,
+            Name = productCreateViewModel.Name,
+            Type = productCreateViewModel.Type,
+            ImageURL = productCreateViewModel.ImageURL,
+            Price = productCreateViewModel.Price,
+            CreatedTimestamp = DateTime.Now
+        };
+...
+}
+```
+
+Als we nu de applicatie opstarten en naar de producten gaan kijken loopt er nog iets mis:
+
+![](../.gitbook/assets/image%20%2883%29.png)
+
+zetten in StoreContext alle Products een CreatedTimestamp op 01/01/2020.
+
+```text
+dotnet ef migrations add AddedTimestamp
+```
+
+uitvoeren alle migrations
+
+```text
+dotnet ef database update
+```
 
 
 

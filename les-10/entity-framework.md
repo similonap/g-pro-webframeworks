@@ -1,4 +1,4 @@
-# Entity Framework
+# Entity Framework - Introductie
 
 Het Entity Framework is een Object-Relational mapping-technologie, waarmee gegevens uit een relationele database kunnen worden omgezet in objecten met gegevens die door objectgeörienteerde programmeertalen gebruikt kunnen worden.
 
