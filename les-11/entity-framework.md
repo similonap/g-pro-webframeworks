@@ -12,7 +12,12 @@ We gaan in deze cursus werken met een code first aanpak. Dit betekent dat we nie
 
 EF heeft zijn eigen assembly, en wordt los van de reguliere NET releases vrijgegeven. Om het te installeren in een bestaand project, open je de **Manage NuGet Packages for Solution**:
 
-![.](../.gitbook/assets/InstallEF1.png)
+![](../.gitbook/assets/image%20%2877%29.png)
+
+1. _Microsoft.EntityFrameworkCore \(5.0.0\)_
+2. _Microsoft.EntityFrameworkCore.Relational \(5.0.0\)_
+3. _Pomelo.EntityFrameworkCore.MySql \(3.2.4\)_
+4. _Microsoft.EntityFrameworkCore.Tools \(5.0.0\)_
 
 We gaan in dit voorbeeld gebruik maken van de `Sqlite` provider voor EntityFramework. Dit is een database die het gemakkelijk maakt om een database op te zetten die gebruik maakt van een bestand. In productie systemen gaan we uiteraard gebruik maken van een echte database zoals MySQL, MSSQL of Oracle. Maar dit zal allemaal zeer gelijkaardig verlopen.
 
