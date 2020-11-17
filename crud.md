@@ -327,7 +327,7 @@ public IActionResult Delete(int id)
         ...
         if (Request.Headers["Referer"].ToString() != "")
         {
-            return Redirect(Request.Headers["Referer"].ToString());
+            return Redirect(new Uri(Request.Headers["Referer"]).PathAndQuery.ToString());
         }
         else
         {
