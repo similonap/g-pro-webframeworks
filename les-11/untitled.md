@@ -37,7 +37,7 @@ EF Core maakt dan een directory aan genaamd Migrations in je project, en generee
 
 Je ziet in dit bestand twee interessante methoden. De Up methode beschrijft wat er moet gebeuren als de migratiefile moet toegepast worden, en de Down methode als ze ongedaan moet maken. Uiteraard moet de Down methode alles ongedaan maken wat de Up methode toevoegd.
 
-![](../.gitbook/assets/image%20%2889%29.png)
+![](../.gitbook/assets/image%20%2890%29.png)
 
 ### Tabellen aanmaken
 

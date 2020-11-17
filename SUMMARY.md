@@ -65,14 +65,17 @@
 ---
 
 * [Delete en Update](crud.md)
+* [Oefeningen](oefeningen-4.md)
 
 ## LES 10
 
 * [Entity Framework - Introductie](les-10/entity-framework.md)
+* [Oefeningen](les-10/oefeningen.md)
 
 ## LES 11
 
 * [Entity Framework - Migrations](les-11/untitled.md)
+* [Oefeningen](les-11/oefeningen.md)
 
 ## LES 12
 
