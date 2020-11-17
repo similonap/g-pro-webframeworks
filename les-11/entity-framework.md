@@ -81,6 +81,45 @@ De context klasse hierboven heeft een constructor die `DbContextOptions` als arg
 
 Deze klasse zal ook een aantal `DbSet` properties bevatten voor elke entiteit \(database tabel\). In ons voorbeeld is dat dus de `Products` tabel.
 
+## Connection Settings
+
+Een connection string bevat:
+
+* de mysql **server** url
+* de **poort** van de server
+* **database** naam 
+* username
+* passwoord
+
+Deze connection string gaan we opslagen in ons configuratie bestand. Open `appsettings.json` en plaats deze connection string hier \(met de juiste login gegevens\)
+
+```text
+  "ConnectionStrings": {
+    "DefaultConnection": "server=xchk.be;port=3306;database=database;user=username;password=password"
+  },
+```
+
+Nu moeten we deze toegang tot de `StoreContext` die we hebben aangemaakt toevoegen aan ConfigureServices zodat we deze ook kunnen injecteren aan de hand van dependency injection.
+
+Vooraleer we aan de configuratie kunnen in de `Startup` klasse moeten we deze ook nog wel injecteren via de constructor van de Startup klasse. Zo kunnen we ook aan het configuratie object in de `ConfigureServices` methode.
+
+```csharp
+private IConfiguration configuration;
+public Startup(IConfiguration configuration)
+{
+    this.configuration = configuration;
+}
+```
+
+nu kunnen we in de ConfigureServices
+
+```csharp
+services.AddDbContextPool<StoreContext>(
+    options => options.UseMySql(configuration.GetConnectionString("DefaultConnection")));
+```
+
+toevoegen om de StoreContext injecteerbaar te maken en deze in te stellen.
+
 ## Dependency injection
 
 In dit deeltje gaan jullie zien waarom dependency injection zo interessant is. Tot nu toe hadden we altijd gebruik gemaakt van de `StudentInMemoryRepository` wat een implementatie was van de `IStudentRepository`. Nu gaan we een nieuwe implementatie van deze interface maken `StudentDbRepository`.
