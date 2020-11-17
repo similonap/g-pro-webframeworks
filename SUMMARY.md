@@ -80,7 +80,7 @@
 
 ## LES 13
 
-* [Thuisopdracht](les-13/thuisopdracht.md)
+* [Vragensessie](les-13/thuisopdracht.md)
 
 ## Bootstrap
 

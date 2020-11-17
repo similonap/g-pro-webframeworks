@@ -1,4 +1,4 @@
-# Thuisopdracht
+# Vragensessie
 
 Maak in de bestaande `HomeController` een nieuwe action aan die het uur en de minuten laat zien. Noem deze action `Time`.
 
