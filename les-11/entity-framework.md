@@ -16,14 +16,15 @@ EF heeft zijn eigen assembly, en wordt los van de reguliere NET releases vrijgeg
 
 Hier kan je de nodige dependencies installeren
 
-![](../.gitbook/assets/image%20%2878%29.png)
+![](../.gitbook/assets/image%20%2879%29.png)
 
 Installeer de volgende dependencies. Die zijn nodig voor EntityFramework te kunnen gebruiken met MySQL.
 
-1. **Microsoft.EntityFrameworkCore** \(5.0.0\)
-2. **Microsoft.EntityFrameworkCore.Relational** \(5.0.0\)
-3. **Pomelo.EntityFrameworkCore.MySql** \(3.2.4\)
-4. **Microsoft.EntityFrameworkCore.Tools** \(5.0.0\)
+1. **Microsoft.EntityFrameworkCore** \(3.1.10\)
+2. **Pomelo.EntityFrameworkCore.MySql** \(3.2.4\)
+3. **Microsoft.EntityFrameworkCore.Tools** \(3.1.0\)
+
+**Let op:** Installeer niet EntityFrameworkCore 5.0.0 want de MySQL driver ondersteund deze nog niet.
 
 Als je nu in het csproj bestand gaat kijken dan zal je zien dat er voor elke dependency die we hebben geinstalleerd hebben met NuGet een extra lijn is toegevoegd die de dependency voorstelt.
 
@@ -35,9 +36,7 @@ Als je nu in het csproj bestand gaat kijken dan zal je zien dat er voor elke dep
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -45,6 +44,7 @@ Als je nu in het csproj bestand gaat kijken dan zal je zien dat er voor elke dep
   </ItemGroup>
 
 </Project>
+
 
 ```
 
