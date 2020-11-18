@@ -120,76 +120,87 @@ services.AddDbContextPool<StoreContext>(
 
 toevoegen om de StoreContext injecteerbaar te maken en deze in te stellen.
 
-## Dependency injection
-
-In dit deeltje gaan jullie zien waarom dependency injection zo interessant is. Tot nu toe hadden we altijd gebruik gemaakt van de `StudentInMemoryRepository` wat een implementatie was van de `IStudentRepository`. Nu gaan we een nieuwe implementatie van deze interface maken `StudentDbRepository`.
+We kunnen om te proberen even de `StoreContext` in de `HomeController` injecteren en zien of we kunnen verbinden met de database.
 
 ```csharp
-using System.Collections.Generic;
-using System.Linq;
-
-namespace EersteProjectWebFrameworks.Models
+public HomeController(IConfiguration configuration, ILogger<HomeController> logger, StoreContext storeContext)
 {
-    public class StudentDbRepository : IStudentRepository
-    {
-        private SchoolContext schoolContext;
+    ...
 
-        public StudentDbRepository(SchoolContext context)
-        {
-            schoolContext = context;
-        }
+    logger.LogInformation($"Can connect to database: {storeContext.Database.CanConnect()}");
 
-        public IEnumerable<Student> GetAll()
-        {
-            return schoolContext.Students;
-        }
-
-        public void Create(Student student)
-        {
-            schoolContext.Students.Add(student);
-            schoolContext.SaveChanges();
-        }
-
-        public void Update(int id, Student student)
-        {
-            schoolContext.Students.Update(student);
-            schoolContext.SaveChanges();
-        }
-
-        public Student Get(int id)
-        {
-            return schoolContext.Students.Find(id);
-        }
-    }
 }
 ```
 
-Deze klasse heeft als constructor een `SchoolContext` object als argument. Hoe deze wordt doorgegeven zien we straks. We zetten deze in een private variabele zodat we deze kunnen gebruiken in de rest van de klasse. We implementeren de hele interface gebruik makend van de `schoolContext`. Belangrijk hier om te weten dat we bij wijzigingen altijd de `SaveChanges` methode moeten aanroepen anders worden de wijzigingen niet uitgevoerd in de database.
+je zal dan een message zien passeren in je Output als je de applicatie start.
 
-Als we nu gebruik willen maken van de `StudentDbRepository` in plaats van de `StudentInMemoryRepository` hoeven we maar 1 lijn code aan te passen.
+## Dependency injection
+
+In dit deeltje gaan jullie zien waarom dependency injection zo interessant is. Tot nu toe hadden we altijd gebruik gemaakt van de `ProductsInMemoryRepository` wat een implementatie was van de `IProductsRepository`. Nu gaan we een nieuwe implementatie van deze interface maken `ProductsDbRepository`.
+
+```csharp
+using System;
+using System.Linq;
+
+namespace LlamaStore.Models
+{
+
+    public class ProductsDbRepository : IProductRepository
+    {
+
+        private StoreContext storeContext;
+
+        public ProductsDbRepository(StoreContext storeContext)
+        {
+            this.storeContext = storeContext;
+        }
+
+        public void Create(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<Product> GetAll()
+        {
+            return storeContext.Products;
+        }
+
+        public void Update(Product product)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+
+```
+
+We gebruiken dependency injection om in deze klasse de `StoreContext` te injecteren. Voorlopig implementeren we enkel nog maar de `GetAll` methode om alle producten in te laden. We zullen later systematisch de andere methoden ook invullen.
+
+Als we nu gebruik willen maken van de `ProductsDbRepository` in plaats van de `ProductsInMemoryRepository` hoeven we maar 1 lijn code aan te passen.
 
 ```text
-services.AddSingleton<IStudentRepository, StudentInMemoryRepository>();
+services.AddSingleton<IProductRepository, ProductsInMemoryRepository>();
 ```
 
 wordt
 
 ```text
-services.AddTransient<IStudentRepository, StudentDbRepository>();
+services.AddTransient<IProductRepository, ProductsInMemoryRepository>();
 ```
 
-Je ziet hier dat we `AddSingleton` hebben vervangen door `AddTransient`. Het was initieel nodig om de `StudentInMemoryRepository` maar 1 keer aan te maken in het geheugen omdat we wilden dat de lijst van studenten niet elke keer opnieuw leeg werd gemaakt elke keer de service werd opgevraagd. Nu is dit niet meer nodig want de gegevens zitten in een database.
+Je ziet hier dat we `AddSingleton` hebben vervangen door `AddTransient`. Het was initieel nodig om de `ProductsInMemoryRepository` maar 1 keer aan te maken in het geheugen omdat we wilden dat de lijst van studenten niet elke keer opnieuw leeg werd gemaakt elke keer de service werd opgevraagd. Nu is dit niet meer nodig want de gegevens zitten in een database.
 
-Nog 1 detail waar we moeten voor zorgen. De `StudentDbRepository` maakt gebruik van de `SchoolContext` dus we moeten deze service nog ook beschikbaar stellen via dependency injection.
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddControllersWithViews();
-    services.AddDbContext<SchoolContext>(options => options.UseSqlite("Data Source=student.db"));
-    services.AddTransient<IStudentRepository, StudentDbRepository>();
-}
-```
+Als je nu de applicatie gaat opstarten dan ga je zien dat er een error komt omdat de tabel nog niet bestaat. 
 
 ## Database aanmaken
 
