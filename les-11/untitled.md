@@ -129,7 +129,7 @@ Het enige wat we hier doen is het opvragen van de shopping cart uit onze sessie 
 
 We maken nu de View aan voor deze Action. Dus we maken hier een nieuwe directory `ShoppingCart` aan in de Views directory. Daarin maken we een nieuwe Index.cshtml file aan:
 
-```text
+```markup
 @model IEnumerable<ShoppingCartLine>
 <table class="table">
     <thead>
@@ -153,4 +153,12 @@ We maken nu de View aan voor deze Action. Dus we maken hier een nieuwe directory
 
 </table>
 ```
+
+We voegen ook nog een link toe in onze Details pagina om een product toe te voegen aan ons winkelmandje:
+
+```markup
+<a asp-controller="ShoppingCart" asp-action="Add" asp-route-id="@Model.Id">Add to shopping cart</a>
+```
+
+
 
