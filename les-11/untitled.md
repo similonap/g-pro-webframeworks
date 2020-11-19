@@ -23,7 +23,7 @@ toe te voegen aan de `Configure` methode.
 
 Je moet ook nog via NuGet `Microsoft.AspNetCore.Session` installeren.
 
-![](../.gitbook/assets/image%20%2892%29.png)
+![](../.gitbook/assets/image%20%2893%29.png)
 
 Je kan heel simpelweg in je Controllers een sessie schrijven
 
@@ -159,6 +159,46 @@ We voegen ook nog een link toe in onze Details pagina om een product toe te voeg
 ```markup
 <a asp-controller="ShoppingCart" asp-action="Add" asp-route-id="@Model.Id">Add to shopping cart</a>
 ```
+
+Onze nieuwe controller moet nu ook nog toegevoegd worden aan de navigatiebalk bovenaan de webpagina. Dus we plaatsen in \_Layout.cshtml nog de volgende link:
+
+```markup
+<a class="nav-link" asp-controller="ShoppingCart" asp-action="Index">ShoppingCart</a>
+```
+
+Nu kunnen we een shopping item toevoegen:
+
+![](../.gitbook/assets/image%20%2892%29.png)
+
+![](../.gitbook/assets/image%20%2894%29.png)
+
+We willen ook nog vanuit de ShoppingCart de hoeveelheid van een bepaald product gaan verhogen of verlagen dus we voegen ook nog eens 2 buttons toe met een plus en een min:
+
+```markup
+<td><a asp-action="Add" asp-controller="ShoppingCart" asp-route-id="@cartLine.Product.Id" role="button" class="btn btn-labeled btn-primary"><i class="fas fa-plus"></i></a>
+    <a asp-action="Remove" asp-controller="ShoppingCart" asp-route-id="@cartLine.Product.Id" role="button" class="btn btn-labeled btn-primary"><i class="fas fa-minus"></i></a></td>
+```
+
+We verwijzen hier naar een Remove action die we nog niet hebben, dus we gaan deze nu schrijven in onze ShoppingCartController:
+
+```csharp
+public IActionResult Remove(int id)
+{
+    Dictionary<int, ShoppingCartLine> shoppingCart = getShoppingCartFromSession();
+
+    shoppingCart[id].Amount--;
+    if (shoppingCart[id].Amount == 0)
+    {
+        shoppingCart.Remove(id);
+    }
+
+    saveShoppingCartToSession(shoppingCart);
+
+    return RedirectToAction("Index", "ShoppingCart", new { id });
+}
+```
+
+Nu kunnen we naar hartenlust producten toevoegen en verwijderen aan de hand van de + en - button.
 
 
 
