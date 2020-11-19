@@ -65,5 +65,55 @@ public class ShoppingCartLine
 }
 ```
 
+Nu hebben we een Collection nodig waar we onze `ShoppingCartLine` elementen in kunnen opslaan. Omdat we snel willen kunnen zoeken aan de hand van de `Id` van een product, gaan we hier voor een `Dictionary`. Deze laat toe om voor een bepaalde key een value op te zoeken. De key zal hier de Id van het product zijn, en de value de ShoppingCartLine objecten. Deze Dictionary willen we dan bijhouden in onze session, zodat deze tussen alle requests beschikbaar blijft.
+
+We maken een methode in onze `ShoppingCartController` om deze dictionary weg te schrijven in ons session object:
+
+```csharp
+private void saveShoppingCartToSession(Dictionary<int, ShoppingCartLine> shoppingCart)
+{
+    HttpContext.Session.SetString("ShoppingCart", JsonConvert.SerializeObject(shoppingCart));
+}
+```
+
+Omdat je eigenlijk alleen maar strings kan opslagen in een session object moeten we onze `Dictionary` eerst via `JsonConvert` omzetten naar een json string, dat we simpel kunnen wegschrijven.
+
+We hebben nu een methode voor de dictionary weg te schrijven, en nu moeten we uiteraard ook een maken om deze uit te lezen.
+
+```csharp
+private Dictionary<int, ShoppingCartLine> getShoppingCartFromSession()
+{
+    string sessionString = HttpContext.Session.GetString("ShoppingCart");
+    Dictionary<int, ShoppingCartLine> shoppingCart = sessionString != null ? JsonConvert.DeserializeObject<Dictionary<int, ShoppingCartLine>>(HttpContext.Session.GetString("ShoppingCart")) : new Dictionary<int, ShoppingCartLine>();
+    return shoppingCart;
+}
+```
+
+Nu zijn we klaar om de echte Actions te schrijven voor onze Controller. We beginnne met de `Add` action om een product toe te voegen aan ons mandje.
+
+```csharp
+public IActionResult Add(int id)
+{
+    Product product = productRepository.Get(id);
+
+    Dictionary<int, ShoppingCartLine> shoppingCart = getShoppingCartFromSession();
+
+    shoppingCart[id] = shoppingCart.GetValueOrDefault(id, new ShoppingCartLine { Product = product, Amount = 0 });
+    shoppingCart[id].Amount++;
+
+    saveShoppingCartToSession(shoppingCart);
+
+    return RedirectToAction("Index", "ShoppingCart", new { id });
+}
+```
+
+Wat doen we hier nu allemaal?
+
+* Eerst vragen we het product op uit onze productRepository zodat we een product object hebben waar we mee kunnen werken.
+* Daarna vragen we via de `getShoppingCartFromSession` die we hiervoor geschreven hebben de ShoppingCart uit de session op.
+* We halen de `ShoppingCartLine` op via de id en indien deze nog niet bestaat maken we er een aan voor het nieuwe product en zetten we de amount op 0.
+* We verhogen de hoeveelheid van de producten en vervolgens slagen we de shopping cart weer op in onze session.
+* De browser wordt nu geredirect naar de Index action van de ShoppingCart controller.
+
 
 
