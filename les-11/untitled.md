@@ -55,5 +55,15 @@ public class ShoppingCartController : Controller
 }
 ```
 
+We hebben een model klasse nodig waarin we kunnen bijhouden hoeveel items er van een bepaald product in ons winkelmandje liggen. We maken een `ShoppingCartLine` klasse aan in onze Models directory:
+
+```csharp
+public class ShoppingCartLine
+{
+    public Product Product { get; set; }
+    public int Amount { get; set; }
+}
+```
+
 
 
