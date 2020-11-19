@@ -121,13 +121,11 @@ We hebben momenteel nog geen Index action dus hier gaan we nu voor zorgen.
 public IActionResult Index()
 {
     Dictionary<int, ShoppingCartLine> shoppingCart = getShoppingCartFromSession();
-
-
+    List<ShoppingCartLine> lines = shoppingCart.Values.ToList<ShoppingCartLine>();
     ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel
     {
-        ShoppingCart = shoppingCart.Values.ToList<ShoppingCartLine>()
+        ShoppingCart = lines
     };
-
     return View(shoppingCartViewModel);
 }
 ```
@@ -215,7 +213,41 @@ public IActionResult Remove(int id)
 
 Nu kunnen we naar hartenlust producten toevoegen en verwijderen aan de hand van de + en - button.
 
+Willen we nu ook een totaal bedrag van alle aankopen laten zien. Dan kan dit heel eenvoudig door een extra property toe te voegen aan ons viewmodel:
 
+```csharp
+public Decimal TotalAmountMoney { get; set; }
+```
 
+In de Index action maken we dan de berekening van de som van alle producten:
 
+```csharp
+public IActionResult Index()
+{
+    Dictionary<int, ShoppingCartLine> shoppingCart = getShoppingCartFromSession();
+    List<ShoppingCartLine> lines = shoppingCart.Values.ToList<ShoppingCartLine>();
+    Decimal sum = 0;
+    foreach (ShoppingCartLine line in lines) {
+        sum += line.Amount * line.Product.Price;
+    }
+    ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel
+    {
+        ShoppingCart = lines,
+        TotalAmountMoney = sum
+    };
+    return View(shoppingCartViewModel);
+}
+
+```
+
+en we tonen de som in de Index.cshtml view:
+
+```markup
+<tr>
+    <td></td>
+    <td></td>
+    <td><b>Total Price:</b> €@Model.TotalAmountMoney</td>
+    <td></td>
+</tr>
+```
 
