@@ -121,16 +121,31 @@ We hebben momenteel nog geen Index action dus hier gaan we nu voor zorgen.
 public IActionResult Index()
 {
     Dictionary<int, ShoppingCartLine> shoppingCart = getShoppingCartFromSession();
-    return View(shoppingCart.Values.ToList<ShoppingCartLine>());
+
+
+    ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel
+    {
+        ShoppingCart = shoppingCart.Values.ToList<ShoppingCartLine>()
+    };
+
+    return View(shoppingCartViewModel);
 }
 ```
 
-Het enige wat we hier doen is het opvragen van de shopping cart uit onze sessie en we zetten deze vervolgens om naar een gewone lijst. Onze view heeft de Id's hier niet meer nodig.
+Het enige wat we hier doen is het opvragen van de shopping cart uit onze sessie en we zetten deze vervolgens om naar een gewone lijst. Deze lijst plaatsen we in een ShoppingCartViewModel en geven die door aan de view. We maken deze ShoppingCartViewModel ook aan in onze ViewModels directory:
+
+```csharp
+public class ShoppingCartViewModel
+{
+    public List<ShoppingCartLine> ShoppingCart { get; set; }
+
+}
+```
 
 We maken nu de View aan voor deze Action. Dus we maken hier een nieuwe directory `ShoppingCart` aan in de Views directory. Daarin maken we een nieuwe Index.cshtml file aan:
 
 ```markup
-@model IEnumerable<ShoppingCartLine>
+@model ShoppingCartViewModel
 <table class="table">
     <thead>
         <tr>
@@ -141,7 +156,7 @@ We maken nu de View aan voor deze Action. Dus we maken hier een nieuwe directory
         </tr>
     </thead>
     <tbody>
-        @foreach (ShoppingCartLine cartLine in Model)
+        @foreach (ShoppingCartLine cartLine in Model.ShoppingCart)
         {
         <tr style="height: 200px">
             <td><img src="@Url.Content(cartLine.Product.ImageURL)" width="100" /></td>
@@ -199,6 +214,8 @@ public IActionResult Remove(int id)
 ```
 
 Nu kunnen we naar hartenlust producten toevoegen en verwijderen aan de hand van de + en - button.
+
+
 
 
 
