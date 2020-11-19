@@ -70,16 +70,16 @@
 ## LES 10
 
 * [Entity Framework - Introductie](les-10/entity-framework.md)
+* [Entity Framework - Migrations](les-10/untitled.md)
 * [Oefeningen](les-10/oefeningen.md)
 
 ## LES 11
 
-* [Entity Framework - Migrations](les-11/untitled.md)
+* [Sessions](les-11/untitled.md)
 * [Oefeningen](les-11/oefeningen.md)
 
 ## LES 12
 
-* [Sessions](les-12/untitled.md)
 * [Oefeningen](les-12/oefeningen.md)
 
 ## LES 13
