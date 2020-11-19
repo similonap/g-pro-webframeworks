@@ -113,7 +113,44 @@ Wat doen we hier nu allemaal?
 * Daarna vragen we via de `getShoppingCartFromSession` die we hiervoor geschreven hebben de ShoppingCart uit de session op.
 * We halen de `ShoppingCartLine` op via de id en indien deze nog niet bestaat maken we er een aan voor het nieuwe product en zetten we de amount op 0.
 * We verhogen de hoeveelheid van de producten en vervolgens slagen we de shopping cart weer op in onze session.
-* De browser wordt nu geredirect naar de Index action van de ShoppingCart controller.
+* De browser wordt nu geredirect naar de `Index` action van de ShoppingCart controller.
 
+We hebben momenteel nog geen Index action dus hier gaan we nu voor zorgen. 
 
+```csharp
+public IActionResult Index()
+{
+    Dictionary<int, ShoppingCartLine> shoppingCart = getShoppingCartFromSession();
+    return View(shoppingCart.Values.ToList<ShoppingCartLine>());
+}
+```
+
+Het enige wat we hier doen is het opvragen van de shopping cart uit onze sessie en we zetten deze vervolgens om naar een gewone lijst. Onze view heeft de Id's hier niet meer nodig.
+
+We maken nu de View aan voor deze Action. Dus we maken hier een nieuwe directory `ShoppingCart` aan in de Views directory. Daarin maken we een nieuwe Index.cshtml file aan:
+
+```text
+@model IEnumerable<ShoppingCartLine>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Name</th>
+            <th scope="col">Amount</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ShoppingCartLine cartLine in Model)
+        {
+        <tr style="height: 200px">
+            <td><img src="@Url.Content(cartLine.Product.ImageURL)" width="100" /></td>
+            <td>@cartLine.Product.Name</td>
+            <td>@cartLine.Amount</td>
+        </tr>
+        }
+    </tbody>
+
+</table>
+```
 
