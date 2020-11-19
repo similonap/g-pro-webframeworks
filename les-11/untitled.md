@@ -37,7 +37,7 @@ en lezen
 HttpContext.Session.getString("sessionKey");
 ```
 
-### ShoppingCart
+### Een voorbeeld
 
 We gaan nu aan de hand van een praktisch voorbeeld het gebruik van sessions in ASP.NET Core uitleggen. We willen een winkelmandje gaan implementeren. Je moet een product kunnen toevoegen in de details view en uiteindelijk moet je een overzicht van je winkelmandje kunnen zien in een nieuwe view. Je hebt dus een manier nodig om dat winkelmandje bij te houden tussen de pagina's heen, je moet ze dus ergens tijdelijk opslagen. Hier zouden we cookies voor kunnen gebruiken, maar die zijn te gelimiteerd in grootte. We gebruiken dus sessions om ons winkelmandje bij te houden tussen requests.
 
