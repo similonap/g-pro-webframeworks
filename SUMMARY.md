@@ -80,7 +80,7 @@
 
 ## LES 12
 
-* [Oefeningen](les-12/oefeningen.md)
+* [Eindopdracht](les-12/oefeningen.md)
 
 ## LES 13
 
