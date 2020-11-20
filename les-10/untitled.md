@@ -174,3 +174,9 @@ uit.
 
 ![](../.gitbook/assets/image%20%2886%29.png)
 
+## Begeleidend videomateriaal
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=18f73bdd-7271-4d79-8a7f-ac7800b080d5" %}
+
+
+
