@@ -2,8 +2,6 @@
 
 Deze cursus wordt gebruikt als handboek binnen de [graduaatsopleiding programmeren van de AP Hogeschool](https://www.ap.be/graduaat/programmeren).
 
-Deze cursus maakt gebruik van een aantal delen van de cursus [Programmeren 3](https://modernways.be/myap/it/school/course/Programmeren%203.html) van Jef Inghelbrecht. Dit uitstekend lesmateriaal kan je naast deze gitbook zeker gebruiken voor extra materiaal en inzichten.
-
 Veel leer-en leesplezier.
 
 ## Doelstellingen
