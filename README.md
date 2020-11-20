@@ -4,8 +4,6 @@ Deze cursus wordt gebruikt als handboek binnen de [graduaatsopleiding programmer
 
 Veel leer-en leesplezier.
 
-### Wie ben ik
-
 <table>
   <thead>
     <tr>
