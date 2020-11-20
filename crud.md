@@ -312,3 +312,5 @@ We moeten nu nog een aanpassing op de `Index.cshtml` view voor een link naar de 
 <a asp-action="Update" asp-controller="Product" asp-route-id="@product.Id" role="button" class="btn btn-labeled btn-primary"><i class="fas fa-edit"></i></a><a asp-action="Update" asp-controller="Product" asp-route-id="@product.Id" role="button" class="btn btn-labeled btn-primary"><i class="fas fa-edit"></i></a>
 ```
 
+
+

@@ -289,5 +289,9 @@ public void Update(Product product)
 }
 ```
 
+## Begeleidend videomateriaal
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8b1b9390-0038-47fd-9d9a-ac7800b08098" %}
+
 
 
