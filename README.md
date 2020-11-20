@@ -10,17 +10,16 @@ Veel leer-en leesplezier.
   <thead>
     <tr>
       <th style="text-align:center">
-        <img src=".gitbook/assets/image (95).png" alt/>
-      </th>
+        <img src=".gitbook/assets/image (95).png" alt/>&lt;b&gt;&lt;/b&gt;</th>
       <th style="text-align:left">
-        <p>Andie<b> Similon</b>
+        <p><b>Andie Similon</b>
         </p>
         <p><b>Lector Programmeren @ AP</b>
         </p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
+        <p>&lt;b&gt;&lt;/b&gt;</p>
+        <p>Mobile Application</p>
+        <p>Web Applications</p>
+        <p>Web Services</p>
         <p></p>
         <p></p>
         <p></p>
