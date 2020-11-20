@@ -9,27 +9,33 @@ Veel leer-en leesplezier.
 <table>
   <thead>
     <tr>
-      <th style="text-align:center">
-        <img src=".gitbook/assets/image (95).png" alt/>&lt;b&gt;&lt;/b&gt;</th>
-      <th style="text-align:left">
-        <p><b>Andie Similon</b>
-        </p>
-        <p><b>Lector Programmeren @ AP</b>
-        </p>
-        <p>&lt;b&gt;&lt;/b&gt;</p>
-        <p>Mobile Application</p>
-        <p>Web Applications</p>
-        <p>Web Services</p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-      </th>
+      <th style="text-align:center"></th>
+      <th style="text-align:left"></th>
     </tr>
   </thead>
-  <tbody></tbody>
+  <tbody>
+    <tr>
+      <td style="text-align:center">
+        <img src=".gitbook/assets/image (95).png" alt/>
+      </td>
+      <td style="text-align:left">
+        <p></p>
+        <p><b>Andie Similon</b>
+        </p>
+        <p>Lector Programmeren @ AP</p>
+        <p>Scifi geek, mobile developer and technology enthousiast.</p>
+        <p></p>
+        <p><b>Courses:</b>
+        </p>
+        <ul>
+          <li>Mobile Application</li>
+          <li>Web Applications</li>
+          <li>Web Services</li>
+        </ul>
+        <p></p>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 ### Doelstellingen
