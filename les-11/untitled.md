@@ -173,7 +173,7 @@ We voegen ook nog een link toe in onze Details pagina om een product toe te voeg
 <a asp-controller="ShoppingCart" asp-action="Add" asp-route-id="@Model.Id">Add to shopping cart</a>
 ```
 
-Onze nieuwe controller moet nu ook nog toegevoegd worden aan de navigatiebalk bovenaan de webpagina. Dus we plaatsen in \_Layout.cshtml nog de volgende link:
+Onze nieuwe controller moet nu ook nog toegevoegd worden aan de navigatiebalk bovenaan de webpagina. Dus we plaatsen in \_Layout.cshtml nog de volgende link: 
 
 ```markup
 <a class="nav-link" asp-controller="ShoppingCart" asp-action="Index">ShoppingCart</a>
