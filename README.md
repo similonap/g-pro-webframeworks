@@ -4,7 +4,36 @@ Deze cursus wordt gebruikt als handboek binnen de [graduaatsopleiding programmer
 
 Veel leer-en leesplezier.
 
-## Doelstellingen
+### Wie ben ik
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:center">
+        <img src=".gitbook/assets/image (95).png" alt/>
+      </th>
+      <th style="text-align:left">
+        <p>Andie<b> Similon</b>
+        </p>
+        <p><b>Lector Programmeren @ AP</b>
+        </p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+      </th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+### Doelstellingen
 
 In deze module leer je een webapplicatie ontwikkelen gebruik makende van ASP.NET Core MVC.
 
