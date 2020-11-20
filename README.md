@@ -23,7 +23,7 @@ Veel leer-en leesplezier.
         <p>Lector Programmeren @ AP</p>
         <p>Scifi geek, mobile developer and technology enthousiast.</p>
         <p></p>
-        <p><b>Courses:</b>
+        <p><b>Andere cursussen:</b>
         </p>
         <ul>
           <li>Mobile Application</li>
