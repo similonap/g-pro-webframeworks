@@ -82,10 +82,6 @@
 
 * [Eindopdracht](les-12/oefeningen.md)
 
-## LES 13
-
-* [Vragensessie](les-13/thuisopdracht.md)
-
 ## Bootstrap
 
 * [Inleiding](bootstrap/inleiding.md)
