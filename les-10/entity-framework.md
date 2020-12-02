@@ -195,7 +195,7 @@ services.AddSingleton<IProductRepository, ProductsInMemoryRepository>();
 wordt
 
 ```text
-services.AddTransient<IProductRepository, ProductsInMemoryRepository>();
+services.AddTransient<IProductRepository, ProductsDbRepository>();
 ```
 
 Je ziet hier dat we `AddSingleton` hebben vervangen door `AddTransient`. Het was initieel nodig om de `ProductsInMemoryRepository` maar 1 keer aan te maken in het geheugen omdat we wilden dat de lijst van studenten niet elke keer opnieuw leeg werd gemaakt elke keer de service werd opgevraagd. Nu is dit niet meer nodig want de gegevens zitten in een database.
