@@ -251,5 +251,9 @@ en we tonen de som in de Index.cshtml view:
 </tr>
 ```
 
+### Begeleidend videomateriaal
+
+{% embed url="https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1c3f62c6-1908-424a-b10c-ac8d00e6f134" %}
+
 
 
